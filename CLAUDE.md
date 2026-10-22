@@ -5,7 +5,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 ## Estructura
 
 - `content/jardin/`, `content/arreglos/`, `content/restauracion/`: un `.md` por artículo.
-- `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar.
+- `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
 
@@ -30,6 +30,22 @@ Cuerpo: introducción de 2 párrafos cortos, luego secciones `##`. Entre 500 y 9
 - Tuteo, frases cortas, párrafos de 2 a 4 líneas, para leer en el móvil.
 - Que el formato varíe: listas, tablas, pasos, avisos. Nada de bloques largos de texto seguidos.
 - Útil antes que bonito: cada sección responde a una duda concreta.
+
+## Experiencias reales de Sergio
+
+Son las únicas que Tito Garlopa puede contar en primera persona, y solo en los artículos donde vengan a cuento. Nunca se dice dónde vive ni se dan datos que lo identifiquen.
+
+- Su jardín está en una zona de interior con heladas de −10 a −15 °C, con terreno pedregoso y una parte en cuesta junto a un muro.
+- Tiene una franja junto al muro con malla antihierbas y piedra volcánica, de 70 a 110 cm de ancho, con zonas de sol y de sombra.
+- En esa franja los durillos van bien. Varios mirtos plantados a principios de julio estaban muy secos a principios de septiembre. La malla y la piedra hacen difícil ver si la tierra está húmeda.
+- También ha tenido problemas con lavanda y romero en algunos puntos de la franja.
+- Le regalaron un olivo de 60 a 80 cm en una maceta de 9 × 9 cm y dudó entre plantarlo en el suelo o pasarlo a una maceta grande.
+- Ha querido envejecer una maceta de terracota para que pareciera antigua y blanquecina.
+- En su dormitorio, la pared del cabecero está torcida y las esquinas no van a escuadra, lo que complica colocar papel pintado. Tenía una moldura blanca estrecha que se despegaba.
+- Ha estudiado poner una tira LED de luz cálida en el perímetro del techo del dormitorio, de unos 15 m.
+- Ha investigado estuco y microcemento para el baño.
+
+De todo esto solo constan los problemas y lo que estudió, no el resultado final. No se cuenta como hecho algo que no consta, como «así quedó» o «lo instalé».
 
 ## Reglas que no se rompen
 
