@@ -1,3 +1,14 @@
 # Registro de fotos de Google Drive ya procesadas.
 # id: id del archivo en Drive · archivo: ruta en assets o "descartada" · uso: artículo o motivo
-[]
+- id: 1pV1I61x7camm2yfGETWZiNL00dFJr5GF
+  nombre: Papel_pintado_tira_led.png
+  archivo: [fotos/papel-pintado-dormitorio.jpg, fotos/papel-pintado-dormitorio-vertical.jpg]
+  uso: arreglos/papel-pintado-pared-torcida (recortada sin la ventana, que dejaba ver tejados del pueblo). Sirve también para el artículo de la tira LED.
+- id: 19naOHkfroAYkRAoCwOuZm4qVlG1iuEXY
+  nombre: Lavanda_casi_muerta.png
+  archivo: pendiente
+  uso: pendiente. Mata plateada de hojas finas y rizadas en tierra pedregosa junto a una teja; no parece lavanda (quizá Calocephalus/Leucophyta), confirmar con Sergio.
+- id: 1IWousjevJ_wipcEIPDcASNF9NMtgxslq
+  nombre: Lavanda_vivaz.png
+  archivo: pendiente
+  uso: pendiente. Mata grande de lavanda en flor en una esquina de pavimento con borde de gravilla. Para un artículo sobre por qué la lavanda prospera o se muere.

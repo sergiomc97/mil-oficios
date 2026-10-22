@@ -61,6 +61,7 @@ Son las únicas que Tito Garlopa puede contar en primera persona, y solo en los 
 - Ha querido envejecer una maceta de terracota para que pareciera antigua y blanquecina.
 - En su dormitorio, la pared del cabecero está torcida y las esquinas no van a escuadra, lo que complica colocar papel pintado. Tenía una moldura blanca estrecha que se despegaba.
 - Ha estudiado poner una tira LED de luz cálida en el perímetro del techo del dormitorio, de unos 15 m.
+- Confirmado por foto: el dormitorio ya tiene papel pintado de ramas verdes sobre fondo beige y una tira LED cálida en el remate del techo de madera (`fotos/papel-pintado-dormitorio*.jpg`).
 - Ha investigado estuco y microcemento para el baño.
 
 De todo esto solo constan los problemas y lo que estudió, no el resultado final. No se cuenta como hecho algo que no consta, como «así quedó» o «lo instalé».

@@ -4,6 +4,8 @@ date: 2026-10-22
 description: "Si la pared no está a escuadra, el papel pintado se tuerce. Así se coloca recto en paredes irregulares, esquinas que no cuadran y alrededor de ventanas."
 tiempo: 3 min
 dificultad: media
+portada: fotos/papel-pintado-dormitorio.jpg
+portada_alt: Pared empapelada con un estampado de ramas verdes sobre fondo beige, iluminada desde arriba por una tira LED cálida junto a un techo de madera.
 resumen:
   - Nunca tomes la pared como referencia. Marca una vertical con plomada.
   - Centra el dibujo en lo que más se ve, como la cama, no en la pared.
@@ -36,6 +38,8 @@ En las casas antiguas, una pared recta es casi un milagro. Esquinas que no forma
 Es justo lo que me encontré en la pared del cabecero de mi dormitorio: torcida, con esquinas irregulares y una ventana al lado. Estos son los criterios para que el papel quede recto aunque la pared no lo esté.
 
 {{< pasos >}}
+
+{{< foto src="fotos/papel-pintado-dormitorio-vertical.jpg" alt="Pared de dormitorio empapelada con ramas verdes de suelo a techo, con dos enchufes, rodapié de madera y una tira LED que ilumina la parte alta." pie="Así quedó la pared de mi dormitorio, con la tira LED en el remate del techo." >}}
 
 ## Las esquinas que no cuadran
 
