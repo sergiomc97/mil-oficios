@@ -2,10 +2,10 @@
 
 - [x] jardin · Riego por goteo casero en 5 pasos
 - [x] restauracion · Cera, aceite o barniz: cuál elegir
-- [ ] jardin · Plantas perennes que aguantan heladas de −15 °C: durillo, fotinia, evónimo y compañía
-- [ ] arreglos · Desatascar el fregadero sin productos químicos
-- [ ] restauracion · Envejecer una maceta de terracota con pintura a la tiza
-- [ ] arreglos · Papel pintado en una pared torcida: cómo dejarlo recto
+- [x] jardin · Plantas de hoja perenne para jardines con heladas fuertes
+- [x] arreglos · Desatascar el fregadero sin productos químicos
+- [x] restauracion · Envejecer una maceta de terracota con pintura a la tiza
+- [x] arreglos · Papel pintado en una pared torcida: cómo dejarlo recto
 - [ ] jardin · Plantar un olivo pequeño: ¿en maceta o en el suelo?
 - [ ] restauracion · Carcoma: cómo saber si sigue activa y tratarla
 - [ ] arreglos · Cambiar una moldura que se despega por un listón de madera
