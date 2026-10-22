@@ -1,0 +1,18 @@
+baseURL = 'https://sergiomc97.github.io/mil-oficios/'
+locale = 'es-ES'
+defaultContentLanguage = 'es'
+title = 'Mil Oficios'
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  autor = 'Tito Garlopa'
+  descripcion = 'Aprende a hacerlo tú mismo: jardín, arreglos en casa y restauración de muebles, paso a paso y sin rodeos.'
+  mainSections = ['jardin', 'arreglos', 'restauracion']
+
+[pagination]
+  pagerSize = 20
+
+[outputs]
+  home = ['html', 'rss']
+  section = ['html']

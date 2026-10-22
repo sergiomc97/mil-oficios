@@ -1,0 +1,47 @@
+{{ define "main" }}
+<div class="progreso" aria-hidden="true"></div>
+<article class="articulo">
+  {{ if .Params.tiempo }}<span class="etiqueta">{{ .CurrentSection.Title }}</span>{{ end }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.tiempo }}
+  <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ with $.Params.dificultad }} · Dificultad {{ . }}{{ end }}</span></p>
+  {{ end }}
+
+  {{ with .Params.resumen }}
+  <aside class="resumen">
+    <h2>Si solo tienes 10 segundos</h2>
+    <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+  </aside>
+  {{ end }}
+
+  <div class="cuerpo">{{ .Content }}</div>
+
+
+  {{ with .Params.error }}
+  <aside class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></aside>
+  {{ end }}
+
+  {{ with .Params.productos }}
+  <section>
+    <h2>Lo que necesitas</h2>
+    <div class="carrusel">
+      {{ range . }}
+      <div class="producto">
+        <span class="tarjeta-titulo">{{ .nombre }}</span>
+        {{ with .url }}<a class="boton" href="{{ . }}" rel="sponsored nofollow noopener" target="_blank">Ver precio</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</article>
+
+{{ with .Params.tiempo }}
+{{ with first 2 (where $.CurrentSection.RegularPages "Permalink" "ne" $.Permalink) }}
+<section class="bloque lista">
+  <h2>Sigue con…</h2>
+  {{ range . }}{{ partial "tarjeta.html" . }}{{ end }}
+</section>
+{{ end }}
+{{ end }}
+{{ end }}

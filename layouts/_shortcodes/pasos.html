@@ -1,0 +1,10 @@
+{{ with .Page.Params.pasos }}
+<ol class="pasos">
+  {{ range . }}
+  <li>
+    <div class="paso-cab"><h3>{{ .titulo }}</h3><span class="chip">{{ .tiempo }}</span></div>
+    <p>{{ .texto }}</p>
+  </li>
+  {{ end }}
+</ol>
+{{ end }}

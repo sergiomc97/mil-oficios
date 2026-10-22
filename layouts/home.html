@@ -1,0 +1,31 @@
+{{ define "main" }}
+{{ $posts := where site.RegularPages "Section" "in" site.Params.mainSections }}
+{{ with index $posts 0 }}
+<a class="destacado" href="{{ .RelPermalink }}">
+  <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Description }}</p>
+</a>
+{{ end }}
+
+{{ with hugo.Data.trucos }}
+<section class="bloque">
+  <div class="bloque-cab"><h2>En 10 segundos</h2><span class="meta">Desliza →</span></div>
+  <div class="carrusel">
+    {{ range $i, $t := . }}
+    <div class="truco truco-{{ mod $i 3 }}">
+      <span class="etiqueta">Truco · {{ $t.seccion }}</span>
+      <p>{{ $t.texto }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ with after 1 $posts }}
+<section class="bloque lista">
+  <h2>Lo último</h2>
+  {{ range . }}{{ partial "tarjeta.html" . }}{{ end }}
+</section>
+{{ end }}
+{{ end }}

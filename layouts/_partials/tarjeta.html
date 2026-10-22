@@ -1,0 +1,5 @@
+<a class="tarjeta" href="{{ .RelPermalink }}">
+  <span class="etiqueta">{{ .CurrentSection.Title }}</span>
+  <span class="tarjeta-titulo">{{ .Title }}</span>
+  {{ with .Params.tiempo }}<span class="meta">{{ . }}</span>{{ end }}
+</a>
