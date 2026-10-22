@@ -6,6 +6,7 @@
   {{ with .Params.tiempo }}
   <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ with $.Params.dificultad }} · Dificultad {{ . }}{{ end }}</span></p>
   {{ end }}
+  {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}</figure>{{ end }}
 
   {{ with .Params.resumen }}
   <aside class="resumen">

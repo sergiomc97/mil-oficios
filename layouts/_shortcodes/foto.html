@@ -1,0 +1,4 @@
+<figure class="foto">
+{{ partial "imagen.html" (dict "src" (.Get "src") "alt" (.Get "alt")) }}
+{{ with .Get "pie" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

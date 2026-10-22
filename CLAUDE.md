@@ -31,6 +31,24 @@ Cuerpo: introducción de 2 párrafos cortos, luego secciones `##`. Entre 500 y 9
 - Que el formato varíe: listas, tablas, pasos, avisos. Nada de bloques largos de texto seguidos.
 - Útil antes que bonito: cada sección responde a una duda concreta.
 
+## Fotos
+
+Sergio sube sus fotos a la carpeta «Imágenes» de Google Drive (id `1msSBp2MmkaFdZWRFnXRmyAoFgDu-AYEr`), compartida con la cuenta del conector. Puede que tengan nombre descriptivo o no.
+
+En cada ejecución, antes de escribir el artículo:
+
+1. Lista los archivos de la carpeta y descarta los que ya estén en `fotos.yaml`.
+2. Descarga cada foto nueva y mírala. No se publica si se ve una cara, una matrícula, un número de casa, un cartel con el nombre del pueblo o una fachada reconocible: se registra como `descartada` con el motivo y se le avisa a Sergio.
+3. Prepárala con `python3 scripts/fotos.py <descarga> assets/fotos/<slug-descriptivo>.jpg` (instala antes `pillow pillow-heif`). El script borra todos los metadatos, incluido el GPS, y la reduce a 1600 px.
+4. Úsala en el artículo al que corresponda, ya publicado o el que se escribe ese día:
+   - Como portada: `portada: fotos/<archivo>.jpg` y `portada_alt:` en el front matter. Se recorta sola en apaisado.
+   - Dentro del texto: `{{< foto src="fotos/<archivo>.jpg" alt="…" pie="…" >}}` justo donde aporte.
+   - Si no encaja en ningún artículo, regístrala con `uso: pendiente` y una descripción, para un tema futuro.
+5. El `alt` describe con exactitud lo que se ve, en una frase. El `pie` es opcional.
+6. Añade la foto a `fotos.yaml` con su `id`, `archivo` y `uso`.
+
+Una foto de Sergio es una experiencia real: el texto puede mencionarla («así quedó mi franja junto al muro»), pero solo lo que se ve en ella.
+
 ## Experiencias reales de Sergio
 
 Son las únicas que Tito Garlopa puede contar en primera persona, y solo en los artículos donde vengan a cuento. Nunca se dice dónde vive ni se dan datos que lo identifiquen.

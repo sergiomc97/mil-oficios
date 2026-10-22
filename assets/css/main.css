@@ -243,3 +243,15 @@ a { color: var(--acento-texto); }
 @media (min-width: 720px) {
   .pie { border-radius: var(--radio) var(--radio) 0 0; }
 }
+
+.foto { margin: 0; }
+.foto img, .destacado img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: var(--suave);
+}
+.foto figcaption { margin-top: 6px; font-size: 14px; color: var(--gris); }
+.cuerpo .foto { margin: 8px 0 18px; }
+.cuerpo .foto img { width: auto; max-width: 100%; max-height: 70vh; margin: 0 auto; }
