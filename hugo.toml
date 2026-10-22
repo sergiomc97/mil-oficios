@@ -1,4 +1,4 @@
-baseURL = 'https://sergiomc97.github.io/mil-oficios/'
+baseURL = 'https://miloficios.es/'
 locale = 'es-ES'
 defaultContentLanguage = 'es'
 title = 'Mil Oficios'
