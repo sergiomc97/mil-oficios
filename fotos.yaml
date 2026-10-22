@@ -6,9 +6,9 @@
   uso: arreglos/papel-pintado-pared-torcida (recortada sin la ventana, que dejaba ver tejados del pueblo). Sirve también para el artículo de la tira LED.
 - id: 19naOHkfroAYkRAoCwOuZm4qVlG1iuEXY
   nombre: Lavanda_casi_muerta.png
-  archivo: pendiente
-  uso: pendiente. Mata plateada de hojas finas y rizadas en tierra pedregosa junto a una teja; no parece lavanda (quizá Calocephalus/Leucophyta), confirmar con Sergio.
+  archivo: fotos/lavanda-seca.jpg
+  uso: "artículo de la lavanda (pendiente). Lavanda de Sergio que se le murió: mata gris plateada y seca en tierra pedregosa junto a una teja." 
 - id: 1IWousjevJ_wipcEIPDcASNF9NMtgxslq
   nombre: Lavanda_vivaz.png
-  archivo: pendiente
-  uso: pendiente. Mata grande de lavanda en flor en una esquina de pavimento con borde de gravilla. Para un artículo sobre por qué la lavanda prospera o se muere.
+  archivo: fotos/lavanda-vecino.jpg
+  uso: "artículo de la lavanda (pendiente). Lavanda del vecino, no de Sergio: mata grande en flor a pleno sol, en una esquina de pavimento con borde de gravilla." 
