@@ -1,12 +1,13 @@
 {{ define "main" }}
 <div class="progreso" aria-hidden="true"></div>
 <article class="articulo sec-{{ .Section }}">
-  {{ if .Params.tiempo }}<span class="etiqueta">{{ .CurrentSection.Title }}</span>{{ end }}
-  <h1>{{ .Title }}</h1>
+  {{ if .Params.tiempo }}<a class="etiqueta" href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>{{ end }}
+  <h1>{{ partial "titulo.html" .Title }}</h1>
   {{ with .Params.tiempo }}
-  <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ with $.Params.dificultad }} · dificultad {{ . }}{{ end }}</span></p>
+  <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ if gt ($.Lastmod.Sub $.Date).Hours 24 }} · actualizado el {{ $.Lastmod | time.Format ":date_long" }}{{ end }}</span></p>
+  {{ with $.Params.dificultad }}<span class="sello">Dificultad {{ . }}</span>{{ end }}
   {{ end }}
-  {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ with $.Params.portada_credito }}<figcaption class="credito">{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+  {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true "vt" (partial "vt.html" $)) }}{{ with $.Params.portada_credito }}<figcaption class="credito">{{ . }}</figcaption>{{ end }}</figure>{{ end }}
 
   {{ with .Params.resumen }}
   <aside class="resumen">
@@ -21,6 +22,8 @@
   {{ with .Params.error }}
   <aside class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></aside>
   {{ end }}
+
+  {{ if .Params.tiempo }}<button class="boton compartir" type="button" data-compartir hidden>Compartir</button>{{ end }}
 
   {{ with .Params.productos }}
   <section class="necesitas">
@@ -44,5 +47,6 @@
   <div class="lista">{{ range . }}{{ partial "tarjeta.html" . }}{{ end }}</div>
 </section>
 {{ end }}
+{{ with resources.Get "js/web.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}
 {{ end }}
 {{ end }}

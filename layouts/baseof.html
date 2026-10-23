@@ -3,27 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ site.Title }} · Hazlo tú mismo{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+{{ $titulo := cond (eq .Kind "404") "Página no encontrada" .Title }}
+<title>{{ if .IsHome }}{{ site.Title }} · Hazlo tú mismo{{ else }}{{ $titulo }} · {{ site.Title }}{{ end }}</title>
 {{ $desc := .Description | default site.Params.descripcion }}
 <meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="es_ES">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-<meta property="og:title" content="{{ .Title }}">
+<meta property="og:title" content="{{ $titulo }}">
 <meta property="og:description" content="{{ $desc }}">
 <meta property="og:url" content="{{ .Permalink }}">
-{{ with .Params.portada }}{{ with resources.Get . }}{{ with .Fill "1200x630 jpg q80 Smart" }}<meta property="og:image" content="{{ .Permalink }}">{{ end }}{{ end }}{{ end }}
-<meta name="twitter:card" content="{{ if .Params.portada }}summary_large_image{{ else }}summary{{ end }}">
+{{ $imagen := "compartir.png" | absURL }}
+{{ with .Params.portada }}{{ with resources.Get . }}{{ $imagen = (.Fill "1200x630 jpg q80 Smart").Permalink }}{{ end }}{{ end }}
+<meta property="og:image" content="{{ $imagen }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F6F0E4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1B1814" media="(prefers-color-scheme: dark)">
 {{ if .Params.tiempo }}
-<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" $desc "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "es-ES" "mainEntityOfPage" .Permalink "author" (dict "@type" "Person" "name" site.Params.autor) "publisher" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink) | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" $desc "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "es-ES" "mainEntityOfPage" .Permalink "image" $imagen "author" (dict "@type" "Person" "name" site.Params.autor) "publisher" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink) | jsonify | safeJS }}</script>
 {{ end }}
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
 <link rel="icon" href="{{ "icono-192.png" | relURL }}" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+{{ if not (or .IsHome (eq .Kind "404")) }}
+{{ $migas := slice (dict "@type" "ListItem" "position" 1 "name" site.Title "item" site.Home.Permalink) }}
+{{ if and .IsPage (ne .CurrentSection site.Home) }}{{ $migas = $migas | append (dict "@type" "ListItem" "position" 2 "name" .CurrentSection.Title "item" .CurrentSection.Permalink) }}{{ end }}
+{{ $migas = $migas | append (dict "@type" "ListItem" "position" (add (len $migas) 1) "name" .Title "item" .Permalink) }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $migas | jsonify | safeJS }}</script>
+{{ end }}
 {{ if .IsHome }}<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.Home.Permalink | jsonify | safeJS }}</script>{{ end }}
 <link rel="preload" href="{{ "fonts/fraunces-600.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{ with resources.Get "css/main.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">{{ end }}
+<script type="speculationrules">{"prerender":[{"where":{"href_matches":"/*"},"eagerness":"moderate"}]}</script>
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
 </head>
 <body>

@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="contenedor">
+<section class="bloque seccion-cab">
+  <h1>Aquí no hay nada</h1>
+  <p class="entradilla">Esta página no existe o la hemos cambiado de sitio. Vuelve a la <a href="{{ "/" | relURL }}">portada</a> o mira lo último que hemos publicado.</p>
+  <div class="mosaico">{{ range $i, $p := first 3 (where site.RegularPages "Section" "in" site.Params.mainSections) }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq $i 0)) }}{{ end }}</div>
+</section>
+</div>
+{{ end }}

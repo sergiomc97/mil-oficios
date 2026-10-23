@@ -3,10 +3,10 @@
 <div class="contenedor">
 {{ with index $posts 0 }}
 <a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
-  {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ end }}
+  {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true "vt" (partial "vt.html" $)) }}{{ end }}
   <span class="destacado-texto">
     <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
-    <span class="destacado-titulo">{{ .Title }}</span>
+    <span class="destacado-titulo">{{ partial "titulo.html" .Title }}</span>
     <span class="destacado-desc">{{ .Description }}</span>
     <span class="leer">Leer el artículo →</span>
   </span>
@@ -31,7 +31,7 @@
 {{ with after 1 $posts }}
 <section class="bloque">
   <h2>Lo último</h2>
-  <div class="lista">{{ range . }}{{ partial "tarjeta.html" . }}{{ end }}</div>
+  <div class="mosaico">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>
 </section>
 {{ end }}
 </div>

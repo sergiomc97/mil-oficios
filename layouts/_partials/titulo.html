@@ -1,0 +1,1 @@
+{{ $partes := split . ": " }}{{ if gt (len $partes) 1 }}{{ index $partes 0 }}: <span class="acento">{{ delimit (after 1 $partes) ": " }}</span>{{ else }}{{ . }}{{ end }}

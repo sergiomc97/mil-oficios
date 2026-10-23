@@ -3,7 +3,7 @@
 <section class="bloque seccion-cab">
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
-  <div class="lista">{{ range .RegularPages }}{{ partial "tarjeta.html" . }}{{ else }}<p class="meta">Pronto habrá artículos aquí.</p>{{ end }}</div>
+  <div class="mosaico">{{ range $i, $p := .RegularPages }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ else }}<p class="meta">Pronto habrá artículos aquí.</p>{{ end }}</div>
 </section>
 </div>
 {{ end }}

@@ -4,5 +4,5 @@
     <span class="tarjeta-titulo">{{ .Title }}</span>
     {{ with .Params.tiempo }}<span class="meta">{{ . }}</span>{{ end }}
   </span>
-  {{ with .Params.portada }}{{ with resources.Get . }}{{ with .Fill "240x240 webp q75 Smart" }}<img class="mini" src="{{ .RelPermalink }}" width="120" height="120" alt="" loading="lazy" decoding="async">{{ end }}{{ end }}{{ end }}
+  {{ with .Params.portada }}{{ with resources.Get . }}{{ with .Fill "240x240 webp q75 Smart" }}<img class="mini" src="{{ .RelPermalink }}" width="120" height="120" alt="" loading="lazy" decoding="async" style="view-transition-name: {{ partial "vt.html" $ }}">{{ end }}{{ end }}{{ end }}
 </a>

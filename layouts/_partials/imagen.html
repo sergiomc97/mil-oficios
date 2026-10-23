@@ -1,5 +1,5 @@
 {{ with resources.Get .src }}
 {{ $p := .Fit "480x2000 webp q80" }}{{ $m := .Fit "800x2000 webp q80" }}{{ $g := .Fit "1200x2000 webp q80" }}
 {{ if $.apaisada }}{{ $p = .Fill "480x320 webp q80 Smart" }}{{ $m = .Fill "800x533 webp q80 Smart" }}{{ $g = .Fill "1200x800 webp q80 Smart" }}{{ end }}
-<img src="{{ $m.RelPermalink }}" srcset="{{ $p.RelPermalink }} {{ $p.Width }}w, {{ $m.RelPermalink }} {{ $m.Width }}w, {{ $g.RelPermalink }} {{ $g.Width }}w" sizes="(min-width: 720px) 688px, calc(100vw - 32px)" width="{{ $m.Width }}" height="{{ $m.Height }}" alt="{{ $.alt }}" loading="{{ $.carga | default "lazy" }}" decoding="async">
+<img src="{{ $m.RelPermalink }}" srcset="{{ $p.RelPermalink }} {{ $p.Width }}w, {{ $m.RelPermalink }} {{ $m.Width }}w, {{ $g.RelPermalink }} {{ $g.Width }}w" sizes="(min-width: 720px) 688px, calc(100vw - 32px)" width="{{ $m.Width }}" height="{{ $m.Height }}" alt="{{ $.alt }}" loading="{{ $.carga | default "lazy" }}" decoding="async"{{ with $.vt }} style="view-transition-name: {{ . }}"{{ end }}>
 {{ else }}{{ errorf "Foto no encontrada en assets: %s" .src }}{{ end }}

@@ -23,6 +23,7 @@ Front matter:
 - `pasos` (solo si es un procedimiento): lista de `titulo`, `tiempo`, `texto`. Se coloca en el cuerpo con `{{< pasos >}}` justo después de la introducción.
 - `error` (opcional): un error típico que NO se cuente ya en el cuerpo, en una o dos frases. Si no hay ninguno nuevo, se omite.
 - `productos` (opcional): lista de `nombre`. Sin `url` hasta que la afiliación esté aprobada.
+- `lastmod` (opcional): solo al revisar de verdad un artículo ya publicado, con la fecha de la revisión. Hace que salga «actualizado el…».
 
 Cuerpo: introducción corta y luego secciones `##`. Entre 450 y 800 palabras: mejor corto y denso que largo y repetido.
 
