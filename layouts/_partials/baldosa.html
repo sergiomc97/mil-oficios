@@ -1,10 +1,6 @@
 {{ $p := .pagina }}
 <a class="baldosa sec-{{ $p.Section }}{{ if .ancha }} ancha{{ end }}" href="{{ $p.RelPermalink }}">
-  {{ with $p.Params.portada }}{{ with resources.Get . }}
-  {{ $tam := cond $.ancha (slice "480x270" "960x540") (slice "300x300" "600x600") }}
-  {{ $c := .Fill (printf "%s webp q75 Smart" (index $tam 0)) }}{{ $g := .Fill (printf "%s webp q75 Smart" (index $tam 1)) }}
-  <img src="{{ $g.RelPermalink }}" srcset="{{ $c.RelPermalink }} {{ $c.Width }}w, {{ $g.RelPermalink }} {{ $g.Width }}w" sizes="{{ if $.ancha }}(min-width: 900px) 720px, 100vw{{ else }}(min-width: 900px) 360px, 50vw{{ end }}" width="{{ $g.Width }}" height="{{ $g.Height }}" alt="" loading="lazy" decoding="async" style="view-transition-name: {{ partial "vt.html" $p }}">
-  {{ end }}{{ end }}
+  {{ with $p.Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" "" "apaisada" true "vt" (partial "vt.html" $p) "sizes" (cond $.ancha "(min-width: 900px) 720px, 100vw" "(min-width: 900px) 360px, 50vw")) }}{{ end }}
   <span class="baldosa-texto">
     <span class="etiqueta">{{ $p.CurrentSection.Title }}</span>
     <span class="baldosa-titulo">{{ $p.Title }}</span>

@@ -72,7 +72,15 @@
 
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
-  ::view-transition-group(*) { animation-duration: .4s; animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .3s; }
+  ::view-transition-group(*.foto) { animation-duration: .45s; animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+  ::view-transition-old(*.foto), ::view-transition-new(*.foto) { height: 100%; object-fit: cover; mix-blend-mode: normal; }
+  ::view-transition-old(*.foto) { animation: none; }
+  ::view-transition-new(*.foto) { animation: aparece .2s .3s both; }
+  ::view-transition-old(*.foto):only-child { animation: aparece .25s reverse both; }
+  ::view-transition-new(*.foto):only-child { animation: aparece .25s both; }
+  @keyframes aparece { from { opacity: 0; } }
+  .destacado img, .baldosa img, .articulo > .foto img { view-transition-class: foto; }
 }
 
 .sec-jardin { --c: var(--oliva); --cs: var(--oliva-s); }
