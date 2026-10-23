@@ -84,7 +84,7 @@
   ::view-transition-old(ficha) { animation: aparece .15s reverse both; }
   ::view-transition-new(ficha) { animation: aparece .3s .12s both; }
   @keyframes aparece { from { opacity: 0; } }
-  .articulo { view-transition-name: ficha; }
+  .cabeza { view-transition-name: ficha; }
 }
 
 .sec-jardin { --c: var(--oliva); --cs: var(--oliva-s); }
@@ -315,7 +315,8 @@ a.etiqueta { text-decoration: none; }
   flex-direction: column;
   gap: 16px;
 }
-.articulo > h1 { margin-top: -6px; font-size: 37px; line-height: 1.06; letter-spacing: -0.8px; text-wrap: balance; }
+.cabeza { display: flex; flex-direction: column; gap: 16px; }
+.cabeza > h1 { margin-top: -6px; font-size: 37px; line-height: 1.06; letter-spacing: -0.8px; text-wrap: balance; }
 .autor { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; color: var(--gris); }
 .autor strong { color: var(--tinta); font-weight: 600; }
 .sello {
@@ -475,7 +476,7 @@ a.etiqueta { text-decoration: none; }
 
 @media (min-width: 900px) {
   h1 { font-size: 38px; }
-  .articulo > h1 { font-size: 48px; }
+  .cabeza > h1 { font-size: 48px; }
   .cabecera-in { flex-direction: row; justify-content: space-between; align-items: stretch; }
   .logo { flex-direction: row; align-items: baseline; gap: 14px; padding: 0; align-self: center; }
   .logo-nombre { font-size: 30px; }

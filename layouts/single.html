@@ -2,6 +2,7 @@
 <div class="progreso" aria-hidden="true"></div>
 {{ if .Params.tiempo }}<a class="volver" href="{{ "/" | relURL }}">← Volver</a>{{ end }}
 <article class="articulo sec-{{ .Section }}">
+  <header class="cabeza">
   {{ if .Params.tiempo }}<a class="etiqueta" href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>{{ end }}
   <h1>{{ partial "titulo.html" .Title }}</h1>
   {{ with .Params.tiempo }}
@@ -9,6 +10,7 @@
   {{ with $.Params.dificultad }}<span class="sello">Dificultad {{ . }}</span>{{ end }}
   {{ end }}
   {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ with $.Params.portada_credito }}<figcaption class="credito">{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+  </header>
 
   {{ with .Params.resumen }}
   <aside class="resumen">
