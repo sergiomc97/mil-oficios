@@ -7,8 +7,8 @@ disableKinds = ['taxonomy', 'term']
 
 [params]
   autor = 'Tito Garlopa'
-  descripcion = 'Aprende a hacerlo tú mismo: jardín, arreglos en casa y restauración de muebles, paso a paso y sin rodeos.'
-  mainSections = ['jardin', 'arreglos', 'restauracion']
+  descripcion = 'Aprende a hacerlo tú mismo: jardín, arreglos en casa, restauración de muebles y tu negocio, paso a paso y sin rodeos.'
+  mainSections = ['jardin', 'arreglos', 'restauracion', 'negocio']
 
 [pagination]
   pagerSize = 20

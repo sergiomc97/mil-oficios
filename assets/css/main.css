@@ -32,6 +32,8 @@
   --terra-s: #F5DFD2;
   --madera: #7C5226;
   --madera-s: #EBDCC6;
+  --pizarra: #2F5266;
+  --pizarra-s: #DCE5EA;
   --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --radio: 14px;
@@ -42,6 +44,7 @@
 .sec-jardin { --c: var(--oliva); --cs: var(--oliva-s); }
 .sec-arreglos { --c: var(--terra); --cs: var(--terra-s); }
 .sec-restauracion { --c: var(--madera); --cs: var(--madera-s); }
+.sec-negocio { --c: var(--pizarra); --cs: var(--pizarra-s); }
 
 * { box-sizing: border-box; }
 

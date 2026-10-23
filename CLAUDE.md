@@ -4,7 +4,8 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 
 ## Estructura
 
-- `content/jardin/`, `content/arreglos/`, `content/restauracion/`: un `.md` por artículo.
+- `content/jardin/`, `content/arreglos/`, `content/restauracion/`, `content/negocio/`: un `.md` por artículo. `negocio` es para dueños de tiendas y pequeños comercios: TPV, impresoras de tickets, cajones, balanzas, datáfonos y obligaciones de la caja.
+- Al añadir temas nuevos, se alternan las cuatro secciones.
 - `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
@@ -102,8 +103,9 @@ Son las únicas que Tito Garlopa puede contar en primera persona, y solo en los 
 - Ha estudiado poner una tira LED de luz cálida en el perímetro del techo del dormitorio, de unos 15 m.
 - Confirmado por foto: el dormitorio ya tiene papel pintado de ramas verdes sobre fondo beige y una tira LED cálida en el remate del techo de madera (`fotos/papel-pintado-dormitorio*.jpg`).
 - Ha investigado estuco y microcemento para el baño.
+- Trabaja a diario con programas de TPV para tiendas y ha visto fallar muchas impresoras de tickets, cajones, balanzas y datáfonos. Se puede contar así, en general, en los artículos de `negocio`; nunca se nombra la empresa, los clientes ni el programa.
 
-De todo esto solo constan los problemas y lo que estudió, no el resultado final. No se cuenta como hecho algo que no consta, como «así quedó» o «lo instalé».
+Salvo su trabajo con TPV, de todo esto solo constan los problemas y lo que estudió, no el resultado final. No se cuenta como hecho algo que no consta, como «así quedó» o «lo instalé».
 
 ## Reglas que no se rompen
 
