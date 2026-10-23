@@ -26,7 +26,7 @@
 <body>
 <header class="cabecera">
   <div class="contenedor cabecera-in">
-    <a class="logo" href="{{ "/" | relURL }}"><span class="logo-nombre">Mil Oficios</span><span class="logo-lema">Hazlo tú mismo, sin rodeos</span></a>
+    <a class="logo" href="{{ "/" | relURL }}"><span class="logo-nombre">Mil <em>Oficios</em></span><span class="logo-lema">Hazlo tú mismo, sin rodeos</span></a>
     <nav class="secciones" aria-label="Secciones">
       <a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>Todo</a>
       {{ range site.Params.mainSections }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="page"{{ end }}>{{ .Title }}</a>{{ end }}{{ end }}
@@ -39,7 +39,7 @@
 <footer class="pie">
   <div class="contenedor pie-in">
     <div class="pie-marca">
-      <p class="pie-logo">Mil Oficios</p>
+      <p class="pie-logo">Mil <em>Oficios</em></p>
       <p>Aprender a hacer las cosas uno mismo. Por {{ site.Params.autor }}.</p>
       <p class="pie-nota">Algunos enlaces son de afiliado: si compras a través de ellos, Mil Oficios recibe una pequeña comisión sin coste extra para ti. En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
     </div>
