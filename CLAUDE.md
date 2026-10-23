@@ -18,18 +18,43 @@ Front matter:
 - `description`: una frase de 155 caracteres como máximo.
 - `tiempo`: minutos de lectura a 200 palabras por minuto, como `5 min`.
 - `dificultad`: `baja`, `media` o `alta`.
-- `resumen`: exactamente 3 frases cortas.
+- `resumen`: exactamente 3 frases cortas. Es el único resumen del artículo.
 - `pasos` (solo si es un procedimiento): lista de `titulo`, `tiempo`, `texto`. Se coloca en el cuerpo con `{{< pasos >}}` justo después de la introducción.
-- `error`: el error típico, en una o dos frases.
+- `error` (opcional): un error típico que NO se cuente ya en el cuerpo, en una o dos frases. Si no hay ninguno nuevo, se omite.
 - `productos` (opcional): lista de `nombre`. Sin `url` hasta que la afiliación esté aprobada.
 
-Cuerpo: introducción de 2 párrafos cortos, luego secciones `##`. Entre 500 y 900 palabras.
+Cuerpo: introducción corta y luego secciones `##`. Entre 450 y 800 palabras: mejor corto y denso que largo y repetido.
 
-## Estilo
+## Cómo escribir
 
-- Tuteo, frases cortas, párrafos de 2 a 4 líneas, para leer en el móvil.
-- Que el formato varíe: listas, tablas, pasos, avisos. Nada de bloques largos de texto seguidos.
-- Útil antes que bonito: cada sección responde a una duda concreta.
+El lector tiene que notar que lo escribe una persona que ha hecho las cosas, no una ficha técnica. El fallo que más se nota es repetir: contar lo mismo en el resumen, en la introducción, en cada sección y otra vez en el error típico.
+
+### Antes de escribir
+
+- Apunta las 4 a 6 ideas del artículo. Cada idea va en un solo sitio del cuerpo. Si aparece en dos secciones, sobra en una.
+- Elige la forma según el tema, no por costumbre. Un procedimiento lleva pasos; una comparación de tres o más cosas, una tabla; un diagnóstico, preguntas; una experiencia, se cuenta. No todos los artículos llevan tabla, lista y pasos.
+
+### Al escribir
+
+- Tutea y explica como a un vecino por encima de la valla: concreto, práctico, sin tono de folleto ni de manual.
+- Mezcla frases cortas con otras más largas. Una subordinada de vez en cuando hace que el texto respire. Párrafos de 2 a 4 líneas en el móvil.
+- Lo concreto antes que lo general: «la esquina de baldosas del vecino» mejor que «un lugar soleado con buen drenaje».
+- Opina cuando toque («yo no lo haría», «sale más a cuenta cambiarla») y di claramente lo que no se sabe.
+- La introducción engancha con algo concreto (una situación, una foto, un problema real). No adelanta las ideas del resumen.
+- Títulos de sección como los escribiría una persona: una pregunta o una frase normal. No todos con el molde «X: Y».
+- No cierres cada sección con una moraleja ni el artículo con un resumen. Termina cuando se acabe lo útil.
+- Listas solo para lo que de verdad es una lista. No pongas negrita al principio de cada punto por sistema.
+- Expresiones prohibidas, porque delatan texto automático: «no es X, es Y», «la diferencia (casi nunca) es…», «la clave es», «el secreto», «ojo con», «en resumen», «así de sencillo», «hay pocas cosas tan…», «dos X, dos destinos», «te contamos», «descubre», «sin más».
+
+### Revisión, siempre
+
+Con el borrador terminado, léelo entero de corrido, como lo leería Sergio en el móvil, y haz una pasada solo para quitar:
+
+1. Ideas repetidas: cada una debe aparecer una vez en el cuerpo, más el resumen.
+2. Expresiones prohibidas. Búscalas con:
+   `grep -inE "no es [^.]*, es |la diferencia|la clave|el secreto|ojo con|en resumen|así de sencillo|hay pocas|dos destinos|te contamos|descubre|sin más" <archivo>`
+3. Relleno: si una frase se puede quitar sin perder información, se quita.
+4. El `error`: si repite algo del cuerpo, cámbialo por otro o bórralo.
 
 ## Fotos
 
