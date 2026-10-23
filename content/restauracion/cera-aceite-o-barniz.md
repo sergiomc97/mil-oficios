@@ -4,6 +4,9 @@ date: 2026-10-21
 description: Las diferencias entre los tres acabados para madera explicadas en corto, para que aciertes a la primera.
 tiempo: 4 min
 dificultad: baja
+portada: fotos/barniz-madera-pixabay.jpg
+portada_alt: Brocha aplicando barniz brillante sobre listones de madera.
+portada_credito: Foto de sweetlouise en Pixabay
 resumen:
   - "Cera: bonita y fácil, pero protege poco del agua y del calor."
   - "Aceite: realza la veta y se retoca sin lijar."

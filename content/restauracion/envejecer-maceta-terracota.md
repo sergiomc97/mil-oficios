@@ -4,6 +4,9 @@ date: 2026-10-22
 description: "El truco para que una maceta de barro nueva parezca antigua, blanquecina y gastada: pintura a la tiza diluida, un trapo y una lija."
 tiempo: 3 min
 dificultad: baja
+portada: fotos/macetas-terracota-pixabay.jpg
+portada_alt: Macetas de terracota nuevas sobre una mesa, junto a un montón de tierra con un brote.
+portada_credito: Foto de Ylanite en Pixabay
 resumen:
   - La clave es diluir la pintura y quitar parte antes de que seque.
   - Debe seguir asomando el color del barro, o parecerá recién pintada.

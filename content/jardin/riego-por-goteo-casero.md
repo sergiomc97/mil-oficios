@@ -4,6 +4,9 @@ date: 2026-10-22
 description: Cómo montar un riego por goteo en una tarde, sin fontanero y con piezas de cualquier ferretería.
 tiempo: 6 min
 dificultad: baja
+portada: fotos/riego-goteo-pixabay.jpg
+portada_alt: Tubería de goteo negra tendida en el suelo junto a una hilera de plantas de albahaca.
+portada_credito: Foto de heidimaria en Pixabay
 resumen:
   - Necesitas tubería de 16 mm, goteros, un filtro y un programador de grifo.
   - Se monta en una tarde sin herramientas especiales.

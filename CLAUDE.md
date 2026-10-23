@@ -72,6 +72,19 @@ En cada ejecución, antes de escribir el artículo:
 5. El `alt` describe con exactitud lo que se ve, en una frase. El `pie` es opcional.
 6. Añade la foto a `fotos.yaml` con su `id`, `archivo` y `uso`.
 
+### Fotos de banco (Pixabay)
+
+Solo para artículos sin ninguna foto de Sergio. La clave de API viene en el prompt de la tarea programada: nunca se escribe en el repositorio, que es público.
+
+1. Busca en inglés, que da mejores resultados: `curl -s -A "curl/8.5.0" "https://pixabay.com/api/?key=<CLAVE>&q=<términos>&image_type=photo&orientation=horizontal&safesearch=true&per_page=8"`.
+2. Descarga las vistas previas (`webformatURL`) y míralas. Elige la que muestre de verdad lo que trata el artículo. Si ninguna encaja, mejor sin foto que con una de relleno.
+3. Descarga `largeImageURL` y prepárala con `scripts/fotos.py` como `assets/fotos/<slug>-pixabay.jpg`.
+4. Ponla de portada con `portada`, `portada_alt` y `portada_credito: Foto de <user> en Pixabay`.
+5. Nunca se presenta como de Sergio ni se habla de ella en primera persona.
+6. Regístrala en `fotos.yaml` con `id: pixabay-<id>`, `origen: pixabay`, `autor`, `url` (el `pageURL`), `archivo` y `uso`.
+
+Si después llega una foto de Sergio para ese artículo, sustituye a la de Pixabay.
+
 Una foto de Sergio es una experiencia real: el texto puede mencionarla («así quedó mi franja junto al muro»), pero solo lo que se ve en ella.
 
 ## Experiencias reales de Sergio

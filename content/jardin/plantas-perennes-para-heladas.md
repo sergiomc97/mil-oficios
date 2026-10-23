@@ -4,6 +4,9 @@ date: 2026-10-22
 description: "Evónimo, fotinia, vinca, durillo y mirto: cuánto frío aguanta cada uno y dónde ponerlo para que tu jardín siga verde en invierno."
 tiempo: 4 min
 dificultad: baja
+portada: fotos/hojas-escarcha-pixabay.jpg
+portada_alt: Hojas perennes cubiertas de escarcha en pleno invierno.
+portada_credito: Foto de irenewirsing en Pixabay
 resumen:
   - El evónimo y la fotinia aguantan bien hasta unos −15 °C.
   - La vinca menor es la más dura de todas y crece a la sombra.

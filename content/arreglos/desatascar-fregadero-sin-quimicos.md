@@ -4,6 +4,9 @@ date: 2026-10-22
 description: "Ventosa, sifón y sonda: cómo desatascar el fregadero de la cocina paso a paso, sin desatascadores químicos y sin estropear las tuberías."
 tiempo: 3 min
 dificultad: baja
+portada: fotos/fregadero-pixabay.jpg
+portada_alt: Fregadero doble de acero inoxidable con grifo de cocina.
+portada_credito: Foto de Brett_Hondow en Pixabay
 resumen:
   - Casi todos los atascos se resuelven con una ventosa o limpiando el sifón.
   - El agua hirviendo puede dañar las tuberías de plástico.

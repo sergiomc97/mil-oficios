@@ -12,3 +12,33 @@
   nombre: Lavanda_vivaz.png
   archivo: fotos/lavanda-vecino.jpg
   uso: "jardin/lavanda-por-que-se-muere (portada). Lavanda del vecino, no de Sergio: mata grande en flor a pleno sol, en una esquina de pavimento con borde de gravilla." 
+- id: pixabay-381960
+  origen: pixabay
+  autor: heidimaria
+  url: https://pixabay.com/photos/basil-garden-gardening-dirt-rural-381960/
+  archivo: fotos/riego-goteo-pixabay.jpg
+  uso: portada de jardin/riego-por-goteo-casero
+- id: pixabay-1502548
+  origen: pixabay
+  autor: Brett_Hondow
+  url: https://pixabay.com/photos/basin-sink-kitchen-sink-tap-drain-1502548/
+  archivo: fotos/fregadero-pixabay.jpg
+  uso: portada de arreglos/desatascar-fregadero-sin-quimicos
+- id: pixabay-6520443
+  origen: pixabay
+  autor: Ylanite
+  url: https://pixabay.com/photos/plants-soil-pots-tools-gardening-6520443/
+  archivo: fotos/macetas-terracota-pixabay.jpg
+  uso: portada de restauracion/envejecer-maceta-terracota
+- id: pixabay-5095758
+  origen: pixabay
+  autor: sweetlouise
+  url: https://pixabay.com/photos/brush-oil-wood-paint-creativity-5095758/
+  archivo: fotos/barniz-madera-pixabay.jpg
+  uso: portada de restauracion/cera-aceite-o-barniz
+- id: pixabay-270037
+  origen: pixabay
+  autor: irenewirsing
+  url: https://pixabay.com/photos/winter-frost-gaultheria-green-270037/
+  archivo: fotos/hojas-escarcha-pixabay.jpg
+  uso: portada de jardin/plantas-perennes-para-heladas
