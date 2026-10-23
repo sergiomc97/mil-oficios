@@ -1,16 +1,16 @@
 {{ define "main" }}
 <div class="progreso" aria-hidden="true"></div>
-<article class="articulo">
+<article class="articulo sec-{{ .Section }}">
   {{ if .Params.tiempo }}<span class="etiqueta">{{ .CurrentSection.Title }}</span>{{ end }}
   <h1>{{ .Title }}</h1>
   {{ with .Params.tiempo }}
-  <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ with $.Params.dificultad }} · Dificultad {{ . }}{{ end }}</span></p>
+  <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ with $.Params.dificultad }} · dificultad {{ . }}{{ end }}</span></p>
   {{ end }}
   {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}</figure>{{ end }}
 
   {{ with .Params.resumen }}
   <aside class="resumen">
-    <h2>Si solo tienes 10 segundos</h2>
+    <h2>Si solo tienes diez segundos</h2>
     <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
   </aside>
   {{ end }}
@@ -23,7 +23,7 @@
   {{ end }}
 
   {{ with .Params.productos }}
-  <section>
+  <section class="necesitas">
     <h2>Lo que necesitas</h2>
     <div class="carrusel">
       {{ range . }}
@@ -39,9 +39,9 @@
 
 {{ with .Params.tiempo }}
 {{ with first 2 (where $.CurrentSection.RegularPages "Permalink" "ne" $.Permalink) }}
-<section class="bloque lista">
+<section class="bloque sigue">
   <h2>Sigue con…</h2>
-  {{ range . }}{{ partial "tarjeta.html" . }}{{ end }}
+  <div class="lista">{{ range . }}{{ partial "tarjeta.html" . }}{{ end }}</div>
 </section>
 {{ end }}
 {{ end }}

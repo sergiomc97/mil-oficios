@@ -1,22 +1,27 @@
 {{ define "main" }}
 {{ $posts := where site.RegularPages "Section" "in" site.Params.mainSections }}
+<div class="contenedor">
 {{ with index $posts 0 }}
-<a class="destacado" href="{{ .RelPermalink }}">
+<a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
   {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ end }}
-  <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
-  <h1>{{ .Title }}</h1>
-  <p>{{ .Description }}</p>
+  <span class="destacado-texto">
+    <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
+    <span class="destacado-titulo">{{ .Title }}</span>
+    <span class="destacado-desc">{{ .Description }}</span>
+    <span class="leer">Leer el artículo →</span>
+  </span>
 </a>
 {{ end }}
 
 {{ with hugo.Data.trucos }}
+{{ $claves := dict "Jardín" "jardin" "Arreglos" "arreglos" "Restauración" "restauracion" }}
 <section class="bloque">
-  <div class="bloque-cab"><h2>En 10 segundos</h2><span class="meta">Desliza →</span></div>
-  <div class="carrusel">
-    {{ range $i, $t := . }}
-    <div class="truco truco-{{ mod $i 3 }}">
-      <span class="etiqueta">Truco · {{ $t.seccion }}</span>
-      <p>{{ $t.texto }}</p>
+  <div class="bloque-cab"><h2>En diez segundos</h2><span class="meta desliza">desliza →</span></div>
+  <div class="carrusel trucos">
+    {{ range . }}
+    <div class="truco sec-{{ index $claves .seccion }}">
+      <span class="etiqueta">{{ .seccion }}</span>
+      <p>{{ .texto }}</p>
     </div>
     {{ end }}
   </div>
@@ -24,9 +29,10 @@
 {{ end }}
 
 {{ with after 1 $posts }}
-<section class="bloque lista">
+<section class="bloque">
   <h2>Lo último</h2>
-  {{ range . }}{{ partial "tarjeta.html" . }}{{ end }}
+  <div class="lista">{{ range . }}{{ partial "tarjeta.html" . }}{{ end }}</div>
 </section>
 {{ end }}
+</div>
 {{ end }}

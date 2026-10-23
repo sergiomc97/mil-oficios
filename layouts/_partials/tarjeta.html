@@ -1,5 +1,8 @@
-<a class="tarjeta" href="{{ .RelPermalink }}">
-  <span class="etiqueta">{{ .CurrentSection.Title }}</span>
-  <span class="tarjeta-titulo">{{ .Title }}</span>
-  {{ with .Params.tiempo }}<span class="meta">{{ . }}</span>{{ end }}
+<a class="tarjeta sec-{{ .Section }}" href="{{ .RelPermalink }}">
+  {{ with .Params.portada }}{{ with resources.Get . }}{{ with .Fill "240x240 webp q75 Smart" }}<img class="mini" src="{{ .RelPermalink }}" width="120" height="120" alt="" loading="lazy" decoding="async">{{ end }}{{ end }}{{ else }}<span class="mini mini-icono">{{ partial "icono.html" .Section }}</span>{{ end }}
+  <span class="tarjeta-texto">
+    <span class="etiqueta">{{ .CurrentSection.Title }}</span>
+    <span class="tarjeta-titulo">{{ .Title }}</span>
+    {{ with .Params.tiempo }}<span class="meta">{{ . }}</span>{{ end }}
+  </span>
 </a>

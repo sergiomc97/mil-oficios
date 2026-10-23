@@ -1,7 +1,9 @@
 {{ define "main" }}
-<section class="bloque lista">
+<div class="contenedor">
+<section class="bloque seccion-cab">
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
-  {{ range .RegularPages }}{{ partial "tarjeta.html" . }}{{ else }}<p class="meta">Pronto habrá artículos aquí.</p>{{ end }}
+  <div class="lista">{{ range .RegularPages }}{{ partial "tarjeta.html" . }}{{ else }}<p class="meta">Pronto habrá artículos aquí.</p>{{ end }}</div>
 </section>
+</div>
 {{ end }}
