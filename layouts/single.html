@@ -7,7 +7,7 @@
   <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ if gt ($.Lastmod.Sub $.Date).Hours 24 }} · actualizado el {{ $.Lastmod | time.Format ":date_long" }}{{ end }}</span></p>
   {{ with $.Params.dificultad }}<span class="sello">Dificultad {{ . }}</span>{{ end }}
   {{ end }}
-  {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true "vt" (partial "vt.html" $)) }}{{ with $.Params.portada_credito }}<figcaption class="credito">{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+  {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ with $.Params.portada_credito }}<figcaption class="credito">{{ . }}</figcaption>{{ end }}</figure>{{ end }}
 
   {{ with .Params.resumen }}
   <aside class="resumen">
@@ -47,6 +47,5 @@
   <div class="lista">{{ range . }}{{ partial "tarjeta.html" . }}{{ end }}</div>
 </section>
 {{ end }}
-{{ with resources.Get "js/web.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}
 {{ end }}
 {{ end }}

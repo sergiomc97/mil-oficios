@@ -3,7 +3,7 @@
 <div class="contenedor">
 {{ with index $posts 0 }}
 <a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
-  {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true "vt" (partial "vt.html" $)) }}{{ end }}
+  {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ end }}
   <span class="destacado-texto">
     <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
     <span class="destacado-titulo">{{ partial "titulo.html" .Title }}</span>
