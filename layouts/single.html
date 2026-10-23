@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="progreso" aria-hidden="true"></div>
+{{ if .Params.tiempo }}<a class="volver" href="{{ "/" | relURL }}">← Volver</a>{{ end }}
 <article class="articulo sec-{{ .Section }}">
   {{ if .Params.tiempo }}<a class="etiqueta" href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>{{ end }}
   <h1>{{ partial "titulo.html" .Title }}</h1>

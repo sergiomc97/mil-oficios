@@ -284,6 +284,29 @@ a.etiqueta { text-decoration: none; }
 }
 @keyframes avance { to { transform: scaleX(1); } }
 
+.volver {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  background: var(--claro);
+  box-shadow: 0 4px 14px rgb(0 0 0 / .12);
+  color: var(--tinta);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  animation: asoma linear both;
+  animation-timeline: scroll(root);
+  animation-range: 120px 220px;
+}
+@keyframes asoma { from { opacity: 0; visibility: hidden; transform: translateY(-8px); } }
+
 .articulo {
   max-width: 720px;
   margin: 0 auto;

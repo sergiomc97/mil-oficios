@@ -47,6 +47,14 @@
       pintar();
     }
 
+    const volver = document.querySelector(".volver");
+    volver?.addEventListener("click", e => {
+      if (document.referrer.startsWith(location.origin) && history.length > 1) {
+        e.preventDefault();
+        history.back();
+      }
+    });
+
     const boton = document.querySelector("[data-compartir]");
     if (boton && (navigator.share || navigator.clipboard)) {
       boton.hidden = false;
