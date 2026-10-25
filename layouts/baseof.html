@@ -15,13 +15,18 @@
 <meta property="og:description" content="{{ $desc }}">
 <meta property="og:url" content="{{ .Permalink }}">
 {{ $imagen := "compartir.png" | absURL }}
-{{ with .Params.portada }}{{ with resources.Get . }}{{ $imagen = (.Fill "1200x630 jpg q80 Smart").Permalink }}{{ end }}{{ end }}
+{{ $imagenes := slice $imagen }}
+{{ with .Params.portada }}{{ with resources.Get . }}
+{{ $imagen = (.Fill "1200x630 jpg q80 Smart").Permalink }}
+{{ $imagenes = slice (.Fill "1200x675 jpg q80 Smart").Permalink (.Fill "1200x900 jpg q80 Smart").Permalink (.Fill "1200x1200 jpg q80 Smart").Permalink }}
+{{ end }}{{ end }}
+<meta name="robots" content="{{ if eq .Kind "404" }}noindex{{ else }}max-image-preview:large{{ end }}">
 <meta property="og:image" content="{{ $imagen }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#F6F0E4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1B1814" media="(prefers-color-scheme: dark)">
 {{ if .Params.tiempo }}
-<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" $desc "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "es-ES" "mainEntityOfPage" .Permalink "image" $imagen "author" (dict "@type" "Person" "name" site.Params.autor) "publisher" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink) | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" $desc "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "es-ES" "mainEntityOfPage" .Permalink "image" $imagenes "author" (dict "@type" "Person" "name" site.Params.autor) "publisher" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink) | jsonify | safeJS }}</script>
 {{ end }}
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
 <link rel="icon" href="{{ "icono-192.png" | relURL }}" type="image/png" sizes="192x192">
