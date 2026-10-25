@@ -23,6 +23,7 @@
 <meta name="robots" content="{{ if eq .Kind "404" }}noindex{{ else }}max-image-preview:large{{ end }}">
 <meta property="og:image" content="{{ $imagen }}">
 <meta name="twitter:card" content="summary_large_image">
+{{ with site.Params.pinterest }}<meta name="p:domain_verify" content="{{ . }}">{{ end }}
 <meta name="theme-color" content="#F6F0E4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1B1814" media="(prefers-color-scheme: dark)">
 {{ if .Params.tiempo }}

@@ -15,4 +15,4 @@ disableKinds = ['taxonomy', 'term']
 
 [outputs]
   home = ['html', 'rss']
-  section = ['html']
+  section = ['html', 'rss']

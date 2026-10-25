@@ -1,0 +1,19 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+<title>{{ .Title }} · {{ site.Title }}</title>
+<link>{{ .Permalink }}</link>
+<description>{{ .Description }}</description>
+<language>es-ES</language>
+{{ range $p := .RegularPages }}{{ with .Params.portada }}{{ with resources.Get . }}{{ $pin := .Fill "1000x1500 jpg q80 Smart" }}
+<item>
+<title>{{ $p.Title }}</title>
+<link>{{ $p.Permalink }}</link>
+<guid>{{ $p.Permalink }}</guid>
+<pubDate>{{ $p.Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+<description>{{ $p.Description }}</description>
+<media:content url="{{ $pin.Permalink }}" medium="image" type="image/jpeg" width="{{ $pin.Width }}" height="{{ $pin.Height }}"/>
+</item>
+{{ end }}{{ end }}{{ end }}
+</channel>
+</rss>
