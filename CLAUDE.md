@@ -98,6 +98,7 @@ Son las únicas que Tito Garlopa puede contar en primera persona, y solo en los 
 - En esa franja los durillos van bien. Varios mirtos plantados a principios de julio estaban muy secos a principios de septiembre. La malla y la piedra hacen difícil ver si la tierra está húmeda.
 - También ha tenido problemas con lavanda y romero en algunos puntos de la franja. Confirmado por foto: una de sus lavandas se murió y quedó como una mata gris y seca en tierra pedregosa (`fotos/lavanda-seca.jpg`).
 - Un vecino tiene a pocos metros una lavanda enorme y en flor, a pleno sol, en una esquina de pavimento con gravilla (`fotos/lavanda-vecino.jpg`). Es del vecino: nunca se presenta como de Sergio.
+- Plantó en marzo tulipanes con bulbos comprados en Amazon. En abril florecieron (rojos, rosas y naranjas, confirmado por foto: `fotos/tulipan*.jpg`). Esperaba que taparan el suelo, pero al marchitarse solo quedaba alguna hoja. Los quitó para poner setos y piedra volcánica.
 - Le regalaron un olivo de 60 a 80 cm en una maceta de 9 × 9 cm y dudó entre plantarlo en el suelo o pasarlo a una maceta grande.
 - Ha querido envejecer una maceta de terracota para que pareciera antigua y blanquecina.
 - En su dormitorio, la pared del cabecero está torcida y las esquinas no van a escuadra, lo que complica colocar papel pintado. Tenía una moldura blanca estrecha que se despegaba.

@@ -7,6 +7,7 @@
 - [x] restauracion · Envejecer una maceta de terracota con pintura a la tiza
 - [x] arreglos · Papel pintado en una pared torcida: cómo dejarlo recto
 - [x] jardin · Lavanda: por qué se muere en unos sitios y en otros crece sin parar (usa fotos/lavanda-seca.jpg y fotos/lavanda-vecino.jpg)
+- [x] jardin · Tulipanes después de florecer: por qué casi no queda nada
 - [ ] jardin · Plantar un olivo pequeño: ¿en maceta o en el suelo?
 - [ ] negocio · La impresora de tickets no imprime: qué revisar antes de llamar al técnico
 - [ ] restauracion · Carcoma: cómo saber si sigue activa y tratarla
