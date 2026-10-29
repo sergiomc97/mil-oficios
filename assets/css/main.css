@@ -849,3 +849,5 @@ body::after {
 .dia p { margin: 0; font-size: 15px; line-height: 1.45; }
 .fuente { margin: 0; font-size: 13px; color: var(--gris); }
 .fuente a { color: inherit; }
+.opciones { display: grid; gap: 8px; }
+.opcion { min-height: 44px; padding: 8px 14px; border: 1px solid var(--linea); border-radius: 12px; background: var(--papel); color: var(--tinta); font: 500 16px/1.3 var(--sans); text-align: left; cursor: pointer; }

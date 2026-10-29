@@ -265,33 +265,32 @@
       caja.append(crear("p", "", "El aviso de heladas no está disponible ahora mismo."));
       return;
     }
-    const clave = "herramienta:heladas";
+    const clave = "herramienta:heladas:sitio";
     const form = crear("form", "buscar-sitio");
     const entrada = crear("input");
     entrada.placeholder = "Tu pueblo o ciudad";
     entrada.autocomplete = "address-level2";
+    entrada.enterKeyHint = "search";
     entrada.setAttribute("aria-label", "Pueblo o ciudad");
     form.append(entrada, crear("button", "boton", "Ver"));
     const aqui = crear("button", "atras", "Usar mi ubicación");
     aqui.type = "button";
     const salida = crear("div", "prevision");
     salida.setAttribute("aria-live", "polite");
-    const fuente = crear("p", "fuente", "Previsión de ");
-    const enlace = crear("a", "", "WeatherAPI.com");
-    enlace.href = "https://www.weatherapi.com/";
-    enlace.rel = "noopener";
-    fuente.append(enlace);
+    const fuente = crear("p", "fuente");
+    const enlace = (texto, url) => { const a = crear("a", "", texto); a.href = url; a.rel = "noopener"; return a; };
+    fuente.append("Previsión de ", enlace("WeatherAPI.com", "https://www.weatherapi.com/"), " · Pueblos de ", enlace("OpenStreetMap", "https://www.openstreetmap.org/copyright"));
     caja.append(form, aqui, salida, fuente);
+    const aviso = texto => salida.replaceChildren(crear("p", "", texto));
 
     const dia = f => new Date(`${f}T12:00`).toLocaleDateString("es-ES", { weekday: "long", day: "numeric" });
-    const pedir = async q => {
-      salida.replaceChildren(crear("p", "", "Buscando…"));
+    const prevision = async sitio => {
+      aviso("Buscando la previsión…");
       try {
-        const r = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${caja.dataset.clave}&q=${encodeURIComponent(q)}&days=3&lang=es&aqi=no&alerts=no`);
-        const d = await r.json();
+        const r = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${caja.dataset.clave}&q=${sitio.lat},${sitio.lon}&days=3&lang=es&aqi=no&alerts=no`);
         if (!r.ok) throw new Error(r.status);
-        try { localStorage.setItem(clave, q); } catch {}
-        const sitio = crear("p", "grupo", [d.location.name, d.location.region].filter(Boolean).join(", "));
+        const d = await r.json();
+        try { localStorage.setItem(clave, JSON.stringify(sitio)); } catch {}
         const dias = d.forecast.forecastday.map(f => {
           const min = Math.round(f.day.mintemp_c);
           const n = nivel(min);
@@ -302,19 +301,68 @@
           if (n.consejo) fila.append(crear("p", "", n.consejo));
           return fila;
         });
-        salida.replaceChildren(sitio, ...dias);
+        salida.replaceChildren(crear("p", "grupo", sitio.nombre), ...dias);
       } catch {
-        salida.replaceChildren(crear("p", "", "No he encontrado ese sitio. Prueba con el nombre del pueblo y la provincia."));
+        aviso("No se ha podido cargar la previsión. Prueba otra vez en un rato.");
       }
     };
-    form.addEventListener("submit", e => { e.preventDefault(); if (entrada.value.trim()) pedir(entrada.value.trim()); });
-    aqui.addEventListener("click", () => navigator.geolocation?.getCurrentPosition(
-      p => { entrada.value = ""; pedir(`${p.coords.latitude.toFixed(2)},${p.coords.longitude.toFixed(2)}`); },
-      () => salida.replaceChildren(crear("p", "", "No se ha podido obtener tu ubicación. Escribe tu pueblo."))
-    ));
+
+    const lugar = r => {
+      const a = r.address || {};
+      const nombre = r.name || a.village || a.town || a.city || a.municipality || r.display_name.split(",")[0];
+      const zona = a.province || a.state || a.county || a.country;
+      return { nombre: [nombre, zona].filter((x, i, l) => x && l.indexOf(x) === i).join(", "), lat: (+r.lat).toFixed(3), lon: (+r.lon).toFixed(3) };
+    };
+    const geo = async params => {
+      const r = await fetch(`https://nominatim.openstreetmap.org/${params}&format=jsonv2&addressdetails=1&accept-language=es`);
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    };
+    const buscar = async texto => {
+      aviso("Buscando el pueblo…");
+      try {
+        let lista = await geo(`search?q=${encodeURIComponent(texto)}&countrycodes=es&limit=6`);
+        if (!lista.length) lista = await geo(`search?q=${encodeURIComponent(texto)}&limit=6`);
+        const sitios = lista.map(lugar).filter((x, i, l) => l.findIndex(y => y.nombre === x.nombre) === i);
+        if (!sitios.length) return aviso("No he encontrado ese pueblo. Prueba a añadir la provincia, como «Cañada del Hoyo, Cuenca».");
+        if (sitios.length === 1) return prevision(sitios[0]);
+        const opciones = crear("div", "opciones");
+        for (const sitio of sitios) {
+          const b = crear("button", "opcion", sitio.nombre);
+          b.type = "button";
+          b.addEventListener("click", () => { entrada.value = sitio.nombre; prevision(sitio); });
+          opciones.append(b);
+        }
+        salida.replaceChildren(crear("p", "grupo", "¿Cuál de estos?"), opciones);
+      } catch {
+        aviso("No se ha podido buscar el pueblo. Prueba otra vez en un rato.");
+      }
+    };
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      entrada.blur();
+      if (entrada.value.trim()) buscar(entrada.value.trim());
+    });
+    aqui.addEventListener("click", () => {
+      if (!navigator.geolocation) return aviso("Tu navegador no permite usar la ubicación. Escribe tu pueblo.");
+      aviso("Buscando tu ubicación…");
+      navigator.geolocation.getCurrentPosition(
+        async p => {
+          const sitio = { nombre: "Tu ubicación", lat: p.coords.latitude.toFixed(3), lon: p.coords.longitude.toFixed(3) };
+          try { Object.assign(sitio, { nombre: lugar(await geo(`reverse?lat=${sitio.lat}&lon=${sitio.lon}&zoom=14`)).nombre }); } catch {}
+          entrada.value = sitio.nombre;
+          prevision(sitio);
+        },
+        e => aviso(e.code === 1
+          ? "No has dado permiso para usar tu ubicación. En el iPhone se activa en Ajustes › Privacidad › Localización › Safari. Mientras, escribe tu pueblo."
+          : "No se ha podido obtener tu ubicación. Escribe tu pueblo."),
+        { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 }
+      );
+    });
     let previo = null;
-    try { previo = localStorage.getItem(clave); } catch {}
-    if (previo) { if (!/^-?\d/.test(previo)) entrada.value = previo; pedir(previo); }
+    try { previo = JSON.parse(localStorage.getItem(clave)); } catch {}
+    if (previo?.lat) { entrada.value = previo.nombre; prevision(previo); }
   };
 
   for (const caja of document.querySelectorAll('[data-herramienta="heladas"]')) heladas(caja);
