@@ -1,0 +1,87 @@
+- mes: Enero
+  jardin:
+    - Revisa las protecciones de las plantas sensibles después de cada helada fuerte.
+    - Comprueba que el riego automático no tiene tramos helados o rotos.
+    - Retira la hojarasca que tape plantas pequeñas o el césped.
+  casa:
+    - Mira la presión de la caldera con la calefacción fría; si baja a menudo, avisa al técnico.
+    - Envuelve el contador del agua y las tuberías que van por fuera.
+- mes: Febrero
+  jardin:
+    - Poda frutales de pepita y arbustos caducos, en días sin helada.
+    - Planta árboles y arbustos a raíz desnuda si la tierra no está helada.
+  casa:
+    - Revisa las juntas de ventanas por donde entra frío y cámbialas si están cuarteadas.
+- mes: Marzo
+  jardin:
+    - Abona antes de que empiece a crecer todo.
+    - Primer recorte de los setos.
+    - Revisa el programador y los goteros antes de que haga falta regar.
+    - En zonas frías, deja la poda fuerte del olivo para cuando pasen las heladas.
+  casa:
+    - Limpia los canalones de las hojas del otoño y el invierno.
+- mes: Abril
+  jardin:
+    - Planta flor de temporada.
+    - Vigila los pulgones en los brotes tiernos.
+    - Riega más a menudo a medida que suben las temperaturas.
+  casa:
+    - Buen mes para pintar o barnizar al aire libre: ni hace frío ni seca demasiado rápido.
+- mes: Mayo
+  jardin:
+    - Espera a mediados de mes para el huerto de verano: los «santos del hielo» del 11 al 14 aún pueden traer helada.
+    - Poda los arbustos que florecen en primavera justo cuando terminen.
+    - Repón las plantas que no aguantaron el invierno.
+  casa:
+    - Limpia los filtros del aire acondicionado antes de encenderlo.
+- mes: Junio
+  jardin:
+    - Riega en profundidad al amanecer.
+    - Acolcha la tierra para que retenga la humedad.
+    - Poda la lavanda cuando acabe la floración, sin cortar la madera vieja.
+  casa:
+    - Revisa toldos y persianas antes del calor fuerte.
+- mes: Julio
+  jardin:
+    - Nada de podas fuertes con calor.
+    - Da sombra a las plantas recién plantadas.
+    - Quita las flores marchitas para que sigan floreciendo.
+  casa:
+    - Ventila de noche y cierra persianas de día.
+- mes: Agosto
+  jardin:
+    - Si te vas de vacaciones, deja programado el riego y pruébalo antes.
+    - Vigila las plagas del calor, como la araña roja.
+    - Quita las malas hierbas antes de que suelten semillas.
+  casa:
+    - Aprovecha que no hay lluvia para impermeabilizar terrazas y repasar juntas.
+- mes: Septiembre
+  jardin:
+    - Empieza a plantar bulbos de primavera, como tulipanes y narcisos.
+    - Resiembra las calvas del césped.
+    - Poda los arbustos que se hayan desmadrado en verano.
+  casa:
+    - Pide la revisión de la caldera antes de que llegue el frío y se llene la agenda del técnico.
+- mes: Octubre
+  jardin:
+    - El mejor mes para plantar árboles y arbustos nuevos.
+    - Baja el riego a medida que llueva.
+    - Recorta los setos por última vez.
+  casa:
+    - Purga los radiadores con la calefacción apagada y vuelve a mirar la presión de la caldera.
+    - Revisa el aislamiento de puertas y ventanas.
+- mes: Noviembre
+  jardin:
+    - Termina de plantar bulbos antes de las primeras heladas.
+    - Protege del frío las plantas sensibles y acolcha sus raíces.
+    - Vacía el riego por goteo que vaya por fuera o protégelo para que no reviente con el hielo.
+  casa:
+    - Limpia los canalones cuando caigan las hojas.
+    - Encera o aceita los muebles de madera antes de que la calefacción la reseque.
+- mes: Diciembre
+  jardin:
+    - Revisa el drenaje de macetas y zonas donde se encharca.
+    - Limpia y guarda las herramientas.
+    - Poda en reposo los árboles caducos, en días sin helada.
+  casa:
+    - Aísla las tuberías y el grifo de fuera si aún no lo has hecho.

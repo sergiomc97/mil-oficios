@@ -192,6 +192,29 @@
     pintar(arbol.inicio);
   };
 
+  for (const bloque of document.querySelectorAll(".este-mes")) {
+    const meses = JSON.parse(bloque.dataset.meses);
+    let i = new Date().getMonth();
+    const titulo = bloque.querySelector(".este-mes-titulo");
+    const listas = bloque.querySelectorAll("ul");
+    const pintar = () => {
+      [...titulo.childNodes].find(n => n.nodeType === 3).textContent = meses[i].mes;
+      [meses[i].jardin, meses[i].casa].forEach((tareas, k) => listas[k].replaceChildren(...tareas.map(t => crear("li", "", t))));
+    };
+    if (bloque.closest("[data-herramienta]")) {
+      const paso = d => crear("button", "atras", d < 0 ? "←" : "→");
+      const antes = paso(-1), despues = paso(1);
+      antes.setAttribute("aria-label", "Mes anterior");
+      despues.setAttribute("aria-label", "Mes siguiente");
+      antes.addEventListener("click", () => { i = (i + 11) % 12; pintar(); });
+      despues.addEventListener("click", () => { i = (i + 1) % 12; pintar(); });
+      titulo.prepend(antes);
+      titulo.append(despues);
+      titulo.classList.add("con-flechas");
+    }
+    pintar();
+  }
+
   for (const caja of document.querySelectorAll(".herramienta")) {
     const datos = caja.querySelector('script[type="application/json"]');
     if (datos) diagnosticar(caja, JSON.parse(datos.textContent));

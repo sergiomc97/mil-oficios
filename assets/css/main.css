@@ -813,3 +813,13 @@ body::after {
 .respuestas .boton { border: 0; font-family: var(--sans); font-size: 17px; cursor: pointer; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
 .volver-diag { display: flex; justify-content: space-between; }
 .atras { padding: 6px 0; border: 0; background: none; color: var(--tinta); font: 600 15px var(--sans); cursor: pointer; }
+.este-mes { display: flex; flex-direction: column; gap: 12px; }
+.este-mes-titulo { font: 600 26px/1.1 var(--serif); }
+.este-mes-titulo.con-flechas { display: flex; justify-content: space-between; align-items: center; }
+.este-mes-titulo .atras { min-width: 44px; min-height: 44px; font-size: 22px; }
+.este-mes-cols { display: grid; gap: 14px; }
+.este-mes ul { margin: 6px 0 0; padding-left: 20px; }
+.este-mes li { line-height: 1.45; }
+.este-mes li + li { margin-top: 6px; }
+.este-mes .etiqueta { align-self: flex-start; padding: 2px 9px; border-radius: 999px; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+@media (min-width: 700px) { .este-mes-cols { grid-template-columns: 1fr 1fr; gap: 28px; } }

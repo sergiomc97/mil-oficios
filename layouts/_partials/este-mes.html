@@ -1,0 +1,8 @@
+{{ $m := index hugo.Data.meses (sub (int (now.Format "1")) 1) }}
+<div class="este-mes" data-meses='{{ jsonify hugo.Data.meses }}'>
+  <h3 class="este-mes-titulo">{{ $m.mes }}</h3>
+  <div class="este-mes-cols">
+    <div class="sec-jardin"><span class="etiqueta">Jardín</span><ul>{{ range $m.jardin }}<li>{{ . }}</li>{{ end }}</ul></div>
+    <div class="sec-arreglos"><span class="etiqueta">Casa</span><ul>{{ range $m.casa }}<li>{{ . }}</li>{{ end }}</ul></div>
+  </div>
+</div>
