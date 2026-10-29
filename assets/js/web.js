@@ -76,7 +76,7 @@
           if (!r.ok || d.success === false) throw new Error(r.status);
           form.querySelector(".boletin-fila").remove();
           form.querySelector(".boletin-ok").remove();
-          estado.textContent = "¡Listo! Revisa tu correo y pulsa el enlace para confirmar la suscripción.";
+          estado.textContent = "¡Listo! Si te llega un correo para confirmar, pulsa su enlace y ya estará.";
         } catch {
           form.target = "_blank";
           HTMLFormElement.prototype.submit.call(form);
