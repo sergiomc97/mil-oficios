@@ -1,0 +1,56 @@
+{{ $hoy := now }}
+{{ $m := index hugo.Data.meses (sub (int ($hoy.Format "1")) 1) }}
+{{ $nuevos := first 5 (where (where site.RegularPages "Section" "in" site.Params.mainSections) "Date" "ge" ($hoy.AddDate 0 -1 0)) }}
+{{ $herr := where (site.GetPage "/herramientas").RegularPages "Params.herramienta" "ne" "mes" }}
+{{ $destacada := index $herr (mod (int ($hoy.Format "1")) (len $herr)) }}
+{{ $tinta := "#2B241C" }}{{ $gris := "#685E50" }}{{ $papel := "#F6F0E4" }}{{ $terra := "#A3431F" }}{{ $oliva := "#4C5A2A" }}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{ $m.mes }} en Mil Oficios</title>
+</head>
+<body style="margin:0;padding:0;background:{{ $papel }};">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ $papel }};">
+<tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;font-family:Georgia,'Times New Roman',serif;color:{{ $tinta }};">
+<tr><td style="padding:0 8px 20px;font-size:28px;font-weight:bold;">Mil <i style="color:{{ $terra }};">Oficios</i></td></tr>
+<tr><td style="padding:24px;background:#FFFFFF;border-radius:14px;">
+  <h1 style="margin:0 0 6px;font-size:26px;line-height:1.2;">Qué hacer en {{ lower $m.mes }}</h1>
+  <p style="margin:0 0 18px;font-family:Arial,sans-serif;font-size:15px;color:{{ $gris }};">Las tareas del mes en el jardín y en casa, para un clima de interior con heladas.</p>
+  <p style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:{{ $oliva }};text-transform:uppercase;letter-spacing:1px;">Jardín</p>
+  <ul style="margin:0 0 16px;padding-left:20px;font-family:Arial,sans-serif;font-size:16px;line-height:1.5;">{{ range $m.jardin }}<li style="margin-bottom:6px;">{{ . }}</li>{{ end }}</ul>
+  <p style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:{{ $terra }};text-transform:uppercase;letter-spacing:1px;">Casa</p>
+  <ul style="margin:0;padding-left:20px;font-family:Arial,sans-serif;font-size:16px;line-height:1.5;">{{ range $m.casa }}<li style="margin-bottom:6px;">{{ . }}</li>{{ end }}</ul>
+</td></tr>
+{{ with $nuevos }}
+<tr><td style="padding:28px 8px 8px;font-size:22px;font-weight:bold;">Lo nuevo en la web</td></tr>
+{{ range . }}
+<tr><td style="padding:6px 0;">
+  <a href="{{ .Permalink }}" style="display:block;padding:16px 18px;background:#FFFFFF;border-radius:14px;text-decoration:none;color:{{ $tinta }};">
+    <span style="display:block;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:{{ $terra }};">{{ .CurrentSection.Title }}</span>
+    <span style="display:block;margin:4px 0;font-size:19px;font-weight:bold;line-height:1.25;">{{ .Title }}</span>
+    <span style="display:block;font-family:Arial,sans-serif;font-size:15px;line-height:1.45;color:{{ $gris }};">{{ .Description }}</span>
+  </a>
+</td></tr>
+{{ end }}
+{{ end }}
+{{ with $destacada }}
+<tr><td style="padding:28px 8px 8px;font-size:22px;font-weight:bold;">Herramienta del mes</td></tr>
+<tr><td style="padding:6px 0;">
+  <a href="{{ .Permalink }}" style="display:block;padding:16px 18px;background:{{ $oliva }};border-radius:14px;text-decoration:none;color:#FFFFFF;">
+    <span style="display:block;font-size:19px;font-weight:bold;line-height:1.25;">{{ .Title }}</span>
+    <span style="display:block;margin-top:4px;font-family:Arial,sans-serif;font-size:15px;line-height:1.45;color:#E4E7D2;">{{ .Description }}</span>
+  </a>
+</td></tr>
+{{ end }}
+<tr><td style="padding:28px 8px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:{{ $gris }};">
+  Recibes este correo porque te suscribiste al boletín de <a href="{{ site.Home.Permalink }}" style="color:{{ $gris }};">Mil Oficios</a>. Puedes <a href="{$unsubscribe}" style="color:{{ $gris }};">darte de baja</a> cuando quieras.
+</td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+name: Boletín
+
+on:
+  schedule:
+    - cron: "17 7 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  borrador:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          wget -qO hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.168.0/hugo_extended_0.168.0_linux-amd64.deb
+          sudo dpkg -i hugo.deb
+      - run: hugo --baseURL "https://miloficios.es/" -d boletin-build
+      - run: python3 scripts/boletin.py boletin-build/boletin-correo/index.html
+        env:
+          SENDER_TOKEN: ${{ secrets.SENDER_TOKEN }}

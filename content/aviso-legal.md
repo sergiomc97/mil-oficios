@@ -7,7 +7,7 @@ En cumplimiento de la Ley 34/2002, de servicios de la sociedad de la informació
 
 - **Titular:** [NOMBRE Y APELLIDOS]
 - **NIF:** [NIF]
-- **Correo de contacto:** [CORREO]
+- **Correo de contacto:** hola@miloficios.es
 
 ## Uso del sitio
 

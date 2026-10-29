@@ -42,6 +42,8 @@
 </section>
 {{ end }}
 
+{{ partial "boletin.html" . }}
+
 {{ with site.GetPage "/herramientas" }}{{ with where .RegularPages "Params.herramienta" "ne" "mes" }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Herramientas</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Ver todas →</a></div>

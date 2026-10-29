@@ -1,0 +1,9 @@
+{{ with site.Params.boletin }}
+<section class="boletin">
+  <h2>Un correo al mes</h2>
+  <p>Las tareas del mes en el jardín y en casa, lo nuevo de la web y una herramienta útil. Nada más, y te das de baja cuando quieras.</p>
+  <div class="sender-form-field" data-sender-form-id="{{ . }}"></div>
+  <p class="meta">Al suscribirte aceptas la <a href="{{ "privacidad/" | relURL }}">política de privacidad</a>.</p>
+</section>
+<script src="https://cdn.sender.net/accounts_resources/universal.js" async></script>
+{{ end }}
