@@ -658,7 +658,7 @@ a.etiqueta { text-decoration: none; }
 }
 
 .zona-todo, .fondo {
-  --vidrio: rgba(255, 255, 255, .3);
+  --vidrio: rgba(255, 255, 255, .58);
   --vidrio-luz: rgba(255, 255, 255, .7);
   --vidrio-reflejo: rgba(255, 255, 255, .32);
   --vidrio-sombra: 0 10px 28px rgba(43, 36, 28, .14);
@@ -698,7 +698,7 @@ body::after {
   position: relative;
   overflow: hidden;
   border-radius: 22px;
-  background: color-mix(in srgb, var(--c) 30%, var(--vidrio));
+  background: color-mix(in srgb, var(--c) 14%, var(--vidrio));
   box-shadow:
     inset 0 1px 1px var(--vidrio-luz),
     inset 0 -14px 24px -18px var(--vidrio-luz),
@@ -730,7 +730,14 @@ body::after {
 .destacado > *, .baldosa > *, .truco > * { position: relative; z-index: 2; }
 .destacado::before, .baldosa::before, .truco::before { z-index: 3; }
 .destacado img, .baldosa img { border-radius: 0; }
-.destacado-desc, .baldosa .meta { color: color-mix(in srgb, var(--tinta) 78%, transparent); }
+.destacado-desc, .baldosa .meta { color: color-mix(in srgb, var(--tinta) 86%, transparent); font-weight: 500; }
+.destacado .etiqueta, .baldosa .etiqueta {
+  align-self: flex-start;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--cf, var(--c));
+  color: var(--ct, var(--papel));
+}
 .destacado-texto { padding: 0 18px 18px; }
 
 @media (min-width: 900px) {
@@ -739,7 +746,7 @@ body::after {
 
 @media (prefers-color-scheme: dark) {
   .zona-todo, .fondo {
-    --vidrio: rgba(43, 38, 32, .4);
+    --vidrio: rgba(38, 34, 29, .66);
     --vidrio-luz: rgba(255, 255, 255, .22);
     --vidrio-reflejo: rgba(255, 255, 255, .1);
     --vidrio-sombra: 0 10px 30px rgba(0, 0, 0, .35);
