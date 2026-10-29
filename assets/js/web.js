@@ -75,12 +75,12 @@
           const r = await fetch(`https://stats.sender.net/forms/${form.dataset.form}/subscribe`, {
             method: "POST",
             headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ email: form.email.value.trim(), url: location.href })
+            body: JSON.stringify({ email: form.email.value.trim(), site_visit: true, url: location.href })
           });
           if (!r.ok) throw new Error(r.status);
           form.querySelector(".boletin-fila").remove();
           form.querySelector(".boletin-ok").remove();
-          estado.textContent = "¡Listo! Revisa tu correo y pulsa el enlace para confirmar la suscripción.";
+          estado.textContent = "¡Listo! Ya estás suscrito. El próximo boletín te llegará a principios de mes.";
         } catch {
           enviar.disabled = false;
           estado.textContent = "";

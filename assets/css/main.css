@@ -858,6 +858,7 @@ body::after {
 .boletin .boton:hover { background: var(--claro); color: var(--tinta); }
 .articulo ~ .contenedor .boletin { max-width: 720px; margin-left: auto; margin-right: auto; }
 .boletin-form { display: grid; gap: 12px; }
+.boletin-form[hidden] { display: none; }
 .boletin-form:not([hidden]) + .boletin-alt { display: none; }
 .boletin-fila { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
 .boletin-fila input { min-width: 0; min-height: 46px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--papel); color: var(--tinta); font: 500 17px var(--sans); }
