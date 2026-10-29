@@ -4,13 +4,9 @@ on:
   schedule:
     - cron: "17 7 1 * *"
   workflow_dispatch:
-  push:
-    paths: [.github/workflows/boletin.yml]
 
 permissions:
   contents: read
-
-# prueba 4
 
 jobs:
   borrador:
@@ -24,4 +20,3 @@ jobs:
       - run: python3 scripts/boletin.py boletin-build/boletin-correo/index.html
         env:
           BREVO_KEY: ${{ secrets.SENDER_TOKEN }}
-          ENVIAR: ${{ github.event_name == 'push' && '1' || '0' }}
