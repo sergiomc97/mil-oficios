@@ -831,3 +831,6 @@ body::after {
 .herramienta-pag .cuerpo > h2:first-child { margin-top: 0; }
 .herramienta-pag .cuerpo > :last-child { margin-bottom: 0; }
 .herramienta-pag .usa-herramienta { background: var(--papel); }
+.plegable { display: grid; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--papel); }
+.plegable summary { font-weight: 600; cursor: pointer; }
+.entrada input[readonly] { background: transparent; border-style: dashed; }

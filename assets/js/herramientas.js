@@ -85,28 +85,43 @@
     },
     arqueo: {
       campos: [
-        { id: "fondo", label: "Fondo de caja al abrir", unidad: "€", valor: 0 },
-        { id: "ventas", label: "Ventas en efectivo según el TPV", unidad: "€", valor: 0 },
-        ...monedas.map((m, i) => ({
-          id: `m${m}`,
-          label: `${m >= 5 ? "Billetes" : "Monedas"} de ${eur(m).replace(",00", "")}`,
-          unidad: "uds.",
-          valor: 0,
-          grupo: i === 0 ? "Billetes" : m === 2 ? "Monedas" : undefined
-        }))
+        { id: "fondo", label: "Importe inicial", unidad: "€", valor: 0, grupo: "Apertura" },
+        { id: "ventasEf", label: "Ventas en efectivo", unidad: "€", valor: 0, grupo: "Según el TPV" },
+        { id: "ventasTj", label: "Ventas con tarjeta", unidad: "€", valor: 0 },
+        { id: "salidas", label: "Pagos y retiradas de caja", unidad: "€", valor: 0 },
+        { id: "efectivo", label: "Efectivo contado", unidad: "€", valor: 0, grupo: "Contado" },
+        { id: "tarjeta", label: "Total del datáfono", unidad: "€", valor: 0 },
+        { id: "dejar", label: "Fondo que dejas", unidad: "€", valor: 0, grupo: "Cierre" },
+        ...monedas.map(m => ({ id: `m${m}`, label: eur(m).replace(",00", ""), unidad: "uds.", valor: 0, plegado: "Contar billetes y monedas" }))
       ],
+      cambio: (v, controles) => {
+        const suma = monedas.reduce((s, m) => s + m * v[`m${m}`], 0);
+        controles.efectivo.readOnly = suma > 0;
+        if (suma > 0) {
+          controles.efectivo.value = dec(suma, 2);
+          v.efectivo = suma;
+        }
+      },
       calcular: v => {
-        const total = monedas.reduce((s, m) => s + m * v[`m${m}`], 0);
-        const esperado = v.fondo + v.ventas;
-        const descuadre = Math.round((total - esperado) * 100) / 100;
-        const cabecera = !total ? ["Cuenta el efectivo", ""]
-          : descuadre === 0 ? ["La caja cuadra", "✓"]
-          : [descuadre > 0 ? "Sobran" : "Faltan", eur(Math.abs(descuadre))];
-        return [
-          cabecera,
-          ["Debería haber", eur(esperado)],
-          ["Has contado", eur(total)]
+        const r = n => Math.round(n * 100) / 100;
+        const esperado = v.fondo + v.ventasEf - v.salidas;
+        const difEf = r(v.efectivo - esperado);
+        const difTj = r(v.tarjeta - v.ventasTj);
+        const total = r(difEf + difTj);
+        const texto = d => d === 0 ? "Cuadra" : `${d > 0 ? "Sobran" : "Faltan"} ${eur(Math.abs(d))}`;
+        const filas = [
+          !v.efectivo && !v.tarjeta ? ["Pon lo contado", ""]
+            : total === 0 && difEf !== 0 ? ["Cuadra en total", ""]
+            : total === 0 ? ["La caja cuadra", "✓"]
+            : [total > 0 ? "Sobran" : "Faltan", eur(Math.abs(total))],
+          ["Efectivo esperado", eur(esperado)],
+          ["Efectivo", texto(difEf)]
         ];
+        if (v.ventasTj || v.tarjeta) filas.push(["Tarjeta", texto(difTj)]);
+        if (total === 0 && difEf !== 0) filas.push(["Cobro mal marcado", eur(Math.abs(difEf))]);
+        filas.push(["A retirar de la caja", eur(Math.max(0, v.efectivo - v.dejar))]);
+        if (v.dejar > v.efectivo) filas.push(["No llega para el fondo", eur(v.dejar - v.efectivo)]);
+        return filas;
       }
     }
   };
@@ -117,8 +132,19 @@
     try { guardado = JSON.parse(localStorage.getItem(clave)) || {}; } catch {}
     const form = crear("form", "campos");
     const controles = {};
+    const plegables = {};
     for (const c of def.campos) {
-      if (c.grupo) form.append(crear("p", "grupo", c.grupo));
+      let destino = form;
+      if (c.plegado) {
+        if (!plegables[c.plegado]) {
+          const d = crear("details", "plegable");
+          d.append(crear("summary", "", c.plegado));
+          form.append(d);
+          plegables[c.plegado] = d;
+        }
+        destino = plegables[c.plegado];
+      }
+      if (c.grupo) destino.append(crear("p", "grupo", c.grupo));
       const campo = crear("label", "campo");
       campo.append(crear("span", "", c.label));
       let control;
@@ -136,13 +162,14 @@
       entrada.append(control);
       entrada.append(crear("span", "unidad", c.unidad || ""));
       campo.append(entrada);
-      form.append(campo);
+      destino.append(campo);
     }
     const resultado = crear("dl", "resultado");
     resultado.setAttribute("aria-live", "polite");
     const calcular = () => {
       const v = {};
       for (const id in controles) v[id] = num(controles[id].value);
+      def.cambio?.(v, controles);
       const filas = def.calcular(v);
       resultado.replaceChildren();
       if (!filas) { resultado.append(crear("dt", "", "Revisa los datos")); return; }
