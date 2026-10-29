@@ -859,3 +859,5 @@ body::after {
 .boletin .boton { background: var(--papel); color: var(--tinta); }
 .boletin .boton:hover { background: var(--claro); color: var(--tinta); }
 .articulo ~ .contenedor .boletin { max-width: 720px; margin-left: auto; margin-right: auto; }
+.sender-form-field:not(:empty) + .boletin-alt { display: none; }
+.boletin .sender-form-field { color: var(--tinta); }
