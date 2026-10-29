@@ -594,7 +594,7 @@ a.etiqueta { text-decoration: none; }
 }
 
 .zona-todo, .fondo {
-  --vidrio: rgba(255, 255, 255, .22);
+  --vidrio: rgba(255, 255, 255, .3);
   --vidrio-luz: rgba(255, 255, 255, .7);
   --vidrio-reflejo: rgba(255, 255, 255, .32);
   --vidrio-sombra: 0 10px 28px rgba(43, 36, 28, .14);
@@ -609,10 +609,10 @@ a.etiqueta { text-decoration: none; }
   --m4: rgba(47, 82, 102, .55);
 }
 .fondo {
-  --mancha: .5;
-  --m1: color-mix(in srgb, var(--c) 55%, transparent);
-  --m2: var(--m1);
-  --m3: var(--m1);
+  --mancha: .9;
+  --m1: color-mix(in srgb, var(--c) 60%, transparent);
+  --m2: color-mix(in srgb, var(--c) 40%, transparent);
+  --m3: var(--m2);
   --m4: var(--m1);
 }
 .fondo.lectura { --mancha: .3; }
@@ -669,7 +669,10 @@ body::after {
   background: linear-gradient(155deg, var(--vidrio-reflejo), transparent 32%);
   pointer-events: none;
 }
+.destacado > *, .baldosa > *, .truco > * { position: relative; z-index: 2; }
+.destacado::before, .baldosa::before, .truco::before { z-index: 3; }
 .destacado img, .baldosa img { border-radius: 0; }
+.destacado-desc, .baldosa .meta { color: color-mix(in srgb, var(--tinta) 78%, transparent); }
 .destacado-texto { padding: 0 18px 18px; }
 
 @media (min-width: 900px) {
@@ -685,7 +688,7 @@ body::after {
     --cabecera: rgba(27, 24, 20, .72);
   }
   .zona-todo { --mancha: .7; }
-  .fondo { --mancha: .35; }
+  .fondo { --mancha: .65; }
   .fondo.lectura { --mancha: .2; }
 }
 
