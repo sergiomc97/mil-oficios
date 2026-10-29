@@ -592,11 +592,11 @@ a.etiqueta { text-decoration: none; }
 }
 
 .zona-todo {
-  --vidrio: rgba(255, 255, 255, .45);
-  --vidrio-borde: rgba(255, 255, 255, .75);
-  --vidrio-brillo: rgba(255, 255, 255, .9);
-  --vidrio-sombra: 0 10px 30px rgba(43, 36, 28, .14);
-  --vidrio-filtro: blur(20px) saturate(1.7);
+  --vidrio: rgba(255, 255, 255, .18);
+  --vidrio-borde: rgba(255, 255, 255, .35);
+  --vidrio-brillo: rgba(255, 255, 255, .45);
+  --vidrio-sombra: 0 8px 24px rgba(43, 36, 28, .12);
+  --vidrio-filtro: blur(24px) saturate(2);
 }
 .zona-todo::after {
   content: "";
@@ -605,10 +605,10 @@ a.etiqueta { text-decoration: none; }
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(45% 35% at 8% 12%, rgba(163, 67, 31, .38), transparent 70%),
-    radial-gradient(40% 35% at 95% 30%, rgba(76, 90, 42, .36), transparent 70%),
-    radial-gradient(45% 35% at 5% 72%, rgba(124, 82, 38, .32), transparent 70%),
-    radial-gradient(45% 35% at 92% 88%, rgba(47, 82, 102, .34), transparent 70%);
+    radial-gradient(45% 35% at 8% 12%, rgba(163, 67, 31, .6), transparent 70%),
+    radial-gradient(40% 35% at 95% 30%, rgba(76, 90, 42, .58), transparent 70%),
+    radial-gradient(45% 35% at 5% 72%, rgba(124, 82, 38, .55), transparent 70%),
+    radial-gradient(45% 35% at 92% 88%, rgba(47, 82, 102, .55), transparent 70%);
 }
 .zona-todo .cabecera { border-bottom-color: transparent; }
 .zona-todo .destacado,
@@ -621,23 +621,21 @@ a.etiqueta { text-decoration: none; }
   box-shadow: inset 0 1px 0 var(--vidrio-brillo), var(--vidrio-sombra);
 }
 .zona-todo .destacado,
-.zona-todo .baldosa { padding: 6px; background: color-mix(in srgb, var(--c) 10%, var(--vidrio)); }
+.zona-todo .baldosa { overflow: hidden; background: color-mix(in srgb, var(--c) 30%, var(--vidrio)); }
 .zona-todo .destacado img,
-.zona-todo .baldosa img { border-radius: 16px; }
-.zona-todo .destacado-texto { padding: 6px 12px 14px; }
-.zona-todo .baldosa-texto { padding: 10px 8px 8px; }
+.zona-todo .baldosa img { border-radius: 0; }
+.zona-todo .destacado-texto { padding: 0 18px 18px; }
 .zona-todo .truco { background: color-mix(in srgb, var(--c) 78%, transparent); border-color: rgba(255, 255, 255, .3); }
 
 @media (min-width: 900px) {
-  .zona-todo .destacado { padding: 12px; }
-  .zona-todo .destacado-texto { padding: 16px 28px 16px 0; }
+  .zona-todo .destacado-texto { padding: 24px 28px 24px 0; }
 }
 
 @media (prefers-color-scheme: dark) {
   .zona-todo {
-    --vidrio: rgba(43, 38, 32, .5);
-    --vidrio-borde: rgba(255, 255, 255, .12);
-    --vidrio-brillo: rgba(255, 255, 255, .18);
+    --vidrio: rgba(43, 38, 32, .3);
+    --vidrio-borde: rgba(255, 255, 255, .1);
+    --vidrio-brillo: rgba(255, 255, 255, .14);
     --vidrio-sombra: 0 10px 30px rgba(0, 0, 0, .35);
   }
   .zona-todo::after { opacity: .7; }
