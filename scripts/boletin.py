@@ -10,6 +10,11 @@ LISTA = os.environ.get("BREVO_LISTA", "Boletín")
 REMITENTE = {"name": "Mil Oficios", "email": "hola@miloficios.es"}
 
 
+def fallo(mensaje):
+    print(f"::error::{mensaje}")
+    sys.exit(1)
+
+
 def llamar(ruta, datos=None):
     peticion = urllib.request.Request(
         f"{API}/{ruta}",
@@ -22,7 +27,7 @@ def llamar(ruta, datos=None):
             cuerpo = r.read()
             return json.loads(cuerpo) if cuerpo else {}
     except urllib.error.HTTPError as e:
-        sys.exit(f"Brevo respondió {e.code}: {e.read().decode()}")
+        fallo(f"Brevo respondió {e.code} en {ruta}: {e.read().decode()[:300]}")
 
 
 html = open(sys.argv[1], encoding="utf-8").read()
@@ -30,7 +35,7 @@ mes = re.search(r"<title>(\w+) en Mil Oficios", html).group(1).lower()
 
 listas = [l["id"] for l in llamar("contacts/lists?limit=50")["lists"] if l["name"].strip().lower() == LISTA.lower()]
 if not listas:
-    sys.exit(f"No existe la lista «{LISTA}» en Brevo")
+    fallo(f"No existe la lista «{LISTA}» en Brevo")
 
 campana = llamar("emailCampaigns", {
     "name": f"Boletín de {mes}",
