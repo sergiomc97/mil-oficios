@@ -1,9 +1,15 @@
 {{ define "main" }}
-<div class="progreso" aria-hidden="true"></div>
-{{ if .Params.tiempo }}<a class="volver" href="{{ "/" | relURL }}">← Volver</a>{{ end }}
+{{ if .Params.tiempo }}
+<nav class="barra sec-{{ .Section }}" aria-label="Artículo">
+  <div class="contenedor barra-in">
+    <a class="barra-sec" href="{{ .CurrentSection.RelPermalink }}">← {{ .CurrentSection.Title }}</a>
+    <span class="barra-titulo">{{ .Title }}</span>
+  </div>
+  <span class="cinta" aria-hidden="true"></span>
+</nav>
+{{ end }}
 <article class="articulo sec-{{ .Section }}">
   <header class="cabeza">
-  {{ if .Params.tiempo }}<a class="etiqueta" href="{{ .CurrentSection.RelPermalink }}">{{ .CurrentSection.Title }}</a>{{ end }}
   <h1>{{ partial "titulo.html" .Title }}</h1>
   {{ with .Params.tiempo }}
   <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ if gt ($.Lastmod.Sub $.Date).Hours 24 }} · actualizado el {{ $.Lastmod | time.Format ":date_long" }}{{ end }}</span></p>
@@ -12,35 +18,38 @@
   {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ with $.Params.portada_credito }}<figcaption class="credito">{{ . }}</figcaption>{{ end }}</figure>{{ end }}
   </header>
 
-  {{ with .Params.resumen }}
-  <aside class="resumen">
-    <h2>Si solo tienes diez segundos</h2>
-    <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+  {{ if .Params.tiempo }}
+  <aside class="lateral">
+    {{ with .Params.resumen }}
+    <div class="resumen">
+      <h2>Si solo tienes diez segundos</h2>
+      <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+
+    {{ with .Params.error }}
+    <div class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></div>
+    {{ end }}
+
+    <button class="boton compartir" type="button" data-compartir hidden>Compartir</button>
+
+    {{ with .Params.productos }}
+    <section class="necesitas">
+      <h2>Lo que necesitas</h2>
+      <div class="carrusel">
+        {{ range . }}
+        <div class="producto">
+          <span class="tarjeta-titulo">{{ .nombre }}</span>
+          {{ with .url }}<a class="boton" href="{{ . }}" rel="sponsored nofollow noopener" target="_blank">Ver precio</a>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
   </aside>
   {{ end }}
 
   <div class="cuerpo">{{ .Content }}</div>
-
-
-  {{ with .Params.error }}
-  <aside class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></aside>
-  {{ end }}
-
-  {{ if .Params.tiempo }}<button class="boton compartir" type="button" data-compartir hidden>Compartir</button>{{ end }}
-
-  {{ with .Params.productos }}
-  <section class="necesitas">
-    <h2>Lo que necesitas</h2>
-    <div class="carrusel">
-      {{ range . }}
-      <div class="producto">
-        <span class="tarjeta-titulo">{{ .nombre }}</span>
-        {{ with .url }}<a class="boton" href="{{ . }}" rel="sponsored nofollow noopener" target="_blank">Ver precio</a>{{ end }}
-      </div>
-      {{ end }}
-    </div>
-  </section>
-  {{ end }}
 </article>
 
 {{ with .Params.tiempo }}

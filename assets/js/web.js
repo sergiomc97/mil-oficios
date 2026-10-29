@@ -47,13 +47,21 @@
       pintar();
     }
 
-    const volver = document.querySelector(".volver");
-    volver?.addEventListener("click", e => {
-      if (document.referrer.startsWith(location.origin) && history.length > 1) {
-        e.preventDefault();
-        history.back();
-      }
-    });
+    const barra = document.querySelector(".barra");
+    if (barra) {
+      const articulo = document.querySelector(".articulo");
+      new IntersectionObserver(([e]) => barra.classList.toggle("visible", !e.isIntersecting && e.boundingClientRect.top < 0))
+        .observe(articulo.querySelector("h1"));
+      let pendiente = false;
+      const medir = () => {
+        const r = articulo.getBoundingClientRect();
+        const avance = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - innerHeight)));
+        barra.style.setProperty("--avance", `${(avance * 100).toFixed(1)}%`);
+        pendiente = false;
+      };
+      addEventListener("scroll", () => { if (!pendiente) { pendiente = true; requestAnimationFrame(medir); } }, { passive: true });
+      medir();
+    }
 
     const boton = document.querySelector("[data-compartir]");
     if (boton && (navigator.share || navigator.clipboard)) {
