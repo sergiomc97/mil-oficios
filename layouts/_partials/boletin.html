@@ -2,16 +2,15 @@
 <section class="boletin">
   <h2>Un correo al mes</h2>
   <p>Las tareas del mes en el jardín y en casa, lo nuevo de la web y una herramienta útil. Nada más, y te das de baja cuando quieras.</p>
-  {{ with site.Params.boletin_form }}
-  <form class="boletin-form" data-form="{{ . }}" hidden>
+  <form class="boletin-form" method="post" action="{{ . }}">
     <div class="boletin-fila">
-      <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="Tu correo" aria-label="Tu correo">
+      <input type="email" name="EMAIL" required autocomplete="email" inputmode="email" placeholder="Tu correo" aria-label="Tu correo">
       <button class="boton" type="submit">Suscribirme</button>
     </div>
-    <label class="boletin-ok"><input type="checkbox" required> Acepto la <a href="{{ "privacidad/" | relURL }}">política de privacidad</a></label>
+    <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="boletin-trampa">
+    <input type="hidden" name="locale" value="es">
+    <label class="boletin-ok"><input type="checkbox" name="OPT_IN" value="1" required> Acepto la <a href="{{ "privacidad/" | relURL }}">política de privacidad</a></label>
     <p class="boletin-estado" aria-live="polite"></p>
   </form>
-  {{ end }}
-  <a class="boton boletin-alt" href="{{ . }}" target="_blank" rel="noopener">Suscribirme</a>
 </section>
 {{ end }}

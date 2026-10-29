@@ -64,7 +64,6 @@
     }
 
     for (const form of document.querySelectorAll(".boletin-form")) {
-      form.hidden = false;
       const estado = form.querySelector(".boletin-estado");
       const enviar = form.querySelector("button");
       form.addEventListener("submit", async e => {
@@ -72,19 +71,17 @@
         enviar.disabled = true;
         estado.textContent = "Enviando…";
         try {
-          const r = await fetch(`https://stats.sender.net/forms/${form.dataset.form}/subscribe`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({ email: form.email.value.trim(), site_visit: true, url: location.href })
-          });
-          if (!r.ok) throw new Error(r.status);
+          const r = await fetch(`${form.action}?isAjax=1`, { method: "POST", body: new FormData(form) });
+          const d = await r.json();
+          if (!r.ok || d.success === false) throw new Error(r.status);
           form.querySelector(".boletin-fila").remove();
           form.querySelector(".boletin-ok").remove();
-          estado.textContent = "¡Listo! Ya estás suscrito. El próximo boletín te llegará a principios de mes.";
+          estado.textContent = "¡Listo! Revisa tu correo y pulsa el enlace para confirmar la suscripción.";
         } catch {
+          form.target = "_blank";
+          HTMLFormElement.prototype.submit.call(form);
           enviar.disabled = false;
-          estado.textContent = "";
-          form.hidden = true;
+          estado.textContent = "Termina la suscripción en la pestaña que se ha abierto.";
         }
       });
     }

@@ -9,9 +9,9 @@ La web está alojada en GitHub Pages, que puede registrar datos técnicos de las
 
 ## Boletín
 
-Si te suscribes al boletín, se guarda tu correo electrónico para enviarte un correo al mes con las tareas del jardín y la casa y las novedades de la web. Lo haces con tu consentimiento, que das al marcar la casilla de la política de privacidad antes de suscribirte.
+Si te suscribes al boletín, se guarda tu correo electrónico para enviarte un correo al mes con las tareas del jardín y la casa y las novedades de la web. Lo haces con tu consentimiento, que das al marcar la casilla de la política de privacidad y confirmas con el enlace que te llega por correo.
 
-El boletín se gestiona con [Sender](https://www.sender.net/), que guarda los datos en la Unión Europea y actúa como encargado del tratamiento. Tu correo no se cede a nadie más ni se usa para otra cosa.
+El boletín se gestiona con [Brevo](https://www.brevo.com/es/), una empresa francesa que guarda los datos en la Unión Europea y actúa como encargado del tratamiento. Tu correo no se cede a nadie más ni se usa para otra cosa.
 
 Puedes darte de baja en cualquier momento con el enlace que aparece al final de cada boletín, o escribiendo a hola@miloficios.es. También puedes pedir acceder a tus datos, corregirlos o borrarlos. Si crees que no se han tratado bien, puedes reclamar ante la Agencia Española de Protección de Datos.
 

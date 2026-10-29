@@ -4,10 +4,10 @@ import re
 import sys
 import urllib.request
 
-API = "https://api.sender.net/v2"
-TOKEN = os.environ["SENDER_TOKEN"]
-GRUPO = os.environ.get("SENDER_GRUPO", "Boletín")
-REMITENTE = "hola@miloficios.es"
+API = "https://api.brevo.com/v3"
+CLAVE = os.environ["BREVO_KEY"]
+LISTA = os.environ.get("BREVO_LISTA", "Boletín")
+REMITENTE = {"name": "Mil Oficios", "email": "hola@miloficios.es"}
 
 
 def llamar(ruta, datos=None):
@@ -15,27 +15,29 @@ def llamar(ruta, datos=None):
         f"{API}/{ruta}",
         data=json.dumps(datos).encode() if datos is not None else None,
         method="POST" if datos is not None else "GET",
-        headers={"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json", "Accept": "application/json"},
+        headers={"api-key": CLAVE, "Content-Type": "application/json", "Accept": "application/json"},
     )
-    with urllib.request.urlopen(peticion) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(peticion) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        sys.exit(f"Brevo respondió {e.code}: {e.read().decode()}")
 
 
 html = open(sys.argv[1], encoding="utf-8").read()
-mes = re.search(r"<title>(\w+) en Mil Oficios", html).group(1)
+mes = re.search(r"<title>(\w+) en Mil Oficios", html).group(1).lower()
 
-grupos = [g["id"] for g in llamar("groups")["data"] if g["title"].strip().lower() == GRUPO.lower()]
-if not grupos:
-    sys.exit(f"No existe el grupo «{GRUPO}» en Sender")
+listas = [l["id"] for l in llamar("contacts/lists?limit=50")["lists"] if l["name"].strip().lower() == LISTA.lower()]
+if not listas:
+    sys.exit(f"No existe la lista «{LISTA}» en Brevo")
 
-campana = llamar("campaigns", {
-    "title": f"Boletín de {mes.lower()}",
-    "subject": f"Qué hacer en {mes.lower()} en el jardín y en casa",
-    "preheader": "Las tareas del mes, lo nuevo en la web y una herramienta útil.",
-    "from": "Mil Oficios",
-    "reply_to": REMITENTE,
-    "content_type": "html",
-    "content": html,
-    "groups": grupos,
+campana = llamar("emailCampaigns", {
+    "name": f"Boletín de {mes}",
+    "subject": f"Qué hacer en {mes} en el jardín y en casa",
+    "previewText": "Las tareas del mes, lo nuevo en la web y una herramienta útil.",
+    "sender": REMITENTE,
+    "replyTo": REMITENTE["email"],
+    "htmlContent": html,
+    "recipients": {"listIds": listas},
 })
-print("Borrador creado:", campana.get("data", {}).get("id"), campana.get("data", {}).get("status"))
+print("Borrador creado en Brevo:", campana.get("id"))

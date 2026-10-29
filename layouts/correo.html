@@ -47,7 +47,7 @@
 </td></tr>
 {{ end }}
 <tr><td style="padding:28px 8px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:{{ $gris }};">
-  Recibes este correo porque te suscribiste al boletín de <a href="{{ site.Home.Permalink }}" style="color:{{ $gris }};">Mil Oficios</a>. Puedes <a href="{$unsubscribe}" style="color:{{ $gris }};">darte de baja</a> cuando quieras.
+  Recibes este correo porque te suscribiste al boletín de <a href="{{ site.Home.Permalink }}" style="color:{{ $gris }};">Mil Oficios</a>. Puedes {{ printf `<a href="{{ unsubscribe }}" style="color:%s;">darte de baja</a>` $gris | safeHTML }} cuando quieras.
 </td></tr>
 </table>
 </td></tr>

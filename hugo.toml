@@ -7,8 +7,6 @@ disableKinds = ['taxonomy', 'term']
 
 [params]
   pinterest = 'd45c3311f3e0cf4b7c3ef7a26581107b'
-  boletin = 'https://stats.sender.net/forms/b2kLAA/view'
-  boletin_form = '155735'
   autor = 'Tito Garlopa'
   descripcion = 'Aprende a hacerlo tú mismo: jardín, arreglos en casa, restauración de muebles y tu negocio, paso a paso y sin rodeos.'
   mainSections = ['jardin', 'arreglos', 'restauracion', 'negocio']
