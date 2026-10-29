@@ -1,54 +1,88 @@
 {{ $hoy := now }}
 {{ $m := index hugo.Data.meses (sub (int ($hoy.Format "1")) 1) }}
-{{ $nuevos := first 5 (where (where site.RegularPages "Section" "in" site.Params.mainSections) "Date" "ge" ($hoy.AddDate 0 -1 0)) }}
+{{ $nuevos := first 4 (where (where site.RegularPages "Section" "in" site.Params.mainSections) "Date" "ge" ($hoy.AddDate 0 -1 0)) }}
 {{ $herr := where (site.GetPage "/herramientas").RegularPages "Params.herramienta" "ne" "mes" }}
 {{ $destacada := index $herr (mod (int ($hoy.Format "1")) (len $herr)) }}
-{{ $tinta := "#2B241C" }}{{ $gris := "#685E50" }}{{ $papel := "#F6F0E4" }}{{ $terra := "#A3431F" }}{{ $oliva := "#4C5A2A" }}
+{{ $c := dict "jardin" (slice "#4C5A2A" "#E4E7D2") "arreglos" (slice "#A3431F" "#F5DFD2") "restauracion" (slice "#7C5226" "#EBDCC6") "negocio" (slice "#2F5266" "#DCE5EA") }}
+{{ $tinta := "#2B241C" }}{{ $gris := "#685E50" }}{{ $papel := "#F6F0E4" }}{{ $papel2 := "#ECE3D1" }}{{ $terra := "#A3431F" }}
+{{ $serif := "Georgia,Times New Roman,serif" }}{{ $sans := "-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" }}
 <!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
 <title>{{ $m.mes }} en Mil Oficios</title>
 </head>
-<body style="margin:0;padding:0;background:{{ $papel }};">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ $papel }};">
-<tr><td align="center" style="padding:24px 12px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;font-family:Georgia,'Times New Roman',serif;color:{{ $tinta }};">
-<tr><td style="padding:0 8px 20px;font-size:28px;font-weight:bold;">Mil <i style="color:{{ $terra }};">Oficios</i></td></tr>
-<tr><td style="padding:24px;background:#FFFFFF;border-radius:14px;">
-  <h1 style="margin:0 0 6px;font-size:26px;line-height:1.2;">Qué hacer en {{ lower $m.mes }}</h1>
-  <p style="margin:0 0 18px;font-family:Arial,sans-serif;font-size:15px;color:{{ $gris }};">Las tareas del mes en el jardín y en casa, para un clima de interior con heladas.</p>
-  <p style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:{{ $oliva }};text-transform:uppercase;letter-spacing:1px;">Jardín</p>
-  <ul style="margin:0 0 16px;padding-left:20px;font-family:Arial,sans-serif;font-size:16px;line-height:1.5;">{{ range $m.jardin }}<li style="margin-bottom:6px;">{{ . }}</li>{{ end }}</ul>
-  <p style="margin:0 0 6px;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:{{ $terra }};text-transform:uppercase;letter-spacing:1px;">Casa</p>
-  <ul style="margin:0;padding-left:20px;font-family:Arial,sans-serif;font-size:16px;line-height:1.5;">{{ range $m.casa }}<li style="margin-bottom:6px;">{{ . }}</li>{{ end }}</ul>
+<body style="margin:0;padding:0;background:{{ $papel2 }};">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ $papel2 }};">
+<tr><td align="center" style="padding:20px 10px 32px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;color:{{ $tinta }};">
+
+<tr><td style="padding:28px 28px 26px;background:{{ $tinta }};border-radius:20px 20px 0 0;">
+  <a href="{{ site.Home.Permalink }}" style="text-decoration:none;font-family:{{ $serif }};font-size:30px;font-weight:bold;color:{{ $papel }};">Mil <i style="color:#E8916A;">Oficios</i></a>
+  <p style="margin:6px 0 0;font-family:{{ $sans }};font-size:14px;color:#CFC5B4;">Boletín de {{ lower $m.mes }} · Hazlo tú mismo</p>
 </td></tr>
+<tr><td style="height:8px;line-height:8px;font-size:0;background:{{ $terra }};">&nbsp;</td></tr>
+
+<tr><td style="padding:28px 24px 8px;background:{{ $papel }};">
+  <h1 style="margin:0;font-family:{{ $serif }};font-size:30px;line-height:1.15;">Qué hacer en <i style="color:{{ $terra }};">{{ lower $m.mes }}</i></h1>
+  <p style="margin:8px 0 0;font-family:{{ $sans }};font-size:15px;line-height:1.5;color:{{ $gris }};">Las tareas del mes en el jardín y en casa, para un clima de interior con heladas.</p>
+</td></tr>
+{{ range slice (slice "Jardín" $m.jardin "jardin") (slice "Casa" $m.casa "arreglos") }}
+{{ $col := index $c (index . 2) }}
+<tr><td style="padding:14px 24px 0;background:{{ $papel }};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ index $col 1 }};border-radius:16px;">
+  <tr><td style="padding:18px 20px;">
+    <span style="display:inline-block;padding:3px 12px;border-radius:999px;background:{{ index $col 0 }};color:{{ $papel }};font-family:{{ $sans }};font-size:13px;font-weight:bold;">{{ index . 0 }}</span>
+    <ul style="margin:12px 0 0;padding-left:20px;font-family:{{ $sans }};font-size:16px;line-height:1.5;color:{{ $tinta }};">{{ range index . 1 }}<li style="margin-bottom:6px;">{{ . }}</li>{{ end }}</ul>
+  </td></tr>
+  </table>
+</td></tr>
+{{ end }}
+<tr><td style="padding:0 0 28px;background:{{ $papel }};"></td></tr>
+
 {{ with $nuevos }}
-<tr><td style="padding:28px 8px 8px;font-size:22px;font-weight:bold;">Lo nuevo en la web</td></tr>
+<tr><td style="padding:28px 24px 6px;background:{{ $papel }};border-top:1px solid #DCD1BE;">
+  <h2 style="margin:0;font-family:{{ $serif }};font-size:24px;">Lo nuevo en la web</h2>
+</td></tr>
 {{ range . }}
-<tr><td style="padding:6px 0;">
-  <a href="{{ .Permalink }}" style="display:block;padding:16px 18px;background:#FFFFFF;border-radius:14px;text-decoration:none;color:{{ $tinta }};">
-    <span style="display:block;font-family:Arial,sans-serif;font-size:13px;font-weight:bold;color:{{ $terra }};">{{ .CurrentSection.Title }}</span>
-    <span style="display:block;margin:4px 0;font-size:19px;font-weight:bold;line-height:1.25;">{{ .Title }}</span>
-    <span style="display:block;font-family:Arial,sans-serif;font-size:15px;line-height:1.45;color:{{ $gris }};">{{ .Description }}</span>
+{{ $col := index $c .Section }}
+<tr><td style="padding:14px 24px 0;background:{{ $papel }};">
+  <a href="{{ .Permalink }}" style="display:block;text-decoration:none;color:{{ $tinta }};background:#FFFFFF;border-radius:16px;overflow:hidden;">
+    {{ with .Params.portada }}{{ with resources.Get . }}{{ with .Fill "1104x520 jpg q78 Smart" }}<img src="{{ .Permalink }}" width="552" alt="" style="display:block;width:100%;height:auto;border:0;border-radius:16px 16px 0 0;">{{ end }}{{ end }}{{ end }}
+    <span style="display:block;padding:16px 18px 18px;border-left:5px solid {{ index $col 0 }};">
+      <span style="display:inline-block;padding:2px 10px;border-radius:999px;background:{{ index $col 0 }};color:{{ $papel }};font-family:{{ $sans }};font-size:12px;font-weight:bold;">{{ .CurrentSection.Title }}</span>
+      <span style="display:block;margin:8px 0 6px;font-family:{{ $serif }};font-size:20px;font-weight:bold;line-height:1.25;">{{ .Title }}</span>
+      <span style="display:block;font-family:{{ $sans }};font-size:15px;line-height:1.45;color:{{ $gris }};">{{ .Description }}</span>
+      <span style="display:block;margin-top:10px;font-family:{{ $sans }};font-size:14px;font-weight:bold;color:{{ index $col 0 }};">Leer el artículo →</span>
+    </span>
   </a>
 </td></tr>
 {{ end }}
+<tr><td style="padding:0 0 28px;background:{{ $papel }};"></td></tr>
 {{ end }}
+
 {{ with $destacada }}
-<tr><td style="padding:28px 8px 8px;font-size:22px;font-weight:bold;">Herramienta del mes</td></tr>
-<tr><td style="padding:6px 0;">
-  <a href="{{ .Permalink }}" style="display:block;padding:16px 18px;background:{{ $oliva }};border-radius:14px;text-decoration:none;color:#FFFFFF;">
-    <span style="display:block;font-size:19px;font-weight:bold;line-height:1.25;">{{ .Title }}</span>
-    <span style="display:block;margin-top:4px;font-family:Arial,sans-serif;font-size:15px;line-height:1.45;color:#E4E7D2;">{{ .Description }}</span>
-  </a>
+{{ $col := index $c .Params.seccion }}
+<tr><td style="padding:28px 24px;background:{{ index $col 0 }};">
+  <p style="margin:0 0 8px;font-family:{{ $sans }};font-size:13px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:{{ index $col 1 }};">Herramienta del mes</p>
+  <p style="margin:0 0 8px;font-family:{{ $serif }};font-size:23px;font-weight:bold;line-height:1.2;color:#FFFFFF;">{{ .Title }}</p>
+  <p style="margin:0 0 18px;font-family:{{ $sans }};font-size:15px;line-height:1.45;color:{{ index $col 1 }};">{{ .Description }}</p>
+  <a href="{{ .Permalink }}" style="display:inline-block;padding:12px 22px;border-radius:10px;background:{{ $papel }};color:{{ $tinta }};font-family:{{ $sans }};font-size:15px;font-weight:bold;text-decoration:none;">Abrir la herramienta</a>
 </td></tr>
 {{ end }}
-<tr><td style="padding:28px 8px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:{{ $gris }};">
-  Recibes este correo porque te suscribiste al boletín de <a href="{{ site.Home.Permalink }}" style="color:{{ $gris }};">Mil Oficios</a>. Puedes {{ printf `<a href="{{ unsubscribe }}" style="color:%s;">darte de baja</a>` $gris | safeHTML }} cuando quieras.
+
+<tr><td align="center" style="padding:28px 24px;background:{{ $papel }};">
+  <a href="{{ site.Home.Permalink }}" style="display:inline-block;padding:13px 26px;border-radius:10px;background:{{ $terra }};color:#FFFFFF;font-family:{{ $sans }};font-size:15px;font-weight:bold;text-decoration:none;">Ir a Mil Oficios</a>
 </td></tr>
+
+<tr><td style="padding:22px 28px 26px;background:{{ $tinta }};border-radius:0 0 20px 20px;font-family:{{ $sans }};font-size:13px;line-height:1.55;color:#CFC5B4;">
+  <span style="font-family:{{ $serif }};font-size:18px;font-weight:bold;color:{{ $papel }};">Mil <i style="color:#E8916A;">Oficios</i></span><br>
+  Recibes este correo porque te suscribiste al boletín de Mil Oficios. Puedes {{ printf `<a href="{{ unsubscribe }}" style="color:%s;">darte de baja</a>` $papel | safeHTML }} cuando quieras.
+</td></tr>
+
 </table>
 </td></tr>
 </table>
