@@ -63,6 +63,32 @@
       medir();
     }
 
+    for (const form of document.querySelectorAll(".boletin-form")) {
+      form.hidden = false;
+      const estado = form.querySelector(".boletin-estado");
+      const enviar = form.querySelector("button");
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+        enviar.disabled = true;
+        estado.textContent = "Enviando…";
+        try {
+          const r = await fetch(`https://stats.sender.net/forms/${form.dataset.form}/subscribe`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({ email: form.email.value.trim(), url: location.href })
+          });
+          if (!r.ok) throw new Error(r.status);
+          form.querySelector(".boletin-fila").remove();
+          form.querySelector(".boletin-ok").remove();
+          estado.textContent = "¡Listo! Revisa tu correo y pulsa el enlace para confirmar la suscripción.";
+        } catch {
+          enviar.disabled = false;
+          estado.textContent = "";
+          form.hidden = true;
+        }
+      });
+    }
+
     const boton = document.querySelector("[data-compartir]");
     if (boton && (navigator.share || navigator.clipboard)) {
       boton.hidden = false;
