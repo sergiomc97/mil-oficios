@@ -517,3 +517,60 @@ a.etiqueta { text-decoration: none; }
   .pie-in { grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-top: 44px; padding-bottom: 44px; }
   .pie-col a { padding: 5px 0; }
 }
+
+.zona-negocio {
+  --papel: #EEF1F3;
+  --papel-2: #DFE4E8;
+  --claro: #FFFFFF;
+  --tinta: #1A2128;
+  --gris: #5A6670;
+  --linea: #CBD3D9;
+  --oliva: #2F5266;
+  --oliva-s: #DCE5EA;
+  --terra: #2F5266;
+  --terra-s: #DCE5EA;
+  --madera: #2F5266;
+  --madera-s: #DCE5EA;
+  --hover: #1E3A4A;
+  --texto-paso: #3D4851;
+  --regla: #9AA8B2;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+.zona-negocio::before { display: none; }
+.zona-negocio .cabecera { background: var(--pizarra); border: 0; }
+.zona-negocio .cabecera, .zona-negocio .logo, .zona-negocio .logo-nombre em { color: #FFFFFF; }
+.zona-negocio .logo-lema { color: #C9D6DE; }
+.zona-negocio .secciones a { background: rgba(255, 255, 255, .12); color: #FFFFFF; border-color: transparent; }
+.zona-negocio .secciones a[aria-current] { background: #FFFFFF; color: var(--pizarra); }
+.zona-negocio .etiqueta, .zona-negocio .chip, .zona-negocio .sello, .zona-negocio .meta, .zona-negocio .autor, .zona-negocio .resumen h2 { font-family: var(--mono); letter-spacing: .3px; }
+.zona-negocio .pasos li::before { font-family: var(--mono); border-radius: 6px; }
+.zona-negocio .resumen {
+  background: #FFFFFF;
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(26, 33, 40, .12);
+  padding-bottom: 26px;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
+}
+.zona-negocio .resumen h2 { padding-bottom: 8px; border-bottom: 2px dashed var(--linea); text-transform: uppercase; }
+
+@media (prefers-color-scheme: dark) {
+  .zona-negocio {
+    --papel: #12171C;
+    --papel-2: #1B2229;
+    --claro: #202932;
+    --tinta: #E3E9EE;
+    --gris: #9BA8B3;
+    --linea: #2E3943;
+    --oliva: #8FB3C7;
+    --oliva-s: #1F2A31;
+    --terra: #8FB3C7;
+    --terra-s: #1F2A31;
+    --madera: #8FB3C7;
+    --madera-s: #1F2A31;
+    --hover: #B5CEDB;
+    --texto-paso: var(--gris);
+  }
+  .zona-negocio .cabecera { background: #1F3442; }
+  .zona-negocio .resumen { background: var(--claro); }
+}

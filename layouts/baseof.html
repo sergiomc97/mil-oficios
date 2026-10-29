@@ -45,7 +45,7 @@
 {{ with resources.Get "js/web.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>{{ end }}
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
 </head>
-<body>
+<body{{ if eq .Section "negocio" }} class="zona-negocio"{{ end }}>
 <header class="cabecera">
   <div class="contenedor cabecera-in">
     <a class="logo" href="{{ "/" | relURL }}"><span class="logo-nombre">Mil <em>Oficios</em></span><span class="logo-lema">Hazlo tú mismo, sin rodeos</span></a>
