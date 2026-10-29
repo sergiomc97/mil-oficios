@@ -271,9 +271,9 @@ a.etiqueta { text-decoration: none; }
   mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
 }
 .sec-jardin .seccion-titulo {
-  padding-bottom: 34px;
-  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat, radial-gradient(10px at 50% 0, #000 98%, #0000) bottom / 20px 10px repeat-x;
-  mask: linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat, radial-gradient(10px at 50% 0, #000 98%, #0000) bottom / 20px 10px repeat-x;
+  padding-bottom: 38px;
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 18px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='18'%3E%3Cpath d='M0 0H60V18H57L55 5 51 18H45L40 2 39 18H32L30 8 26 18H19L15 0 15 18H9L6 7 3 18H0Z'/%3E%3C/svg%3E") bottom / 60px 18px repeat-x;
+  mask: linear-gradient(#000 0 0) top / 100% calc(100% - 18px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='18'%3E%3Cpath d='M0 0H60V18H57L55 5 51 18H45L40 2 39 18H32L30 8 26 18H19L15 0 15 18H9L6 7 3 18H0Z'/%3E%3C/svg%3E") bottom / 60px 18px repeat-x;
 }
 .sec-arreglos .seccion-titulo {
   border-radius: var(--radio);
