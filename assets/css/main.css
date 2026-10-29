@@ -537,11 +537,23 @@ a.etiqueta { text-decoration: none; }
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 .zona-negocio::before { display: none; }
-.zona-negocio .cabecera { background: var(--pizarra); border: 0; }
-.zona-negocio .cabecera, .zona-negocio .logo, .zona-negocio .logo-nombre em { color: #FFFFFF; }
-.zona-negocio .logo-lema { color: #C9D6DE; }
-.zona-negocio .secciones a { background: rgba(255, 255, 255, .12); color: #FFFFFF; border-color: transparent; }
-.zona-negocio .secciones a[aria-current] { background: #FFFFFF; color: var(--pizarra); }
+.zona-negocio .logo-nombre em, .zona-negocio .pie-logo em { color: #A3431F; }
+.zona-negocio .secciones a { --c: var(--sec); --cs: var(--sec-s); }
+.zona-negocio .secciones .todo { --sec: var(--tinta); --sec-s: var(--papel-2); }
+.zona-negocio .sec-jardin { --sec: #4C5A2A; --sec-s: #E4E7D2; }
+.zona-negocio .sec-arreglos { --sec: #A3431F; --sec-s: #F5DFD2; }
+.zona-negocio .sec-restauracion { --sec: #7C5226; --sec-s: #EBDCC6; }
+.zona-negocio .sec-negocio { --sec: var(--pizarra); --sec-s: var(--pizarra-s); }
+.zona-negocio .seccion-titulo {
+  margin-top: 8px;
+  padding: 18px 18px 30px;
+  background: var(--pizarra);
+  color: #FFFFFF;
+  -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
+  mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%;
+}
+.zona-negocio .seccion-titulo h1 { margin: 0; }
+.zona-negocio .seccion-titulo .entradilla { margin-bottom: 0; color: #DCE5EA; font-family: var(--mono); font-size: 15px; }
 .zona-negocio .etiqueta, .zona-negocio .chip, .zona-negocio .sello, .zona-negocio .meta, .zona-negocio .autor, .zona-negocio .resumen h2 { font-family: var(--mono); letter-spacing: .3px; }
 .zona-negocio .pasos li::before { font-family: var(--mono); border-radius: 6px; }
 .zona-negocio .resumen {
@@ -571,6 +583,10 @@ a.etiqueta { text-decoration: none; }
     --hover: #B5CEDB;
     --texto-paso: var(--gris);
   }
-  .zona-negocio .cabecera { background: #1F3442; }
+  .zona-negocio .seccion-titulo { background: #1F3442; }
+  .zona-negocio .sec-jardin { --sec: #A9B97C; --sec-s: #2B3021; }
+  .zona-negocio .sec-arreglos { --sec: #E8916A; --sec-s: #3A261D; }
+  .zona-negocio .sec-restauracion { --sec: #D4A574; --sec-s: #33281C; }
+  .zona-negocio .logo-nombre em, .zona-negocio .pie-logo em { color: #E8916A; }
   .zona-negocio .resumen { background: var(--claro); }
 }
