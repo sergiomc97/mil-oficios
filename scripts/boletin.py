@@ -19,7 +19,8 @@ def llamar(ruta, datos=None):
     )
     try:
         with urllib.request.urlopen(peticion) as r:
-            return json.load(r)
+            cuerpo = r.read()
+            return json.loads(cuerpo) if cuerpo else {}
     except urllib.error.HTTPError as e:
         sys.exit(f"Brevo respondió {e.code}: {e.read().decode()}")
 
@@ -41,3 +42,6 @@ campana = llamar("emailCampaigns", {
     "recipients": {"listIds": listas},
 })
 print("Borrador creado en Brevo:", campana.get("id"))
+if os.environ.get("ENVIAR") == "1":
+    llamar(f"emailCampaigns/{campana['id']}/sendNow", {})
+    print("Enviado")
