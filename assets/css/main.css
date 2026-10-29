@@ -855,5 +855,7 @@ body::after {
 .boletin h2 { margin: 0 0 8px; }
 .boletin p { margin: 0 0 14px; }
 .boletin .meta { margin: 12px 0 0; color: inherit; opacity: .75; }
-.boletin a { color: inherit; }
+.boletin .meta a { color: inherit; }
+.boletin .boton { background: var(--papel); color: var(--tinta); }
+.boletin .boton:hover { background: var(--claro); color: var(--tinta); }
 .articulo ~ .contenedor .boletin { max-width: 720px; margin-left: auto; margin-right: auto; }

@@ -71,6 +71,7 @@
       <p class="pie-titulo">Secciones</p>
       {{ range site.Params.mainSections }}{{ with site.GetPage . }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}{{ end }}
       <a href="{{ "herramientas/" | relURL }}">Herramientas</a>
+      {{ with site.Params.boletin }}<a href="{{ . }}" target="_blank" rel="noopener">Boletín mensual</a>{{ end }}
     </nav>
     <nav class="pie-col" aria-label="La web">
       <p class="pie-titulo">La web</p>
