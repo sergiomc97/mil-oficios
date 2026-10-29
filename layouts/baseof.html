@@ -45,7 +45,8 @@
 {{ with resources.Get "js/web.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>{{ end }}
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
 </head>
-{{ $zona := cond .IsHome "zona-todo" (cond (eq .Section "negocio") "zona-negocio" "") }}
+{{ $zona := "" }}
+{{ if .IsHome }}{{ $zona = "zona-todo" }}{{ else if in site.Params.mainSections .Section }}{{ $zona = printf "fondo sec-%s%s%s" .Section (cond .IsPage " lectura" "") (cond (eq .Section "negocio") " zona-negocio" "") }}{{ end }}
 <body{{ with $zona }} class="{{ . }}"{{ end }}>
 <header class="cabecera">
   <div class="contenedor cabecera-in">
