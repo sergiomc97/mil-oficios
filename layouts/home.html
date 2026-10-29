@@ -28,6 +28,13 @@
 </section>
 {{ end }}
 
+{{ with site.GetPage "/herramientas" }}{{ with .RegularPages }}
+<section class="bloque">
+  <div class="bloque-cab"><h2>Herramientas</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Ver todas →</a></div>
+  <div class="mosaico">{{ range . }}{{ partial "baldosa.html" (dict "pagina" .) }}{{ end }}</div>
+</section>
+{{ end }}{{ end }}
+
 {{ with after 1 $posts }}
 <section class="bloque">
   <h2>Lo último</h2>

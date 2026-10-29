@@ -1,5 +1,5 @@
 {{ $p := .pagina }}
-<a class="baldosa sec-{{ $p.Section }}{{ if .ancha }} ancha{{ end }}" href="{{ $p.RelPermalink }}">
+<a class="baldosa sec-{{ $p.Params.seccion | default $p.Section }}{{ if .ancha }} ancha{{ end }}" href="{{ $p.RelPermalink }}">
   {{ with $p.Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" "" "apaisada" true "sizes" (cond $.ancha "(min-width: 900px) 720px, 100vw" "(min-width: 900px) 360px, 50vw")) }}{{ end }}
   <span class="baldosa-texto">
     <span class="etiqueta">{{ $p.CurrentSection.Title }}</span>

@@ -31,6 +31,10 @@
     <div class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></div>
     {{ end }}
 
+    {{ with site.GetPage "/herramientas" }}{{ range where .RegularPages "Params.relacionado" $.Path }}
+    <a class="usa-herramienta sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">Herramienta</span><span>{{ .Title }} →</span></a>
+    {{ end }}{{ end }}
+
     <button class="boton compartir" type="button" data-compartir hidden>Compartir</button>
 
     {{ with .Params.productos }}

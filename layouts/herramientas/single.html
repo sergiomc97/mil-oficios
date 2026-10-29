@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="articulo herramienta-pag">
+  <header class="cabeza">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
+  </header>
+  <div class="herramienta sec-{{ .Params.seccion }}"{{ with .Params.herramienta }} data-herramienta="{{ . }}"{{ end }}>
+    {{ with .Params.arbol }}<script type="application/json">{{ jsonify . | safeJS }}</script>{{ end }}
+  </div>
+  <div class="cuerpo">{{ .Content }}</div>
+  {{ with .Params.relacionado }}{{ with site.GetPage . }}<a class="usa-herramienta sec-{{ .Section }}" href="{{ .RelPermalink }}"><span class="etiqueta">Artículo</span><span>{{ .Title }} →</span></a>{{ end }}{{ end }}
+</article>
+{{ with resources.Get "js/herramientas.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}
+{{ end }}

@@ -10,6 +10,12 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
 
+## Herramientas
+
+- `content/herramientas/`: calculadoras y diagnósticos, uno por página. Front matter: `herramienta` (clave en `assets/js/herramientas.js`), `seccion` (color) y `relacionado` (ruta del artículo, como `/arreglos/papel-pintado-pared-torcida`).
+- El artículo relacionado muestra solo un enlace a su herramienta.
+- Al publicar un artículo de un tema que ya tiene herramienta sin `relacionado`, añádeselo: la tira LED → `calculadora-tira-led.md`; la impresora de tickets → `diagnostico-impresora-tickets.md`.
+
 ## Formato de un artículo
 
 Front matter:
