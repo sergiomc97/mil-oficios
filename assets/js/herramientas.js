@@ -97,11 +97,15 @@
       ],
       calcular: v => {
         const total = monedas.reduce((s, m) => s + m * v[`m${m}`], 0);
-        const descuadre = Math.round((total - v.fondo - v.ventas) * 100) / 100;
+        const esperado = v.fondo + v.ventas;
+        const descuadre = Math.round((total - esperado) * 100) / 100;
+        const cabecera = !total ? ["Cuenta el efectivo", ""]
+          : descuadre === 0 ? ["La caja cuadra", "✓"]
+          : [descuadre > 0 ? "Sobran" : "Faltan", eur(Math.abs(descuadre))];
         return [
-          [descuadre === 0 ? "La caja cuadra" : descuadre > 0 ? "Sobran" : "Faltan", descuadre === 0 ? "✓" : eur(Math.abs(descuadre))],
-          ["Total contado", eur(total)],
-          ["Efectivo de las ventas", eur(total - v.fondo)]
+          cabecera,
+          ["Debería haber", eur(esperado)],
+          ["Has contado", eur(total)]
         ];
       }
     }

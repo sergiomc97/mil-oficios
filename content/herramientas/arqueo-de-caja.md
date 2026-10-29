@@ -11,7 +11,7 @@ seccion: negocio
 2. Pon las ventas en efectivo que marca el TPV en el cierre del día.
 3. Cuenta los billetes y las monedas de cada tipo.
 
-La herramienta suma lo contado, le resta el fondo y lo compara con las ventas. Si cuadra, perfecto; si no, te dice cuánto sobra o cuánto falta.
+En la caja debería haber el fondo más las ventas en efectivo. La herramienta lo compara con lo que has contado y te dice si cuadra, cuánto sobra o cuánto falta.
 
 Los datos se quedan en tu móvil o tu ordenador: no se envían a ningún sitio.
 
