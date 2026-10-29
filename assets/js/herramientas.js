@@ -251,6 +251,74 @@
     if (datos) diagnosticar(caja, JSON.parse(datos.textContent));
   }
 
+  const niveles = [
+    { hasta: -6, nombre: "Helada fuerte", consejo: "Cubre todo lo sensible con manta térmica, mete dentro las macetas que puedas y deja un grifo goteando si las tuberías van por fuera." },
+    { hasta: -2, nombre: "Helada", consejo: "Cubre las plantas jóvenes y las de maceta, y vacía el riego por goteo y el grifo de fuera." },
+    { hasta: 0, nombre: "Helada débil", consejo: "Junta las macetas contra una pared de la casa y cubre lo recién plantado." },
+    { hasta: 3, nombre: "Puede helar a ras de suelo", consejo: "Con cielo despejado y sin viento, el césped y lo recién plantado pueden amanecer con escarcha." },
+    { hasta: Infinity, nombre: "Sin helada", consejo: "" }
+  ];
+  const nivel = t => niveles.find(n => t <= n.hasta);
+
+  const heladas = caja => {
+    if (!caja.dataset.clave) {
+      caja.append(crear("p", "", "El aviso de heladas no está disponible ahora mismo."));
+      return;
+    }
+    const clave = "herramienta:heladas";
+    const form = crear("form", "buscar-sitio");
+    const entrada = crear("input");
+    entrada.placeholder = "Tu pueblo o ciudad";
+    entrada.autocomplete = "address-level2";
+    entrada.setAttribute("aria-label", "Pueblo o ciudad");
+    form.append(entrada, crear("button", "boton", "Ver"));
+    const aqui = crear("button", "atras", "Usar mi ubicación");
+    aqui.type = "button";
+    const salida = crear("div", "prevision");
+    salida.setAttribute("aria-live", "polite");
+    const fuente = crear("p", "fuente", "Previsión de ");
+    const enlace = crear("a", "", "WeatherAPI.com");
+    enlace.href = "https://www.weatherapi.com/";
+    enlace.rel = "noopener";
+    fuente.append(enlace);
+    caja.append(form, aqui, salida, fuente);
+
+    const dia = f => new Date(`${f}T12:00`).toLocaleDateString("es-ES", { weekday: "long", day: "numeric" });
+    const pedir = async q => {
+      salida.replaceChildren(crear("p", "", "Buscando…"));
+      try {
+        const r = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${caja.dataset.clave}&q=${encodeURIComponent(q)}&days=3&lang=es&aqi=no&alerts=no`);
+        const d = await r.json();
+        if (!r.ok) throw new Error(r.status);
+        try { localStorage.setItem(clave, q); } catch {}
+        const sitio = crear("p", "grupo", [d.location.name, d.location.region].filter(Boolean).join(", "));
+        const dias = d.forecast.forecastday.map(f => {
+          const min = Math.round(f.day.mintemp_c);
+          const n = nivel(min);
+          const fila = crear("div", `dia${n.consejo ? " frio" : ""}`);
+          const cab = crear("div", "dia-cab");
+          cab.append(crear("span", "dia-nombre", dia(f.date)), crear("span", "dia-temp", `${min}° / ${Math.round(f.day.maxtemp_c)}°`));
+          fila.append(cab, crear("span", "etiqueta", n.nombre));
+          if (n.consejo) fila.append(crear("p", "", n.consejo));
+          return fila;
+        });
+        salida.replaceChildren(sitio, ...dias);
+      } catch {
+        salida.replaceChildren(crear("p", "", "No he encontrado ese sitio. Prueba con el nombre del pueblo y la provincia."));
+      }
+    };
+    form.addEventListener("submit", e => { e.preventDefault(); if (entrada.value.trim()) pedir(entrada.value.trim()); });
+    aqui.addEventListener("click", () => navigator.geolocation?.getCurrentPosition(
+      p => { entrada.value = ""; pedir(`${p.coords.latitude.toFixed(2)},${p.coords.longitude.toFixed(2)}`); },
+      () => salida.replaceChildren(crear("p", "", "No se ha podido obtener tu ubicación. Escribe tu pueblo."))
+    ));
+    let previo = null;
+    try { previo = localStorage.getItem(clave); } catch {}
+    if (previo) { if (!/^-?\d/.test(previo)) entrada.value = previo; pedir(previo); }
+  };
+
+  for (const caja of document.querySelectorAll('[data-herramienta="heladas"]')) heladas(caja);
+
   for (const caja of document.querySelectorAll("[data-herramienta]")) {
     const def = calculadoras[caja.dataset.herramienta];
     if (def) montar(caja, caja.dataset.herramienta, def);

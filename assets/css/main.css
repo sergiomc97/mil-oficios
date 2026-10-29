@@ -834,3 +834,18 @@ body::after {
 .plegable { display: grid; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--papel); }
 .plegable summary { font-weight: 600; cursor: pointer; }
 .entrada input[readonly] { background: transparent; border-style: dashed; }
+.buscar-sitio { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.buscar-sitio input { min-width: 0; width: 100%; min-height: 46px; padding: 0 12px; border: 1px solid var(--linea); border-radius: 10px; background: var(--claro); color: var(--tinta); font: 500 17px var(--sans); }
+.buscar-sitio .boton { padding: 0 18px; border: 0; font-family: var(--sans); cursor: pointer; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+.herramienta > .atras { align-self: flex-start; }
+.prevision { display: grid; gap: 10px; }
+.prevision > p { margin: 0; }
+.dia { display: grid; gap: 6px; padding: 12px 14px; border-radius: 14px; background: var(--papel); }
+.dia.frio { background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+.dia-cab { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.dia-nombre { font: 600 18px/1.2 var(--serif); text-transform: capitalize; }
+.dia-temp { font-weight: 600; }
+.dia .etiqueta { color: inherit; }
+.dia p { margin: 0; font-size: 15px; line-height: 1.45; }
+.fuente { margin: 0; font-size: 13px; color: var(--gris); }
+.fuente a { color: inherit; }

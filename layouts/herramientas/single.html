@@ -4,7 +4,7 @@
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
   </header>
-  <div class="herramienta sec-{{ .Params.seccion }}"{{ with .Params.herramienta }} data-herramienta="{{ . }}"{{ end }}>
+  <div class="herramienta sec-{{ .Params.seccion }}"{{ with .Params.herramienta }} data-herramienta="{{ . }}"{{ end }}{{ if eq .Params.herramienta "heladas" }} data-clave="{{ site.Params.weatherapi }}"{{ end }}>
     {{ if eq .Params.herramienta "mes" }}{{ partial "este-mes.html" . }}{{ end }}
     {{ with .Params.arbol }}<script type="application/json">{{ jsonify . | safeJS }}</script>{{ end }}
   </div>
