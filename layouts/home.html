@@ -28,6 +28,13 @@
 </section>
 {{ end }}
 
+{{ with after 1 $posts }}
+<section class="bloque">
+  <h2>Lo último</h2>
+  <div class="mosaico">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>
+</section>
+{{ end }}
+
 {{ with site.GetPage "/herramientas/que-hacer-este-mes" }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Este mes</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
@@ -41,12 +48,5 @@
   <div class="mosaico">{{ range . }}{{ partial "baldosa.html" (dict "pagina" .) }}{{ end }}</div>
 </section>
 {{ end }}{{ end }}
-
-{{ with after 1 $posts }}
-<section class="bloque">
-  <h2>Lo último</h2>
-  <div class="mosaico">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>
-</section>
-{{ end }}
 </div>
 {{ end }}
