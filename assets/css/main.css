@@ -854,19 +854,10 @@ body::after {
 .boletin { margin-top: 40px; padding: 22px 20px; border-radius: 22px; background: var(--tinta); color: var(--papel); }
 .boletin h2 { margin: 0 0 8px; }
 .boletin p { margin: 0 0 14px; }
+.boletin .meta { margin: 12px 0 0; color: inherit; opacity: .75; }
+.boletin .meta a { color: inherit; }
 .boletin .boton { background: var(--papel); color: var(--tinta); }
 .boletin .boton:hover { background: var(--claro); color: var(--tinta); }
 .articulo ~ .contenedor .boletin { max-width: 720px; margin-left: auto; margin-right: auto; }
-.boletin-form { display: grid; gap: 12px; }
-.boletin-form:not([hidden]) + .boletin-alt { display: none; }
-.boletin-fila { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
-.boletin-fila input { min-width: 0; min-height: 46px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--papel); color: var(--tinta); font: 500 17px var(--sans); }
-.boletin-fila input:focus { outline: 2px solid var(--terra); outline-offset: 2px; }
-.boletin-fila .boton { padding: 0 18px; border: 0; font-family: var(--sans); cursor: pointer; background: var(--terra); color: #FFF; }
-.boletin-fila .boton:hover { background: var(--hover); color: #FFF; }
-.boletin-fila .boton:disabled { opacity: .6; cursor: default; }
-.boletin-ok { display: flex; align-items: center; gap: 8px; font-size: 14px; opacity: .85; }
-.boletin-ok input { width: 18px; height: 18px; accent-color: var(--terra); }
-.boletin-ok a { color: inherit; }
-.boletin-estado { margin: 0; font-size: 15px; font-weight: 600; }
-.boletin-estado:empty { display: none; }
+.sender-form-field:not(:empty) + .boletin-alt { display: none; }
+.boletin .sender-form-field { color: var(--tinta); }

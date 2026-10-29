@@ -2,16 +2,26 @@
 <section class="boletin">
   <h2>Un correo al mes</h2>
   <p>Las tareas del mes en el jardín y en casa, lo nuevo de la web y una herramienta útil. Nada más, y te das de baja cuando quieras.</p>
-  {{ with site.Params.boletin_form }}
-  <form class="boletin-form" data-form="{{ . }}" hidden>
-    <div class="boletin-fila">
-      <input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="Tu correo" aria-label="Tu correo">
-      <button class="boton" type="submit">Suscribirme</button>
-    </div>
-    <label class="boletin-ok"><input type="checkbox" required> Acepto la <a href="{{ "privacidad/" | relURL }}">política de privacidad</a></label>
-    <p class="boletin-estado" aria-live="polite"></p>
-  </form>
-  {{ end }}
+  {{ with site.Params.boletin_form }}<div class="sender-form-field" data-sender-form-id="{{ . }}"></div>{{ end }}
   <a class="boton boletin-alt" href="{{ . }}" target="_blank" rel="noopener">Suscribirme</a>
+  <p class="meta">Al suscribirte aceptas la <a href="{{ "privacidad/" | relURL }}">política de privacidad</a>.</p>
 </section>
+{{ with site.Params.boletin_cuenta }}
+<script>
+(function (s, e, n, d, er) {
+  s.Sender = er;
+  s[er] = s[er] || function () { (s[er].q = s[er].q || []).push(arguments); };
+  s[er].l = 1 * new Date();
+  s[er].on = function (event, callback) {
+    s[er].listeners = s[er].listeners || {};
+    (s[er].listeners[event] = s[er].listeners[event] || []).push(callback);
+  };
+  var a = e.createElement(n), m = e.getElementsByTagName(n)[0];
+  a.async = 1;
+  a.src = d;
+  m.parentNode.insertBefore(a, m);
+})(window, document, "script", "https://cdn.sender.net/accounts_resources/universal.js", "sender");
+sender({{ . }});
+</script>
+{{ end }}
 {{ end }}
