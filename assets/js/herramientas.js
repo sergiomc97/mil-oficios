@@ -155,6 +155,48 @@
     calcular();
   };
 
+  const diagnosticar = (caja, arbol) => {
+    const camino = [];
+    const boton = (texto, clase, accion) => {
+      const b = crear("button", clase, texto);
+      b.type = "button";
+      b.addEventListener("click", accion);
+      return b;
+    };
+    const pintar = id => {
+      const n = arbol.nodos[id];
+      const hijos = [];
+      if (n.pregunta) {
+        const respuestas = crear("div", "respuestas");
+        respuestas.append(
+          boton("Sí", "boton", () => { camino.push(id); pintar(n.si); }),
+          boton("No", "boton", () => { camino.push(id); pintar(n.no); })
+        );
+        hijos.push(crear("p", "grupo", `Pregunta ${camino.length + 1}`), crear("h2", "pregunta", n.pregunta), respuestas);
+      } else {
+        hijos.push(crear("p", "grupo", "Lo más probable"), crear("h2", "pregunta", n.resultado), crear("p", "", n.texto));
+        if (n.enlace) {
+          const a = crear("a", "usa-herramienta", `${n.enlace_texto} →`);
+          a.href = n.enlace;
+          hijos.push(a);
+        }
+      }
+      if (camino.length) {
+        const pie = crear("div", "volver-diag");
+        pie.append(boton("← Atrás", "atras", () => pintar(camino.pop())));
+        if (!n.pregunta) pie.append(boton("Empezar de nuevo", "atras", () => { camino.length = 0; pintar(arbol.inicio); }));
+        hijos.push(pie);
+      }
+      caja.replaceChildren(...hijos);
+    };
+    pintar(arbol.inicio);
+  };
+
+  for (const caja of document.querySelectorAll(".herramienta")) {
+    const datos = caja.querySelector('script[type="application/json"]');
+    if (datos) diagnosticar(caja, JSON.parse(datos.textContent));
+  }
+
   for (const caja of document.querySelectorAll("[data-herramienta]")) {
     const def = calculadoras[caja.dataset.herramienta];
     if (def) montar(caja, caja.dataset.herramienta, def);

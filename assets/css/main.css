@@ -806,3 +806,10 @@ body::after {
   .truco { background: var(--cf, var(--c)); }
 }
 .zona-todo .seccion-titulo { background: var(--tinta); color: var(--papel); }
+.herramienta .pregunta { font-size: 23px; line-height: 1.2; }
+.herramienta .grupo { margin: 0; font-size: 14px; font-weight: 600; color: var(--gris); }
+.herramienta > p:not(.grupo) { margin: 0; }
+.respuestas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.respuestas .boton { border: 0; font-family: var(--sans); font-size: 17px; cursor: pointer; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+.volver-diag { display: flex; justify-content: space-between; }
+.atras { padding: 6px 0; border: 0; background: none; color: var(--tinta); font: 600 15px var(--sans); cursor: pointer; }
