@@ -9,7 +9,7 @@
 - [x] jardin · Lavanda: por qué se muere en unos sitios y en otros crece sin parar (usa fotos/lavanda-seca.jpg y fotos/lavanda-vecino.jpg)
 - [x] jardin · Tulipanes después de florecer: por qué casi no queda nada
 - [x] jardin · Plantar un olivo pequeño: ¿en maceta o en el suelo?
-- [ ] negocio · La impresora de tickets no imprime: qué revisar antes de llamar al técnico
+- [x] negocio · La impresora de tickets no imprime: qué revisar antes de llamar al técnico
 - [ ] restauracion · Carcoma: cómo saber si sigue activa y tratarla
 - [ ] arreglos · Cambiar una moldura que se despega por un listón de madera
 - [ ] negocio · El cajón portamonedas no se abre al cobrar

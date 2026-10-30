@@ -68,3 +68,9 @@
   nombre: Reparar_movil.JPG
   archivo: [fotos/movil-placa-carga.jpg, fotos/movil-placa-carga-vertical.jpg]
   uso: "negocio/movil-no-carga-placa-de-carga (portada recortada y vertical en el texto). Redmi básico de Sergio abierto, con la placa de carga de 2,50 € que cambió. La etiqueta trasera ya venía difuminada."
+- id: pixabay-5610295
+  origen: pixabay
+  autor: AS_Photography
+  url: https://pixabay.com/photos/cash-register-printer-receipt-store-5610295/
+  archivo: fotos/impresora-tickets-pixabay.jpg
+  uso: portada de negocio/impresora-tickets-no-imprime

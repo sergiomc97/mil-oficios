@@ -2,6 +2,7 @@
 title: "La impresora de tickets no imprime: diagnóstico paso a paso"
 description: "Responde unas preguntas de sí o no y averigua por qué no imprime la impresora de tickets de tu tienda antes de llamar al técnico."
 seccion: negocio
+relacionado: /negocio/impresora-tickets-no-imprime
 arbol:
   inicio: blanco
   nodos:
