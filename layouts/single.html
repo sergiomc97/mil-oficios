@@ -56,7 +56,6 @@
   <div class="cuerpo">{{ .Content }}</div>
 </article>
 
-{{ if .Params.tiempo }}<div class="contenedor">{{ partial "boletin.html" . }}</div>{{ end }}
 
 {{ with .Params.tiempo }}
 {{ with first 2 (where $.CurrentSection.RegularPages "Permalink" "ne" $.Permalink) }}
