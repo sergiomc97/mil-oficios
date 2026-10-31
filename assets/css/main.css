@@ -148,7 +148,6 @@ a:hover { color: var(--hover); }
   min-height: 34px;
   padding: 0 12px;
   border-radius: 999px;
-  background: var(--cs);
   color: var(--c);
   font-size: 14px;
   font-weight: 600;
@@ -508,6 +507,15 @@ a.etiqueta { text-decoration: none; }
 .pie-enlaces { display: flex; flex-wrap: wrap; column-gap: 18px; }
 .pie-enlaces a { display: inline-flex; align-items: center; min-height: 44px; color: var(--tinta); font-size: 15px; font-weight: 600; text-decoration: none; }
 .pie-nota { margin: 0; padding-top: 12px; border-top: 1px solid var(--linea); font-size: 12.5px; line-height: 1.5; color: var(--gris); }
+
+@media (max-width: 899px) {
+  .con-portada main { margin-top: -64px; }
+  .con-portada .tira { position: absolute; top: calc(100vw * 2 / 3 - 64px); left: 16px; right: 16px; z-index: 5; margin: 0; }
+  .con-portada .destacado { margin: 0 -16px; border-radius: 0 0 22px 22px; }
+  .con-portada .articulo { padding-top: 0; }
+  .con-portada .cabeza > .foto { order: -1; margin: 0 -16px; }
+  .con-portada .cabeza > .foto img { border-radius: 0; }
+}
 
 @media (min-width: 900px) {
   h1 { font-size: 38px; }
