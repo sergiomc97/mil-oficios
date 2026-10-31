@@ -212,7 +212,7 @@ a.etiqueta { text-decoration: none; }
 .truco .etiqueta { color: inherit; opacity: .8; }
 .indice { margin: 0; padding: 0; list-style: none; }
 .indice a { display: grid; gap: 4px; padding: 14px 0; border-bottom: 1px solid var(--linea); color: var(--tinta); text-decoration: none; }
-.indice-titulo { font: 600 18px/1.25 var(--serif); }
+.indice-titulo { font: 600 16px/1.3 var(--serif); }
 
 .lista { display: flex; flex-direction: column; }
 .tarjeta {

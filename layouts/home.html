@@ -46,7 +46,7 @@
 {{ with site.GetPage "/herramientas" }}{{ with where .RegularPages "Params.herramienta" "ne" "mes" }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Herramientas</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Ver todas →</a></div>
-  <ul class="indice">{{ range . }}<li><a class="sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><span class="indice-titulo">{{ .Title }} →</span></a></li>{{ end }}</ul>
+  {{ $todas := . }}<ul class="indice">{{ range site.Params.mainSections }}{{ range first 1 (where $todas "Params.seccion" .) }}<li><a class="sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><span class="indice-titulo">{{ .Title }} →</span></a></li>{{ end }}{{ end }}</ul>
 </section>
 {{ end }}{{ end }}
 </div>
