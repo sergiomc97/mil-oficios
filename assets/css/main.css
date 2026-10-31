@@ -116,7 +116,7 @@ h1 { font-size: 31px; }
 h2 { font-size: 23px; }
 h3 { font-family: var(--sans); font-size: 17px; letter-spacing: 0; line-height: 1.3; }
 a { color: var(--terra); }
-a:hover { color: var(--hover); }
+@media (hover: hover) { a:hover { color: var(--hover); } }
 
 .contenedor { max-width: 1320px; margin: 0 auto; padding: 0 16px; }
 
