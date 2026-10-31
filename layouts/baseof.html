@@ -63,11 +63,14 @@
 </main>
 <footer class="pie">
   <div class="contenedor pie-in">
-    <div class="pie-firma">
-      <span class="avatar" aria-hidden="true">TG</span>
-      <p class="pie-titulo">Una carta al mes de {{ site.Params.autor }}<span>Quien escribe Mil Oficios</span></p>
+    <div class="carta">
+    <div class="carta-texto">
+      <div class="pie-firma">
+        <span class="avatar" aria-hidden="true">TG</span>
+        <p class="pie-titulo">Una carta al mes<span>De {{ site.Params.autor }}, que escribe Mil Oficios</span></p>
+      </div>
+      <p class="pie-cita">Una vez al mes te cuento qué toca en el jardín y en casa, y qué he estropeado yo para que tú no lo estropees.</p>
     </div>
-    <p class="pie-cita">«Una vez al mes te cuento qué toca en el jardín y en casa, y qué he estropeado yo para que tú no lo estropees.»</p>
     {{ with site.Params.boletin }}
     <form class="boletin-form" method="post" action="{{ . }}">
       <div class="boletin-fila">
@@ -81,6 +84,7 @@
       <p class="boletin-estado" aria-live="polite"></p>
     </form>
     {{ end }}
+    </div>
     <nav class="pie-enlaces" aria-label="La web">
       <a href="{{ "herramientas/" | relURL }}">Herramientas</a>
       <a href="{{ "quien-hay-detras/" | relURL }}">Quién hay detrás</a>
