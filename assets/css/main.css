@@ -495,19 +495,18 @@ a.etiqueta { text-decoration: none; }
 .sigue { max-width: 720px; margin-left: auto; margin-right: auto; padding: 0 16px; }
 .sigue h2 { font-size: 21px; }
 
-.pie { margin-top: 56px; background: var(--tinta); color: var(--papel); }
+.pie { margin-top: 56px; background: var(--papel-2); }
 .pie::before { content: ""; display: block; height: 12px; border-bottom: 1px solid var(--regla); background: repeating-linear-gradient(90deg, var(--regla) 0 1px, transparent 1px 10px); }
-.pie-in { padding-top: 28px; padding-bottom: 28px; display: grid; gap: 22px; }
-.carta { display: grid; gap: 20px; padding: 22px 18px; border-radius: 22px; background: var(--claro); color: var(--tinta); }
-.carta-texto { display: grid; gap: 14px; align-content: center; }
+.pie-in { padding-top: 26px; padding-bottom: 32px; display: grid; gap: 18px; }
 .pie-firma { display: flex; align-items: center; gap: 12px; }
-.pie-firma .avatar { flex: none; width: 52px; height: 52px; font-size: 20px; }
-.pie-titulo { margin: 0; font: 600 23px/1.1 var(--serif); }
-.pie-titulo span { display: block; margin-top: 4px; font: 13.5px var(--sans); color: var(--gris); }
-.pie-cita { margin: 0; font: 500 19px/1.4 var(--serif); color: var(--texto-paso); }
-.pie-enlaces { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.pie-enlaces a { display: flex; align-items: center; min-height: 44px; color: var(--papel); font-size: 15px; font-weight: 600; text-decoration: none; }
-.pie-nota { margin: 0; padding-top: 14px; border-top: 1px solid color-mix(in srgb, var(--papel) 18%, transparent); font-size: 12.5px; line-height: 1.5; color: color-mix(in srgb, var(--papel) 70%, transparent); }
+.pie-firma .avatar { flex: none; width: 56px; height: 56px; font-size: 22px; }
+.pie-titulo { margin: 0; font: 600 20px/1.15 var(--serif); }
+.pie-titulo span { display: block; margin-top: 3px; font: 13.5px var(--sans); color: var(--gris); }
+.pie-cita { margin: 0; font: italic 600 19px/1.4 var(--serif); color: var(--texto-paso); }
+.pie .boletin-form { padding: 14px; border-radius: 16px; background: var(--claro); }
+.pie-enlaces { display: flex; flex-wrap: wrap; column-gap: 18px; }
+.pie-enlaces a { display: inline-flex; align-items: center; min-height: 44px; color: var(--tinta); font-size: 15px; font-weight: 600; text-decoration: none; }
+.pie-nota { margin: 0; padding-top: 12px; border-top: 1px solid var(--linea); font-size: 12.5px; line-height: 1.5; color: var(--gris); }
 
 @media (max-width: 899px) {
   .con-portada main { margin-top: -64px; }
@@ -566,11 +565,10 @@ a.etiqueta { text-decoration: none; }
   .destacado-texto { align-self: center; }
 
   .pie { margin-top: 72px; }
-  .pie-in { padding-top: 40px; padding-bottom: 32px; }
-  .carta { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 56px; padding: 36px 40px; }
-  .pie-titulo { font-size: 28px; }
-  .pie-cita { font-size: 22px; }
-  .pie-enlaces { display: flex; column-gap: 28px; }
+  .pie-in { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); column-gap: 64px; align-items: start; padding-top: 44px; padding-bottom: 40px; }
+  .pie-firma, .pie-cita { grid-column: 1; }
+  .pie .boletin-form { grid-column: 2; grid-row: 1 / span 2; }
+  .pie-enlaces, .pie-nota { grid-column: 1 / -1; }
 }
 
 @media (min-width: 1000px) {
