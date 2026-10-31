@@ -210,6 +210,7 @@ a.etiqueta { text-decoration: none; }
 }
 .truco p { margin: 0; font: 500 20px/1.25 var(--serif); }
 .truco .etiqueta { color: inherit; opacity: .8; }
+a.truco, a.truco:hover { color: var(--ct, var(--claro)); text-decoration: none; }
 
 .lista { display: flex; flex-direction: column; }
 .tarjeta {

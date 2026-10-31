@@ -36,9 +36,13 @@
 {{ end }}
 
 {{ with site.GetPage "/herramientas/que-hacer-este-mes" }}
+{{ $m := index hugo.Data.meses (sub (int (now.Format "1")) 1) }}
 <section class="bloque">
-  <div class="bloque-cab"><h2>Este mes</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
-  <div class="herramienta sec-jardin">{{ partial "este-mes.html" . }}</div>
+  <div class="bloque-cab"><h2>En {{ lower $m.mes }}</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
+  <div class="carrusel trucos">
+    {{ range $m.jardin }}<div class="truco sec-jardin"><span class="etiqueta">Jardín</span><p>{{ . }}</p></div>{{ end }}
+    {{ range $m.casa }}<div class="truco sec-arreglos"><span class="etiqueta">Casa</span><p>{{ . }}</p></div>{{ end }}
+  </div>
 </section>
 {{ end }}
 
@@ -46,7 +50,7 @@
 {{ with site.GetPage "/herramientas" }}{{ with where .RegularPages "Params.herramienta" "ne" "mes" }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Herramientas</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Ver todas →</a></div>
-  <div class="mosaico">{{ range . }}{{ partial "baldosa.html" (dict "pagina" .) }}{{ end }}</div>
+  <div class="carrusel trucos">{{ range . }}<a class="truco sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><p>{{ .Title }}</p></a>{{ end }}</div>
 </section>
 {{ end }}{{ end }}
 </div>
