@@ -225,7 +225,7 @@
 
   for (const caja of document.querySelectorAll(".herramienta")) {
     const datos = caja.querySelector('script[type="application/json"]');
-    if (datos) diagnosticar(caja, JSON.parse(datos.textContent));
+    if (datos && !caja.dataset.herramienta) diagnosticar(caja, JSON.parse(datos.textContent));
   }
 
   const niveles = [
@@ -341,6 +341,125 @@
     try { previo = JSON.parse(localStorage.getItem(clave)); } catch {}
     if (previo?.lat) { entrada.value = previo.nombre; prevision(previo); }
   };
+
+  const balanza = (caja, datos) => {
+    const sellos = { arreglar: "ARRÉGLALO", tirar: "TÍRALO", probar: "PRUEBA ANTES" };
+    const banco = crear("div", "banco");
+    banco.setAttribute("aria-hidden", "true");
+    const cruz = crear("div", "cruz");
+    const plato = (lado, nombre) => {
+      const d = crear("div", "plato p-" + lado);
+      const bandeja = crear("div", "bandeja");
+      bandeja.append(crear("div", "pesas"));
+      d.append(crear("div", "hilos"), bandeja, crear("div", "nombre", nombre));
+      return d;
+    };
+    const platos = { arreglar: plato("arreglar", "ARRÉGLALO"), tirar: plato("tirar", "TÍRALO") };
+    banco.append(crear("div", "pie-b"), crear("div", "poste"), cruz, crear("div", "eje"), platos.arreglar, platos.tirar);
+    const lectura = crear("p", "lectura");
+    lectura.setAttribute("aria-live", "polite");
+    const pasos = crear("div");
+    const resultado = crear("div");
+    caja.append(banco, lectura, pasos, resultado);
+
+    let estado = {};
+    const pesas = () => {
+      const l = [];
+      if (estado.averia) l.push({ v: estado.averia.peso, txt: estado.averia.pesa });
+      for (const q of datos.preguntas) { const o = estado[q.id]; if (o?.peso) l.push({ v: o.peso, txt: o.pesa }); }
+      return l;
+    };
+
+    const inclina = () => {
+      const l = pesas();
+      const s = l.reduce((a, p) => a + p.v, 0);
+      const ang = Math.max(-16, Math.min(16, -s * 4));
+      cruz.style.setProperty("--a", ang + "deg");
+      const L = cruz.offsetWidth / 2 - 6, r = ang * Math.PI / 180;
+      const dx = Math.cos(r) * L, dy = Math.sin(r) * L;
+      for (const [lado, signo] of [["arreglar", -1], ["tirar", 1]]) {
+        const p = platos[lado];
+        p.style.left = banco.offsetWidth / 2 + "px";
+        p.style.transform = `translate(${signo * dx}px, ${signo * dy}px)`;
+        const caja = p.querySelector(".pesas");
+        const mias = l.filter(x => (lado === "arreglar") === (x.v > 0)).map(x => x.txt);
+        [...caja.children].forEach(c => { if (!mias.includes(c.textContent)) c.remove(); });
+        const hay = [...caja.children].map(c => c.textContent);
+        mias.filter(t => !hay.includes(t)).forEach(t => caja.append(crear("span", "pesa", t)));
+      }
+      lectura.textContent = !l.length ? "" : s >= 2 ? "Se inclina hacia arreglarlo." : s <= -2 ? "Se inclina hacia tirarlo." : "Está en el aire.";
+      return s;
+    };
+
+    const opcion = (texto, activo, al) => {
+      const b = crear("button", "", texto);
+      b.type = "button";
+      b.setAttribute("aria-pressed", !!activo);
+      b.addEventListener("click", al);
+      return b;
+    };
+    const paso = (n, titulo, botones, lista) => {
+      const d = crear("section", "paso");
+      const h = crear("h2");
+      h.append(crear("span", "", n), titulo);
+      const ops = crear("div", "ops" + (lista ? " lista" : ""));
+      ops.append(...botones);
+      d.append(h, ops);
+      return d;
+    };
+
+    const veredicto = s => {
+      const { objeto: o, averia: a } = estado;
+      const tipo = s >= 2 ? "arreglar" : s <= -2 ? "tirar" : "probar";
+      const frases = datos.frases[tipo];
+      const art = crear("article", "veredicto v-" + tipo);
+      const tito = crear("p", "tito", `«${frases[(o.id.length + a.id.length) % frases.length]}»`);
+      tito.append(crear("span", "", " — Tito"));
+      const cifras = crear("div", "cifras");
+      for (const [k, v] of [["Dificultad", a.dificultad], ["Tiempo", a.tiempo], ["Coste", a.coste]]) {
+        const d = crear("div");
+        d.append(crear("small", "", k), crear("b", "", v));
+        cifras.append(d);
+      }
+      art.append(crear("div", "sello", sellos[tipo]), tito, cifras, crear("h3", "", "Lo más probable"), crear("p", "", a.causa), crear("h3", "", "Qué hacer"), crear("p", "", a.hacer));
+      if (estado.manos.peso < 0 && tipo !== "tirar") art.append(crear("p", "", "Si no te ves con ello, este arreglo lo hace cualquier manitas en un rato y sigue saliendo más barato que comprar otro."));
+      const aviso = [o.electro ? "Desenchúfalo siempre antes de abrir nada." : "", a.aviso || ""].filter(Boolean).join(" ");
+      if (aviso) art.append(crear("p", "aviso-b", aviso));
+      const enlaces = crear("div", "enlaces");
+      if (a.articulo) { const e = crear("a", "", "Cómo hacerlo paso a paso →"); e.href = a.articulo; enlaces.append(e); }
+      if (a.repuesto) { const e = crear("a", "", "Ver el repuesto →"); e.href = a.repuesto; e.rel = "sponsored nofollow noopener"; e.target = "_blank"; enlaces.append(e); }
+      if (enlaces.children.length) art.append(enlaces);
+      const otra = crear("button", "atras", "← Probar con otra cosa");
+      otra.type = "button";
+      otra.addEventListener("click", () => { estado = {}; pinta(); caja.scrollIntoView({ behavior: "smooth" }); });
+      art.append(otra);
+      resultado.replaceChildren(art);
+      art.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    const pinta = () => {
+      const s = inclina();
+      pasos.replaceChildren();
+      resultado.replaceChildren();
+      pasos.append(paso(1, "¿Qué se ha roto?", datos.objetos.map(o => opcion(o.nombre, estado.objeto === o, () => { estado = { objeto: o }; pinta(); }))));
+      if (!estado.objeto) return;
+      pasos.append(paso(2, "¿Qué le pasa?", estado.objeto.averias.map(a => opcion(a.nombre, estado.averia === a, () => { estado = { objeto: estado.objeto, averia: a }; pinta(); })), true));
+      if (!estado.averia) return;
+      let n = 3;
+      for (const q of datos.preguntas) {
+        pasos.append(paso(n++, q.texto, q.opciones.map(o => opcion(o.texto, estado[q.id] === o, () => { estado[q.id] = o; pinta(); }))));
+        if (!estado[q.id]) { pasos.lastElementChild.scrollIntoView({ behavior: "smooth", block: "nearest" }); return; }
+      }
+      veredicto(s);
+    };
+    addEventListener("resize", inclina);
+    pinta();
+  };
+
+  for (const caja of document.querySelectorAll('[data-herramienta="balanza"]')) {
+    const datos = caja.querySelector('script[type="application/json"]');
+    if (datos) balanza(caja, JSON.parse(datos.textContent));
+  }
 
   for (const caja of document.querySelectorAll('[data-herramienta="heladas"]')) heladas(caja);
 

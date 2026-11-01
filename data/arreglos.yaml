@@ -1,0 +1,190 @@
+# Datos de la herramienta «¿Lo arreglo o lo tiro?» (content/herramientas/lo-arreglo-o-lo-tiro.md).
+# peso: positivo empuja a arreglar, negativo a tirar. pesa: el texto de la pesa en la balanza.
+# Opcionales en cada avería: articulo (ruta de un artículo de la web) y repuesto (enlace de afiliado, solo con la afiliación aprobada).
+# Sin precios con cifras salvo que estén comprobados. Electro: true añade el aviso de desenchufar.
+preguntas:
+- id: edad
+  texto: ¿Cuántos años tiene?
+  opciones:
+  - texto: Menos de 3
+    peso: 1
+    pesa: pocos años
+  - texto: De 3 a 10
+    peso: 0
+  - texto: Más de 10
+    peso: -1
+    pesa: muchos años
+- id: manos
+  texto: ¿Tú con un destornillador?
+  opciones:
+  - texto: Me apaño
+    peso: 1
+    pesa: tienes maña
+  - texto: Lo justo
+    peso: 0
+  - texto: Ni lo toco
+    peso: -1
+    pesa: no te ves
+- id: valor
+  texto: ¿Qué te importa?
+  opciones:
+  - texto: Me costó poco
+    peso: -1
+    pesa: salió barato
+  - texto: Me costó mucho
+    peso: 1
+    pesa: salió caro
+  - texto: Le tengo cariño
+    peso: 2
+    pesa: cariño
+frases:
+  arreglar:
+  - Esto se arregla en una tarde y te sobra para un café.
+  - Ni se te ocurra tirarlo. Esto es de destornillador y paciencia.
+  - 'Arréglalo: el que lo tira, lo vuelve a comprar.'
+  tirar:
+  - 'Aquí no hay épica que valga: punto limpio y a otra cosa.'
+  - Hay arreglos que salen más caros que el disgusto. Este es uno.
+  - Despídete con cariño y no le des más vueltas.
+  probar:
+  - Antes de despedirte, prueba lo fácil. Si no sale, entonces sí.
+  - Dale una oportunidad de media hora. Si no, ya sabes el camino.
+  - 'Está en el aire: lo barato primero, la tienda después.'
+objetos:
+- id: lavadora
+  nombre: Lavadora
+  electro: true
+  averias:
+  - id: centrifuga
+    nombre: 'No centrifuga: la ropa sale empapada'
+    peso: 2
+    causa: 'Lo más habitual es el filtro de la bomba de desagüe atascado con pelusas, monedas o algún calcetín. También pasa con la carga descompensada: muy poca ropa o una sola prenda gorda.'
+    hacer: Desenchúfala, pon una bandeja y toallas, abre la tapita de abajo y desenrosca el filtro despacio. Límpialo y prueba un centrifugado con una carga normal.
+    dificultad: Baja
+    tiempo: 15-30 min
+    coste: Nada
+    aviso: 'Si con el filtro limpio sigue igual, pueden ser las escobillas o el motor: eso ya es de técnico.'
+    pesa: suele ser el filtro
+  - id: quemado
+    nombre: Huele a quemado y el tambor no gira
+    peso: -3
+    causa: El olor a quemado con el tambor parado apunta al motor.
+    hacer: Desenchúfala ya y no la vuelvas a poner. Pide diagnóstico a un técnico solo si es nueva o de gama alta.
+    dificultad: De técnico
+    tiempo: —
+    coste: 'Alto: un motor suele costar casi lo que una lavadora nueva'
+    aviso: 'No la uses mientras huela a quemado: riesgo eléctrico.'
+    pesa: huele a motor
+- id: persiana
+  nombre: Persiana
+  averias:
+  - id: cinta
+    nombre: La cinta se ha roto o está deshilachada
+    peso: 3
+    causa: La cinta se desgasta con los años de roce hasta que se parte.
+    hacer: 'Baja la persiana del todo, abre la tapa del recogedor de la pared y cambia la cinta: se engancha arriba en el rodillo y abajo en el recogedor. Lleva un trozo de la vieja a la ferretería para comprarla del mismo ancho.'
+    dificultad: Baja
+    tiempo: 30-45 min
+    coste: 'Bajo: una cinta nueva'
+    aviso: Para llegar al cajón de arriba usa una escalera estable, nunca una silla.
+    pesa: recambio de ferretería
+  - id: atascada
+    nombre: Se atasca o se ha descolgado de la guía
+    peso: 1
+    causa: Lamas sueltas o rotas que se salen de la guía, o suciedad en la guía.
+    hacer: Limpia las guías y mira si alguna lama está rota o fuera de su sitio. Las lamas se cambian deslizándolas por la guía.
+    dificultad: Media
+    tiempo: 1-2 h
+    coste: Bajo
+    aviso: Si hay que desmontar el cajón en altura o la persiana es grande y pesa, mejor dos personas o un profesional.
+    pesa: depende de lo que veas
+- id: cisterna
+  nombre: Cisterna
+  averias:
+  - id: pierde
+    nombre: El agua sigue cayendo a la taza
+    peso: 3
+    causa: Si el agua pasa por encima del rebosadero, es la válvula de llenado. Si no llega pero sigue goteando, la junta del mecanismo de descarga.
+    hacer: Cierra la llave de paso del inodoro, quita la pieza que falla y llévala a la ferretería para comprar una igual.
+    dificultad: Baja
+    tiempo: 30 min
+    coste: Bajo
+    aviso: 'Cada día que gotea se va agua: no lo dejes para el mes que viene.'
+    pesa: pieza barata
+  - id: nocarga
+    nombre: No se llena después de tirar
+    peso: 3
+    causa: La llave de paso medio cerrada o atascada por la cal, o la válvula de entrada obstruida.
+    hacer: Comprueba que la llave de paso está abierta del todo. Si sigue sin llenar, cambia la válvula de entrada.
+    dificultad: Baja
+    tiempo: 30 min
+    coste: Bajo
+    aviso: Gira la llave de paso de vez en cuando para que la cal no la deje fija.
+    pesa: suele ser la cal
+- id: grifo
+  nombre: Grifo monomando
+  averias:
+  - id: gotea
+    nombre: Gotea con el grifo cerrado
+    peso: 2
+    causa: El cartucho cerámico de dentro está gastado o con cal.
+    hacer: 'Cierra las llaves de paso, quita la maneta y saca el cartucho. Llévalo a la ferretería: hay muchos tamaños y tiene que ser igual.'
+    dificultad: Media
+    tiempo: 30-60 min
+    coste: Bajo o medio, según el cartucho
+    aviso: Si el grifo es muy barato o el cuerpo está picado, a veces sale más a cuenta cambiar el grifo entero.
+    pesa: se cambia el cartucho
+  - id: pocaagua
+    nombre: Sale poca agua
+    peso: 3
+    causa: El aireador de la boca del grifo tapado por la cal.
+    hacer: Desenrosca el aireador, déjalo una noche en vinagre y vuelve a ponerlo.
+    dificultad: Muy baja
+    tiempo: 5 min y una noche
+    coste: Nada
+    pesa: cal en el aireador
+- id: silla
+  nombre: Silla de madera
+  averias:
+  - id: cojea
+    nombre: Se mueve o cruje al sentarte
+    peso: 2
+    causa: Las espigas de las uniones se han despegado.
+    hacer: Desmonta las uniones flojas, raspa la cola vieja, vuelve a encolar con cola blanca de carpintero y aprieta con sargentos un día entero.
+    dificultad: Media
+    tiempo: 1 h y 24 h de secado
+    coste: Bajo
+    pesa: cola y paciencia
+  - id: pata
+    nombre: Tiene una pata partida
+    peso: -1
+    causa: Rotura de la madera, no de la unión.
+    hacer: Si el corte es limpio, se puede encolar y reforzar. Si está astillada, hace falta una pata nueva hecha a medida.
+    dificultad: Alta
+    tiempo: Varias horas
+    coste: Medio si la hace un carpintero
+    pesa: pata rota
+- id: tostadora
+  nombre: Tostadora
+  electro: true
+  averias:
+  - id: nocalienta
+    nombre: Baja pero no calienta
+    peso: -3
+    causa: Lo normal es una resistencia rota.
+    hacer: 'No compensa: el recambio, si lo encuentras, cuesta casi lo que una nueva.'
+    dificultad: —
+    tiempo: —
+    coste: No compensa
+    aviso: 'Llévala a un punto limpio: es un aparato eléctrico y no va al contenedor.'
+    pesa: resistencia
+  - id: nobaja
+    nombre: No se queda abajo
+    peso: 0
+    causa: Migas acumuladas en el mecanismo o un fallo del electroimán que la sujeta.
+    hacer: Desenchúfala, vacía la bandeja de migas y sacúdela boca abajo. Si sigue sin quedarse abajo, es el mecanismo.
+    dificultad: Muy baja
+    tiempo: 5 min
+    coste: Nada
+    aviso: Nunca metas un cuchillo dentro, ni desenchufada.
+    pesa: a veces son migas

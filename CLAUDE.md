@@ -15,6 +15,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 
 - `content/herramientas/`: calculadoras y diagnósticos, uno por página. Front matter: `herramienta` (clave en `assets/js/herramientas.js`), `seccion` (color) y `relacionado` (ruta del artículo, como `/arreglos/papel-pintado-pared-torcida`).
 - El artículo relacionado muestra solo un enlace a su herramienta.
+- «¿Lo arreglo o lo tiro?» (`lo-arreglo-o-lo-tiro.md`) lee sus aparatos y averías de `data/arreglos.yaml`. Si un artículo nuevo explica cómo arreglar una avería de un aparato o mueble, añade esa avería (o el aparato) con `articulo:` apuntando al artículo. Los datos se comprueban como cualquier otro: nada de precios con cifras sin fuente.
 - Al publicar un artículo de un tema que ya tiene herramienta sin `relacionado`, añádeselo: la tira LED → `calculadora-tira-led.md`; la impresora de tickets → `diagnostico-impresora-tickets.md`.
 
 ## Formato de un artículo
