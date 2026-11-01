@@ -80,6 +80,8 @@ En cada ejecución, antes de escribir el artículo:
 5. El `alt` describe con exactitud lo que se ve, en una frase. El `pie` es opcional.
 6. Añade la foto a `fotos.yaml` con su `id`, `archivo` y `uso`.
 
+Los artículos con portada de Sergio salen primero en la portada de la web, antes que los de Pixabay.
+
 ### Fotos de banco (Pixabay)
 
 Solo para artículos sin ninguna foto de Sergio. La clave de API viene en el prompt de la tarea programada: nunca se escribe en el repositorio, que es público.
