@@ -8,6 +8,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 - Al añadir temas nuevos, se alternan las cuatro secciones.
 - `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
+- `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
 
 ## Herramientas
