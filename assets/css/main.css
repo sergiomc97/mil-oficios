@@ -340,7 +340,7 @@ a.etiqueta { text-decoration: none; }
 }
 .cabeza { display: flex; flex-direction: column; gap: 16px; }
 .lateral { display: contents; }
-.articulo > .cuerpo { order: 1; }
+.articulo > .cuerpo, .articulo > .cafe { order: 1; }
 .lateral > :not(.resumen) { order: 2; }
 .cabeza > h1 { margin-top: -6px; font-size: 37px; line-height: 1.06; letter-spacing: -0.8px; text-wrap: balance; }
 .autor { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; color: var(--gris); }
@@ -584,6 +584,7 @@ a.etiqueta { text-decoration: none; }
   .articulo:has(.lateral) .cabeza > .sello { grid-column: 1; grid-row: 4; justify-self: start; margin-top: 4px; }
   .articulo:has(.lateral) .cabeza > .foto { grid-column: 2; grid-row: 1 / -1; }
   .articulo:has(.lateral) .cuerpo { grid-column: 1; grid-row: 2; max-width: 720px; }
+  .articulo:has(.lateral) .cafe { grid-column: 1; grid-row: 3; }
   .lateral {
     grid-column: 2;
     grid-row: 2;
@@ -796,6 +797,8 @@ body::after {
   text-decoration: none;
 }
 .usa-herramienta .etiqueta { font-family: var(--sans); }
+.cafe { margin: 12px 0 0; font: 15px/1.5 var(--sans); color: var(--gris); }
+.cafe a { color: var(--terra); font-weight: 600; }
 
 @media (min-width: 900px) {
   .destacado-texto { padding: 32px 40px 32px 0; }

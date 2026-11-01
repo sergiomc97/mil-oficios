@@ -54,6 +54,7 @@
   {{ end }}
 
   <div class="cuerpo">{{ .Content }}</div>
+  {{ if .Params.tiempo }}{{ partial "cafe.html" . }}{{ end }}
 </article>
 
 
