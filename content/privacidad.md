@@ -7,6 +7,10 @@ Mil Oficios no utiliza cookies propias ni de analítica. El responsable de los d
 
 La web está alojada en GitHub Pages, que puede registrar datos técnicos de las visitas (como la dirección IP) por motivos de seguridad. Puedes consultar su política en la web de GitHub.
 
+## Estadísticas de visitas
+
+Para saber qué artículos se leen, la web usa [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/). No usa cookies ni guarda nada en tu dispositivo: solo cuenta visitas de forma agregada (página, país, navegador y de dónde llegas), sin identificarte.
+
 ## Boletín
 
 Si te suscribes al boletín, se guarda tu correo electrónico para enviarte un correo al mes con las tareas del jardín y la casa y las novedades de la web. Lo haces con tu consentimiento, que das al marcar la casilla de la política de privacidad y confirmas con el enlace que te llega por correo.
