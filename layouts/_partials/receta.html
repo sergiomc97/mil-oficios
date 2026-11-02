@@ -1,0 +1,7 @@
+{{ with .Params.receta }}
+<section class="receta">
+  <h2>Ingredientes</h2>
+  <p class="receta-datos"><span><strong>{{ .raciones }}</strong></span><span>Total: <strong>{{ .total_texto }}</strong></span>{{ with .horno }}<span>Horno: <strong>{{ . }}</strong></span>{{ end }}</p>
+  <ul>{{ range .cantidades }}<li><span>{{ .cantidad }}</span><span>{{ .ingrediente }}</span></li>{{ end }}</ul>
+</section>
+{{ end }}

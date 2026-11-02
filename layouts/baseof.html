@@ -26,7 +26,12 @@
 {{ with site.Params.pinterest }}<meta name="p:domain_verify" content="{{ . }}">{{ end }}
 <meta name="theme-color" content="#F6F0E4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1B1814" media="(prefers-color-scheme: dark)">
-{{ if .Params.tiempo }}
+{{ with .Params.receta }}
+{{ $ing := slice }}{{ range .cantidades }}{{ $ing = $ing | append (printf "%s de %s" .cantidad .ingrediente) }}{{ end }}
+{{ $pasos := slice }}{{ range $.Params.pasos }}{{ $pasos = $pasos | append (dict "@type" "HowToStep" "name" .titulo "text" .texto) }}{{ end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Recipe" "name" $.Title "description" $desc "image" $imagenes "datePublished" ($.Date.Format "2006-01-02") "author" (dict "@type" "Person" "name" site.Params.autor) "recipeYield" .raciones "totalTime" .total "recipeCategory" "Pan" "recipeIngredient" $ing "recipeInstructions" $pasos | jsonify | safeJS }}</script>
+{{ end }}
+{{ if and .Params.tiempo (not .Params.receta) }}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" $desc "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "es-ES" "mainEntityOfPage" .Permalink "image" $imagenes "author" (dict "@type" "Person" "name" site.Params.autor) "publisher" (dict "@type" "Organization" "name" site.Title "url" site.Home.Permalink) | jsonify | safeJS }}</script>
 {{ end }}
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
@@ -47,7 +52,7 @@
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
 </head>
 {{ $zona := "" }}
-{{ if or .IsHome (eq .Section "herramientas") }}{{ $zona = "zona-todo" }}{{ else if in site.Params.mainSections .Section }}{{ $zona = printf "fondo sec-%s%s%s" .Section (cond .IsPage " lectura" "") (cond (eq .Section "negocio") " zona-negocio" "") }}{{ end }}
+{{ if or .IsHome (eq .Section "herramientas") }}{{ $zona = "zona-todo" }}{{ else if in site.Params.mainSections .Section }}{{ $zona = printf "fondo sec-%s%s%s%s" .Section (cond .IsPage " lectura" "") (cond (eq .Section "negocio") " zona-negocio" "") (cond (eq .Section "mil-panes") " zona-panes" "") }}{{ end }}
 <body{{ with $zona }} class="{{ . }}"{{ end }}>
 <header class="cabecera">
   <div class="contenedor">

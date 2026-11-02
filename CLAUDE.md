@@ -5,7 +5,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 ## Estructura
 
 - `content/jardin/`, `content/arreglos/`, `content/restauracion/`, `content/negocio/`: un `.md` por artículo. `negocio` es para dueños de tiendas y pequeños comercios: TPV, impresoras de tickets, cajones, balanzas, datáfonos y obligaciones de la caja.
-- Al añadir temas nuevos, se alternan las cuatro secciones.
+- Al añadir temas nuevos, se alternan las cuatro secciones. `mil-panes` no entra en esa rotación (ver «Mil Panes»).
 - `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
@@ -66,6 +66,15 @@ Con el borrador terminado, léelo entero de corrido, como lo leería Sergio en e
 3. Relleno: si una frase se puede quitar sin perder información, se quita.
 4. El `error`: si repite algo del cuerpo, cámbialo por otro o bórralo.
 
+## Mil Panes
+
+`content/mil-panes/`: recetas de pan, pizza y cocina de Sergio, con paleta propia (`zona-panes`).
+
+- Solo se escribe una receta cuando Sergio da la receta o la foto y su forma de hacerla. La tarea automática no escribe recetas ni toma temas de cocina.
+- Lo que más importa en esta sección son sus errores: lo que salió mal se cuenta siempre, en una sección propia, sin disimularlo.
+- Si Sergio no dio los pesos, se dice en el artículo y las cantidades se basan en fuentes comprobadas. Cuando pase sus pesos, se corrigen y se pone `lastmod`.
+- Front matter extra: `receta` con `raciones`, `total` (ISO 8601, como `PT6H`), `total_texto`, `horno` y `cantidades` (lista de `cantidad` e `ingrediente`). Los pasos van en `pasos`. Con `receta`, la página lleva datos estructurados de receta en vez de artículo.
+
 ## Fotos
 
 Sergio sube sus fotos a la carpeta «Imágenes» de Google Drive (id `1msSBp2MmkaFdZWRFnXRmyAoFgDu-AYEr`), compartida con la cuenta del conector. Puede que tengan nombre descriptivo o no.
@@ -112,6 +121,7 @@ Son las únicas que Tito Garlopa puede contar en primera persona, y solo en los 
 - Un vecino tiene a pocos metros una lavanda enorme y en flor, a pleno sol, en una esquina de pavimento con gravilla (`fotos/lavanda-vecino.jpg`). Es del vecino: nunca se presenta como de Sergio.
 - Plantó en marzo tulipanes con bulbos comprados en Amazon. En abril florecieron (rojos, rosas y naranjas, confirmado por foto: `fotos/tulipan*.jpg`). Esperaba que taparan el suelo, pero al marchitarse solo quedaba alguna hoja. Los quitó para poner setos y piedra volcánica.
 - Este verano tuvo cochinilla algodonosa en un sarmiento de su parra (`fotos/cochinilla-parra.jpg`) y encontró una larva blanca de escarabajo enroscada en C, del tamaño de una moneda de 1 € (`fotos/gusano-blanco-larva.jpg`). No consta qué especie era la larva ni qué hizo con ninguna de las dos.
+- Hizo panecillos sin gluten con el mix Caputo Fioreglut, levadura Caputo, algo de leche en polvo y algo de psyllium para una masa muy húmeda, unas 5 horas de fermentación y horno fuerte, sin pesar las cantidades. Recién hechos quedaron muy crujientes; al día siguiente estaban duros (`fotos/panecillo-sin-gluten.jpg`, con el fondo retocado por IA: el pan es el suyo).
 - Le regalaron un olivo de 60 a 80 cm en una maceta de 9 × 9 cm y dudó entre plantarlo en el suelo o pasarlo a una maceta grande.
 - Ha querido envejecer una maceta de terracota para que pareciera antigua y blanquecina.
 - En su dormitorio, la pared del cabecero está torcida y las esquinas no van a escuadra, lo que complica colocar papel pintado. Tenía una moldura blanca estrecha que se despegaba.

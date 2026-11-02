@@ -10,8 +10,8 @@ disableKinds = ['taxonomy', 'term']
   boletin = 'https://53f3a43e.sibforms.com/serve/MUIFAJaZ86Q91bm9_0UkBGSaLH5IcF_IVv0hLSyq1kMJnahFpbpNT_fOofCnW6dTxipq2W27UZTEq53tjyHy_EwCraZj8kc5MsNQkkOVxHNOpuiz3Gl8d4zCCmSRrNVtUZ54ujv37ms8VZlnmqPOIasbT2TXvjILe_Vm-9tQgIi8HtI9yjPFGehbH0pN_8NNvQojrSvJd4ZdC58TnA=='
   autor = 'Tito Garlopa'
   kofi = 'titogarlopa'
-  descripcion = 'Aprende a hacerlo tú mismo: jardín, arreglos en casa, restauración de muebles y tu negocio, paso a paso y sin rodeos.'
-  mainSections = ['jardin', 'arreglos', 'restauracion', 'negocio']
+  descripcion = 'Aprende a hacerlo tú mismo: jardín, arreglos en casa, restauración de muebles, tu negocio y pan casero, paso a paso y sin rodeos.'
+  mainSections = ['jardin', 'arreglos', 'restauracion', 'negocio', 'mil-panes']
 
 [pagination]
   pagerSize = 20

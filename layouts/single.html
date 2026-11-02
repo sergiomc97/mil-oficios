@@ -26,6 +26,7 @@
       <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
     </div>
     {{ end }}
+    {{ partial "receta.html" . }}
 
     {{ with .Params.error }}
     <div class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></div>
