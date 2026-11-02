@@ -4,6 +4,8 @@ date: 2026-11-02
 description: "Los panellets de mi madre: patata cocida, harina de almendra, azúcar y piñón ibérico por fuera. Sin gluten y sin huevo en la masa."
 tiempo: 4 min
 dificultad: baja
+portada: fotos/panellets-yaya.jpg
+portada_alt: "Cesta de mimbre con papel de horno llena de panellets: la mayoría rebozados en piñones dorados y unos pocos lisos con láminas de almendra."
 resumen:
   - Patata cocida, harina de almendra y azúcar hacen una masa tierna y sin gluten.
   - Por fuera, piñón ibérico o almendra laminada; con piñón de importación no saben igual.
@@ -51,8 +53,6 @@ Esta cesta de panellets es de mi madre, la yaya Garlopa. Me ha dejado contar su 
 Lleva cuatro cosas: patata cocida, harina de almendra, azúcar y, por fuera, piñones o almendra laminada. No tengo sus pesos, así que las cantidades de arriba las he cuadrado con varias recetas catalanas de panellets con patata. Cuando la vea hacerlos con la báscula delante, las corrijo.
 
 {{< pasos >}}
-
-{{< foto src="fotos/panellets-yaya.jpg" alt="Cesta de mimbre con papel de horno llena de panellets: la mayoría rebozados en piñones dorados y unos pocos lisos con láminas de almendra." >}}
 
 ## ¿Para qué la patata?
 
