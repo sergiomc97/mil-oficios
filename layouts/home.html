@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $propios := slice }}{{ $resto := slice }}
-{{ range where site.RegularPages "Section" "in" site.Params.mainSections }}{{ if and .Params.portada (not (strings.Contains .Params.portada "pixabay")) }}{{ $propios = $propios | append . }}{{ else }}{{ $resto = $resto | append . }}{{ end }}{{ end }}
+{{ range where (where site.RegularPages "Section" "in" site.Params.mainSections) "Section" "ne" "mil-panes" }}{{ if and .Params.portada (not (strings.Contains .Params.portada "pixabay")) }}{{ $propios = $propios | append . }}{{ else }}{{ $resto = $resto | append . }}{{ end }}{{ end }}
 {{ $posts := $propios | append $resto }}
 <div class="contenedor">
 {{ with index $posts 0 }}
