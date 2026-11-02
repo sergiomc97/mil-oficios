@@ -37,8 +37,8 @@
   --texto-paso: #4A4136;
   --pizarra: #2F5266;
   --pizarra-s: #DCE5EA;
-  --corteza: #8A5A12;
-  --corteza-s: #F3E6C4;
+  --corteza: #806000;
+  --corteza-s: #F2E8C2;
   --serif: "Fraunces", Georgia, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --radio: 14px;
@@ -67,8 +67,8 @@
     --madera-s: #33281C;
     --pizarra: #8FB3C7;
     --pizarra-s: #1F2A31;
-    --corteza: #E0B35C;
-    --corteza-s: #362C17;
+    --corteza: #E3C25A;
+    --corteza-s: #33290F;
     --regla: #6B5C48;
     --hover: #F2B08F;
     --texto-paso: var(--gris);
@@ -79,7 +79,7 @@
   .sec-arreglos { --cf: #A3431F; }
   .sec-restauracion { --cf: #7C5226; }
   .sec-negocio { --cf: #2F5266; }
-  .sec-mil-panes { --cf: #8A5A12; }
+  .sec-mil-panes { --cf: #806000; }
   .foto img, .destacado img, .baldosa img, .mini { filter: brightness(.9); }
 }
 
@@ -938,7 +938,7 @@ body::after {
   --tinta: #2A1E12;
   --gris: #6E6253;
   --linea: #E6DDCE;
-  --hover: #6B4410;
+  --hover: #5E4700;
   --acento: var(--corteza);
   --acento-s: var(--corteza-s);
 }

@@ -3,7 +3,7 @@
 {{ $nuevos := first 4 (where (where site.RegularPages "Section" "in" site.Params.mainSections) "Date" "ge" ($hoy.AddDate 0 -1 0)) }}
 {{ $herr := where (site.GetPage "/herramientas").RegularPages "Params.herramienta" "ne" "mes" }}
 {{ $destacada := index $herr (mod (int ($hoy.Format "1")) (len $herr)) }}
-{{ $c := dict "jardin" (slice "#4C5A2A" "#E4E7D2") "arreglos" (slice "#A3431F" "#F5DFD2") "restauracion" (slice "#7C5226" "#EBDCC6") "negocio" (slice "#2F5266" "#DCE5EA") "mil-panes" (slice "#8A5A12" "#F3E6C4") }}
+{{ $c := dict "jardin" (slice "#4C5A2A" "#E4E7D2") "arreglos" (slice "#A3431F" "#F5DFD2") "restauracion" (slice "#7C5226" "#EBDCC6") "negocio" (slice "#2F5266" "#DCE5EA") "mil-panes" (slice "#806000" "#F2E8C2") }}
 {{ $tinta := "#2B241C" }}{{ $gris := "#685E50" }}{{ $papel := "#F6F0E4" }}{{ $papel2 := "#ECE3D1" }}{{ $terra := "#A3431F" }}
 {{ $serif := "Georgia,Times New Roman,serif" }}{{ $sans := "-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" }}
 <!doctype html>
