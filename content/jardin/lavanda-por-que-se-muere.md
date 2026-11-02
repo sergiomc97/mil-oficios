@@ -1,6 +1,7 @@
 ---
 title: "Lavanda: por qué se muere en unos sitios y en otros crece sin parar"
 date: 2026-10-23
+lastmod: 2026-11-02
 description: "Si tu lavanda se queda gris y seca mientras la del vecino es enorme, la culpa suele ser el agua, la sombra o la variedad. Así lo detectas y lo evitas."
 tiempo: 3 min
 dificultad: baja
@@ -17,9 +18,9 @@ productos:
   - nombre: Tijera de podar de mano
 ---
 
-La lavanda de la portada es de un vecino. Está metida en una esquina de baldosas, con un parterre de gravilla al lado, y le da el sol de lleno. La mía, a pocos metros de allí, acabó así:
+La lavanda de la portada es de un vecino. Está metida en una esquina de baldosas, con un parterre de gravilla al lado, y le da el sol de lleno. La mía, a pocos metros de allí, llegó a estar así:
 
-{{< foto src="fotos/lavanda-seca.jpg" alt="Mata de lavanda gris plateada y seca, con las hojas enroscadas, sobre tierra pedregosa junto a una teja." pie="La mía, unos metros más allá." >}}
+{{< foto src="fotos/lavanda-seca.jpg" alt="Mata de lavanda gris plateada y seca, con las hojas enroscadas, sobre tierra pedregosa junto a una teja." pie="La mía, unos metros más allá. Parecía muerta, pero se salvó." >}}
 
 Mismo clima, mismas heladas. Lo que cambia es el sitio, y con esta planta el sitio pesa más que cualquier cuidado.
 
@@ -29,7 +30,7 @@ Visto con ojos de lavanda, ese rincón que parece tan poco acogedor se parece ba
 
 La lavanda necesita al menos seis horas de sol al día, y mejor ocho. Con menos crece lacia, se abre por el centro y da pocas flores. Lo que no soporta, según la Royal Horticultural Society, son los suelos pesados que se quedan húmedos, sobre todo en invierno, porque las raíces se pudren.
 
-## ¿Por qué se ha muerto la mía?
+## ¿Por qué se secó la mía?
 
 Lo primero que hay que sospechar es el agua, por raro que suene en una planta que presume de aguantar la sequía. Una vez arraigada en el suelo casi no necesita riego, salvo en sequías largas. Solo el primer verano hay que regarla con regularidad.
 
@@ -60,6 +61,10 @@ Una lavanda vieja, abierta y toda leñosa no se arregla con una poda fuerte. Sal
 
 ## ¿Y si ya está seca?
 
-Si está gris de arriba abajo, como la mía, no tiene vuelta atrás. Si solo se ha secado una parte, rasca un tallo con la uña: donde aparezca verde, sigue viva. Corta lo seco hasta ese punto, deja de regar una temporada y, en primavera, pásala a un sitio con más sol y mejor drenaje.
+Yo la daba por perdida, y no lo estaba. Antes de tirarla, rasca un tallo con la uña cerca de la base: si debajo aparece verde, sigue viva. Corta lo seco hasta ese punto.
+
+Lo que hice con la mía fue sacarla del suelo y pasarla a una maceta con gravilla, regándola poco. Se recuperó. Hace un par de semanas la volví a pasar al suelo y va más o menos bien, aunque le tengo miedo a las heladas: es justo lo que aconsejaba arriba no hacer, plantarla en otoño. Si pasa el invierno, lo cuento aquí.
+
+Si está seca de verdad, con los tallos que se parten como palillos y marrones por dentro, no tiene vuelta atrás.
 
 O haz como el vecino y búscale la esquina que nadie quiere.
