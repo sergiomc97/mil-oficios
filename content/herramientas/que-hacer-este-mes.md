@@ -1,5 +1,5 @@
 ---
-title: "Qué hacer este mes en el jardín y en casa"
+title: "Calendario: lo que toca este mes en el jardín y en casa"
 description: "Las tareas de cada mes en el jardín y la casa para un clima de interior con heladas: qué plantar, qué podar y qué revisar antes de que dé guerra."
 herramienta: mes
 seccion: jardin

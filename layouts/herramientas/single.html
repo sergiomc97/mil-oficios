@@ -1,6 +1,15 @@
 {{ define "main" }}
+{{ $lista := site.GetPage "/herramientas" }}
+<nav class="barra sec-{{ .Params.seccion }}" aria-label="Herramienta">
+  <div class="contenedor barra-in">
+    <a class="barra-sec" href="{{ $lista.RelPermalink }}">← {{ $lista.Title }}</a>
+    <span class="barra-titulo">{{ .Title }}</span>
+  </div>
+  <span class="cinta" aria-hidden="true"></span>
+</nav>
 <article class="articulo herramienta-pag">
   <header class="cabeza">
+    <a class="volver" href="{{ $lista.RelPermalink }}">← Todas las herramientas</a>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
   </header>

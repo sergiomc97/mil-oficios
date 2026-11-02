@@ -18,15 +18,18 @@
         { id: "alto", label: "Alto de la pared", unidad: "m", valor: 2.5 },
         { id: "rapport", label: "Casamiento del dibujo", unidad: "cm", valor: 0 },
         { id: "rolloAncho", label: "Ancho del rollo", unidad: "cm", valor: 53 },
-        { id: "rolloLargo", label: "Largo del rollo", unidad: "m", valor: 10.05 }
+        { id: "rolloLargo", label: "Largo del rollo", unidad: "m", valor: 10.05 },
+        { id: "precio", label: "Precio del rollo (opcional)", unidad: "€", valor: 0 }
       ],
       calcular: v => {
         const tira = v.alto + v.rapport / 100 + .1;
         const porRollo = Math.floor(v.rolloLargo / tira);
         const tiras = Math.ceil(v.ancho / (v.rolloAncho / 100));
         if (!v.alto || !porRollo || !isFinite(tiras) || !tiras) return null;
+        const rollos = Math.ceil(tiras / porRollo);
         return [
-          ["Rollos", Math.ceil(tiras / porRollo)],
+          ["Rollos", rollos],
+          ...(v.precio > 0 ? [["Coste del papel", eur(rollos * v.precio)]] : []),
           ["Tiras", tiras],
           ["Tiras por rollo", porRollo],
           ["Largo de cada tira", `${dec(tira, 2)} m`]
@@ -360,7 +363,9 @@
     lectura.setAttribute("aria-live", "polite");
     const pasos = crear("div");
     const resultado = crear("div");
-    caja.append(banco, lectura, pasos, resultado);
+    const vista = crear("div", "vista");
+    vista.append(banco, lectura);
+    caja.append(vista, pasos, resultado);
 
     let estado = {};
     const pesas = () => {
