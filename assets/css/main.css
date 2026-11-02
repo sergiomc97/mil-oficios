@@ -949,12 +949,12 @@ body::after {
 @media (prefers-reduced-motion: reduce) { .banco *, .pesa, .veredicto, .veredicto .sello, [data-herramienta="balanza"] .paso { animation: none; transition: none; } }
 
 .zona-panes, :root:has(> body.zona-panes) {
-  --papel: #FCFAF6;
-  --papel-2: #F3EEE5;
-  --claro: #FFFFFF;
-  --tinta: #2A1E12;
-  --gris: #6E6253;
-  --linea: #E6DDCE;
+  --papel: #F6EFD9;
+  --papel-2: #EDE2C2;
+  --claro: #FBF7EA;
+  --tinta: #2B2414;
+  --gris: #6B5F45;
+  --linea: #E0D3AE;
   --hover: #5E4700;
   --acento: var(--corteza);
   --acento-s: var(--corteza-s);
@@ -972,5 +972,5 @@ body::after {
 .receta li { display: flex; gap: 12px; padding: 6px 0; border-top: 1px solid var(--linea); line-height: 1.4; }
 .receta li span:first-child { flex: 0 0 64px; font-weight: 600; font-variant-numeric: tabular-nums; }
 @media (prefers-color-scheme: dark) {
-  .zona-panes, :root:has(> body.zona-panes) { --papel: #191612; --papel-2: #221E19; --claro: #2A251F; --tinta: #EFE8DC; --gris: #ADA290; --linea: #36302799; --hover: #F0C77A; }
+  .zona-panes, :root:has(> body.zona-panes) { --papel: #1B1810; --papel-2: #242016; --claro: #2C271B; --tinta: #EFE8D6; --gris: #ADA286; --linea: #3A3424; --hover: #E3C25A; }
 }
