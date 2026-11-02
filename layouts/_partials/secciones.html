@@ -7,4 +7,4 @@
   "negocio" `<path d="M4 9l1.5-5h13L20 9M4 9c0 1.7 1.3 3 3 3s2.5-1.3 2.5-3c0 1.7 1.2 3 2.5 3s2.5-1.3 2.5-3c0 1.7 1.3 3 2.5 3s3-1.3 3-3M5.5 12v8h13v-8M10 20v-4h4v4"/>`
 }}
 <a class="todo" href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}><svg class="icono" viewBox="0 0 24 24" aria-hidden="true">{{ $iconos.todo | safeHTML }}</svg>Todo</a>
-{{ range site.Params.mainSections }}{{ with site.GetPage . }}<a class="sec-{{ .Section }}" href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="{{ if $.IsPage }}true{{ else }}page{{ end }}"{{ end }}><svg class="icono" viewBox="0 0 24 24" aria-hidden="true">{{ index $iconos .Section | safeHTML }}</svg>{{ .Title }}</a>{{ end }}{{ end }}
+{{ range site.Params.mainSections }}{{ with site.GetPage . }}<a class="sec-{{ .Section }}" href="{{ .RelPermalink }}"{{ if eq $.Section .Section }} aria-current="{{ if $.IsPage }}true{{ else }}page{{ end }}"{{ end }}><svg class="icono" viewBox="0 0 24 24" aria-hidden="true">{{ index $iconos .Section | safeHTML }}</svg><span class="nombre">{{ .Title }}</span>{{ with .Params.corto }}<span class="corto">{{ . }}</span>{{ end }}</a>{{ end }}{{ end }}
