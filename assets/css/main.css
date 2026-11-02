@@ -840,11 +840,11 @@ body::after {
 .herramienta-pag .cabeza > h1 { margin-top: 0; }
 .volver { align-self: flex-start; font: 600 14px var(--sans); color: var(--gris); text-decoration: none; }
 .volver:hover { color: var(--tinta); }
-[data-herramienta="balanza"] .vista { position: sticky; top: 62px; z-index: 4; margin: -18px -18px 0; padding: 12px 18px 4px; border-radius: var(--radio) var(--radio) 0 0; background: color-mix(in srgb, var(--papel) 94%, transparent); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+[data-herramienta="balanza"] { background: color-mix(in srgb, var(--c) 10%, var(--papel)); }
+[data-herramienta="balanza"] .vista { position: sticky; top: 62px; z-index: 4; margin: -18px -18px 0; padding: 12px 18px 4px; border-radius: 22px 22px 0 0; background: color-mix(in srgb, var(--c) 10%, var(--papel)); }
 @media (max-width: 899px) {
   [data-herramienta="balanza"] .banco { height: 190px; }
   [data-herramienta="balanza"] .banco .cruz { width: calc(100% - 96px); }
-  [data-herramienta="balanza"] .vista { background: var(--vidrio, var(--papel)); }
   [data-herramienta="balanza"] .banco .poste { height: 124px; }
   [data-herramienta="balanza"] .plato { width: 112px; margin-left: -56px; }
   [data-herramienta="balanza"] .plato .hilos { height: 52px; margin: 0 16px; }

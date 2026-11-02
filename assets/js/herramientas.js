@@ -457,7 +457,7 @@
       }
       veredicto(s);
     };
-    addEventListener("resize", inclina);
+    new ResizeObserver(() => inclina()).observe(banco);
     pinta();
   };
 
