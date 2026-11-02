@@ -6,7 +6,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 
 - `content/jardin/`, `content/arreglos/`, `content/restauracion/`, `content/negocio/`: un `.md` por artículo. `negocio` es para dueños de tiendas y pequeños comercios: TPV, impresoras de tickets, cajones, balanzas, datáfonos y obligaciones de la caja.
 - Al añadir temas nuevos, se alternan las cuatro secciones.
-- `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica.
+- `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
@@ -81,6 +81,8 @@ En cada ejecución, antes de escribir el artículo:
    - Si no encaja en ningún artículo, regístrala con `uso: pendiente` y una descripción, para un tema futuro.
 5. El `alt` describe con exactitud lo que se ve, en una frase. El `pie` es opcional.
 6. Añade la foto a `fotos.yaml` con su `id`, `archivo` y `uso`.
+
+La portada tiene que medir al menos 1200 px de ancho ya preparada, porque Google Discover descarta las imágenes más pequeñas. Si una foto de Sergio no llega, úsala dentro del texto con `foto`, no como portada, y díselo en una línea. Las de Pixabay se descargan siempre con `largeImageURL`.
 
 Los artículos con portada de Sergio salen primero en la portada de la web, antes que los de Pixabay.
 

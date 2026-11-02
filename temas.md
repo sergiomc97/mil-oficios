@@ -10,21 +10,23 @@
 - [x] jardin · Tulipanes después de florecer: por qué casi no queda nada
 - [x] jardin · Plantar un olivo pequeño: ¿en maceta o en el suelo?
 - [x] negocio · La impresora de tickets no imprime: qué revisar antes de llamar al técnico
-- [ ] restauracion · Carcoma: cómo saber si sigue activa y tratarla
-- [ ] arreglos · Cambiar una moldura que se despega por un listón de madera
-- [ ] negocio · El cajón portamonedas no se abre al cobrar
-- [ ] jardin · Mirtos que se secan después de plantarlos: cómo saber si siguen vivos
 - [ ] arreglos · Purgar los radiadores antes del invierno
+- [ ] jardin · Cómo preparar el huerto en otoño
+- [ ] negocio · El cajón portamonedas no se abre al cobrar
+- [ ] jardin · Proteger las macetas de las heladas: dónde ponerlas y con qué taparlas
+- [ ] arreglos · Condensación y moho en las ventanas en invierno: de dónde sale y cómo cortarlo
+- [ ] restauracion · Carcoma: cómo saber si sigue activa y tratarla
+- [ ] jardin · Acolchado: qué es y cómo ahorra agua
+- [ ] arreglos · Cambiar una moldura que se despega por un listón de madera
+- [ ] jardin · Mirtos que se secan después de plantarlos: cómo saber si siguen vivos
 - [ ] negocio · El datáfono no conecta con el TPV: causas y soluciones
 - [ ] jardin · Malla antihierbas y piedra decorativa: ventajas y el problema del riego
 - [ ] arreglos · Tira LED en el techo: cómo calcular metros, potencia y fuente
 - [ ] restauracion · Decapar un mueble antiguo paso a paso
 - [ ] arreglos · Microcemento o estuco en el baño: qué saber antes de empezar
 - [ ] negocio · Balanza para tienda: qué significa que esté homologada y cuál elegir
-- [ ] jardin · Cómo preparar el huerto en otoño
 - [ ] arreglos · Cambiar la silicona de la bañera
 - [ ] negocio · Copias de seguridad del TPV: qué hacer antes de que se rompa el ordenador de la caja
-- [ ] jardin · Acolchado: qué es y cómo ahorra agua
 - [ ] restauracion · Quitar las manchas blancas de agua en la madera
 - [ ] arreglos · Arreglar una cisterna que pierde agua
 - [ ] negocio · Verifactu para una tienda pequeña: qué cambia en la caja
