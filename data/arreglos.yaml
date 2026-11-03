@@ -188,3 +188,27 @@ objetos:
     coste: Nada
     aviso: Nunca metas un cuchillo dentro, ni desenchufada.
     pesa: a veces son migas
+- id: radiador
+  nombre: Radiador de agua
+  averias:
+  - id: frioarriba
+    nombre: Calienta abajo pero arriba está frío, o hace gluglú
+    peso: 3
+    causa: Tiene aire acumulado en la parte de arriba.
+    hacer: Con la calefacción apagada y el radiador frío, abre el purgador hasta que salga agua sin burbujas. Luego mira que la caldera marque entre 1 y 1,5 bar.
+    dificultad: Muy baja
+    tiempo: 30 min
+    coste: Nada
+    aviso: 'Si la calefacción es comunitaria, avisa antes al administrador.'
+    pesa: es aire
+    articulo: /arreglos/purgar-radiadores
+  - id: frioabajo
+    nombre: Calienta arriba pero abajo está frío
+    peso: 0
+    causa: Lodos de óxido y suciedad posados en el fondo. Purgar no lo arregla.
+    hacer: Hay que desmontar el radiador y limpiarlo por dentro, o limpiar todo el circuito. Llama a un instalador.
+    dificultad: De técnico
+    tiempo: —
+    coste: Medio
+    pesa: son lodos
+    articulo: /arreglos/purgar-radiadores
