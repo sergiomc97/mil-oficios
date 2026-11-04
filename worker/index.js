@@ -54,7 +54,7 @@ export default {
       if (r.ok) break;
     }
     if (r.status === 429) return responde({ error: "agotado" }, 503);
-    if (!r.ok) return responde({ error: "ia", detalle: (await r.text()).slice(0, 400) }, 502);
+    if (!r.ok) return responde({ error: "ia" }, 502);
 
     try {
       const texto = (await r.json()).candidates[0].content.parts[0].text;
