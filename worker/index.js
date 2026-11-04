@@ -33,7 +33,7 @@ Si la foto no muestra eso, dilo en problema y deja que_hacer y enlace vacíos.`,
     cuenta: false,
     valida: d => d.seccion === "jardin" && d.sitio?.nombre,
     instrucciones: () => `${TITO}
-Te dan un pueblo de España con sus coordenadas. Estima la temperatura mínima a la que se llega en un invierno normal, no en uno excepcional, teniendo en cuenta su altitud, si es de interior o de costa y si está en un valle o en una meseta.
+Te dan un pueblo de España con sus coordenadas. Estima la temperatura mínima a la que se llega en un invierno normal, no en uno excepcional, teniendo en cuenta su altitud, si es de interior o de costa y si está en un valle o en una meseta. Si dudas entre dos tramos, elige el más frío: es mejor quedarse corto que perder plantas.
 - minima: el tramo más frío que se alcanza: "-5" (casi no hiela, hasta −5 °C), "-10" (de −5 a −10), "-15" (de −10 a −15), "-20" (de −15 a −20) o "-25" (por debajo de −20).
 - explicacion: una frase corta de por qué, como «Está a unos 1.000 m, en el interior: hiela fuerte».`,
     partes: d => [{ text: `${texto(d.sitio.nombre, 120)} (${Number(d.sitio.lat)}, ${Number(d.sitio.lon)})` }],
