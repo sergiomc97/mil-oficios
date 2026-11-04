@@ -4,6 +4,8 @@ const TEMAS = {
 
 const TITO = "Eres Tito Garlopa, que escribe en miloficios.es. Responde en español de España, tuteando, como un vecino que sabe del tema: concreto y sin rodeos. No inventes nombres de productos ni cifras.";
 
+const PASE = "8bb7b76784a54bc2d81bfd9671750114f72970e2a03c71a28c80de2df3321834";
+
 const TRAMOS = ["-5", "-10", "-15", "-20", "-25"];
 
 const texto = (v, max) => String(v ?? "").slice(0, max);
@@ -99,7 +101,9 @@ export default {
 
     const clave = `${req.headers.get("CF-Connecting-IP")}:${new Date().toISOString().slice(0, 10)}`;
     const usadas = Number(await env.CUPO.get(clave)) || 0;
-    if (tarea.cuenta && usadas >= Number(env.LIMITE)) return responde({ error: "limite" }, 429);
+    const huella = [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(texto(d.pase, 100))))].map(b => b.toString(16).padStart(2, "0")).join("");
+    const cuenta = tarea.cuenta && huella !== PASE;
+    if (cuenta && usadas >= Number(env.LIMITE)) return responde({ error: "limite" }, 429);
 
     const pagina = await fetch(`${env.ORIGEN}${d.pagina}index.json`, { cf: { cacheTtl: 3600 } })
       .then(r => r.json()).catch(() => ({ enlaces: [], plantas: [] }));
@@ -123,7 +127,7 @@ export default {
 
     try {
       const respuesta = JSON.parse((await r.json()).candidates[0].content.parts[0].text);
-      if (tarea.cuenta) await env.CUPO.put(clave, String(usadas + 1), { expirationTtl: 86400 });
+      if (cuenta) await env.CUPO.put(clave, String(usadas + 1), { expirationTtl: 86400 });
       return responde(tarea.responde(respuesta, pagina));
     } catch {
       return responde({ error: "ia" }, 502);

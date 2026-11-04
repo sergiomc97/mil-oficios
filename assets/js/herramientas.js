@@ -475,8 +475,15 @@
     agotado: "Tito está desbordado por hoy. Vuelve mañana.",
     foto: "No he podido leer la foto. Prueba con otra."
   };
+  const enlacePase = new URLSearchParams(location.search).get("pase");
+  if (enlacePase) {
+    try { localStorage.setItem("tito:pase", enlacePase); } catch {}
+    history.replaceState(null, "", location.pathname);
+  }
   const pedirTito = async (url, datos) => {
-    const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pagina: location.pathname, ...datos }) });
+    let pase = "";
+    try { pase = localStorage.getItem("tito:pase") || ""; } catch {}
+    const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pagina: location.pathname, pase, ...datos }) });
     const d = await r.json();
     if (d.error) throw d.error;
     return d;
