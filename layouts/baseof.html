@@ -59,11 +59,21 @@
     <div class="cabecera-in">
       <a class="logo" href="{{ "/" | relURL }}"><span class="logo-nombre">Mil <em>Oficios</em></span><span class="logo-lema">Hazlo tú mismo</span></a>
       <nav class="secciones menu" aria-label="Secciones">{{ partial "secciones.html" . }}</nav>
+      <button class="lupa" type="button" aria-label="Buscar" data-buscar><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
     </div>
   </div>
 </header>
 <nav class="secciones tira" aria-label="Secciones">{{ partial "secciones.html" . }}</nav>
-<main>
+<dialog class="buscador" aria-label="Buscar en {{ site.Title }}">
+  <div class="buscador-cab">
+    <input type="search" placeholder="Heladas, lavanda, pan…" aria-label="Buscar" enterkeyhint="search" autocomplete="off">
+    <button class="atras" type="button" data-cerrar>Cerrar</button>
+  </div>
+  <div class="buscador-sugerencias">{{ range slice "heladas" "lavanda" "impresora de tickets" "pan sin gluten" "barniz" }}<button class="opcion" type="button">{{ . }}</button>{{ end }}</div>
+  <ol class="buscador-res" aria-live="polite"></ol>
+</dialog>
+{{ $buscable := and .IsPage (or (in site.Params.mainSections .Section) (eq .Section "herramientas")) }}
+<main{{ if $buscable }} data-pagefind-body data-pagefind-meta="tipo:{{ cond (eq .Section "herramientas") "Herramienta" .CurrentSection.Title }}, color:{{ .Params.seccion | default .Section }}"{{ end }}>
 {{ block "main" . }}{{ end }}
 </main>
 <footer class="pie">

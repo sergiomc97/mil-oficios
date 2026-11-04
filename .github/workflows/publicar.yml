@@ -27,6 +27,7 @@ jobs:
       - run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
         env:
           HUGO_PARAMS_WEATHERAPI: ${{ secrets.WEATHERAPI_KEY }}
+      - run: npx -y pagefind@1.6.0 --site public
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public

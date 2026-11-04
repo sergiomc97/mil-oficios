@@ -14,6 +14,52 @@
   });
 
   addEventListener("DOMContentLoaded", () => {
+    const buscador = document.querySelector(".buscador");
+    if (buscador) {
+      const entrada = buscador.querySelector("input");
+      const lista = buscador.querySelector(".buscador-res");
+      const sugerencias = buscador.querySelector(".buscador-sugerencias");
+      let pagefind;
+      const buscar = async () => {
+        const q = entrada.value.trim();
+        sugerencias.hidden = !!q;
+        if (!q) return lista.replaceChildren();
+        pagefind ||= await import("/pagefind/pagefind.js");
+        const r = await pagefind.debouncedSearch(q);
+        if (!r) return;
+        const datos = await Promise.all(r.results.slice(0, 10).map(x => x.data()));
+        if (!datos.length) {
+          const li = document.createElement("li");
+          li.className = "sin-res";
+          li.textContent = `No hay nada sobre «${q}» todavía.`;
+          return lista.replaceChildren(li);
+        }
+        lista.replaceChildren(...datos.map(d => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.className = `res sec-${d.meta.color}`;
+          a.href = d.url;
+          const tipo = document.createElement("span");
+          tipo.className = "etiqueta";
+          tipo.textContent = d.meta.tipo;
+          const titulo = document.createElement("strong");
+          titulo.textContent = d.meta.title;
+          const trozo = document.createElement("p");
+          trozo.innerHTML = d.excerpt;
+          a.append(tipo, titulo, trozo);
+          li.append(a);
+          return li;
+        }));
+      };
+      entrada.addEventListener("input", buscar);
+      sugerencias.addEventListener("click", e => {
+        if (e.target.matches("button")) { entrada.value = e.target.textContent; buscar(); }
+      });
+      document.querySelector("[data-buscar]")?.addEventListener("click", () => { buscador.showModal(); entrada.focus(); });
+      buscador.querySelector("[data-cerrar]").addEventListener("click", () => buscador.close());
+      buscador.addEventListener("click", e => { if (e.target === buscador) buscador.close(); });
+    }
+
     const guardar = (clave, valor) => { try { localStorage.setItem(clave, JSON.stringify(valor)); } catch {} };
     const leer = clave => { try { return JSON.parse(localStorage.getItem(clave)) || []; } catch { return []; } };
 
