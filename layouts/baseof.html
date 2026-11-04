@@ -73,7 +73,8 @@
   <ol class="buscador-res" aria-live="polite"></ol>
 </dialog>
 {{ $buscable := and .IsPage (or (in site.Params.mainSections .Section) (eq .Section "herramientas")) }}
-<main{{ if $buscable }} data-pagefind-body data-pagefind-meta="tipo:{{ cond (eq .Section "herramientas") "Herramienta" .CurrentSection.Title }}, color:{{ .Params.seccion | default .Section }}"{{ end }}>
+<main{{ if $buscable }} data-pagefind-body data-pagefind-meta="tipo:{{ cond (eq .Section "herramientas") "Herramienta" .CurrentSection.Title }}"{{ end }}>
+{{ if $buscable }}<span hidden data-pagefind-meta="color:{{ .Params.seccion | default .Section }}"></span>{{ end }}
 {{ block "main" . }}{{ end }}
 </main>
 <footer class="pie">

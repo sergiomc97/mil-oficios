@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $lista := site.GetPage "/herramientas" }}
-<nav class="barra sec-{{ .Params.seccion }}" aria-label="Herramienta">
+<nav class="barra sec-{{ .Params.seccion }}" aria-label="Herramienta" data-pagefind-ignore>
   <div class="contenedor barra-in">
     <a class="barra-sec" href="{{ $lista.RelPermalink }}">← {{ $lista.Title }}</a>
     <span class="barra-titulo">{{ .Title }}</span>

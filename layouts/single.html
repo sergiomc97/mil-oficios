@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ if .Params.tiempo }}
-<nav class="barra sec-{{ .Section }}" aria-label="Artículo">
+<nav class="barra sec-{{ .Section }}" aria-label="Artículo" data-pagefind-ignore>
   <div class="contenedor barra-in">
     <a class="barra-sec" href="{{ .CurrentSection.RelPermalink }}">← {{ .CurrentSection.Title }}</a>
     <span class="barra-titulo">{{ .Title }}</span>
@@ -12,10 +12,10 @@
   <header class="cabeza">
   <h1>{{ partial "titulo.html" .Title }}</h1>
   {{ with .Params.tiempo }}
-  <p class="autor"><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ if gt ($.Lastmod.Sub $.Date).Hours 24 }} · actualizado el {{ $.Lastmod | time.Format ":date_long" }}{{ end }}</span></p>
-  {{ with $.Params.dificultad }}<span class="sello">Dificultad {{ . }}</span>{{ end }}
+  <p class="autor" data-pagefind-ignore><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ if gt ($.Lastmod.Sub $.Date).Hours 24 }} · actualizado el {{ $.Lastmod | time.Format ":date_long" }}{{ end }}</span></p>
+  {{ with $.Params.dificultad }}<span class="sello" data-pagefind-ignore>Dificultad {{ . }}</span>{{ end }}
   {{ end }}
-  {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ with $.Params.portada_credito }}<figcaption class="credito">{{ . }}</figcaption>{{ end }}</figure>{{ end }}
+  {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ with $.Params.portada_credito }}<figcaption class="credito" data-pagefind-ignore>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
   </header>
 
   {{ if .Params.tiempo }}
