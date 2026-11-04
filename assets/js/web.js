@@ -19,8 +19,9 @@
       const entrada = buscador.querySelector("input");
       const lista = buscador.querySelector(".buscador-res");
       const sugerencias = buscador.querySelector(".buscador-sugerencias");
-      let pagefind;
+      let pagefind, apunte;
       const buscar = async () => {
+        clearTimeout(apunte);
         const q = entrada.value.trim();
         sugerencias.hidden = !!q;
         if (!q) return lista.replaceChildren();
@@ -31,7 +32,12 @@
         if (!datos.length) {
           const li = document.createElement("li");
           li.className = "sin-res";
-          li.textContent = `No hay nada sobre «${q}» todavía.`;
+          li.textContent = `No hay nada sobre «${q}» todavía. Me lo apunto para escribir sobre ello.`;
+          const todas = document.createElement("a");
+          todas.href = "/herramientas/";
+          todas.textContent = "Mira todas las herramientas →";
+          li.append(document.createElement("br"), todas);
+          if (buscador.dataset.tito && q.length > 2) apunte = setTimeout(() => fetch(buscador.dataset.tito, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tipo: "busqueda", q }), keepalive: true }).catch(() => {}), 2000);
           return lista.replaceChildren(li);
         }
         lista.replaceChildren(...datos.map(d => {

@@ -97,6 +97,13 @@ export default {
     if (req.method !== "POST" || req.headers.get("Origin") !== env.ORIGEN) return responde({ error: "origen" }, 403);
 
     const d = await req.json().catch(() => ({}));
+    if (d.tipo === "busqueda") {
+      const q = texto(d.q, 60).trim().toLowerCase();
+      if (q.length < 3 || /@|\d{6}/.test(q.replace(/\s/g, ""))) return responde({ error: "datos" }, 400);
+      const clave = `busqueda:${new Date().toISOString().slice(0, 7)}:${q}`;
+      await env.CUPO.put(clave, String((Number(await env.CUPO.get(clave)) || 0) + 1), { expirationTtl: 5184000 });
+      return responde({ ok: true });
+    }
     const tarea = TAREAS[d.tipo || "foto"];
     if (!tarea || !/^\/herramientas\/[a-z0-9-]+\/$/.test(d.pagina) || !tarea.valida(d)) return responde({ error: "datos" }, 400);
 

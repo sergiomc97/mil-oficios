@@ -1,0 +1,36 @@
+name: Búsquedas sin resultado
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  busquedas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          TOKEN: ${{ secrets.CLOUDFLARE }}
+          API: https://api.cloudflare.com/client/v4/accounts/62486de72c286c9dafd5a09cff8b3b90/storage/kv/namespaces/aa745b95224941b687ca03f41abaa33d
+        run: |
+          mes=$(date -u -d "$(date -u +%Y-%m-01) -1 day" +%Y-%m)
+          prefijo="busqueda:$mes:"
+          claves=$(curl -s -H "Authorization: Bearer $TOKEN" "$API/keys?limit=1000&prefix=$(jq -rn --arg p "$prefijo" '$p|@uri')" | jq -r '.result[].name')
+          {
+            echo "# Búsquedas sin resultado de $mes"
+            echo
+            while IFS= read -r clave; do
+              [ -z "$clave" ] && continue
+              veces=$(curl -s -H "Authorization: Bearer $TOKEN" "$API/values/$(jq -rn --arg c "$clave" '$c|@uri')")
+              echo "- ${clave#"$prefijo"} ($veces)"
+            done <<< "$claves"
+          } > busquedas.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add busquedas.md
+          git commit -m "Búsquedas sin resultado de $mes" || exit 0
+          git push

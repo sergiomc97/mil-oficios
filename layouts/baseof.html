@@ -64,7 +64,7 @@
   </div>
 </header>
 <nav class="secciones tira" aria-label="Secciones">{{ partial "secciones.html" . }}</nav>
-<dialog class="buscador" aria-label="Buscar en {{ site.Title }}">
+<dialog class="buscador" aria-label="Buscar en {{ site.Title }}"{{ with site.Params.tito }} data-tito="{{ . }}"{{ end }}>
   <div class="buscador-cab">
     <input type="search" placeholder="Heladas, lavanda, pan…" aria-label="Buscar" enterkeyhint="search" autocomplete="off">
     <button class="atras" type="button" data-cerrar>Cerrar</button>

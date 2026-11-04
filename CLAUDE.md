@@ -7,6 +7,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 - `content/jardin/`, `content/arreglos/`, `content/restauracion/`, `content/negocio/`: un `.md` por artículo. `negocio` es para dueños de tiendas y pequeños comercios: TPV, impresoras de tickets, cajones, balanzas, datáfonos y obligaciones de la caja.
 - Al añadir temas nuevos, se alternan las cuatro secciones. `mil-panes` no entra en esa rotación (ver «Mil Panes»).
 - `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
+- `busquedas.md`: búsquedas de la web que no encontraron nada el mes anterior, con cuántas veces se buscaron. Lo genera `.github/workflows/busquedas.yml` el día 1 de cada mes; no se edita a mano.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
