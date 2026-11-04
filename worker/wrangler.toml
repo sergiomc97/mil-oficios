@@ -2,6 +2,7 @@ name = "mil-oficios-tito"
 main = "index.js"
 compatibility_date = "2026-11-01"
 workers_dev = true
+account_id = "62486de72c286c9dafd5a09cff8b3b90"
 
 [vars]
 ORIGEN = "https://miloficios.es"
