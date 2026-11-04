@@ -3,6 +3,7 @@ title: "Calculadora de tira LED: qué fuente de alimentación necesitas"
 description: "Pon los metros de tira LED, su potencia por metro y su tensión, y te dice la fuente de alimentación que necesitas con margen de seguridad."
 herramienta: led
 seccion: arreglos
+corto: "Tira LED"
 ---
 
 ## Cómo hace la cuenta

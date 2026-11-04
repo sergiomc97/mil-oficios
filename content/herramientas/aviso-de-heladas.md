@@ -3,6 +3,8 @@ title: "Aviso de heladas: ¿va a helar esta noche en tu pueblo?"
 description: "Pon tu pueblo y mira las temperaturas mínimas de los próximos tres días, con qué proteger en el jardín y en casa si va a helar."
 herramienta: heladas
 seccion: jardin
+corto: "Aviso de heladas"
+destacada: 4
 relacionado: /jardin/plantas-perennes-para-heladas
 ---
 

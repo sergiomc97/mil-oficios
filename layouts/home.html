@@ -15,8 +15,15 @@
 </a>
 {{ end }}
 
+{{ with sort (where (site.GetPage "/herramientas").RegularPages "Params.destacada" "!=" nil) "Params.destacada" }}
+<section class="bloque">
+  <div class="bloque-cab"><h2>¿Qué quieres hacer hoy?</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Todas las herramientas →</a></div>
+  <ul class="indice">{{ range . }}<li><a class="sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><span class="indice-titulo">{{ .Title }} →</span></a></li>{{ end }}</ul>
+</section>
+{{ end }}
+
 {{ with hugo.Data.trucos }}
-{{ $claves := dict "Jardín" "jardin" "Arreglos" "arreglos" "Restauración" "restauracion" "Negocio" "negocio" }}
+{{ $claves := dict "Jardín" "jardin" "Arreglos" "arreglos" "Muebles" "restauracion" "Negocio" "negocio" }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Trucos de oficio</h2><span class="meta desliza">desliza →</span></div>
   <div class="carrusel trucos">
@@ -44,12 +51,5 @@
 </section>
 {{ end }}
 
-
-{{ with site.GetPage "/herramientas" }}{{ with where .RegularPages "Params.herramienta" "ne" "mes" }}
-<section class="bloque">
-  <div class="bloque-cab"><h2>Herramientas</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Ver todas →</a></div>
-  {{ $todas := . }}<ul class="indice">{{ range site.Params.mainSections }}{{ range first 1 (where $todas "Params.seccion" .) }}<li><a class="sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><span class="indice-titulo">{{ .Title }} →</span></a></li>{{ end }}{{ end }}</ul>
-</section>
-{{ end }}{{ end }}
 </div>
 {{ end }}

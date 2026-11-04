@@ -3,6 +3,7 @@ title: "Calculadora de pintura y barniz: cuántos litros comprar"
 description: "Calcula los litros de pintura o barniz que necesitas según la superficie, las manos y el rendimiento que marca el bote."
 herramienta: pintura
 seccion: restauracion
+corto: "Pintura y barniz"
 relacionado: /restauracion/cera-aceite-o-barniz
 ---
 

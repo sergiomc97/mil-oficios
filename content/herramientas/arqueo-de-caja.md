@@ -3,6 +3,8 @@ title: "Arqueo de caja: comprueba el efectivo y la tarjeta al cerrar"
 description: "Compara el efectivo y la tarjeta que marca el TPV con lo que hay en la caja y en el datáfono, y calcula cuánto retirar dejando el fondo para mañana."
 herramienta: arqueo
 seccion: negocio
+corto: "Arqueo de caja"
+destacada: 5
 ---
 
 ## Cómo hacerlo al cerrar

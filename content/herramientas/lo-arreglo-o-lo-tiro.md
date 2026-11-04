@@ -4,6 +4,8 @@ description: "Elige qué se ha roto y qué le pasa, responde tres preguntas y mi
 date: 2026-11-01
 herramienta: balanza
 seccion: arreglos
+corto: "¿Lo arreglo o lo tiro?"
+destacada: 3
 ---
 
 ## Cómo decide

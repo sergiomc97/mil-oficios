@@ -3,6 +3,7 @@ title: "Calculadora de riego por goteo: litros por planta y por semana"
 description: "Calcula cuántos litros recibe cada planta con tu riego por goteo, cuánta agua gastas a la semana y el caudal total de la instalación."
 herramienta: riego
 seccion: jardin
+corto: "Riego por goteo"
 relacionado: /jardin/riego-por-goteo-casero
 ---
 

@@ -61,9 +61,16 @@
       sugerencias.addEventListener("click", e => {
         if (e.target.matches("button")) { entrada.value = e.target.textContent; buscar(); }
       });
-      document.querySelector("[data-buscar]")?.addEventListener("click", () => { buscador.showModal(); entrada.focus(); });
+      for (const b of document.querySelectorAll("[data-buscar]")) b.addEventListener("click", () => { buscador.showModal(); entrada.focus(); });
       buscador.querySelector("[data-cerrar]").addEventListener("click", () => buscador.close());
       buscador.addEventListener("click", e => { if (e.target === buscador) buscador.close(); });
+    }
+
+    const hoja = document.querySelector(".hoja-secciones");
+    if (hoja) {
+      document.querySelector("[data-secciones]")?.addEventListener("click", () => hoja.showModal());
+      hoja.querySelector("[data-cerrar]").addEventListener("click", () => hoja.close());
+      hoja.addEventListener("click", e => { if (e.target === hoja) hoja.close(); });
     }
 
     const guardar = (clave, valor) => { try { localStorage.setItem(clave, JSON.stringify(valor)); } catch {} };

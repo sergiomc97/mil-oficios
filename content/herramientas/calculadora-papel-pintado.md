@@ -3,6 +3,7 @@ title: "Calculadora de papel pintado: cuántos rollos necesitas"
 description: "Pon las medidas de la pared y el casamiento del dibujo y te dice cuántos rollos de papel pintado comprar y cuántas tiras salen de cada uno."
 herramienta: papel
 seccion: arreglos
+corto: "Papel pintado"
 relacionado: /arreglos/papel-pintado-pared-torcida
 ---
 

@@ -58,12 +58,12 @@
   <div class="contenedor">
     <div class="cabecera-in">
       <a class="logo" href="{{ "/" | relURL }}"><span class="logo-nombre">Mil <em>Oficios</em></span><span class="logo-lema">Hazlo tú mismo</span></a>
-      <nav class="secciones menu" aria-label="Secciones">{{ partial "secciones.html" . }}</nav>
+      <nav class="secciones menu" aria-label="Secciones">{{ partial "secciones.html" . }}<a class="todo" href="{{ "herramientas/" | relURL }}"{{ if eq .Section "herramientas" }} aria-current="page"{{ end }}>Herramientas</a><a class="todo" href="{{ "tienda/" | relURL }}">Tienda</a></nav>
       <button class="lupa" type="button" aria-label="Buscar" data-buscar><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
     </div>
   </div>
 </header>
-<nav class="secciones tira" aria-label="Secciones">{{ partial "secciones.html" . }}</nav>
+{{ partial "menu-inferior.html" . }}
 <dialog class="buscador" aria-label="Buscar en {{ site.Title }}"{{ with site.Params.tito }} data-tito="{{ . }}"{{ end }}>
   <div class="buscador-cab">
     <input type="search" placeholder="Heladas, lavanda, pan…" aria-label="Buscar" enterkeyhint="search" autocomplete="off">
@@ -99,6 +99,7 @@
     {{ end }}
     <nav class="pie-enlaces" aria-label="La web">
       <a href="{{ "herramientas/" | relURL }}">Herramientas</a>
+      <a href="{{ "tienda/" | relURL }}">Tienda</a>
       <a href="{{ "quien-hay-detras/" | relURL }}">Quién hay detrás</a>
       <a href="{{ "aviso-legal/" | relURL }}">Aviso legal</a>
       <a href="{{ "privacidad/" | relURL }}">Privacidad</a>

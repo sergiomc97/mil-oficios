@@ -1,0 +1,4 @@
+<a class="tienda sec-{{ .seccion }}" href="{{ .url }}" rel="noopener" target="_blank">
+  {{ partial "imagen.html" (dict "src" .imagen "alt" .alt "sizes" "120px") }}
+  <span><span class="etiqueta">Para imprimir · {{ .precio }}</span><span class="tienda-titulo">{{ .titulo }} →</span><span class="tienda-texto">{{ .texto }}</span></span>
+</a>

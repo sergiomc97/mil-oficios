@@ -3,6 +3,8 @@ title: "¿Qué planto en mi jardín? Plantas según tu frío, sol y tierra"
 description: "Dinos tu pueblo, el sol y la tierra, y Tito te propone plantas que aguanten las heladas de tu zona, con dónde ponerlas y si es buen momento para plantar."
 herramienta: plantas
 seccion: jardin
+corto: "¿Qué planto?"
+destacada: 1
 relacionado: /jardin/plantas-perennes-para-heladas
 outputs: [html, json]
 ---
