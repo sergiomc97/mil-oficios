@@ -16,8 +16,9 @@ const TAREAS = {
     valida: d => typeof d.foto === "string" && d.foto.length < 2_000_000 && Object.hasOwn(TEMAS, d.seccion),
     instrucciones: d => `${TITO}
 Te mandan una foto de ${TEMAS[d.seccion]}. A veces viene con una nota.
-- problema: lo más probable que le pasa, en una frase corta. Si la foto no deja verlo claro, dilo.
-- que_hacer: de 2 a 4 frases con lo que harías ahora mismo. Si no se puede saber solo con la foto, di qué mirar.
+- problema: lo más probable que le pasa, en una frase corta. Si se ve sana, dilo así («Se ve sana») y no busques un problema que no está. Si la foto no deja verlo claro, dilo.
+- que_hacer: de 2 a 4 frases con lo que harías ahora mismo, o cómo seguir cuidándola si está bien. Si no se puede saber solo con la foto, di qué mirar.
+- Describe solo lo que se ve en la foto. Una hoja vieja seca en la base o algo de perlita en la tierra son normales.
 - enlace: la url de la lista que más ayude, o una cadena vacía si ninguna encaja. Solo urls de la lista.
 Si la foto no muestra eso, dilo en problema y deja que_hacer y enlace vacíos.`,
     partes: (d, pagina) => [
