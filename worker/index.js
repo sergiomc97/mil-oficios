@@ -30,25 +30,29 @@ export default {
     const clave = `${req.headers.get("CF-Connecting-IP")}:${new Date().toISOString().slice(0, 10)}`;
     const usadas = Number(await env.CUPO.get(clave)) || 0;
     if (usadas >= Number(env.LIMITE)) return responde({ error: "limite" }, 429);
-    await env.CUPO.put(clave, String(usadas + 1), { expirationTtl: 86400 });
 
     const enlaces = await fetch(`${env.ORIGEN}/herramientas/diagnostico-planta-se-muere/index.json`, { cf: { cacheTtl: 3600 } })
       .then(r => r.json()).catch(() => []);
 
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${env.MODELO}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: INSTRUCCIONES }] },
-        contents: [{
-          parts: [
-            { inline_data: { mime_type: "image/jpeg", data: foto } },
-            { text: `Nota: ${String(nota).slice(0, 300) || "ninguna"}\nLista de enlaces:\n${enlaces.map(e => `${e.url} | ${e.titulo}`).join("\n")}` }
-          ]
-        }],
-        generationConfig: { responseMimeType: "application/json", responseSchema: ESQUEMA }
-      })
+    const peticion = JSON.stringify({
+      system_instruction: { parts: [{ text: INSTRUCCIONES }] },
+      contents: [{
+        parts: [
+          { inline_data: { mime_type: "image/jpeg", data: foto } },
+          { text: `Nota: ${String(nota).slice(0, 300) || "ninguna"}\nLista de enlaces:\n${enlaces.map(e => `${e.url} | ${e.titulo}`).join("\n")}` }
+        ]
+      }],
+      generationConfig: { responseMimeType: "application/json", responseSchema: ESQUEMA }
     });
+    let r;
+    for (const modelo of env.MODELOS.split(",")) {
+      r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+        body: peticion
+      });
+      if (r.ok) break;
+    }
     if (r.status === 429) return responde({ error: "agotado" }, 503);
     if (!r.ok) return responde({ error: "ia", detalle: (await r.text()).slice(0, 400) }, 502);
 
@@ -56,6 +60,7 @@ export default {
       const texto = (await r.json()).candidates[0].content.parts[0].text;
       const { problema, que_hacer, enlace } = JSON.parse(texto);
       const elegido = enlaces.find(e => e.url === enlace);
+      await env.CUPO.put(clave, String(usadas + 1), { expirationTtl: 86400 });
       return responde({ problema, que_hacer, enlace: elegido || null });
     } catch {
       return responde({ error: "ia" }, 502);

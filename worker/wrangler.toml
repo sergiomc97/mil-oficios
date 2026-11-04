@@ -6,7 +6,7 @@ account_id = "62486de72c286c9dafd5a09cff8b3b90"
 
 [vars]
 ORIGEN = "https://miloficios.es"
-MODELO = "gemini-flash-latest"
+MODELOS = "gemini-flash-latest,gemini-flash-lite-latest,gemini-3.5-flash-lite"
 LIMITE = "5"
 
 [[kv_namespaces]]
