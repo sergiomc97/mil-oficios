@@ -25,6 +25,8 @@ Las calculadoras funcionan en tu propio navegador: los datos que escribes se gua
 
 El aviso de heladas necesita saber tu pueblo. Lo que escribes se busca en [OpenStreetMap](https://www.openstreetmap.org/), y las coordenadas del pueblo se envían a [WeatherAPI.com](https://www.weatherapi.com/) para obtener la previsión. Si usas «Usar mi ubicación», tu navegador te pide permiso y las coordenadas, redondeadas, siguen el mismo camino. Mil Oficios no guarda ninguno de estos datos.
 
+El diagnóstico de plantas con foto envía la foto que subes, reducida, y la nota que escribas a [Gemini](https://ai.google.dev/), la inteligencia artificial de Google, a través de un servicio de [Cloudflare](https://www.cloudflare.com/). Se usa el nivel gratuito de Gemini, y Google puede usar lo que recibe para mejorar sus productos, según [sus condiciones](https://ai.google.dev/gemini-api/terms). Mil Oficios no guarda la foto ni la nota. Para limitar a 5 fotos al día por persona, se cuenta cuántas ha enviado cada dirección IP ese día, y ese recuento se borra solo a las 24 horas. No subas fotos en las que se vean personas, matrículas o datos de tu casa.
+
 ## Enlaces de afiliado
 
 Algunos enlaces llevan a tiendas como Amazon. Esta web no carga ningún código de esas tiendas: solo cuando pulsas un enlace y entras en su web, la tienda puede usar sus propias cookies para saber que llegaste desde aquí, según su propia política de privacidad.
