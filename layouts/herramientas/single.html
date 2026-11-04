@@ -9,7 +9,7 @@
 </nav>
 <article class="articulo herramienta-pag">
   <header class="cabeza">
-    <a class="volver" href="{{ $lista.RelPermalink }}">← Todas las herramientas</a>
+    <a class="volver" data-pagefind-ignore href="{{ $lista.RelPermalink }}">← Todas las herramientas</a>
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
   </header>
