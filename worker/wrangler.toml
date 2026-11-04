@@ -1,0 +1,13 @@
+name = "mil-oficios-tito"
+main = "index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[vars]
+ORIGEN = "https://miloficios.es"
+MODELO = "gemini-flash-latest"
+LIMITE = "5"
+
+[[kv_namespaces]]
+binding = "CUPO"
+id = "aa745b95224941b687ca03f41abaa33d"

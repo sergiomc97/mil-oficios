@@ -461,6 +461,64 @@
     pinta();
   };
 
+  const foto = caja => {
+    const avisos = {
+      limite: "Ya has subido 5 fotos hoy. Vuelve mañana o prueba con las preguntas de abajo.",
+      agotado: "Tito está desbordado de fotos por hoy. Vuelve mañana o prueba con las preguntas de abajo.",
+      foto: "No he podido leer la foto. Prueba con otra."
+    };
+    const reducir = async archivo => {
+      const img = await createImageBitmap(archivo);
+      const escala = Math.min(1, 1024 / Math.max(img.width, img.height));
+      const lienzo = crear("canvas");
+      lienzo.width = Math.round(img.width * escala);
+      lienzo.height = Math.round(img.height * escala);
+      lienzo.getContext("2d").drawImage(img, 0, 0, lienzo.width, lienzo.height);
+      return lienzo.toDataURL("image/jpeg", .8).split(",")[1];
+    };
+    const form = crear("form", "campos");
+    const archivo = crear("input");
+    archivo.type = "file";
+    archivo.accept = "image/*";
+    archivo.required = true;
+    const nota = crear("input");
+    nota.placeholder = "Qué planta es o qué le notas (opcional)";
+    nota.maxLength = 300;
+    const enviar = crear("button", "boton", "Que la mire Tito");
+    const salida = crear("div");
+    salida.setAttribute("aria-live", "polite");
+    form.append(crear("p", "grupo", "Con una foto"), crear("h2", "pregunta", "Enséñale tu planta a Tito"), archivo, nota, enviar,
+      crear("p", "nota-ia", "La foto la analiza la IA de Google (Gemini) y no se guarda en esta web. Puede equivocarse: tómalo como una pista."));
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      enviar.disabled = true;
+      salida.replaceChildren(crear("p", "", "Tito está mirando la foto…"));
+      try {
+        const r = await fetch(caja.dataset.url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ foto: await reducir(archivo.files[0]), nota: nota.value })
+        });
+        const d = await r.json();
+        if (d.error) throw d.error;
+        const hijos = [crear("p", "grupo", "Lo que ve Tito"), crear("h2", "pregunta", d.problema)];
+        if (d.que_hacer) hijos.push(crear("p", "", d.que_hacer));
+        if (d.enlace) {
+          const a = crear("a", "usa-herramienta", `${d.enlace.titulo} →`);
+          a.href = d.enlace.url;
+          hijos.push(a);
+        }
+        salida.replaceChildren(...hijos);
+      } catch (err) {
+        salida.replaceChildren(crear("p", "", avisos[err] || "No ha funcionado. Prueba otra vez en un rato o usa las preguntas de abajo."));
+      }
+      enviar.disabled = false;
+    });
+    caja.append(form, salida);
+  };
+
+  for (const caja of document.querySelectorAll('[data-herramienta="foto"]')) foto(caja);
+
   for (const caja of document.querySelectorAll('[data-herramienta="balanza"]')) {
     const datos = caja.querySelector('script[type="application/json"]');
     if (datos) balanza(caja, JSON.parse(datos.textContent));

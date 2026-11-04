@@ -1,8 +1,10 @@
 ---
 title: "¿Por qué se muere mi planta? Diagnóstico paso a paso"
-description: "Responde unas preguntas de sí o no sobre la tierra, las hojas y el sitio de tu planta y averigua la causa más probable de que se esté muriendo."
+description: "Sube una foto de tu planta o responde unas preguntas de sí o no sobre la tierra, las hojas y el sitio, y averigua por qué se está muriendo."
 seccion: jardin
 relacionado: /jardin/lavanda-por-que-se-muere
+foto: true
+outputs: [html, json]
 arbol:
   inicio: humeda
   nodos:
@@ -57,6 +59,8 @@ arbol:
 ---
 
 ## Cómo usarlo
+
+Con la foto, la inteligencia artificial mira la planta y te dice lo que ve. Sácala con luz de día, de cerca, que se vean bien las hojas y, si puedes, el pie de la planta y la tierra. Si no te convence la respuesta o prefieres no subir nada, tienes las preguntas justo debajo.
 
 Contesta pensando en lo que ves ahora mismo, no en lo que crees que ha pasado. Si dudas en una pregunta, mira la tierra con el dedo o con un palo antes de responder: es la pista que más ayuda.
 

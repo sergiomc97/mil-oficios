@@ -823,6 +823,11 @@ body::after {
 .respuestas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .respuestas .boton { border: 0; font-family: var(--sans); font-size: 17px; cursor: pointer; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
 .volver-diag { display: flex; justify-content: space-between; }
+[data-herramienta="foto"] input { min-width: 0; min-height: 46px; padding: 10px 12px; border: 1px solid var(--linea); border-radius: 10px; background: var(--claro); color: var(--tinta); font: 500 16px var(--sans); }
+[data-herramienta="foto"] .boton { min-height: 48px; border: 0; font-family: var(--sans); font-size: 17px; cursor: pointer; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+[data-herramienta="foto"] .boton:disabled { opacity: .6; cursor: wait; }
+[data-herramienta="foto"] > div > p { margin: 0 0 10px; }
+.nota-ia { margin: 0; font-size: 14px; color: var(--gris); }
 .atras { padding: 6px 0; border: 0; background: none; color: var(--tinta); font: 600 15px var(--sans); cursor: pointer; }
 .este-mes { display: flex; flex-direction: column; gap: 12px; }
 .bloque > .este-mes, .bloque > .indice { margin-top: 16px; }

@@ -13,6 +13,7 @@
     <h1>{{ .Title }}</h1>
     {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
   </header>
+  {{ if and .Params.foto site.Params.tito }}<div class="herramienta sec-{{ .Params.seccion }}" data-herramienta="foto" data-url="{{ site.Params.tito }}"></div>{{ end }}
   <div class="herramienta sec-{{ .Params.seccion }}"{{ with .Params.herramienta }} data-herramienta="{{ . }}"{{ end }}{{ if eq .Params.herramienta "heladas" }} data-clave="{{ site.Params.weatherapi }}"{{ end }}>
     {{ if eq .Params.herramienta "mes" }}{{ partial "este-mes.html" . }}{{ end }}
     {{ if eq .Params.herramienta "balanza" }}<script type="application/json">{{ jsonify hugo.Data.arreglos | safeJS }}</script>{{ end }}
