@@ -1,0 +1,96 @@
+- id: lavanda
+  nombre: Lavanda
+  lat: Lavandula angustifolia
+  frio: de −10 a −15 °C
+  sol: pleno sol, mejor al sur o al oeste
+  tierra: suelta, pobre, con piedra o caliza; nada que se encharque
+  agua: poca una vez arraigada
+  uso: mata aromática de sol y sequía
+- id: romero
+  nombre: Romero
+  lat: Salvia rosmarinus
+  frio: de −5 a −10 °C; con −15 °C va justo
+  sol: pleno sol, al sur o al oeste
+  tierra: pobre o media, siempre bien drenada
+  agua: poca una vez arraigado
+  uso: mata aromática; pide abrigo del viento frío
+- id: durillo
+  nombre: Durillo
+  lat: Viburnum tinus
+  frio: de −5 a −10 °C; pide sitio protegido de vientos fríos
+  sol: del sol a la sombra
+  tierra: fertilidad media, fresca pero que drene
+  agua: moderada, nunca encharcada
+  uso: seto o arbusto perenne para el rincón donde no crece casi nada; flor en invierno
+- id: mirto
+  nombre: Mirto
+  lat: Myrtus communis
+  frio: de −5 a −10 °C; con −15 °C va justo
+  sol: pleno sol, al sur o al oeste
+  tierra: fresca, húmeda pero sin encharcar
+  agua: vigilar el primer verano, no debe secarse del todo
+  uso: arbusto perenne aromático; pide rincón resguardado del viento
+- id: olivo
+  nombre: Olivo
+  lat: Olea europaea
+  frio: de −5 a −10 °C; con −15 °C va justo
+  sol: pleno sol, al sur
+  tierra: profunda y que drene muy bien
+  agua: moderada una vez arraigado
+  uso: árbol de crecimiento lento, también en maceta grande; pide sol, abrigo y drenaje
+- id: tulipan
+  nombre: Tulipán
+  lat: Tulipa
+  frio: de −15 a −20 °C
+  sol: pleno sol
+  tierra: rica que drene; se planta el bulbo en otoño
+  agua: verano seco después de florecer
+  uso: bulbo de flor en primavera; muchos no repiten bien el segundo año
+- id: santolina
+  nombre: Santolina
+  lat: Santolina chamaecyparissus
+  frio: de −10 a −15 °C
+  sol: pleno sol, al sur o al este
+  tierra: soleada y de buen drenaje
+  agua: poca, aguanta la sequía
+  uso: seto enano para bordes de caminos y parterres, en lugar del boj
+- id: photinia
+  nombre: Photinia
+  lat: Photinia × fraseri 'Red Robin'
+  frio: de −10 a −15 °C
+  sol: sol o semisombra
+  tierra: fértil, rica en materia orgánica, fresca y que drene
+  agua: moderada, sin encharcar
+  uso: seto vistoso de brotes rojos; recortar dos o tres veces al año
+- id: piracanta
+  nombre: Piracanta
+  lat: Pyracantha coccinea
+  frio: de −15 a −20 °C; aguanta sitios expuestos
+  sol: sol o semisombra
+  tierra: casi cualquiera, de muy seca a arcillosa, si no se encharca
+  agua: poca una vez arraigada
+  uso: seto defensivo con espinas o pegada a un muro; bayas naranja rojizas en otoño
+- id: cotoneaster
+  nombre: Cotoneaster
+  lat: Cotoneaster horizontalis
+  frio: por debajo de −20 °C
+  sol: sol, aguanta cualquier orientación
+  tierra: cualquiera que drene, caliza o ácida
+  agua: moderada, sin encharcar
+  uso: cubre taludes o un muro bajo; hoja caduca; invasora en Reino Unido, no plantarlo cerca del monte
+- id: abelia
+  nombre: Abelia
+  lat: Abelia × grandiflora
+  frio: de −10 a −15 °C; no es del todo resistente, pide sitio soleado y resguardado
+  sol: pleno sol, al sur o al este
+  tierra: fresca, húmeda pero sin encharcar
+  agua: poca una vez asentada
+  uso: arbusto semiperenne de flor larga desde mediados de verano
+- id: nandina
+  nombre: Nandina
+  lat: Nandina domestica
+  frio: de −10 a −15 °C; pide sitio resguardado
+  sol: pleno sol, mejor al este o al oeste
+  tierra: fresca, húmeda pero sin encharcar
+  agua: poca una vez asentada
+  uso: aire de bambú sin serlo, hasta unos 2 m; hojas moradas en invierno y bayas rojas

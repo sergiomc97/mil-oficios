@@ -5,4 +5,4 @@
 {{- range where hugo.Data.tienda "seccion" .Params.seccion -}}
 {{- $enlaces = $enlaces | append (dict "url" .url "titulo" (printf "Tienda: %s" .titulo)) -}}
 {{- end -}}
-{{- jsonify $enlaces -}}
+{{- jsonify (dict "enlaces" $enlaces "plantas" (cond (eq .Params.herramienta "plantas") hugo.Data.plantas slice)) -}}

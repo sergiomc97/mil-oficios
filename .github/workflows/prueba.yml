@@ -1,0 +1,13 @@
+name: Prueba Tito
+
+on: workflow_dispatch
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          U=https://mil-oficios-tito.miloficios.workers.dev
+          P=/herramientas/que-planto-en-mi-jardin/
+          curl -s -X POST -H "Origin: https://miloficios.es" -H "Content-Type: application/json" -d "{\"tipo\":\"zona\",\"seccion\":\"jardin\",\"pagina\":\"$P\",\"sitio\":{\"nombre\":\"Cañada del Hoyo, Cuenca\",\"lat\":39.99,\"lon\":-1.9}}" $U; echo
+          curl -s -X POST -H "Origin: https://miloficios.es" -H "Content-Type: application/json" -d "{\"tipo\":\"plan\",\"seccion\":\"jardin\",\"pagina\":\"$P\",\"sitio\":{\"nombre\":\"Cañada del Hoyo, Cuenca\"},\"minima\":\"-15\",\"sol\":\"pleno sol\",\"tierra\":\"suelta o pedregosa\",\"nota\":\"junto a un muro\"}" $U; echo

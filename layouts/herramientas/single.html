@@ -14,13 +14,15 @@
     {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
   </header>
   {{ with .Params.foto }}{{ with site.Params.tito }}<div class="herramienta sec-{{ $.Params.seccion }}" data-herramienta="foto" data-url="{{ . }}"><script type="application/json">{{ jsonify (merge $.Params.foto (dict "seccion" $.Params.seccion "pagina" $.RelPermalink)) | safeJS }}</script></div>{{ end }}{{ end }}
-  <div class="herramienta sec-{{ .Params.seccion }}"{{ with .Params.herramienta }} data-herramienta="{{ . }}"{{ end }}{{ if eq .Params.herramienta "heladas" }} data-clave="{{ site.Params.weatherapi }}"{{ end }}>
+  <div class="herramienta sec-{{ .Params.seccion }}"{{ with .Params.herramienta }} data-herramienta="{{ . }}"{{ end }}{{ if in (slice "heladas" "plantas") .Params.herramienta }} data-clave="{{ site.Params.weatherapi }}"{{ end }}{{ if eq .Params.herramienta "plantas" }} data-url="{{ site.Params.tito }}"{{ end }}>
     {{ if eq .Params.herramienta "mes" }}{{ partial "este-mes.html" . }}{{ end }}
     {{ if eq .Params.herramienta "balanza" }}<script type="application/json">{{ jsonify hugo.Data.arreglos | safeJS }}</script>{{ end }}
+    {{ if eq .Params.herramienta "plantas" }}<script type="application/json">{{ jsonify hugo.Data.plantas | safeJS }}</script>{{ end }}
     {{ with .Params.arbol }}<script type="application/json">{{ jsonify . | safeJS }}</script>{{ end }}
   </div>
   <div class="cuerpo">{{ .Content }}</div>
   {{ with .Params.relacionado }}{{ with site.GetPage . }}<a class="usa-herramienta sec-{{ .Section }}" href="{{ .RelPermalink }}"><span class="etiqueta">Artículo</span><span>{{ .Title }} →</span></a>{{ end }}{{ end }}
+  {{ partial "tienda.html" . }}
   {{ partial "cafe.html" . }}
 </article>
 {{ with resources.Get "js/herramientas.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}

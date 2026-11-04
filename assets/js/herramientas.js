@@ -240,12 +240,28 @@
   ];
   const nivel = t => niveles.find(n => t <= n.hasta);
 
-  const heladas = caja => {
-    if (!caja.dataset.clave) {
-      caja.append(crear("p", "", "El aviso de heladas no está disponible ahora mismo."));
-      return;
-    }
-    const clave = "herramienta:heladas:sitio";
+  const claveSitio = "herramienta:heladas:sitio";
+  const lugar = r => {
+    const a = r.address || {};
+    const nombre = r.name || a.village || a.town || a.city || a.municipality || r.display_name.split(",")[0];
+    const zona = a.province || a.state || a.county || a.country;
+    return { nombre: [nombre, zona].filter((x, i, l) => x && l.indexOf(x) === i).join(", "), lat: (+r.lat).toFixed(3), lon: (+r.lon).toFixed(3) };
+  };
+  const geo = async params => {
+    const r = await fetch(`https://nominatim.openstreetmap.org/${params}&format=jsonv2&addressdetails=1&accept-language=es`);
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  };
+  const prevision = async (clave, sitio) => {
+    const r = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${clave}&q=${sitio.lat},${sitio.lon}&days=3&lang=es&aqi=no&alerts=no`);
+    if (!r.ok) throw new Error(r.status);
+    return (await r.json()).forecast.forecastday;
+  };
+  const dia = f => new Date(`${f}T12:00`).toLocaleDateString("es-ES", { weekday: "long", day: "numeric" });
+  const enlaceFuera = (texto, url) => { const a = crear("a", "", texto); a.href = url; a.rel = "noopener"; return a; };
+
+  const buscadorSitio = (salida, elegir) => {
+    const aviso = texto => salida.replaceChildren(crear("p", "", texto));
     const form = crear("form", "buscar-sitio");
     const entrada = crear("input");
     entrada.placeholder = "Tu pueblo o ciudad";
@@ -255,48 +271,10 @@
     form.append(entrada, crear("button", "boton", "Ver"));
     const aqui = crear("button", "atras", "Usar mi ubicación");
     aqui.type = "button";
-    const salida = crear("div", "prevision");
-    salida.setAttribute("aria-live", "polite");
-    const fuente = crear("p", "fuente");
-    const enlace = (texto, url) => { const a = crear("a", "", texto); a.href = url; a.rel = "noopener"; return a; };
-    fuente.append("Previsión de ", enlace("WeatherAPI.com", "https://www.weatherapi.com/"), " · Pueblos de ", enlace("OpenStreetMap", "https://www.openstreetmap.org/copyright"));
-    caja.append(form, aqui, salida, fuente);
-    const aviso = texto => salida.replaceChildren(crear("p", "", texto));
-
-    const dia = f => new Date(`${f}T12:00`).toLocaleDateString("es-ES", { weekday: "long", day: "numeric" });
-    const prevision = async sitio => {
-      aviso("Buscando la previsión…");
-      try {
-        const r = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${caja.dataset.clave}&q=${sitio.lat},${sitio.lon}&days=3&lang=es&aqi=no&alerts=no`);
-        if (!r.ok) throw new Error(r.status);
-        const d = await r.json();
-        try { localStorage.setItem(clave, JSON.stringify(sitio)); } catch {}
-        const dias = d.forecast.forecastday.map(f => {
-          const min = Math.round(f.day.mintemp_c);
-          const n = nivel(min);
-          const fila = crear("div", `dia${n.consejo ? " frio" : ""}`);
-          const cab = crear("div", "dia-cab");
-          cab.append(crear("span", "dia-nombre", dia(f.date)), crear("span", "dia-temp", `${min}° / ${Math.round(f.day.maxtemp_c)}°`));
-          fila.append(cab, crear("span", "etiqueta", n.nombre));
-          if (n.consejo) fila.append(crear("p", "", n.consejo));
-          return fila;
-        });
-        salida.replaceChildren(crear("p", "grupo", sitio.nombre), ...dias);
-      } catch {
-        aviso("No se ha podido cargar la previsión. Prueba otra vez en un rato.");
-      }
-    };
-
-    const lugar = r => {
-      const a = r.address || {};
-      const nombre = r.name || a.village || a.town || a.city || a.municipality || r.display_name.split(",")[0];
-      const zona = a.province || a.state || a.county || a.country;
-      return { nombre: [nombre, zona].filter((x, i, l) => x && l.indexOf(x) === i).join(", "), lat: (+r.lat).toFixed(3), lon: (+r.lon).toFixed(3) };
-    };
-    const geo = async params => {
-      const r = await fetch(`https://nominatim.openstreetmap.org/${params}&format=jsonv2&addressdetails=1&accept-language=es`);
-      if (!r.ok) throw new Error(r.status);
-      return r.json();
+    const elegido = sitio => {
+      entrada.value = sitio.nombre;
+      try { localStorage.setItem(claveSitio, JSON.stringify(sitio)); } catch {}
+      elegir(sitio);
     };
     const buscar = async texto => {
       aviso("Buscando el pueblo…");
@@ -305,12 +283,12 @@
         if (!lista.length) lista = await geo(`search?q=${encodeURIComponent(texto)}&limit=6`);
         const sitios = lista.map(lugar).filter((x, i, l) => l.findIndex(y => y.nombre === x.nombre) === i);
         if (!sitios.length) return aviso("No he encontrado ese pueblo. Prueba a añadir la provincia, como «Cañada del Hoyo, Cuenca».");
-        if (sitios.length === 1) return prevision(sitios[0]);
+        if (sitios.length === 1) return elegido(sitios[0]);
         const opciones = crear("div", "opciones");
         for (const sitio of sitios) {
           const b = crear("button", "opcion", sitio.nombre);
           b.type = "button";
-          b.addEventListener("click", () => { entrada.value = sitio.nombre; prevision(sitio); });
+          b.addEventListener("click", () => elegido(sitio));
           opciones.append(b);
         }
         salida.replaceChildren(crear("p", "grupo", "¿Cuál de estos?"), opciones);
@@ -318,7 +296,6 @@
         aviso("No se ha podido buscar el pueblo. Prueba otra vez en un rato.");
       }
     };
-
     form.addEventListener("submit", e => {
       e.preventDefault();
       entrada.blur();
@@ -331,8 +308,7 @@
         async p => {
           const sitio = { nombre: "Tu ubicación", lat: p.coords.latitude.toFixed(3), lon: p.coords.longitude.toFixed(3) };
           try { Object.assign(sitio, { nombre: lugar(await geo(`reverse?lat=${sitio.lat}&lon=${sitio.lon}&zoom=14`)).nombre }); } catch {}
-          entrada.value = sitio.nombre;
-          prevision(sitio);
+          elegido(sitio);
         },
         e => aviso(e.code === 1
           ? "No has dado permiso para usar tu ubicación. En el iPhone se activa en Ajustes › Privacidad › Localización › Safari. Mientras, escribe tu pueblo."
@@ -341,8 +317,41 @@
       );
     });
     let previo = null;
-    try { previo = JSON.parse(localStorage.getItem(clave)); } catch {}
-    if (previo?.lat) { entrada.value = previo.nombre; prevision(previo); }
+    try { previo = JSON.parse(localStorage.getItem(claveSitio)); } catch {}
+    if (previo?.lat) entrada.value = previo.nombre;
+    return { nodos: [form, aqui], previo: previo?.lat ? previo : null };
+  };
+
+  const heladas = caja => {
+    if (!caja.dataset.clave) {
+      caja.append(crear("p", "", "El aviso de heladas no está disponible ahora mismo."));
+      return;
+    }
+    const salida = crear("div", "prevision");
+    salida.setAttribute("aria-live", "polite");
+    const fuente = crear("p", "fuente");
+    fuente.append("Previsión de ", enlaceFuera("WeatherAPI.com", "https://www.weatherapi.com/"), " · Pueblos de ", enlaceFuera("OpenStreetMap", "https://www.openstreetmap.org/copyright"));
+    const mostrar = async sitio => {
+      salida.replaceChildren(crear("p", "", "Buscando la previsión…"));
+      try {
+        const dias = (await prevision(caja.dataset.clave, sitio)).map(f => {
+          const min = Math.round(f.day.mintemp_c);
+          const n = nivel(min);
+          const fila = crear("div", `dia${n.consejo ? " frio" : ""}`);
+          const cab = crear("div", "dia-cab");
+          cab.append(crear("span", "dia-nombre", dia(f.date)), crear("span", "dia-temp", `${min}° / ${Math.round(f.day.maxtemp_c)}°`));
+          fila.append(cab, crear("span", "etiqueta", n.nombre));
+          if (n.consejo) fila.append(crear("p", "", n.consejo));
+          return fila;
+        });
+        salida.replaceChildren(crear("p", "grupo", sitio.nombre), ...dias);
+      } catch {
+        salida.replaceChildren(crear("p", "", "No se ha podido cargar la previsión. Prueba otra vez en un rato."));
+      }
+    };
+    const buscador = buscadorSitio(salida, mostrar);
+    caja.append(...buscador.nodos, salida, fuente);
+    if (buscador.previo) mostrar(buscador.previo);
   };
 
   const balanza = (caja, datos) => {
@@ -461,13 +470,20 @@
     pinta();
   };
 
+  const avisosTito = {
+    limite: "Ya has usado las 5 consultas de hoy. Vuelve mañana.",
+    agotado: "Tito está desbordado por hoy. Vuelve mañana.",
+    foto: "No he podido leer la foto. Prueba con otra."
+  };
+  const pedirTito = async (url, datos) => {
+    const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ pagina: location.pathname, ...datos }) });
+    const d = await r.json();
+    if (d.error) throw d.error;
+    return d;
+  };
+
   const foto = caja => {
     const ajustes = JSON.parse(caja.querySelector('script[type="application/json"]').textContent);
-    const avisos = {
-      limite: "Ya has subido 5 fotos hoy. Vuelve mañana o prueba con las preguntas de abajo.",
-      agotado: "Tito está desbordado de fotos por hoy. Vuelve mañana o prueba con las preguntas de abajo.",
-      foto: "No he podido leer la foto. Prueba con otra."
-    };
     const reducir = async archivo => {
       const img = await createImageBitmap(archivo);
       const escala = Math.min(1, 1024 / Math.max(img.width, img.height));
@@ -519,13 +535,7 @@
       zona.classList.add("mirando");
       salida.replaceChildren(espera);
       try {
-        const r = await fetch(caja.dataset.url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ foto: await reducir(archivo.files[0]), nota: nota.value, seccion: ajustes.seccion, pagina: ajustes.pagina })
-        });
-        const d = await r.json();
-        if (d.error) throw d.error;
+        const d = await pedirTito(caja.dataset.url, { foto: await reducir(archivo.files[0]), nota: nota.value, seccion: ajustes.seccion });
         const hijos = [crear("p", "grupo", "Lo que ve Tito"), crear("h2", "pregunta", d.problema)];
         if (d.que_hacer) hijos.push(crear("p", "", d.que_hacer));
         if (d.enlace) {
@@ -535,7 +545,7 @@
         }
         salida.replaceChildren(...hijos);
       } catch (err) {
-        salida.replaceChildren(crear("p", "", avisos[err] || "No ha funcionado. Prueba otra vez en un rato o usa las preguntas de abajo."));
+        salida.replaceChildren(crear("p", "", avisosTito[err] ? `${avisosTito[err]} Mientras, prueba con las preguntas de abajo.` : "No ha funcionado. Prueba otra vez en un rato o usa las preguntas de abajo."));
       }
       clearInterval(frases);
       enviar.disabled = false;
@@ -544,6 +554,112 @@
     });
     caja.append(form, salida);
   };
+
+  const plantas = (caja, fichas) => {
+    const estado = {};
+    const grupo = (campo, opciones, al) => {
+      const g = crear("div", "opciones");
+      g.pinta = () => { for (const b of g.children) b.setAttribute("aria-pressed", b.dataset.v === estado[campo]); };
+      for (const [v, t] of opciones) {
+        const b = crear("button", "opcion", t);
+        b.type = "button";
+        b.dataset.v = v;
+        b.addEventListener("click", () => { estado[campo] = v; g.pinta(); al(); });
+        g.append(b);
+      }
+      return g;
+    };
+    const paso = (n, titulo, ...hijos) => {
+      const d = crear("div", "paso-plan");
+      d.append(crear("p", "grupo", `Paso ${n}`), crear("h2", "pregunta", titulo), ...hijos);
+      return d;
+    };
+    const enviar = crear("button", "boton", "Que me aconseje Tito");
+    enviar.type = "button";
+    enviar.disabled = true;
+    const listo = () => { enviar.disabled = !(estado.minima && estado.sol && estado.tierra); };
+    const frio = grupo("minima", [["-5", "Casi no hiela (hasta −5 °C)"], ["-10", "De −5 a −10 °C"], ["-15", "De −10 a −15 °C"], ["-20", "De −15 a −20 °C"], ["-25", "Más de −20 °C"]], listo);
+    const sol = grupo("sol", [["pleno sol", "Sol casi todo el día"], ["sol media jornada", "Sol media jornada"], ["sombra casi todo el día", "Sombra casi todo el día"]], listo);
+    const tierra = grupo("tierra", [["suelta o pedregosa", "Suelta o con piedra"], ["normal", "Normal"], ["arcillosa, se encharca", "Arcillosa o se encharca"]], listo);
+    const nota = crear("input", "nota-plan");
+    nota.type = "text";
+    nota.placeholder = "Algo más: «es para un seto», «junto a un muro»… (opcional)";
+    nota.maxLength = 300;
+    const sitioInfo = crear("div", "prevision");
+    sitioInfo.setAttribute("aria-live", "polite");
+    const zonaInfo = crear("p", "nota-ia");
+    const salida = crear("div", "plan");
+    salida.setAttribute("aria-live", "polite");
+    let avisoHelada = "";
+
+    const elegir = async sitio => {
+      estado.sitio = sitio;
+      avisoHelada = "";
+      sitioInfo.replaceChildren(crear("p", "espera", `Mirando cuánto hiela en ${sitio.nombre}…`));
+      const [zona, dias] = await Promise.allSettled([
+        pedirTito(caja.dataset.url, { tipo: "zona", seccion: "jardin", sitio }),
+        caja.dataset.clave ? prevision(caja.dataset.clave, sitio) : Promise.reject()
+      ]);
+      if (zona.status === "fulfilled") {
+        estado.minima = zona.value.minima;
+        frio.pinta();
+        zonaInfo.textContent = `Tito calcula: ${zona.value.explicacion} Si no te cuadra, cámbialo.`;
+      } else {
+        zonaInfo.textContent = "No he podido calcularlo: elige tú cuánto hiela en lo peor del invierno.";
+      }
+      if (dias.status === "fulfilled") {
+        const peor = dias.value.reduce((a, f) => f.day.mintemp_c < a.day.mintemp_c ? f : a);
+        if (peor.day.mintemp_c <= -3) avisoHelada = `Esta semana espera para plantar: el ${dia(peor.date)} bajáis a ${String(Math.round(peor.day.mintemp_c)).replace("-", "−")} °C.`;
+      }
+      sitioInfo.replaceChildren(crear("p", "grupo", sitio.nombre), ...(avisoHelada ? [crear("p", "dia frio", avisoHelada)] : []));
+      listo();
+    };
+    const buscador = buscadorSitio(sitioInfo, elegir);
+
+    enviar.addEventListener("click", async () => {
+      enviar.disabled = true;
+      enviar.classList.add("cargando");
+      salida.replaceChildren(crear("p", "espera", "Tito está pensando qué plantaría…"));
+      try {
+        const d = await pedirTito(caja.dataset.url, { tipo: "plan", seccion: "jardin", sitio: estado.sitio, minima: estado.minima, sol: estado.sol, tierra: estado.tierra, nota: nota.value });
+        const hijos = [crear("p", "grupo", "Lo que plantaría Tito"), crear("p", "", d.resumen)];
+        if (avisoHelada) hijos.push(crear("p", "dia frio", avisoHelada));
+        for (const p of d.plantas) {
+          const f = fichas.find(x => x.id === p.id);
+          const art = crear("div", "planta-plan");
+          const cab = crear("h3", "", f.nombre);
+          cab.append(crear("small", "", f.lat));
+          art.append(cab, crear("p", "", p.porque), crear("p", "donde", p.donde));
+          hijos.push(art);
+        }
+        const carta = crear("a", "usa-herramienta", "Apúntate a la carta de Tito y cada mes te digo qué hacerles →");
+        carta.href = "#boletin-correo";
+        hijos.push(crear("p", "", "Tienes la ficha de cada una, con su estaca para clavar junto a la planta, en el pack de aquí abajo."), carta);
+        salida.replaceChildren(...hijos);
+        salida.scrollIntoView({ behavior: "smooth", block: "start" });
+      } catch (err) {
+        salida.replaceChildren(crear("p", "", avisosTito[err] || "No ha funcionado. Prueba otra vez en un rato."));
+      }
+      enviar.classList.remove("cargando");
+      listo();
+    });
+
+    const fuente = crear("p", "fuente");
+    fuente.append("Pueblos de ", enlaceFuera("OpenStreetMap", "https://www.openstreetmap.org/copyright"), " · Previsión de ", enlaceFuera("WeatherAPI.com", "https://www.weatherapi.com/"), " · Consejos con la IA de Google (Gemini)");
+    caja.append(
+      paso(1, "¿Dónde está tu jardín?", ...buscador.nodos, sitioInfo),
+      paso(2, "¿Cuánto hiela en lo peor del invierno?", zonaInfo, frio),
+      paso(3, "¿Cuánto sol le da?", sol),
+      paso(4, "¿Cómo es la tierra?", tierra, nota),
+      enviar, salida, fuente
+    );
+    if (buscador.previo) elegir(buscador.previo);
+  };
+
+  for (const caja of document.querySelectorAll('[data-herramienta="plantas"]')) {
+    const datos = caja.querySelector('script[type="application/json"]');
+    if (datos) plantas(caja, JSON.parse(datos.textContent));
+  }
 
   for (const caja of document.querySelectorAll('[data-herramienta="foto"]')) foto(caja);
 

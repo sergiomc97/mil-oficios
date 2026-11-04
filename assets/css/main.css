@@ -904,6 +904,21 @@ body::after {
 .fuente { margin: 0; font-size: 13px; color: var(--gris); }
 .fuente a { color: inherit; }
 .opciones { display: grid; gap: 8px; }
+.opcion[aria-pressed="true"] { border-color: var(--cf, var(--c)); background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+[data-herramienta="plantas"] { gap: 22px; }
+.paso-plan { display: grid; gap: 10px; }
+.paso-plan .pregunta { margin: 0; }
+.nota-plan { min-width: 0; min-height: 46px; padding: 10px 12px; border: 1px solid var(--linea); border-radius: 10px; background: var(--claro); color: var(--tinta); font: 500 16px var(--sans); }
+[data-herramienta="plantas"] > .boton { display: flex; align-items: center; justify-content: center; min-height: 48px; border: 0; font-family: var(--sans); font-size: 17px; cursor: pointer; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+[data-herramienta="plantas"] > .boton:disabled { opacity: .5; cursor: default; }
+.plan { display: grid; gap: 12px; }
+.plan > p { margin: 0; }
+.planta-plan { display: grid; gap: 6px; padding: 14px; border-radius: 14px; background: var(--papel); }
+.planta-plan h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0; font: 600 21px/1.2 var(--serif); }
+.planta-plan small { font: italic 400 15px var(--sans); color: var(--gris); }
+.planta-plan p { margin: 0; line-height: 1.45; }
+.planta-plan .donde::before { content: "Dónde: "; font-weight: 600; }
+p.dia { margin: 0; }
 .opcion { min-height: 44px; padding: 8px 14px; border: 1px solid var(--linea); border-radius: 12px; background: var(--papel); color: var(--tinta); font: 500 16px/1.3 var(--sans); text-align: left; cursor: pointer; }
 .boletin-form { display: grid; gap: 12px; }
 .boletin-trampa { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
