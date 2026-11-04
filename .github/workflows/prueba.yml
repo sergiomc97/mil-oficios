@@ -1,0 +1,15 @@
+name: Prueba Tito
+
+on: workflow_dispatch
+
+jobs:
+  prueba:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          curl -s -i -X OPTIONS -H "Origin: https://miloficios.es" https://mil-oficios-tito.miloficios.workers.dev | head -12
+          curl -s https://miloficios.es/herramientas/diagnostico-planta-se-muere/index.json | head -c 300; echo
+          convert assets/fotos/lavanda-seca.jpg -resize 1024x1024 p.jpg
+          jq -n --arg f "$(base64 -w0 p.jpg)" '{foto: $f, nota: "lavanda"}' > p.json
+          curl -s -X POST -H "Origin: https://miloficios.es" -H "Content-Type: application/json" --data @p.json https://mil-oficios-tito.miloficios.workers.dev
