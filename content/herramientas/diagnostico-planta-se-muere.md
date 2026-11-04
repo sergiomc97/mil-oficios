@@ -3,7 +3,10 @@ title: "¿Por qué se muere mi planta? Diagnóstico paso a paso"
 description: "Sube una foto de tu planta o responde unas preguntas de sí o no sobre la tierra, las hojas y el sitio, y averigua por qué se está muriendo."
 seccion: jardin
 relacionado: /jardin/lavanda-por-que-se-muere
-foto: true
+foto:
+  titulo: "Enséñale tu planta a Tito"
+  nota: "Qué planta es o qué le notas (opcional)"
+  espera: ["Mirando las hojas…", "Fijándose en la tierra…", "Buscando bichos…", "Pensando qué haría Tito…"]
 outputs: [html, json]
 arbol:
   inicio: humeda

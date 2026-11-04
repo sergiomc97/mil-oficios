@@ -1,8 +1,8 @@
 {{- $enlaces := slice -}}
-{{- range (site.GetPage "/jardin").RegularPages -}}
+{{- range (site.GetPage (printf "/%s" .Params.seccion)).RegularPages -}}
 {{- $enlaces = $enlaces | append (dict "url" .RelPermalink "titulo" .Title) -}}
 {{- end -}}
-{{- range where hugo.Data.tienda "seccion" "jardin" -}}
+{{- range where hugo.Data.tienda "seccion" .Params.seccion -}}
 {{- $enlaces = $enlaces | append (dict "url" .url "titulo" (printf "Tienda: %s" .titulo)) -}}
 {{- end -}}
 {{- jsonify $enlaces -}}

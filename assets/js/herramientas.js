@@ -462,6 +462,7 @@
   };
 
   const foto = caja => {
+    const ajustes = JSON.parse(caja.querySelector('script[type="application/json"]').textContent);
     const avisos = {
       limite: "Ya has subido 5 fotos hoy. Vuelve mañana o prueba con las preguntas de abajo.",
       agotado: "Tito está desbordado de fotos por hoy. Vuelve mañana o prueba con las preguntas de abajo.",
@@ -477,27 +478,51 @@
       return lienzo.toDataURL("image/jpeg", .8).split(",")[1];
     };
     const form = crear("form", "campos");
+    const zona = crear("label", "foto-zona");
     const archivo = crear("input");
     archivo.type = "file";
     archivo.accept = "image/*";
-    archivo.required = true;
+    const vacia = crear("span", "foto-vacia");
+    vacia.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="4"/></svg>';
+    vacia.append(crear("span", "", "Haz una foto o elige una de la galería"));
+    const vista = crear("img");
+    vista.alt = "Tu foto";
+    const cambiar = crear("small", "", "Cambiar foto");
+    zona.append(archivo, vacia);
     const nota = crear("input");
-    nota.placeholder = "Qué planta es o qué le notas (opcional)";
+    nota.type = "text";
+    nota.placeholder = ajustes.nota;
     nota.maxLength = 300;
     const enviar = crear("button", "boton", "Que la mire Tito");
+    enviar.disabled = true;
     const salida = crear("div");
     salida.setAttribute("aria-live", "polite");
-    form.append(crear("p", "grupo", "Con una foto"), crear("h2", "pregunta", "Enséñale tu planta a Tito"), archivo, nota, enviar,
+    archivo.addEventListener("change", () => {
+      if (!archivo.files[0]) return;
+      URL.revokeObjectURL(vista.src);
+      vista.src = URL.createObjectURL(archivo.files[0]);
+      zona.classList.add("con-foto");
+      zona.replaceChildren(archivo, vista, cambiar);
+      enviar.disabled = false;
+      salida.replaceChildren();
+    });
+    form.append(crear("p", "grupo", "Con una foto"), crear("h2", "pregunta", ajustes.titulo), zona, nota, enviar,
       crear("p", "nota-ia", "La foto la analiza la IA de Google (Gemini) y no se guarda en esta web. Puede equivocarse: tómalo como una pista."));
     form.addEventListener("submit", async e => {
       e.preventDefault();
+      if (!archivo.files[0]) return;
+      const espera = crear("p", "espera", ajustes.espera[0]);
+      let i = 0;
+      const frases = setInterval(() => { espera.textContent = ajustes.espera[++i % ajustes.espera.length]; }, 1800);
       enviar.disabled = true;
-      salida.replaceChildren(crear("p", "", "Tito está mirando la foto…"));
+      enviar.classList.add("cargando");
+      zona.classList.add("mirando");
+      salida.replaceChildren(espera);
       try {
         const r = await fetch(caja.dataset.url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ foto: await reducir(archivo.files[0]), nota: nota.value })
+          body: JSON.stringify({ foto: await reducir(archivo.files[0]), nota: nota.value, seccion: ajustes.seccion, pagina: ajustes.pagina })
         });
         const d = await r.json();
         if (d.error) throw d.error;
@@ -512,7 +537,10 @@
       } catch (err) {
         salida.replaceChildren(crear("p", "", avisos[err] || "No ha funcionado. Prueba otra vez en un rato o usa las preguntas de abajo."));
       }
+      clearInterval(frases);
       enviar.disabled = false;
+      enviar.classList.remove("cargando");
+      zona.classList.remove("mirando");
     });
     caja.append(form, salida);
   };
