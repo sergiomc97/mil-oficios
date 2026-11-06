@@ -106,3 +106,15 @@
   url: https://pixabay.com/photos/shovel-earth-hand-shovel-dig-dirt-3759461/
   archivo: fotos/huerto-otono-pixabay.jpg
   uso: portada de jardin/preparar-huerto-otono
+- id: chat-panettone-entero
+  nombre: panettone entero (enviada por chat)
+  archivo: fotos/panettone-sin-gluten-entero.jpg
+  uso: "mil-panes/panettone-chocolate-sin-gluten (dentro del texto). Panettone sin gluten de Sergio entero en un plato, bajo y con la superficie muy tostada; fondo de madera retocado con IA."
+- id: chat-panettone-miga
+  nombre: miga del panettone (enviada por chat)
+  archivo: fotos/panettone-sin-gluten-miga.jpg
+  uso: "portada de mil-panes/panettone-chocolate-sin-gluten. Miga abierta con chocolate; fondo de madera retocado con IA."
+- id: chat-panettone-porcion
+  nombre: porción del panettone (enviada por chat)
+  archivo: fotos/panettone-sin-gluten-porcion.jpg
+  uso: "mil-panes/panettone-chocolate-sin-gluten (dentro del texto). Porción desde arriba en un plato; fondo de madera retocado con IA."
