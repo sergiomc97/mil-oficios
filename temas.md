@@ -12,7 +12,7 @@
 - [x] negocio · La impresora de tickets no imprime: qué revisar antes de llamar al técnico
 - [x] jardin · Cochinilla en la parra y gusanos blancos: qué hacer en invierno para que no vuelvan
 - [x] arreglos · Purgar los radiadores antes del invierno
-- [ ] jardin · Cómo preparar el huerto en otoño
+- [x] jardin · Cómo preparar el huerto en otoño
 - [ ] negocio · El cajón portamonedas no se abre al cobrar
 - [ ] jardin · Proteger las macetas de las heladas: dónde ponerlas y con qué taparlas
 - [ ] arreglos · Condensación y moho en las ventanas en invierno: de dónde sale y cómo cortarlo
