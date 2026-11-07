@@ -78,7 +78,7 @@ Con el borrador terminado, léelo entero de corrido, como lo leería Sergio en e
 - Solo se escribe una receta cuando Sergio da la receta o la foto y su forma de hacerla. La tarea automática no escribe recetas ni toma temas de cocina.
 - Lo que más importa en esta sección son sus errores: lo que salió mal se cuenta siempre, en una sección propia, sin disimularlo.
 - Si Sergio no dio los pesos, se dice en el artículo y las cantidades se basan en fuentes comprobadas. Cuando pase sus pesos, se corrigen y se pone `lastmod`.
-- Front matter extra: `receta` con `raciones`, `total` (ISO 8601, como `PT6H`), `total_texto`, `horno` y `cantidades` (lista de `cantidad` e `ingrediente`). Los pasos van en `pasos`. Con `receta`, la página lleva datos estructurados de receta en vez de artículo.
+- Front matter extra: `receta` con `raciones`, `total` (ISO 8601, como `PT6H`), `total_texto`, `horno` y `cantidades` (lista de `cantidad` e `ingrediente`). Los pasos van en `pasos`. Con `receta`, la página lleva datos estructurados de receta en vez de artículo, y `{{< pasos >}}` pinta la ficha de receta completa (datos, ingredientes, pasos y error típico): va justo después de la introducción.
 
 ## Fotos
 

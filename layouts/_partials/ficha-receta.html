@@ -1,0 +1,24 @@
+{{ with .Params.receta }}
+<section class="ficha" id="receta" aria-labelledby="ficha-titulo">
+  <header class="ficha-cab">
+    <p class="ficha-eti">La receta</p>
+    <h2 id="ficha-titulo">{{ $.Title }}</h2>
+    <dl class="ficha-datos">
+      <div><dt>Salen</dt><dd>{{ .raciones }}</dd></div>
+      <div><dt>Tiempo</dt><dd>{{ .total_texto }}</dd></div>
+      {{ with .horno }}<div><dt>Horno</dt><dd>{{ . }}</dd></div>{{ end }}
+    </dl>
+  </header>
+  <div class="ficha-cuerpo">
+    <div class="ficha-col">
+      <h3>Ingredientes</h3>
+      <ul class="ingredientes">{{ range .cantidades }}<li><label><input type="checkbox"><span class="cant">{{ .cantidad }}</span><span>{{ .ingrediente }}</span></label></li>{{ end }}</ul>
+    </div>
+    <div class="ficha-col">
+      <h3>Paso a paso</h3>
+      <ol class="pasos">{{ range $.Params.pasos }}<li><div class="paso-cab"><h3>{{ .titulo }}</h3><span class="chip">{{ .tiempo }}</span></div><p>{{ .texto }}</p></li>{{ end }}</ol>
+    </div>
+  </div>
+  {{ with $.Params.error }}<p class="ficha-nota"><strong>Error típico</strong>{{ . }}</p>{{ end }}
+</section>
+{{ end }}

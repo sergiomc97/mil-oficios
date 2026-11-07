@@ -184,3 +184,18 @@
     }
   });
 })();
+
+(() => {
+  const cajas = [...document.querySelectorAll(".ingredientes input")];
+  if (!cajas.length) return;
+  const clave = "ingredientes:" + location.pathname;
+  let marcados = [];
+  try { marcados = JSON.parse(localStorage.getItem(clave)) || []; } catch {}
+  cajas.forEach((c, i) => {
+    c.checked = marcados.includes(i);
+    c.addEventListener("change", () => {
+      marcados = cajas.flatMap((x, j) => x.checked ? [j] : []);
+      try { localStorage.setItem(clave, JSON.stringify(marcados)); } catch {}
+    });
+  });
+})();

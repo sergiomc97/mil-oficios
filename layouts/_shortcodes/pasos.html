@@ -1,4 +1,4 @@
-{{ with .Page.Params.pasos }}
+{{ if .Page.Params.receta }}{{ partial "ficha-receta.html" .Page }}{{ else }}{{ with .Page.Params.pasos }}
 <ol class="pasos">
   {{ range . }}
   <li>
@@ -7,4 +7,4 @@
   </li>
   {{ end }}
 </ol>
-{{ end }}
+{{ end }}{{ end }}

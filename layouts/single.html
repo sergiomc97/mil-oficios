@@ -4,6 +4,7 @@
   <div class="contenedor barra-in">
     <a class="barra-sec" href="{{ .CurrentSection.RelPermalink }}">← {{ .CurrentSection.Title }}</a>
     <span class="barra-titulo">{{ .Title }}</span>
+    {{ if .Params.receta }}<a class="barra-receta" href="#receta">Receta</a>{{ end }}
   </div>
   <span class="cinta" aria-hidden="true"></span>
 </nav>
@@ -14,6 +15,7 @@
   {{ with .Params.tiempo }}
   <p class="autor" data-pagefind-ignore><span class="avatar">TG</span><span><strong>{{ site.Params.autor }}</strong> · {{ . }}{{ if gt ($.Lastmod.Sub $.Date).Hours 24 }} · actualizado el {{ $.Lastmod | time.Format ":date_long" }}{{ end }}</span></p>
   {{ with $.Params.dificultad }}<span class="sello" data-pagefind-ignore>Dificultad {{ . }}</span>{{ end }}
+  {{ with $.Params.receta }}<a class="ir-receta" href="#receta" data-pagefind-ignore><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>Ir a la receta<span>{{ len .cantidades }} ingredientes · {{ len $.Params.pasos }} pasos</span></a>{{ end }}
   {{ end }}
   {{ with .Params.portada }}<figure class="foto">{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ with $.Params.portada_credito }}<figcaption class="credito" data-pagefind-ignore>{{ . }}</figcaption>{{ end }}</figure>{{ end }}
   </header>
@@ -26,17 +28,16 @@
       <ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
     </div>
     {{ end }}
-    {{ partial "receta.html" . }}
 
-    {{ with .Params.error }}
+    {{ if not .Params.receta }}{{ with .Params.error }}
     <div class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></div>
-    {{ end }}
+    {{ end }}{{ end }}
 
     {{ with site.GetPage "/herramientas" }}{{ range where .RegularPages "Params.relacionado" $.Path }}
     <a class="usa-herramienta sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">Herramienta</span><span>{{ .Title }} →</span></a>
     {{ end }}{{ end }}
 
-    <button class="boton compartir" type="button" data-compartir hidden>Compartir</button>
+    <button class="boton compartir" type="button" data-compartir hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 13v6h14v-6"/></svg>Compartir</button>
 
     {{ with .Params.productos }}
     <section class="necesitas">
