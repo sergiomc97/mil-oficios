@@ -51,7 +51,11 @@ El lector tiene que notar que lo escribe una persona que ha hecho las cosas, no 
 - Mezcla frases cortas con otras más largas. Una subordinada de vez en cuando hace que el texto respire. Párrafos de 2 a 4 líneas en el móvil.
 - Lo concreto antes que lo general: «la esquina de baldosas del vecino» mejor que «un lugar soleado con buen drenaje».
 - Opina cuando toque («yo no lo haría», «sale más a cuenta cambiarla») y di claramente lo que no se sabe.
-- La introducción engancha con algo concreto (una situación, una foto, un problema real). No adelanta las ideas del resumen.
+- Estructura de gancho, preguntas, final y envío (la misma que en los vídeos y las imágenes de redes):
+  1. Gancho: la primera frase de la introducción, y también el `title` y la `description`, tienen que asombrar, indignar o asustar con algo concreto y verdadero. Sin calentamiento. No adelanta las ideas del resumen.
+  2. Preguntas: cada sección responde a la pregunta que dejó abierta la anterior y termina abriendo otra, para que no se pueda dejar a medias.
+  3. Final: el cierre vuelve a la situación del principio, como si el artículo diera la vuelta entera.
+  4. Envío: al menos un dato, un error o un riesgo que den ganas de mandárselo a alguien («mira lo que le pasa a tu lavanda»).
 - Títulos de sección como los escribiría una persona: una pregunta o una frase normal. No todos con el molde «X: Y».
 - No cierres cada sección con una moraleja ni el artículo con un resumen. Termina cuando se acabe lo útil.
 - Listas solo para lo que de verdad es una lista. No pongas negrita al principio de cada punto por sistema.
