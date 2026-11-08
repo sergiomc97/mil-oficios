@@ -1,7 +1,7 @@
 ---
 title: "Panettone de chocolate sin gluten con Fioreglut"
 date: 2026-11-06
-lastmod: 2026-11-07
+lastmod: 2026-11-08
 description: "Receta de panettone de chocolate sin gluten con Caputo Fioreglut, hecho en un molde de tarta de 20 cm y enfriado boca abajo. Con mis pesos y mis fallos."
 tiempo: 4 min
 dificultad: alta
@@ -75,6 +75,8 @@ pasos:
 
 Mi primer panettone sin gluten se enfrió colgando boca abajo, con el borde del molde apoyado en cuatro tazas de la misma altura y un paño debajo por si se caía. Lo hice en un molde de tarta de 20 cm, porque no tenía de panettone, y salió muy rico, con una miga amarilla y llena de agujeros.
 
+{{< aviso-actualizacion >}}al día siguiente se puso duro. [Te cuento qué pasa y cómo recuperarlo](#al-dia-siguiente).{{< /aviso-actualizacion >}}
+
 Los pesos son los que usé de verdad. Respecto a la receta de partida, añadí 20 g de agua y puse menos miel.
 
 {{< pasos >}}
@@ -112,3 +114,22 @@ En el molde de tarta también se pierde la forma. La masa que en un molde de pan
 Y le falta algo de dulce. Le puse 5 g de miel en lugar de los 15 g de la receta, aunque son solo 10 g y no sé si eso lo explica del todo.
 
 La próxima vez lo haré en un molde de papel de panettone, que se cuelga atravesando la base con dos brochetas, y me ahorraré las tazas. Con la miel entera y el aluminio puesto a tiempo.
+
+{{< actualizacion id="al-dia-siguiente" fecha="8 de noviembre de 2026" >}}
+## Al día siguiente, duro
+
+Lo guardé en una bolsa de plástico bien cerrada y al día siguiente la miga estaba dura. Me pasó lo mismo con los [panecillos sin gluten](/mil-panes/panecillos-sin-gluten-caputo/).
+
+La bolsa no lo evita porque el problema no es que se seque. Al enfriarse, el almidón de la miga se reorganiza y se endurece aunque no pierda agua, y sin gluten pasa mucho antes que en un panettone normal. Hasta [The Loopy Whisk](https://theloopywhisk.com/2024/12/21/gluten-free-panettone/), con una receta muy trabajada, dice que el suyo aguanta dos o tres días.
+
+Lo bueno es que con calor se deshace: una porción, 10-15 segundos en el microondas, o el trozo envuelto en aluminio unos minutos en el horno a 150 °C. Calienta solo lo que vayas a comer, porque al enfriarse vuelve a endurecerse.
+
+Lo que haré la próxima vez:
+
+- Nada de nevera: el frío lo endurece todavía más rápido.
+- Cortarlo en porciones en cuanto esté frío y congelar lo que no se coma ese día.
+- Poner la miel entera, que además de endulzar retiene agua.
+- Taparlo con aluminio a tiempo, para que no se seque en el horno.
+
+Cuando lo pruebe, lo cuento aquí.
+{{< /actualizacion >}}

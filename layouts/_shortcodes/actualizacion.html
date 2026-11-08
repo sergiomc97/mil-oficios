@@ -1,0 +1,4 @@
+<aside class="actualizacion" id="{{ .Get "id" }}">
+  <p class="etiqueta">Actualización · {{ .Get "fecha" }}</p>
+  {{ .Inner | .Page.RenderString (dict "display" "block") }}
+</aside>
