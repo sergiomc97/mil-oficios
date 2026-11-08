@@ -33,7 +33,7 @@ Los datos son de la clasificación de resistencia de la Royal Horticultural Soci
 | Fotinia 'Red Robin' | −15 a −10 °C | Sol o semisombra |
 | Durillo (*Viburnum tinus*) | −10 a −5 °C | Sol, semisombra o sombra |
 
-Son valores orientativos: una planta bien enraizada, en un rincón protegido del viento, aguanta más que una recién plantada en un sitio expuesto.
+Son valores orientativos: una planta bien enraizada, en un rincón protegido del viento, aguanta más que una recién plantada en un sitio expuesto. Para elegir según tu frío, tu sol y tu tierra, tienes [¿Qué planto en mi jardín?](/herramientas/que-planto-en-mi-jardin/).
 
 ## Evónimo: el todoterreno
 
@@ -45,7 +45,7 @@ Sus brotes nuevos salen de un rojo intenso, y por eso se usa tanto en setos. Pre
 
 ## Vinca menor: para tapizar la sombra
 
-Es una tapizante que cubre el suelo y da flores azules. Es la más resistente al frío de la lista y crece donde otras no, al pie de muros y bajo arbustos. Eso sí, no le gusta el suelo muy seco.
+Es una tapizante que cubre el suelo y da flores azules. Es la más resistente al frío de la lista y crece donde otras no, al pie de muros y bajo arbustos. Eso sí, no le gusta el suelo muy seco. Va muy bien para tapar la tierra que dejan [los tulipanes cuando se pasa la flor](/jardin/tulipanes-despues-de-florecer/).
 
 ## Durillo: mejor de lo que dice la ficha
 
@@ -55,10 +55,10 @@ Sobre el papel es la menos resistente de las cuatro. En mi franja, sin embargo, 
 
 El mirto es mediterráneo de costa y no lleva bien las heladas fuertes. Tampoco la sed: el primer verano necesita riego frecuente, sin encharcar. Varios mirtos que planté a principios de julio estaban muy secos en septiembre, mientras los durillos de al lado seguían perfectos.
 
-Si un mirto se te ve seco, no lo arranques todavía. Rasca un poco la corteza de un tallo con la uña: si debajo está verde, sigue vivo.
+Si un mirto se te ve seco, no lo arranques todavía. Rasca un poco la corteza de un tallo con la uña: si debajo está verde, sigue vivo. El mismo truco sirve para saber si [una lavanda seca](/jardin/lavanda-por-que-se-muere/) tiene arreglo.
 
 ## Antes de plantar
 
 - **Planta en otoño**, no en verano. La planta echa raíces con el fresco y llega mejor al primer calor. Las más delicadas con el frío, como el mirto, mejor a principios de primavera.
-- **Riega a fondo el primer año**, aunque la planta sea resistente a la sequía. Esa resistencia se gana con raíces, y las raíces tardan en crecer.
+- **Riega a fondo el primer año**, aunque la planta sea resistente a la sequía. Esa resistencia se gana con raíces, y las raíces tardan en crecer. Con un [goteo casero](/jardin/riego-por-goteo-casero/) no se te olvida ningún riego.
 - **Si tienes malla antihierbas y piedra**, mete el dedo bajo la piedra para comprobar la humedad. Por encima puede parecer seco cuando no lo está, y al revés.

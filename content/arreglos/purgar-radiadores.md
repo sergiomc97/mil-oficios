@@ -37,7 +37,7 @@ productos:
 
 Llega el primer día frío, enciendes la calefacción y el radiador del dormitorio se calienta por abajo mientras la franja de arriba sigue templada. Por la noche, además, se oye un gluglú dentro de la pared, como si alguien vaciara una botella.
 
-Es la tarea de antes del invierno que más se deja para luego, y se hace en media hora con un destornillador y un vaso.
+Es la tarea de antes del invierno que más se deja para luego, y se hace en media hora con un destornillador y un vaso. Está en el [calendario de lo que toca cada mes](/herramientas/que-hacer-este-mes/), junto con otras tareas de la casa.
 
 {{< pasos >}}
 
@@ -45,7 +45,7 @@ Es la tarea de antes del invierno que más se deja para luego, y se hace en medi
 
 Toca el radiador cuando lleve un rato encendido. El aire sube, así que si lo frío está arriba, purgar lo arregla.
 
-Si pasa al revés, caliente arriba y frío abajo, son lodos: óxido y suciedad que se han ido posando en el fondo. Por mucho que purgues no se van. Hay que desmontar el radiador y limpiarlo, o hacer una limpieza de todo el circuito, y eso ya es trabajo de un instalador.
+Si pasa al revés, caliente arriba y frío abajo, son lodos: óxido y suciedad que se han ido posando en el fondo. Por mucho que purgues no se van. Hay que desmontar el radiador y limpiarlo, o hacer una limpieza de todo el circuito, y eso ya es trabajo de un instalador. En [¿Lo arreglo o lo tiro?](/herramientas/lo-arreglo-o-lo-tiro/) tienes estas dos averías del radiador y qué hacer con cada una.
 
 Un radiador frío entero mientras los demás calientan suele tener la válvula cerrada. Mira la llave de arriba y el detentor, que es la llave de abajo, al otro lado, a veces escondida bajo una tapa. Alguien pudo cerrarlo al pintar y no volver a abrirlo.
 
@@ -69,3 +69,5 @@ Antes de tocar nada, avisa al administrador o a la empresa de mantenimiento. El 
 Si la presión vuelve a bajar a los pocos días de rellenarla, hay una fuga en algún punto, aunque no veas el charco. Si sube por encima de la zona verde con la calefacción en marcha, tampoco es normal. En los dos casos llama al servicio técnico de la caldera y no abras la carcasa: en una caldera de gas, eso es cosa de un técnico autorizado.
 
 También merece la pena llamar si el purgador sigue goteando después de cerrarlo o tiene la rosca pasada. Apretarlo más fuerte suele empeorarlo.
+
+Ya que te pones con la casa antes del invierno, el sifón del fregadero también agradece una limpieza: [cómo desatascarlo sin productos químicos](/arreglos/desatascar-fregadero-sin-quimicos/).

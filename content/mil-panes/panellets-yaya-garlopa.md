@@ -70,7 +70,7 @@ Sí, el ibérico cuesta bastante más. Con 150 g hay de sobra para una tanda.
 
 ## ¿Son sin gluten de verdad?
 
-Ningún ingrediente lleva gluten: patata, almendra, azúcar y piñón. El riesgo está en la harina de almendra, que a veces se muele en fábricas que también trabajan con trigo. Si los vas a hacer para alguien celíaco, compra una que diga «sin gluten» en el envase. Y nada de enharinarte las manos con harina normal para formar las bolitas: con la masa fría no hace falta.
+Ningún ingrediente lleva gluten: patata, almendra, azúcar y piñón. El riesgo está en la harina de almendra, que a veces se muele en fábricas que también trabajan con trigo. Si los vas a hacer para alguien celíaco, compra una que diga «sin gluten» en el envase. Y nada de enharinarte las manos con harina normal para formar las bolitas: con la masa fría no hace falta. Es el mismo cuidado que hay que tener con el chocolate del [panettone sin gluten](/mil-panes/panettone-chocolate-sin-gluten/).
 
 ## Lo que salió regular
 

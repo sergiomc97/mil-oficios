@@ -93,7 +93,7 @@ Se trabaja con la pala de la amasadora, porque con el gancho se queda pegada alr
 
 {{< foto src="fotos/panettone-sin-gluten-porcion.jpg" alt="Porción de panettone sin gluten vista desde arriba, con la miga amarilla y alveolada y pepitas de chocolate fundido, en un plato blanco junto al resto del panettone." pie="El chocolate se quedó repartido por toda la miga, sin bajar al fondo." >}}
 
-Si es para alguien celíaco, el chocolate tiene que decir «sin gluten» en el envase. Fioreglut lleva almidón de trigo sin gluten y es apta, pero mira también la miel, la vainilla y la levadura.
+Si es para alguien celíaco, el chocolate tiene que decir «sin gluten» en el envase. Fioreglut lleva almidón de trigo sin gluten y es apta (lo cuento mejor en los [panecillos](/mil-panes/panecillos-sin-gluten-caputo/)), pero mira también la miel, la vainilla y la levadura.
 
 ## ¿Y si no sube?
 
@@ -105,7 +105,7 @@ Si en tu casa hace fresco, fermenta dentro del horno apagado con la luz encendid
 
 {{< foto src="fotos/panettone-sin-gluten-entero.jpg" alt="Panettone sin gluten entero en un plato blanco, bajo y ancho, con la cruz abierta y la superficie de color marrón muy oscuro." pie="Así salió del molde de tarta: bajo y con la parte de arriba casi negra." >}}
 
-Con la masa casi en el borde, la superficie quedó muy cerca de la resistencia de arriba y se tostó muchísimo. Bajé de 170 a 150 °C en cuanto se oscureció y aun así quedó como en la foto.
+Con la masa casi en el borde, la superficie quedó muy cerca de la resistencia de arriba y se tostó muchísimo. Bajé de 170 a 150 °C en cuanto se oscureció y aun así quedó como en la foto. Es lo mismo que me pasó con los [dónuts](/mil-panes/donuts-sin-gluten-caputo/): por fuera se hace antes que por dentro.
 
 En el molde de tarta también se pierde la forma. La masa que en un molde de panettone subiría alta aquí se reparte en 20 cm y queda como un bizcocho grande.
 

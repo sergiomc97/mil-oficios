@@ -5,8 +5,8 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 ## Estructura
 
 - `content/jardin/`, `content/arreglos/`, `content/restauracion/`, `content/negocio/`: un `.md` por artículo. `negocio` es para dueños de tiendas y pequeños comercios: TPV, impresoras de tickets, cajones, balanzas, datáfonos y obligaciones de la caja.
-- Al añadir temas nuevos, se alternan las cuatro secciones. `mil-panes` no entra en esa rotación (ver «Mil Panes»).
-- `temas.md`: lista de temas pendientes. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
+- `temas.md`: lista de temas pendientes, agrupados en familias (una guía y sus artículos hijos, ver «Búsqueda y enlaces»). Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
+- `negocio` lleva como mucho un artículo al mes. `mil-panes` no entra en la lista (ver «Mil Panes»).
 - `busquedas.md`: búsquedas de la web que no encontraron nada el mes anterior, con cuántas veces se buscaron. Lo genera `.github/workflows/busquedas.yml` el día 1 de cada mes; no se edita a mano.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
@@ -34,7 +34,7 @@ Front matter:
 - `productos` (opcional): lista de `nombre`. Sin `url` hasta que la afiliación esté aprobada.
 - `lastmod` (opcional): solo al revisar de verdad un artículo ya publicado, con la fecha de la revisión. Hace que salga «actualizado el…».
 
-Cuerpo: introducción corta y luego secciones `##`. Entre 450 y 800 palabras: mejor corto y denso que largo y repetido.
+Cuerpo: introducción corta y luego secciones `##`. Entre 600 y 1.000 palabras, y hasta 1.500 en las guías: mejor corto y denso que largo y repetido. La longitud la marca lo que hay que responder, nunca un número que alcanzar.
 
 ## Cómo escribir
 
@@ -70,6 +70,33 @@ Con el borrador terminado, léelo entero de corrido, como lo leería Sergio en e
    `grep -inE "no es [^.]*, es |la diferencia|la clave|el secreto|ojo con|en resumen|así de sencillo|hay pocas|dos destinos|te contamos|descubre|sin más" <archivo>`
 3. Relleno: si una frase se puede quitar sin perder información, se quita.
 4. El `error`: si repite algo del cuerpo, cámbialo por otro o bórralo.
+5. Los enlaces internos: al menos 3 en el cuerpo. Cuéntalos con `grep -oE '\]\(/(jardin|arreglos|restauracion|negocio|mil-panes|herramientas)/' <archivo> | wc -l`.
+
+## Búsqueda y enlaces
+
+Cada artículo responde una búsqueda concreta que la gente escribe tal cual en Google, mejor que nadie.
+
+### Familias
+
+- Los temas se agrupan en familias: una guía que responde la búsqueda general («Por qué se te muere una planta») y artículos hijos que responden una búsqueda concreta cada uno («Por qué se me muere la ruda»).
+- Antes de escribir, consulta el autocompletado de Google con la frase principal (`https://suggestqueries.google.com/complete/search?client=firefox&hl=es&gl=es&q=<frase>`) y apunta las sugerencias. Son las preguntas que se hace la gente.
+- Un artículo por búsqueda distinta, nunca uno por variante de la misma («hojas amarillas en el poto» y «poto con hojas amarillas» son la misma).
+
+### Título y primer párrafo
+
+- `title`: la búsqueda con las palabras de la gente, al principio, y después lo que aporta Tito. Ej.: «La cisterna pierde agua sin tirar de la cadena: dónde mirar». El slug, la búsqueda sin palabras vacías.
+- Primera frase: el gancho. Las dos siguientes: la respuesta directa en 40-60 palabras, que se entienda sin leer nada más, para que Google pueda mostrarla arriba de los resultados.
+
+### Estructura
+
+- Los `##` son preguntas que sugiere el autocompletado, con sus palabras, y cada uno se responde en su primera frase.
+- Sin preguntas frecuentes con datos estructurados: Google ya no las muestra a webs como esta.
+
+### Enlaces internos
+
+- Al menos 3 enlaces en el cuerpo a otros artículos o herramientas, en la frase donde vienen a cuento. El texto del enlace dice a dónde lleva; nunca «aquí» ni «este artículo».
+- Un hijo enlaza a su guía en la introducción y a uno o dos hermanos. Al publicar un hijo, añade en su guía un enlace a él.
+- Al publicar, edita uno o dos artículos antiguos de la misma sección para que enlacen al nuevo donde venga a cuento, sin añadir relleno.
 
 ## Mil Panes
 

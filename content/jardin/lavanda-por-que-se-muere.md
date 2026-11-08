@@ -34,7 +34,7 @@ La lavanda necesita al menos seis horas de sol al día, y mejor ocho. Con menos 
 
 Lo primero que hay que sospechar es el agua, por raro que suene en una planta que presume de aguantar la sequía. Una vez arraigada en el suelo casi no necesita riego, salvo en sequías largas. Solo el primer verano hay que regarla con regularidad.
 
-Para salir de dudas, desentiérrala y mira las raíces. Claras y con olor a tierra, estaban sanas y el problema era otro. Oscuras, blandas y con mal olor, se pudrieron.
+Para salir de dudas, desentiérrala y mira las raíces. Claras y con olor a tierra, estaban sanas y el problema era otro. Oscuras, blandas y con mal olor, se pudrieron. Si no lo tienes claro, el [diagnóstico de plantas que se mueren](/herramientas/diagnostico-planta-se-muere/) te lleva por las causas una a una.
 
 Si no fue el agua, suele ser una de estas:
 
@@ -43,13 +43,13 @@ Si no fue el agua, suele ser una de estas:
 - No rebrotó después de podarla: se cortó en la madera vieja.
 - Mucha hoja y poca flor: le sobra abono. Prefiere suelos pobres.
 
-En mi franja junto al muro, la lavanda y el romero han fallado en algunos puntos. Esa franja tiene tramos de sol y tramos de sombra, y con la malla antihierbas y la piedra volcánica encima no se ve si la tierra está húmeda. Si tienes algo parecido, aparta la piedra y mete el dedo antes de regar.
+En mi franja junto al muro, la lavanda y el romero han fallado en algunos puntos. Esa franja tiene tramos de sol y tramos de sombra, y con la malla antihierbas y la piedra volcánica encima no se ve si la tierra está húmeda. Si tienes algo parecido, aparta la piedra y mete el dedo antes de regar. En esa misma franja, los [durillos aguantan mucho mejor](/jardin/plantas-perennes-para-heladas/).
 
 ## Donde hiela fuerte, mira qué variedad compras
 
 Aquí hay inviernos que bajan de −10 °C, y no todas las lavandas los aguantan. La lavanda inglesa (*Lavandula angustifolia*) y el lavandín (*L. × intermedia*) son las duras: muchas de sus variedades tienen la calificación H5 de la RHS, entre −10 y −15 °C. El cantueso (*L. stoechas*) resiste menos y vive pocos años. La lavanda dentada (*L. dentata*) es la más delicada, y con estos inviernos mejor en maceta y a cubierto.
 
-Plántala en primavera. En otoño, una planta joven pasa su primer invierno en tierra fría y mojada, que es justo lo que peor lleva.
+Plántala en primavera. En otoño, una planta joven pasa su primer invierno en tierra fría y mojada, que es justo lo que peor lleva. Si ya la tienes plantada, el [aviso de heladas](/herramientas/aviso-de-heladas/) te dice qué noches conviene taparla.
 
 Si tu tierra es arcillosa, la RHS aconseja plantarla sobre un montículo de 20 a 30 cm. En maceta, mezcla hasta un 25 % de grava o arena gruesa con el sustrato.
 

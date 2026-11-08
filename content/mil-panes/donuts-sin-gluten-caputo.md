@@ -92,6 +92,6 @@ Antes de usarlo, mira que el azúcar glas diga «sin gluten» en el envase si so
 
 ## Lo que me salió mal
 
-Los hice demasiado gordos. Al freírlos, por fuera se doraban enseguida y por dentro seguían crudos, así que tuve que dejarlos mucho rato en el aceite hasta que se hicieron. Por eso salen tan oscuros en la foto, y el de la derecha casi marrón.
+Los hice demasiado gordos. Al freírlos, por fuera se doraban enseguida y por dentro seguían crudos, así que tuve que dejarlos mucho rato en el aceite hasta que se hicieron. Por eso salen tan oscuros en la foto, y el de la derecha casi marrón. Con el [panettone](/mil-panes/panettone-chocolate-sin-gluten/) me pasó algo parecido: por fuera se tostó antes de que el centro estuviera hecho.
 
 Quedaron buenos igualmente, pero la próxima vez los estiro de un centímetro como mucho, contando con que en el segundo levado crecen. Un dónut fino se hace por dentro en el tiempo justo de dorarse por fuera.

@@ -51,7 +51,7 @@ Mis naranjas tenían las hojas rayadas de morado, que es lo típico del grupo Gr
 
 Esto es lo que haría distinto, con lo que recomienda la RHS:
 
-- Plantarlos en octubre o noviembre, a pleno sol y en tierra que no se encharque.
+- Plantarlos en octubre o noviembre, a pleno sol y en tierra que no se encharque, a la vez que los [ajos del huerto](/jardin/preparar-huerto-otono/).
 - Enterrar cada bulbo a dos o tres veces su altura, con la punta hacia arriba.
 - Ponerlos en grupos apretados, separados unas dos veces su anchura, en vez de sueltos. Así la mancha de color se ve de verdad.
 - Mezclarlos con una tapizante que cubra la tierra cuando los tulipanes desaparezcan. La [vinca menor](/jardin/plantas-perennes-para-heladas/) aguanta heladas fuertes y crece bien al pie de otras plantas.

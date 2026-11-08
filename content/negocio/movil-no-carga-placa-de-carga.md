@@ -40,7 +40,7 @@ El de la foto es uno de esos, un Redmi básico. No cargaba, y la culpa la tenía
 
 Prueba el cable y el cargador con otro móvil. Luego mira el conector con una linterna: la pelusa del bolsillo se apelmaza al fondo y no deja entrar el cable del todo. Se saca con un palillo de madera, con cuidado de no doblar la lengüeta del centro.
 
-Si el cable está bien, el conector limpio y aun así solo carga sujetándolo torcido, o no carga nada, apunta a la placa.
+Igual que con la [impresora de tickets que no imprime](/negocio/impresora-tickets-no-imprime/), casi siempre es algo pequeño. Si el cable está bien, el conector limpio y aun así solo carga sujetándolo torcido, o no carga nada, apunta a la placa.
 
 ## Qué es la placa de carga
 

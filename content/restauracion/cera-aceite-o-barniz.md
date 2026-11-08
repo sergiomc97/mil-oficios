@@ -27,7 +27,7 @@ Acabas de lijar un mueble y llega la gran duda: ¿con qué lo protejo? Los tres 
 
 ## Cera: para muebles que se miran más que se usan
 
-Una cómoda, un baúl, un marco. La cera da un tacto precioso y se aplica con un trapo, pero un vaso húmedo o una taza caliente dejan cerco. Se renueva de vez en cuando y listo.
+Una cómoda, un baúl, un marco. La cera da un tacto precioso y se aplica con un trapo, pero un vaso húmedo o una taza caliente dejan cerco. Se renueva de vez en cuando, y el mejor momento es antes de encender la calefacción, como recuerda el [calendario de cada mes](/herramientas/que-hacer-este-mes/).
 
 ## Aceite: el término medio
 
@@ -35,4 +35,4 @@ Penetra en la madera en lugar de quedarse encima, así que la veta resalta y el 
 
 ## Barniz: para lo que se usa a diario
 
-Mesas de cocina, sillas, estanterías con trajín. Forma una película dura que resiste agua, calor y roces. El precio a pagar es que, cuando se raya o se pela, la reparación pasa por lijar. Los barnices al agua huelen menos y secan antes que los de disolvente.
+Mesas de cocina, sillas, estanterías con trajín. Forma una película dura que resiste agua, calor y roces. El precio a pagar es que, cuando se raya o se pela, la reparación pasa por lijar. Los barnices al agua huelen menos y secan antes que los de disolvente. Para saber cuántos litros comprar, usa la [calculadora de pintura y barniz](/herramientas/calculadora-pintura-barniz/).

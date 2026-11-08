@@ -36,7 +36,7 @@ productos:
 
 A primeros de noviembre el huerto está en su peor momento. Tomateras negras atadas a las cañas, algún calabacín olvidado que se ha quedado blando y hierba por todas partes, que ha aprovechado las lluvias de octubre.
 
-Da pereza meterse, pero es el trabajo que más luce. Lo que dejes hecho ahora, el invierno lo remata por ti, y en marzo te encuentras la tierra lista en vez de un barrizal con raíces viejas.
+Da pereza meterse, pero es el trabajo que más luce. Lo que dejes hecho ahora, el invierno lo remata por ti, y en marzo te encuentras la tierra lista en vez de un barrizal con raíces viejas. Lo demás que toca este mes está en el [calendario del jardín y la casa](/herramientas/que-hacer-este-mes/).
 
 {{< pasos >}}
 
@@ -53,6 +53,8 @@ El de gallina va aparte: es mucho más fuerte, así que echa bastante menos y me
 La tierra al aire se apelmaza con la lluvia. Taparla con una capa de paja la protege y además evita que el suelo se congele tan hondo.
 
 La otra opción es el abono verde: una mezcla de veza y avena que se siembra a mediados de otoño y se siega cuando la veza está en plena flor, para dejarla sobre la tierra. Ocupa el bancal de tres a cinco meses. En una zona fría, a estas alturas de noviembre ya llegas tarde, y la paja es lo práctico.
+
+Si al cavar salen larvas blancas enroscadas en C, mira antes [si son de cetonia o de gallina ciega](/jardin/plagas-del-verano-cochinilla-gusano-blanco/): una ayuda y la otra se come las raíces. Y en marzo, con la tierra lista, es buen momento para montar el [riego por goteo](/jardin/riego-por-goteo-casero/) antes de plantar.
 
 ## ¿Se puede plantar algo con heladas de −10?
 

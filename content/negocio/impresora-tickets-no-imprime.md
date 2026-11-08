@@ -20,7 +20,7 @@ productos:
 
 Sábado a media mañana, tres clientes en la cola, cobras el primero y la impresora no hace nada. Ni un ruido. El cliente quiere su ticket, el de detrás mira el reloj y tú ya estás buscando el teléfono del técnico.
 
-Trabajo a diario con programas de TPV y he visto fallar muchísimas impresoras de tickets. Casi todas esas llamadas acaban en algo que el dueño de la tienda podía haber arreglado en dos minutos, si hubiera sabido por dónde empezar.
+Trabajo a diario con programas de TPV y he visto fallar muchísimas impresoras de tickets. Casi todas esas llamadas acaban en algo que el dueño de la tienda podía haber arreglado en dos minutos, si hubiera sabido por dónde empezar. Si lo prefieres guiado, el [diagnóstico de la impresora de tickets](/herramientas/diagnostico-impresora-tickets/) te hace las preguntas una a una.
 
 ## ¿Sale papel en blanco?
 
@@ -56,6 +56,6 @@ Las impresoras de red tienen su propio fallo. El router reparte las direcciones 
 
 ## ¿Y si no sale ni la hoja de prueba?
 
-Prueba otro enchufe y, si tienes uno compatible, otro transformador. Si aun así no imprime la hoja, el fallo es interno y toca llamar al técnico. No abras el transformador ni la placa: trabajan con corriente de la red y no hay nada que se arregle con un destornillador.
+Prueba otro enchufe y, si tienes uno compatible, otro transformador. Si aun así no imprime la hoja, el fallo es interno y toca llamar al técnico. Mientras tanto, apunta lo que cobres sin ticket para que te cuadre el [arqueo de caja](/herramientas/arqueo-de-caja/) al cerrar. No abras el transformador ni la placa: trabajan con corriente de la red y no hay nada que se arregle con un destornillador.
 
 A veces sale más a cuenta cambiarla que repararla, sobre todo si es vieja. Pide presupuesto antes de dejarla.

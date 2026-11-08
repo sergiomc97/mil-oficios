@@ -35,7 +35,7 @@ Aprovecha la poda de invierno. Con la parra desnuda se ven los grupos de pelusa 
 2. Si ves pocos grupos, quítalos a mano con un bastoncillo mojado en alcohol de 70°.
 3. Si había muchos, aplica aceite de parafina en un día templado, sin heladas ni viento, empapando bien tronco y brazos. El aceite las asfixia, así que tiene que cubrirlas. La dosis es la de la etiqueta.
 
-Con guantes, y nunca justo antes de que hiele.
+Con guantes, y nunca justo antes de que hiele: el [aviso de heladas](/herramientas/aviso-de-heladas/) te dice si viene una noche mala.
 
 {{< foto src="fotos/gusano-blanco-larva.jpg" alt="Larva blanca y gruesa enroscada en forma de C, con la cabeza marrón rojiza y las patas a la vista, sobre una baldosa gris junto a una moneda de un euro." pie="La larva de este verano, al lado de un euro." >}}
 
@@ -45,7 +45,7 @@ No todas las larvas blancas en C son una plaga. Antes de hacer nada, mira dos co
 
 La de la cetonia, el escarabajo verde dorado que se ve en las flores, tiene la cabeza pequeña, las patas cortas y se desplaza boca arriba. Vive en el compost y en la madera podrida, y nunca come raíces. Si la encuentras en el compostador, déjala: te está ayudando.
 
-La del abejorro o gallina ciega tiene la cabeza más grande y no anda boca arriba. Esa sí come raíces. Los síntomas son plantas que se marchitan sin motivo o calvas en el césped que se levantan como una alfombra. Los pájaros que escarban justo ahí también la delatan.
+La del abejorro o gallina ciega tiene la cabeza más grande y no anda boca arriba. Esa sí come raíces. Los síntomas son plantas que se marchitan sin motivo o calvas en el césped que se levantan como una alfombra. Los pájaros que escarban justo ahí también la delatan. Si dudas de que sea eso, el [diagnóstico de plantas que se mueren](/herramientas/diagnostico-planta-se-muere/) te ayuda a descartar otras causas.
 
 ## Qué hacer con el gusano
 
@@ -53,4 +53,4 @@ Cuando la tierra se hiela, estas larvas bajan más hondo a pasar el invierno. Ah
 
 Lo que funciona en jardín son los nematodos *Heterorhabditis bacteriophora*. Son unos gusanos microscópicos que entran en la larva y la matan, y luego siguen buscando más. Necesitan la tierra entre 12 y 30 °C y húmeda. En una zona de inviernos fríos, eso quiere decir esperar a la primavera o, mejor aún, a finales de verano y principios de otoño, cuando las larvas jóvenes están cerca de la superficie.
 
-Entretanto, cuando caves un bancal y salga alguna, sácala y déjala a la vista. A los pájaros no se les escapa.
+Entretanto, cuando caves un bancal [para preparar el huerto en otoño](/jardin/preparar-huerto-otono/) y salga alguna, sácala y déjala a la vista. A los pájaros no se les escapa.

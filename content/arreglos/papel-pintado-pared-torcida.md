@@ -35,7 +35,7 @@ productos:
 
 En las casas antiguas, una pared recta es casi un milagro. Esquinas que no forman 90 grados, techos que bajan unos centímetros de un lado a otro... Con pintura no se nota, pero con papel pintado, sobre todo si tiene dibujo, cualquier desviación salta a la vista.
 
-Es justo lo que me encontré en la pared del cabecero de mi dormitorio: torcida, con esquinas irregulares y una ventana al lado. Estos son los criterios para que el papel quede recto aunque la pared no lo esté.
+Es justo lo que me encontré en la pared del cabecero de mi dormitorio: torcida, con esquinas irregulares y una ventana al lado. Estos son los criterios para que el papel quede recto aunque la pared no lo esté. Si aún no lo has comprado, la [calculadora de papel pintado](/herramientas/calculadora-papel-pintado/) te dice cuántos rollos necesitas.
 
 {{< pasos >}}
 
@@ -59,8 +59,10 @@ Pierdes un poco de continuidad en el dibujo justo en la esquina, pero es el siti
 
 ## Si la pared es muy irregular
 
-Una alternativa elegante es no empapelar la pared entera. Un rectángulo de papel detrás de la cama, enmarcado con un listón de madera fino, queda como un cabecero. Al no tocar techo ni esquinas, las irregularidades desaparecen.
+Una alternativa elegante es no empapelar la pared entera. Un rectángulo de papel detrás de la cama, enmarcado con un listón de madera fino, queda como un cabecero. Si dejas el listón visto, protégelo con [cera, aceite o barniz](/restauracion/cera-aceite-o-barniz/) según el uso. Al no tocar techo ni esquinas, las irregularidades desaparecen.
 
 ## Seguridad con los enchufes
 
 Corta la corriente antes de empapelar cerca de enchufes o interruptores. Quita los embellecedores, pega el papel por encima y recorta un hueco algo más pequeño que el embellecedor, que tapará el corte al volver a colocarlo.
+
+En mi dormitorio, el papel acabó acompañado de una tira LED en el remate del techo. Si vas a hacer algo parecido, la [calculadora de tira LED](/herramientas/calculadora-tira-led/) te dice qué fuente necesitas.

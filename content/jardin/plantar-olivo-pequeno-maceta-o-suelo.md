@@ -49,7 +49,7 @@ El olivo pide sol y un suelo que drene. Una tierra pedregosa en cuesta, como la 
 - Pon un tutor y átalo flojo: con ese tamaño, el tronco todavía es fino y el viento lo tumba.
 - Riega a fondo al plantarlo y, los primeros meses, mantén la tierra húmeda sin encharcar. Un [goteo casero](/jardin/riego-por-goteo-casero/) te quita mucho trabajo.
 
-El primer invierno en el suelo, échale por encima tela de protección contra heladas las noches de frío fuerte. Según la RHS, una tela gruesa gana unos 2 °C.
+El primer invierno en el suelo, échale por encima tela de protección contra heladas las noches de frío fuerte, que puedes ver venir con el [aviso de heladas](/herramientas/aviso-de-heladas/). Según la RHS, una tela gruesa gana unos 2 °C.
 
 ## ¿Y si lo prefieres en maceta?
 

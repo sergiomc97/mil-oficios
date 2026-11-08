@@ -56,8 +56,10 @@ Hace mucha espuma y sirve para un desagüe con mal olor o un poco perezoso, pero
 - **El agua vuelve a subir** por otro desagüe cuando usas el fregadero.
 - **Ya echaste un desatascador químico** y no ha funcionado. No uses la ventosa ni desmontes el sifón: el líquido corrosivo te puede salpicar. Avisa al fontanero de lo que has echado.
 
+Si la avería es de otro aparato de casa y dudas entre arreglarlo o cambiarlo, prueba [¿Lo arreglo o lo tiro?](/herramientas/lo-arreglo-o-lo-tiro/).
+
 ## Para que no vuelva a pasar
 
 - **Pon una rejilla** en el desagüe para retener restos de comida.
 - **No tires aceite ni grasa** por el fregadero. Déjalo enfriar y échalo en una botella para llevarlo al punto limpio.
-- **Limpia el sifón** un par de veces al año, antes de que dé problemas.
+- **Limpia el sifón** un par de veces al año, antes de que dé problemas. Aprovecha el día en que [purgues los radiadores](/arreglos/purgar-radiadores/) antes del invierno.

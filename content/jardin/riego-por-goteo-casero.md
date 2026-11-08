@@ -47,4 +47,6 @@ Si el terreno tiene cuesta o la tubería es larga, usa goteros **autocompensante
 
 ## Cuánto tiempo regar
 
-Depende de la planta, del suelo y del calor, así que empieza con poco: 15 o 20 minutos al amanecer y observa durante una semana. Si al día siguiente la tierra está seca a dos dedos de profundidad, sube el tiempo. Si está encharcada, bájalo.
+Depende de la planta, del suelo y del calor. Para un cálculo de partida, la [calculadora de riego por goteo](/herramientas/calculadora-riego-goteo/) te da los litros por planta y por semana. Después, empieza con poco: 15 o 20 minutos al amanecer y observa durante una semana. Si al día siguiente la tierra está seca a dos dedos de profundidad, sube el tiempo. Si está encharcada, bájalo. Con plantas mediterráneas como la [lavanda](/jardin/lavanda-por-que-se-muere/), quédate corto: el exceso de agua mata más que la sed.
+
+Donde más se nota el goteo es el primer año de un seto nuevo: las [plantas perennes para heladas](/jardin/plantas-perennes-para-heladas/) piden riego frecuente hasta que arraigan.

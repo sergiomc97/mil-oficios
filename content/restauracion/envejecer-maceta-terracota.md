@@ -37,11 +37,11 @@ productos:
 
 Las macetas de terracota antiguas tienen un aspecto que enamora: blanquecinas, con manchas, como si llevaran años al sol. Las nuevas, en cambio, salen de la tienda de un naranja uniforme que no se parece en nada.
 
-Yo quería conseguir ese acabado para una maceta de casa, a partir de una foto que me gustaba. La técnica más sencilla es una veladura con pintura a la tiza: rápida, barata y con un resultado muy natural si no te pasas.
+Yo quería conseguir ese acabado para una maceta de casa, a partir de una foto que me gustaba. La técnica más sencilla es una veladura con pintura a la tiza: rápida, barata y con un resultado muy natural si no te pasas. Queda especialmente bien con plantas mediterráneas, como un [olivo pequeño en maceta](/jardin/plantar-olivo-pequeno-maceta-o-suelo/) o una [lavanda](/jardin/lavanda-por-que-se-muere/).
 
 {{< pasos >}}
 
-## El secreto: menos es más
+## Menos es más
 
 Una maceta envejecida no es una maceta pintada. El efecto funciona cuando la pintura parece polvo o cal acumulada, no una capa. Por eso:
 
@@ -56,6 +56,6 @@ Un blanco puro queda frío. Los blancos rotos, crema o gris piedra imitan mejor 
 ## ¿Hay que sellarla?
 
 - **Si va a estar en interior** o a cubierto, no hace falta.
-- **Si va a estar fuera** o la vas a regar mucho, el agua puede ir quitando la pintura. Dale dos o tres capas finas de sellador acrílico mate apto para exterior, dejando secar cada una.
+- **Si va a estar fuera** o la vas a regar mucho, el agua puede ir quitando la pintura. Dale dos o tres capas finas de sellador acrílico mate apto para exterior, dejando secar cada una. En un mueble el sellado es otra cosa: ahí toca elegir entre [cera, aceite o barniz](/restauracion/cera-aceite-o-barniz/).
 
 Pinta solo por fuera. El interior de la maceta mejor dejarlo al natural, que el barro respire y no haya pintura en contacto con la tierra.
