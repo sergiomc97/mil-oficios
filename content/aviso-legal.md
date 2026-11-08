@@ -1,13 +1,15 @@
 ---
 title: Aviso legal
 description: Información legal sobre el titular de Mil Oficios.
+noindex: true
+sitemap:
+  disable: true
 ---
 
 En cumplimiento de la Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:
 
-- **Titular:** [NOMBRE Y APELLIDOS]
-- **NIF:** [NIF]
-- **Domicilio:** [CALLE Y NÚMERO], [CÓDIGO POSTAL] [MUNICIPIO] (Cuenca)
+- **Titular:** Sergio Mora Carrascosa
+- **NIF:** 04639229Z
 - **Correo de contacto:** hola@miloficios.es
 
 ## Uso del sitio

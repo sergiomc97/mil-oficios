@@ -1,6 +1,9 @@
 ---
 title: Política de cookies
 description: Qué cookies y qué almacenamiento usa Mil Oficios en tu dispositivo.
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Mil Oficios no instala cookies propias ni de terceros, ni de publicidad ni de analítica, así que no necesita pedirte permiso con un aviso al entrar.
