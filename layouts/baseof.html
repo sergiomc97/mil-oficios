@@ -20,7 +20,7 @@
 {{ $imagen = (.Fill "1200x630 jpg q80 Smart").Permalink }}
 {{ $imagenes = slice (.Fill "1200x675 jpg q80 Smart").Permalink (.Fill "1200x900 jpg q80 Smart").Permalink (.Fill "1200x1200 jpg q80 Smart").Permalink }}
 {{ end }}{{ end }}
-<meta name="robots" content="{{ if eq .Kind "404" }}noindex{{ else }}max-image-preview:large{{ end }}">
+<meta name="robots" content="{{ if or (eq .Kind "404") .Params.noindex }}noindex{{ else }}max-image-preview:large{{ end }}">
 <meta property="og:image" content="{{ $imagen }}">
 <meta name="twitter:card" content="summary_large_image">
 {{ with site.Params.pinterest }}<meta name="p:domain_verify" content="{{ . }}">{{ end }}
@@ -103,6 +103,7 @@
       <a href="{{ "quien-hay-detras/" | relURL }}">Quién hay detrás</a>
       <a href="{{ "aviso-legal/" | relURL }}">Aviso legal</a>
       <a href="{{ "privacidad/" | relURL }}">Privacidad</a>
+      <a href="{{ "cookies/" | relURL }}">Cookies</a>
     </nav>
     <p class="pie-nota">© {{ now.Year }} {{ site.Title }}. Algunos enlaces son de afiliado: si compras a través de ellos, Mil Oficios recibe una pequeña comisión sin coste extra para ti. En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</p>
   </div>

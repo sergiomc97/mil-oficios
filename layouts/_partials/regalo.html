@@ -1,0 +1,18 @@
+{{ with site.Params.boletin }}
+<section class="regalo">
+  <p class="etiqueta">Gratis para imprimir</p>
+  <h2>El calendario del huerto y la casa</h2>
+  <p>Lo que toca cada mes en el jardín y en casa, pensado para zonas con heladas, en una hoja. Te lo mando al apuntarte a la carta de Tito: un correo al mes.</p>
+  <form class="boletin-form" method="post" action="{{ . }}">
+    <div class="boletin-fila">
+      <label for="regalo-correo">Tu correo</label>
+      <input id="regalo-correo" type="email" name="EMAIL" required autocomplete="email" inputmode="email" placeholder="nombre@correo.es">
+      <button class="boton" type="submit">Quiero el calendario</button>
+    </div>
+    <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="boletin-trampa">
+    <input type="hidden" name="locale" value="es">
+    <label class="boletin-ok"><input type="checkbox" required> Acepto la <a href="{{ "privacidad/" | relURL }}">política de privacidad</a></label>
+    <p class="boletin-estado" aria-live="polite"></p>
+  </form>
+</section>
+{{ end }}

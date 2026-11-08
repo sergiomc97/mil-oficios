@@ -97,6 +97,13 @@ Cada artículo responde una búsqueda concreta que la gente escribe tal cual en 
 - Al menos 3 enlaces en el cuerpo a otros artículos o herramientas, en la frase donde vienen a cuento. El texto del enlace dice a dónde lleva; nunca «aquí» ni «este artículo».
 - Un hijo enlaza a su guía en la introducción y a uno o dos hermanos. Al publicar un hijo, añade en su guía un enlace a él.
 - Al publicar, edita uno o dos artículos antiguos de la misma sección para que enlacen al nuevo donde venga a cuento, sin añadir relleno.
+- Si el tema del artículo tiene relación con alguna de las herramientas de `content/herramientas/` (calculadoras, diagnósticos, calendario, aviso de heladas…), el artículo incluye un enlace destacado a ella en los tres primeros párrafos, con una frase que diga qué resuelve.
+
+## Afiliación
+
+- Los enlaces de compra van con el shortcode `{{< afiliado url="…" texto="…" >}}` (con `tienda="…"` si no es Amazon), justo donde el artículo habla de ese producto. Como mucho, uno por producto y tres por artículo.
+- El artículo muestra solo el aviso de afiliación arriba cuando usa el shortcode; no hace falta escribirlo.
+- Solo productos que de verdad sirven para lo que explica el artículo. Nunca se dice que Tito lo ha usado si no consta en «Experiencias reales de Sergio».
 
 ## Mil Panes
 
@@ -174,3 +181,11 @@ Salvo su trabajo con TPV, de todo esto solo constan los problemas y lo que estud
 - No inventar cifras, estudios ni precios. Cualquier dato concreto se comprueba antes con una búsqueda.
 - En trabajos con electricidad, gas, productos químicos o alturas, avisar de los riesgos y de cuándo llamar a un profesional.
 - Antes de publicar, `hugo --minify` debe terminar sin WARN ni ERROR.
+
+
+## Resumen mensual
+
+Cuando se prepare el resumen del día 1, además de lo que ya incluye:
+
+- Lista los artículos publicados hace más de 7 días y recuérdale a Sergio que compruebe en Search Console (Inspección de URLs) si están indexados y que pida la indexación de los que no lo estén, unos pocos al día.
+- Si la tarea tiene la clave de la API de Bing Webmaster, consulta qué artículos ha indexado Bing y apúntalo. La clave nunca se escribe en el repositorio.

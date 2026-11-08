@@ -20,6 +20,7 @@
 }
 
 :root {
+  --compra: #D95D27;
   --papel: #F6F0E4;
   --papel-2: #ECE3D1;
   --claro: #FBF7EF;
@@ -386,7 +387,7 @@ a.etiqueta { text-decoration: none; }
 }
 .cabeza { display: flex; flex-direction: column; gap: 16px; }
 .lateral { display: contents; }
-.articulo > .cuerpo, .articulo > .tienda, .articulo > .cafe { order: 1; }
+.articulo > .cuerpo, .articulo > .tienda, .articulo > .regalo, .articulo > .cafe { order: 1; }
 .lateral > :not(.resumen) { order: 2; }
 .cabeza > h1 { margin-top: -6px; font-size: 37px; line-height: 1.06; letter-spacing: -0.8px; text-wrap: balance; }
 .autor { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; color: var(--gris); }
@@ -424,14 +425,14 @@ a.etiqueta { text-decoration: none; }
 
 .cuerpo h2 { margin: 30px 0 10px; }
 .cuerpo p { margin: 0 0 14px; }
-.cuerpo > p:first-child::first-letter {
+.cuerpo > p:first-child::first-letter, .cuerpo > .aviso-afiliado + p::first-letter {
   float: left;
   margin: 6px 10px 0 0;
   font: 600 68px/.8 var(--serif);
   color: var(--c);
 }
 @supports (initial-letter: 3) or (-webkit-initial-letter: 3) {
-  .cuerpo > p:first-child::first-letter {
+  .cuerpo > p:first-child::first-letter, .cuerpo > .aviso-afiliado + p::first-letter {
     float: none;
     margin: 0 10px 0 0;
     font-size: inherit;
@@ -625,7 +626,8 @@ a.etiqueta { text-decoration: none; }
   .articulo:has(.lateral) .cabeza > .foto { grid-column: 2; grid-row: 1 / -1; }
   .articulo:has(.lateral) .cuerpo { grid-column: 1; grid-row: 2; max-width: 720px; }
   .articulo:has(.lateral) .tienda { grid-column: 1; grid-row: 3; }
-  .articulo:has(.lateral) .cafe { grid-column: 1; grid-row: 4; }
+  .articulo:has(.lateral) > .regalo { grid-column: 1; grid-row: 4; }
+  .articulo:has(.lateral) .cafe { grid-column: 1; grid-row: 5; }
   .lateral {
     grid-column: 2;
     grid-row: 2;
@@ -1086,6 +1088,7 @@ p.dia { margin: 0; }
   .zona-panes .lateral > .usa-herramienta { order: 2; }
   .zona-panes .lateral > .necesitas { order: 3; }
   .zona-panes .articulo > .tienda { order: 4; }
+  .zona-panes .articulo > .regalo { order: 4; }
   .zona-panes .lateral > .compartir { order: 5; }
   .zona-panes .articulo > .cafe { order: 6; margin: 0; text-align: center; }
   .zona-panes .aviso { padding: 14px 16px 16px; background: var(--claro); color: var(--tinta); border: 1px solid var(--linea); }
@@ -1100,3 +1103,31 @@ p.dia { margin: 0; }
 .actualizacion h2 { margin-top: 0; }
 .aviso-actualizacion { padding: 10px 14px; border-radius: 10px; background: var(--terra-s); font-size: 15px; }
 .aviso-actualizacion a { color: var(--terra); font-weight: 600; }
+
+.afiliado { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; margin: 20px 0; padding: 14px 18px; border-radius: var(--radio); background: var(--compra); color: #FFF; font: 700 19px/1.3 var(--sans); text-decoration: none; box-shadow: 0 2px 0 color-mix(in srgb, var(--compra) 60%, #000); }
+.afiliado:hover { background: color-mix(in srgb, var(--compra) 88%, #000); color: #FFF; }
+.afiliado-tienda { font-size: 15px; font-weight: 600; }
+.aviso-afiliado { margin: 0 0 16px; font-size: 14px; color: var(--gris); }
+.cuerpo .tienda { margin: 28px 0; border: 2px solid var(--oliva); background: var(--claro); }
+.regalo { display: grid; gap: 10px; max-width: 720px; padding: 20px 18px; border: 2px dashed var(--c); border-radius: var(--radio); background: var(--claro); }
+.regalo h2 { margin: 0; }
+.regalo p { margin: 0; }
+.meses { display: grid; gap: 14px; margin-top: 18px; }
+.mes { padding: 14px 16px; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--claro); }
+.mes h2 { margin: 0 0 6px; font-size: 20px; }
+.mes h3 { margin: 8px 0 2px; font: 600 12px var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--gris); }
+.mes ul { margin: 0; padding-left: 18px; font-size: 15px; line-height: 1.45; }
+.calendario .imprimir { border: 0; cursor: pointer; font-family: var(--sans); }
+.calendario-pie { margin-top: 18px; font-size: 13px; color: var(--gris); }
+@media (min-width: 700px) { .meses { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media print {
+  .cabecera, .pie, .menu-inf, .barra, .imprimir { display: none !important; }
+  body { background: #FFF; }
+  .meses { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .mes { padding: 6px 8px; background: none; break-inside: avoid; }
+  .mes h2 { font-size: 14px; }
+  .mes ul { font-size: 9.5pt; line-height: 1.3; }
+  .calendario h1 { font-size: 20pt; margin: 0; }
+}
+.buscar-404 { border: 0; cursor: pointer; font-family: var(--sans); }
+.secciones-404 { margin: 18px 0; }

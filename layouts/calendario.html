@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="contenedor calendario">
+<section class="bloque">
+  <h1>{{ .Title }}</h1>
+  <div class="entradilla">{{ .Content }}</div>
+  <button class="boton imprimir" type="button" onclick="window.print()">Imprimir</button>
+  <div class="meses">
+    {{ range hugo.Data.meses }}
+    <section class="mes">
+      <h2>{{ .mes }}</h2>
+      {{ with .jardin }}<h3>Jardín</h3><ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+      {{ with .casa }}<h3>Casa</h3><ul>{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+    </section>
+    {{ end }}
+  </div>
+  <p class="calendario-pie">miloficios.es · Tito Garlopa</p>
+</section>
+</div>
+{{ end }}

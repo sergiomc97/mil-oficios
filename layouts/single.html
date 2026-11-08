@@ -55,8 +55,10 @@
   </aside>
   {{ end }}
 
-  <div class="cuerpo">{{ .Content }}</div>
-  {{ if .Params.tiempo }}{{ partial "tienda.html" . }}{{ partial "cafe.html" . }}{{ end }}
+  {{ $partes := split .Content "<h2" }}
+  {{ $enMedio := and (eq .Section "jardin") (ge (len $partes) 3) }}
+  <div class="cuerpo">{{ if .HasShortcode "afiliado" }}<div class="aviso-afiliado">Este artículo tiene enlaces de afiliado: si compras a través de ellos, Mil Oficios se lleva una pequeña comisión y a ti no te cuesta más.</div>{{ end }}{{ if $enMedio }}{{ $mitad := div (len $partes) 2 }}{{ range $i, $p := $partes }}{{ if eq $i $mitad }}{{ partial "tienda.html" $ }}{{ end }}{{ if $i }}{{ print "<h2" $p | safeHTML }}{{ else }}{{ $p | safeHTML }}{{ end }}{{ end }}{{ else }}{{ .Content }}{{ end }}</div>
+  {{ if .Params.tiempo }}{{ if not $enMedio }}{{ partial "tienda.html" . }}{{ end }}{{ partial "regalo.html" . }}{{ partial "cafe.html" . }}{{ end }}
 </article>
 
 

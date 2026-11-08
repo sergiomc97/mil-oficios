@@ -7,6 +7,7 @@ En cumplimiento de la Ley 34/2002, de servicios de la sociedad de la informació
 
 - **Titular:** [NOMBRE Y APELLIDOS]
 - **NIF:** [NIF]
+- **Domicilio:** [CALLE Y NÚMERO], [CÓDIGO POSTAL] [MUNICIPIO] (Cuenca)
 - **Correo de contacto:** hola@miloficios.es
 
 ## Uso del sitio
@@ -15,4 +16,14 @@ El contenido de Mil Oficios es informativo. Antes de realizar cualquier trabajo,
 
 ## Enlaces de afiliado
 
-Algunos enlaces de este sitio son de afiliado. Si compras a través de ellos, el titular recibe una pequeña comisión sin coste adicional para ti.
+Algunos enlaces de este sitio son de afiliado. Si compras a través de ellos, el titular recibe una pequeña comisión sin coste adicional para ti. Cada artículo que los lleva lo indica al principio.
+
+En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.
+
+## Propiedad intelectual
+
+Los textos, fotos e ilustraciones de Mil Oficios son del titular, salvo las fotos de bancos de imágenes, que llevan el nombre de su autor. Puedes enlazar cualquier página libremente; para copiar contenido, escribe antes a hola@miloficios.es.
+
+## Privacidad y cookies
+
+Lo que se hace con los datos de quien visita la web está en la [política de privacidad](/privacidad/) y en la [política de cookies](/cookies/).

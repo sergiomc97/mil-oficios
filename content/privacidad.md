@@ -33,4 +33,4 @@ El buscador funciona en tu navegador. Cuando una búsqueda no encuentra nada, se
 
 ## Enlaces de afiliado
 
-Algunos enlaces llevan a tiendas como Amazon. Esta web no carga ningún código de esas tiendas: solo cuando pulsas un enlace y entras en su web, la tienda puede usar sus propias cookies para saber que llegaste desde aquí, según su propia política de privacidad.
+Algunos enlaces llevan a tiendas como Amazon. Esta web no carga ningún código de esas tiendas: solo cuando pulsas un enlace y entras en su web, la tienda puede usar sus propias cookies para saber que llegaste desde aquí, según su propia política de privacidad. Más detalle en la [política de cookies](/cookies/).
