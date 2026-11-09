@@ -16,7 +16,7 @@
     </div>
     <div class="ficha-col">
       <h3>Paso a paso</h3>
-      <ol class="pasos">{{ range $.Params.pasos }}<li><div class="paso-cab"><h3>{{ .titulo }}</h3><span class="chip">{{ .tiempo }}</span></div><p>{{ .texto }}</p></li>{{ end }}</ol>
+      <ol class="pasos">{{ range $i, $p := $.Params.pasos }}<li id="paso-{{ add $i 1 }}"><div class="paso-cab"><h3>{{ $p.titulo }}</h3><span class="chip">{{ $p.tiempo }}</span></div><p>{{ $p.texto }}</p></li>{{ end }}</ol>
     </div>
   </div>
   {{ with $.Params.error }}<p class="ficha-nota"><strong>Error típico</strong>{{ . }}</p>{{ end }}

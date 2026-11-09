@@ -18,6 +18,8 @@ productos:
   - nombre: Molde de papel para panettone
   - nombre: Amasadora planetaria con pala
 receta:
+  cocina: Italiana
+  palabras: [panettone sin gluten, panettone de chocolate, Caputo Fioreglut, dulce de Navidad sin gluten]
   categoria: Postre
   raciones: un panettone de 20 cm, unas 10 porciones
   total: PT7H

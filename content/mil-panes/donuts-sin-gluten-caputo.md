@@ -11,6 +11,8 @@ resumen:
   - El sabor a dónut de pastelería lo dan la vainilla y una pizca de nuez moscada.
   - La masa se estira de un centímetro como mucho; si quedan gordos, se doran demasiado antes de hacerse por dentro.
 receta:
+  cocina: Estadounidense
+  palabras: [dónuts sin gluten, donuts caseros, harina Caputo sin gluten, dulces sin gluten]
   categoria: Postre
   raciones: unos 8 dónuts
   total: PT3H30M

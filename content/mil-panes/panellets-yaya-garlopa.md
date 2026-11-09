@@ -11,6 +11,8 @@ resumen:
   - Por fuera, piñón ibérico o almendra laminada; con piñón de importación no saben igual.
   - La masa necesita un par de horas de nevera para que se deje formar.
 receta:
+  cocina: Catalana
+  palabras: [panellets, panellets de piñones, dulces de Todos los Santos, postre sin gluten]
   categoria: Postre
   raciones: unos 25 panellets
   total: PT3H

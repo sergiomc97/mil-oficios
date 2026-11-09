@@ -11,6 +11,7 @@ resumen:
   - Fermentan unas 5 horas y se hornean fuerte, con vapor al principio.
   - Recién hechos están buenísimos; al día siguiente se ponen duros y todavía no he dado con el arreglo.
 receta:
+  palabras: [panecillos sin gluten, pan sin gluten, Caputo Fioreglut, pan casero sin gluten]
   raciones: 6 panecillos
   total: PT6H
   total_texto: 6 h (5 de fermentación)
