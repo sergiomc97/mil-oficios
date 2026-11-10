@@ -55,7 +55,7 @@ Sobre el papel es la menos resistente de las cuatro. En mi franja, sin embargo, 
 
 El mirto es mediterráneo de costa y no lleva bien las heladas fuertes. Tampoco la sed: el primer verano necesita riego frecuente, sin encharcar. Varios mirtos que planté a principios de julio estaban muy secos en septiembre, mientras los durillos de al lado seguían perfectos.
 
-Si un mirto se te ve seco, no lo arranques todavía. Rasca un poco la corteza de un tallo con la uña: si debajo está verde, sigue vivo. El mismo truco sirve para saber si [una lavanda seca](/jardin/lavanda-por-que-se-muere/) tiene arreglo. Si sigue vivo pero no levanta, repasa [las cinco causas por las que se muere una planta](/jardin/por-que-se-muere-una-planta/).
+Si un mirto se te ve seco, no lo arranques todavía. Rasca un poco la corteza de un tallo con la uña: si debajo está verde, sigue vivo. El mismo truco sirve para saber si [una lavanda seca](/jardin/lavanda-por-que-se-muere/) tiene arreglo.
 
 ## Antes de plantar
 
