@@ -5,7 +5,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 ## Estructura
 
 - `content/jardin/`, `content/arreglos/`, `content/restauracion/`, `content/negocio/`: un `.md` por artículo. `negocio` es para dueños de tiendas y pequeños comercios: TPV, impresoras de tickets, cajones, balanzas, datáfonos y obligaciones de la caja.
-- `temas.md`: lista de temas pendientes, agrupados en familias (una guía y sus artículos hijos, ver «Búsqueda y enlaces»). Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
+- `temas.md`: lista de temas pendientes, repartidos entre secciones, con las búsquedas reales que responde cada uno y una idea de vídeo para TikTok. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
 - `negocio` lleva como mucho un artículo al mes. `mil-panes` no entra en la lista (ver «Mil Panes»).
 - `busquedas.md`: búsquedas de la web que no encontraron nada el mes anterior, con cuántas veces se buscaron. Lo genera `.github/workflows/busquedas.yml` el día 1 de cada mes; no se edita a mano.
 - `data/trucos.yaml`: trucos cortos del carrusel de la portada.
@@ -76,9 +76,11 @@ Con el borrador terminado, léelo entero de corrido, como lo leería Sergio en e
 
 Cada artículo responde una búsqueda concreta que la gente escribe tal cual en Google, mejor que nadie.
 
-### Familias
+### Antes de escribir un tema
 
-- Los temas se agrupan en familias: una guía que responde la búsqueda general («Por qué se te muere una planta») y artículos hijos que responden una búsqueda concreta cada uno («Por qué se me muere la ruda»).
+- Busca en `content/` y en `content/herramientas/` si ya hay un artículo o una herramienta que responda lo mismo. Si lo hay, no se escribe uno nuevo: se amplía el existente con lo que falte (con `lastmod`), se marca el tema en `temas.md` con una nota y se avisa a Sergio.
+- Cada idea se cuenta en un solo artículo; en los demás se enlaza.
+- La línea `TikTok:` del tema no va en el artículo: al terminar, se le pasa a Sergio en una línea.
 - Antes de escribir, consulta el autocompletado de Google con la frase principal (`https://suggestqueries.google.com/complete/search?client=firefox&hl=es&gl=es&q=<frase>`) y apunta las sugerencias. Son las preguntas que se hace la gente.
 - Un artículo por búsqueda distinta, nunca uno por variante de la misma («hojas amarillas en el poto» y «poto con hojas amarillas» son la misma).
 
@@ -95,7 +97,6 @@ Cada artículo responde una búsqueda concreta que la gente escribe tal cual en 
 ### Enlaces internos
 
 - Al menos 3 enlaces en el cuerpo a otros artículos o herramientas, en la frase donde vienen a cuento. El texto del enlace dice a dónde lleva; nunca «aquí» ni «este artículo».
-- Un hijo enlaza a su guía en la introducción y a uno o dos hermanos. Al publicar un hijo, añade en su guía un enlace a él.
 - Al publicar, edita uno o dos artículos antiguos de la misma sección para que enlacen al nuevo donde venga a cuento, sin añadir relleno.
 - Si el tema del artículo tiene relación con alguna de las herramientas de `content/herramientas/` (calculadoras, diagnósticos, calendario, aviso de heladas…), el artículo incluye un enlace destacado a ella en los tres primeros párrafos, con una frase que diga qué resuelve.
 
