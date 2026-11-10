@@ -7,8 +7,10 @@
 {{ with site.GetPage "/herramientas/que-hacer-este-mes" }}
 <section class="bloque primero">
   <div class="bloque-cab"><h2>Este mes en casa</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
+  <div class="panel">
   {{ partial "este-mes.html" . }}
   {{ with site.GetPage "/herramientas/aviso-de-heladas" }}<a class="helada" href="{{ .RelPermalink }}"><span class="etiqueta">Aviso de heladas</span><span class="helada-titulo">¿Va a helar esta noche en tu pueblo? →</span></a>{{ end }}
+  </div>
 </section>
 {{ end }}
 
@@ -40,7 +42,7 @@
 {{ with site.GetPage "/mil-panes" }}{{ with index .RegularPages 0 }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Del horno, sin gluten</h2><a class="meta" href="{{ .CurrentSection.RelPermalink }}">Mil Panes →</a></div>
-  <div class="lista">{{ partial "tarjeta.html" . }}</div>
+  <div class="panel sec-mil-panes">{{ partial "tarjeta.html" . }}</div>
 </section>
 {{ end }}{{ end }}
 
@@ -48,7 +50,7 @@
 <section class="bloque">
   <h2>Guías</h2>
   {{ range (.GroupBy "Section") }}{{ $seccion := site.GetPage .Key }}
-  <div class="grupo-sec sec-{{ .Key }}">
+  <div class="grupo-sec panel sec-{{ .Key }}">
     <h3 class="etiqueta">{{ $seccion.Title }}</h3>
     <ul class="indice">{{ range .Pages }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul>
   </div>

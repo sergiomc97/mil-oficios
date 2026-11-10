@@ -14,11 +14,11 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 
 ## Diseño
 
-- El fondo es papel liso, sin manchas, degradados ni efecto cristal.
-- Lo que se lee o lleva a otra página va directamente sobre el papel, separado con líneas finas: artículos, guías, filas de herramientas. Nada de eso va en una caja.
-- Solo tiene fondo propio lo que se maneja: el panel de una herramienta, el formulario del boletín, un botón y el aviso de heladas de la portada.
+- Todo bloque de contenido va en una card de cristal, en toda la web: artículos (`.baldosa`, `.destacado`), filas de herramientas (`.util`), el panel de una herramienta (`.herramienta`) y los bloques de texto como «Este mes» o cada grupo de guías (`.panel`). No se mezclan bloques con card y bloques sin ella.
+- Un bloque nuevo usa una de esas clases; no se inventa otro tipo de caja.
+- El fondo son dos luces suaves y fijas (arriba a la izquierda y abajo a la derecha), del color de la sección o neutras en la portada. Solo están para que el cristal se note: nada de manchas de varios colores.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
-- Las fotos llevan las esquinas redondeadas y el texto debajo, sin marco.
+- Antes de borrar estilos de `assets/css/main.css`, comprueba qué selectores desaparecen comparando con la versión anterior.
 
 ## Herramientas
 
