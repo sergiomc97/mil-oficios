@@ -27,7 +27,7 @@ Acabas de lijar un mueble y llega la gran duda: ¿con qué lo protejo? Los tres 
 
 ## Cera: para muebles que se miran más que se usan
 
-Una cómoda, un baúl, un marco. La cera da un tacto precioso y se aplica con un trapo, pero un vaso húmedo o una taza caliente dejan cerco. Se renueva de vez en cuando, y el mejor momento es antes de encender la calefacción, como recuerda el [calendario de cada mes](/herramientas/que-hacer-este-mes/).
+Una cómoda, un baúl, un marco. La cera da un tacto precioso y se aplica con un trapo, pero un vaso húmedo o una taza caliente dejan cerco, y toca [quitar la mancha blanca de la madera](/restauracion/quitar-manchas-blancas-madera/). Se renueva de vez en cuando, y el mejor momento es antes de encender la calefacción, como recuerda el [calendario de cada mes](/herramientas/que-hacer-este-mes/).
 
 ## Aceite: el término medio
 

@@ -212,3 +212,27 @@ objetos:
     coste: Medio
     pesa: son lodos
     articulo: /arreglos/purgar-radiadores
+- id: mesa
+  nombre: Mesa o mueble de madera
+  averias:
+  - id: blanca
+    nombre: Tiene una mancha blanca de un vaso o de algo caliente
+    peso: 3
+    causa: Humedad atrapada en el barniz, no en la madera.
+    hacer: Prueba de lo más suave a lo más fuerte. Plancha sin vapor al mínimo sobre un paño de algodón, luego mayonesa o vaselina una noche y, si no basta, pasta de dientes a favor de la veta.
+    dificultad: Muy baja
+    tiempo: 5 min o una noche
+    coste: Nada
+    pesa: es el barniz
+    articulo: /restauracion/quitar-manchas-blancas-madera
+  - id: negra
+    nombre: Tiene una mancha negra de agua
+    peso: 0
+    causa: El agua atravesó el acabado y llegó a la madera.
+    hacer: Se aclara con ácido oxálico o lijando y volviendo a barnizar. En muebles chapados, mejor un restaurador.
+    dificultad: Media
+    tiempo: Una tarde
+    coste: Bajo
+    aviso: El ácido oxálico es tóxico. Usa guantes, gafas y mascarilla al lijar.
+    pesa: está en la madera
+    articulo: /restauracion/quitar-manchas-blancas-madera

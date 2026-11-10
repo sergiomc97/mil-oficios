@@ -118,3 +118,9 @@
   nombre: porción del panettone (enviada por chat)
   archivo: fotos/panettone-sin-gluten-porcion.jpg
   uso: "mil-panes/panettone-chocolate-sin-gluten (dentro del texto). Porción desde arriba en un plato; fondo de madera retocado con IA."
+- id: pixabay-2619230
+  origen: pixabay
+  autor: StockSnap
+  url: https://pixabay.com/photos/drink-glass-ice-cubes-alcohol-2619230/
+  archivo: fotos/manchas-blancas-madera-pixabay.jpg
+  uso: portada de restauracion/quitar-manchas-blancas-madera

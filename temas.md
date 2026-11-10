@@ -25,6 +25,7 @@ Cada tema lleva su sección, su familia y si es la guía o un hijo. Se escribe s
 - [x] jardin · Cochinilla en la parra y gusanos blancos: qué hacer en invierno para que no vuelvan
 - [x] arreglos · Purgar los radiadores antes del invierno
 - [x] jardin · Cómo preparar el huerto en otoño
+- [x] restauracion · Quitar las manchas blancas de agua en la madera
 
 ## Pendientes
 
@@ -45,7 +46,6 @@ Cada tema lleva su sección, su familia y si es la guía o un hijo. Se escribe s
 - [ ] jardin · Por qué se me mueren los geranios · familia: plantas que se mueren · hijo
 - [ ] arreglos · El grifo gotea cerrado · familia: cisterna · hijo
 - [ ] jardin · Calendario de poda · familia: poda · guía
-- [ ] restauracion · Quitar las manchas blancas de agua en la madera
 - [ ] jardin · Acolchado: qué es y cómo ahorra agua
 - [ ] jardin · Malla antihierbas y piedra decorativa: ventajas y el problema del riego
 - [ ] arreglos · Cambiar una moldura que se despega por un listón de madera
