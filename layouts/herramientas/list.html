@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="contenedor">
+<section class="bloque seccion-cab">
+  <div class="seccion-marco">
+  <div class="seccion-titulo">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="entradilla">{{ . }}</p>{{ end }}
+  </div>
+  </div>
+  {{ range site.Params.mainSections }}{{ $seccion := site.GetPage . }}{{ with where $.RegularPages "Params.seccion" . }}
+  <div class="grupo-sec sec-{{ $seccion.Section }}">
+    <h2 class="etiqueta">{{ $seccion.Title }}</h2>
+    <div class="utiles">{{ range . }}{{ partial "util.html" . }}{{ end }}</div>
+  </div>
+  {{ end }}{{ end }}
+</section>
+</div>
+{{ end }}

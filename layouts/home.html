@@ -15,7 +15,7 @@
 {{ with sort (where (site.GetPage "/herramientas").RegularPages "Params.destacada" "!=" nil) "Params.destacada" }}
 <section class="bloque">
   <div class="bloque-cab"><h2>¿Qué te pasa?</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Todas las herramientas →</a></div>
-  <ul class="indice">{{ range . }}{{ if ne .Params.herramienta "heladas" }}<li><a class="sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><span class="indice-titulo">{{ .Title }} →</span></a></li>{{ end }}{{ end }}</ul>
+  <div class="utiles">{{ range . }}{{ if ne .Params.herramienta "heladas" }}{{ partial "util.html" . }}{{ end }}{{ end }}</div>
 </section>
 {{ end }}
 
@@ -40,14 +40,19 @@
 {{ with site.GetPage "/mil-panes" }}{{ with index .RegularPages 0 }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Del horno, sin gluten</h2><a class="meta" href="{{ .CurrentSection.RelPermalink }}">Mil Panes →</a></div>
-  <div class="mosaico">{{ partial "baldosa.html" (dict "pagina" . "ancha" true) }}</div>
+  <div class="lista">{{ partial "tarjeta.html" . }}</div>
 </section>
 {{ end }}{{ end }}
 
 {{ with $guias }}
 <section class="bloque">
   <h2>Guías</h2>
-  <ul class="indice">{{ range . }}<li><a class="sec-{{ .Section }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ .CurrentSection.Title }}</span><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul>
+  {{ range (.GroupBy "Section") }}{{ $seccion := site.GetPage .Key }}
+  <div class="grupo-sec sec-{{ .Key }}">
+    <h3 class="etiqueta">{{ $seccion.Title }}</h3>
+    <ul class="indice">{{ range .Pages }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul>
+  </div>
+  {{ end }}
 </section>
 {{ end }}
 

@@ -860,7 +860,7 @@ body::after {
 .nota-ia { margin: 0; font-size: 14px; color: var(--gris); }
 .atras { padding: 6px 0; border: 0; background: none; color: var(--tinta); font: 600 15px var(--sans); cursor: pointer; }
 .este-mes { display: flex; flex-direction: column; gap: 12px; }
-.bloque > .este-mes, .bloque > .indice { margin-top: 16px; }
+.bloque > .este-mes { margin-top: 16px; }
 .este-mes-titulo { font: 600 26px/1.1 var(--serif); }
 .este-mes-titulo.con-flechas { display: flex; justify-content: space-between; align-items: center; }
 .este-mes-titulo .atras { min-width: 44px; min-height: 44px; font-size: 22px; }
@@ -876,6 +876,19 @@ body::after {
 .helada .etiqueta { color: inherit; opacity: .85; }
 .helada-titulo { font: 600 21px/1.2 var(--serif); }
 .tienda-propia { margin-top: 40px; color: var(--gris); }
+.utiles { display: grid; gap: 8px; margin-top: 16px; }
+.util { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 64px; padding: 10px 14px 10px 10px; border: 1px solid var(--linea); border-radius: 16px; background: var(--claro); color: var(--tinta); text-decoration: none; }
+.util-icono { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+.util .icono { display: block; }
+.util-texto { display: grid; gap: 2px; }
+.util-titulo { font: 600 17px/1.2 var(--serif); }
+.util .meta::first-letter { text-transform: uppercase; }
+.util-flecha { font-weight: 600; color: var(--c); }
+.grupo-sec { margin-top: 22px; }
+.grupo-sec > .etiqueta { display: inline-block; margin: 0; padding: 2px 9px; border-radius: 999px; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); font-family: var(--sans); }
+.grupo-sec > .utiles { margin-top: 10px; }
+.grupo-sec > .indice { margin-top: 2px; }
+@media (min-width: 700px) { .utiles { grid-template-columns: 1fr 1fr; gap: 12px; } }
 .este-mes .etiqueta { align-self: flex-start; padding: 2px 9px; border-radius: 999px; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
 @media (min-width: 700px) { .este-mes-cols { grid-template-columns: 1fr 1fr; gap: 28px; } }
 .herramienta-pag .cabeza, .herramienta-pag .cuerpo { padding: 18px; border-radius: var(--radio); background: var(--papel); }

@@ -8,6 +8,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 - `temas.md`: lista de temas pendientes, repartidos entre secciones, con las búsquedas reales que responde cada uno y una idea de vídeo para TikTok. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
 - `negocio` lleva como mucho un artículo al mes. `mil-panes` no entra en la lista (ver «Mil Panes»).
 - `busquedas.md`: búsquedas de la web que no encontraron nada el mes anterior, con cuántas veces se buscaron. Lo genera `.github/workflows/busquedas.yml` el día 1 de cada mes; no se edita a mano.
+- Portada (`layouts/home.html`), en este orden: «Este mes en casa» (tareas de `data/meses.yaml` y enlace al aviso de heladas), «¿Qué te pasa?» (herramientas con `destacada`), «Cuaderno de Tito» (artículos con portada de Sergio), la última receta de Mil Panes y «Guías» (el resto de artículos, agrupados por sección). Los artículos de `negocio` no salen en la portada: solo un enlace a su sección.
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
 
@@ -133,7 +134,7 @@ En cada ejecución, antes de escribir el artículo:
 
 La portada tiene que medir al menos 1200 px de ancho ya preparada, porque Google Discover descarta las imágenes más pequeñas. Si una foto de Sergio no llega, úsala dentro del texto con `foto`, no como portada, y díselo en una línea. Las de Pixabay se descargan siempre con `largeImageURL`.
 
-Los artículos con portada de Sergio salen primero en la portada de la web, antes que los de Pixabay.
+Los artículos con portada de Sergio salen en el «Cuaderno de Tito» de la portada, con su foto. Los de Pixabay salen en «Guías», solo con el título.
 
 ### Fotos de banco (Pixabay)
 
@@ -182,6 +183,48 @@ Salvo su trabajo con TPV, de todo esto solo constan los problemas y lo que estud
 - En trabajos con electricidad, gas, productos químicos o alturas, avisar de los riesgos y de cuándo llamar a un profesional.
 - Antes de publicar, `hugo --minify` debe terminar sin WARN ni ERROR.
 
+
+## Tareas programadas
+
+Las instrucciones completas de cada tarea están aquí. El prompt de la tarea solo dice cuál ejecutar y lleva las claves, que nunca se escriben en el repositorio.
+
+### Martes y viernes
+
+Cada ejecución hace un solo trabajo, según el día de la semana en España (`TZ=Europe/Madrid date +%u`: 2 es martes, 5 es viernes).
+
+Siempre, antes del trabajo del día:
+
+1. Lee este archivo entero.
+2. Procesa las fotos nuevas de Google Drive como dice «Fotos».
+
+Martes, mejorar una guía ya publicada:
+
+1. Elige el artículo que lleve más tiempo sin revisar: el de `lastmod` más antiguo, o `date` si no tiene. No cuentan los de `mil-panes`.
+2. Consulta el autocompletado de Google con su búsqueda principal y compara las sugerencias con sus `##`.
+3. Mejóralo solo con cambios que se noten: una pregunta de la gente que no respondía, un dato comprobado que faltaba, una foto de Sergio, el enlace a su herramienta, ideas repetidas o relleno que sobran.
+4. Si otro artículo responde casi la misma búsqueda, se funden: queda el que tenga la búsqueda más amplia, se le añade lo que solo estaba en el otro, se borra el otro y su ruta se pone en `aliases` del que queda, para que la dirección antigua redirija. Ninguna búsqueda de las que respondían se pierde. Corrige los enlaces internos que apuntaban al borrado.
+5. Pon `lastmod` con la fecha de hoy y pasa la «Revisión, siempre».
+6. Si el artículo no admite ninguna mejora de verdad, déjalo sin tocar, sin `lastmod`, y prueba con el siguiente más antiguo, hasta tres. Si ninguno la admite, no publiques nada y díselo a Sergio.
+
+Viernes, publicar el primer tema sin marcar de `temas.md`:
+
+1. Sigue «Antes de escribir un tema». Si ya lo responde un artículo o una herramienta, o el tema empieza por «Ampliar», se amplía lo que hay en vez de escribir uno nuevo.
+2. Apunta las 4 a 6 ideas, decide dónde va cada una y elige la forma que pide el tema.
+3. Escribe el artículo con la fecha de hoy, con foto de Sergio si alguna encaja y, si no, con portada de Pixabay.
+4. Pasa la «Revisión, siempre» hasta que el grep de expresiones prohibidas no devuelva nada.
+5. Marca el tema como hecho. Si quedan menos de 6 sin marcar, añade 6 como pide la cabecera de `temas.md`: secciones repartidas, búsquedas reales del autocompletado, idea de vídeo, los de temporada delante y ninguno que se solape con lo publicado.
+
+Siempre, al terminar:
+
+1. `hugo --minify` sin WARN ni ERROR. Comprueba con grep que ninguna clave aparece en ningún archivo.
+2. Commit en `main` y push. Mensaje: «Guía: <título>» los martes y «Artículo: <título>» los viernes.
+3. Un mensaje corto a Sergio: qué se publicó o se mejoró, con su dirección y, los martes, qué cambió en una línea; la idea de vídeo del tema, los viernes; las fotos descartadas y el motivo; y lo que solo él pueda hacer, con el paso exacto.
+
+Si algo impide publicar (sin acceso al repositorio, un fallo de compilación que no se pueda arreglar), no se publica nada y se le explica el motivo en un mensaje corto.
+
+### Día 1 de cada mes
+
+Además de lo que pide el prompt de la tarea, el resumen incluye lo de «Resumen mensual».
 
 ## Resumen mensual
 

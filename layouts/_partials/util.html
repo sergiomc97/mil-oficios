@@ -1,0 +1,6 @@
+{{ $resto := replaceRE `^[^:?]*[:?]\s*` "" .Title }}
+<a class="util sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}">
+  <span class="util-icono">{{ partial "icono.html" .Params.seccion }}</span>
+  <span class="util-texto"><span class="util-titulo">{{ .Params.corto | default .Title }}</span>{{ if ne $resto .Title }}<span class="meta">{{ $resto }}</span>{{ end }}</span>
+  <span class="util-flecha" aria-hidden="true">→</span>
+</a>
