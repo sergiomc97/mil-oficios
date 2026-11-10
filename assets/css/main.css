@@ -743,6 +743,9 @@ body::after {
 .panel:not([class*="sec-"]) { --c: var(--regla); }
 .panel .tarjeta { padding: 0; border: 0; }
 .panel .indice li:last-child a { padding-bottom: 0; border: 0; }
+.panel .indice a { grid-template-columns: 1fr auto; align-items: center; gap: 12px; }
+.panel .indice a::after, .panel .tarjeta::after { content: "→"; flex: none; font-weight: 600; color: var(--c); }
+.panel .indice a:hover .indice-titulo, .panel .tarjeta:hover .tarjeta-titulo { text-decoration: underline; text-decoration-color: var(--c); text-underline-offset: 3px; }
 .panel .helada { margin-top: 4px; }
 
 .destacado-desc, .baldosa .meta { color: color-mix(in srgb, var(--tinta) 86%, transparent); font-weight: 500; }
