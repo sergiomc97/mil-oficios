@@ -25,10 +25,10 @@ Cada tema lleva su sección, su familia y si es la guía o un hijo. Se escribe s
 - [x] jardin · Cochinilla en la parra y gusanos blancos: qué hacer en invierno para que no vuelvan
 - [x] arreglos · Purgar los radiadores antes del invierno
 - [x] jardin · Cómo preparar el huerto en otoño
+- [x] jardin · Por qué se te muere una planta: las 5 causas · familia: plantas que se mueren · guía
 
 ## Pendientes
 
-- [ ] jardin · Por qué se te muere una planta: las 5 causas · familia: plantas que se mueren · guía
 - [ ] arreglos · La cisterna no funciona: encuentra la avería · familia: cisterna · guía
 - [ ] arreglos · La cisterna pierde agua sin tirar de la cadena · familia: cisterna · hijo
 - [ ] arreglos · Moho en casa: de dónde sale y cómo cortarlo · familia: moho · guía

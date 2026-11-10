@@ -4,7 +4,7 @@ description: "Sube una foto de tu planta o responde unas preguntas de sí o no s
 seccion: jardin
 corto: "¿Qué le pasa a mi planta?"
 destacada: 2
-relacionado: /jardin/lavanda-por-que-se-muere
+relacionado: /jardin/por-que-se-muere-una-planta
 foto:
   titulo: "Enséñale tu planta a Tito"
   nota: "Qué planta es o qué le notas (opcional)"
