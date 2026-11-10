@@ -1,56 +1,57 @@
 {{ define "main" }}
-{{ $propios := slice }}{{ $resto := slice }}
-{{ range where (where site.RegularPages "Section" "in" site.Params.mainSections) "Section" "ne" "mil-panes" }}{{ if and .Params.portada (not (strings.Contains .Params.portada "pixabay")) }}{{ $propios = $propios | append . }}{{ else }}{{ $resto = $resto | append . }}{{ end }}{{ end }}
-{{ $posts := $propios | append $resto }}
+{{ $propios := slice }}{{ $guias := slice }}
+{{ range where (where (where site.RegularPages "Section" "in" site.Params.mainSections) "Section" "ne" "mil-panes") "Section" "ne" "negocio" }}{{ if and .Params.portada (not (strings.Contains .Params.portada "pixabay")) }}{{ $propios = $propios | append . }}{{ else }}{{ $guias = $guias | append . }}{{ end }}{{ end }}
 <div class="contenedor">
 <h1 class="oculto">{{ site.Title }}: aprende a hacerlo tú mismo</h1>
-{{ with index $posts 0 }}
-<a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
-  {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ end }}
-  <span class="destacado-texto">
-    <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
-    <span class="destacado-titulo">{{ partial "titulo.html" .Title }}</span>
-    <span class="destacado-desc">{{ .Description }}</span>
-    <span class="leer">Leer el artículo →</span>
-  </span>
-</a>
+
+{{ with site.GetPage "/herramientas/que-hacer-este-mes" }}
+<section class="bloque primero">
+  <div class="bloque-cab"><h2>Este mes en casa</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
+  {{ partial "este-mes.html" . }}
+  {{ with site.GetPage "/herramientas/aviso-de-heladas" }}<a class="helada" href="{{ .RelPermalink }}"><span class="etiqueta">Aviso de heladas</span><span class="helada-titulo">¿Va a helar esta noche en tu pueblo? →</span></a>{{ end }}
+</section>
 {{ end }}
 
 {{ with sort (where (site.GetPage "/herramientas").RegularPages "Params.destacada" "!=" nil) "Params.destacada" }}
 <section class="bloque">
-  <div class="bloque-cab"><h2>¿Qué quieres hacer hoy?</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Todas las herramientas →</a></div>
-  <ul class="indice">{{ range . }}<li><a class="sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><span class="indice-titulo">{{ .Title }} →</span></a></li>{{ end }}</ul>
+  <div class="bloque-cab"><h2>¿Qué te pasa?</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Todas las herramientas →</a></div>
+  <ul class="indice">{{ range . }}{{ if ne .Params.herramienta "heladas" }}<li><a class="sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ with site.GetPage .Params.seccion }}{{ .Title }}{{ end }}</span><span class="indice-titulo">{{ .Title }} →</span></a></li>{{ end }}{{ end }}</ul>
 </section>
 {{ end }}
 
-{{ with hugo.Data.trucos }}
-{{ $claves := dict "Jardín" "jardin" "Arreglos" "arreglos" "Muebles" "restauracion" "Negocio" "negocio" }}
+{{ with $propios }}
 <section class="bloque">
-  <div class="bloque-cab"><h2>Trucos de oficio</h2><span class="meta desliza">desliza →</span></div>
-  <div class="carrusel trucos">
-    {{ range . }}
-    <div class="truco sec-{{ index $claves .seccion }}">
-      <span class="etiqueta">{{ .seccion }}</span>
-      <p>{{ .texto }}</p>
-    </div>
-    {{ end }}
-  </div>
+  <div class="bloque-cab"><h2>Cuaderno de Tito</h2><span class="meta">Lo que vi yo</span></div>
+  {{ with index . 0 }}
+  <a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
+    {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "apaisada" true) }}{{ end }}
+    <span class="destacado-texto">
+      <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
+      <span class="destacado-titulo">{{ partial "titulo.html" .Title }}</span>
+      <span class="destacado-desc">{{ .Description }}</span>
+      <span class="leer">Leer el artículo →</span>
+    </span>
+  </a>
+  {{ end }}
+  {{ with after 1 . }}<div class="mosaico">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>{{ end }}
 </section>
 {{ end }}
 
-{{ with after 1 $posts }}
+{{ with site.GetPage "/mil-panes" }}{{ with index .RegularPages 0 }}
 <section class="bloque">
-  <h2>Lo último</h2>
-  <div class="mosaico">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>
+  <div class="bloque-cab"><h2>Del horno, sin gluten</h2><a class="meta" href="{{ .CurrentSection.RelPermalink }}">Mil Panes →</a></div>
+  <div class="mosaico">{{ partial "baldosa.html" (dict "pagina" . "ancha" true) }}</div>
+</section>
+{{ end }}{{ end }}
+
+{{ with $guias }}
+<section class="bloque">
+  <h2>Guías</h2>
+  <ul class="indice">{{ range . }}<li><a class="sec-{{ .Section }}" href="{{ .RelPermalink }}"><span class="etiqueta">{{ .CurrentSection.Title }}</span><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul>
 </section>
 {{ end }}
 
-{{ with site.GetPage "/herramientas/que-hacer-este-mes" }}
-<section class="bloque">
-  <div class="bloque-cab"><h2>Este mes</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
-  {{ partial "este-mes.html" . }}
-</section>
-{{ end }}
+{{ with site.GetPage "/negocio" }}<p class="tienda-propia">¿Tienes una tienda? <a href="{{ .RelPermalink }}">Entra en Mil Oficios {{ .Title }} →</a></p>{{ end }}
 
 </div>
 {{ end }}
