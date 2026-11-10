@@ -12,6 +12,14 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
 
+## Diseño
+
+- El fondo es papel liso, sin manchas, degradados ni efecto cristal.
+- Lo que se lee o lleva a otra página va directamente sobre el papel, separado con líneas finas: artículos, guías, filas de herramientas. Nada de eso va en una caja.
+- Solo tiene fondo propio lo que se maneja: el panel de una herramienta, el formulario del boletín, un botón y el aviso de heladas de la portada.
+- La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
+- Las fotos llevan las esquinas redondeadas y el texto debajo, sin marco.
+
 ## Herramientas
 
 - `content/herramientas/`: calculadoras y diagnósticos, uno por página. Front matter: `herramienta` (clave en `assets/js/herramientas.js`), `seccion` (color) y `relacionado` (ruta del artículo, como `/arreglos/papel-pintado-pared-torcida`).
