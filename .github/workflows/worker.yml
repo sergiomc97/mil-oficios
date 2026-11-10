@@ -6,15 +6,22 @@ on:
     paths: [worker/**]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: cloudflare/wrangler-action@v3
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd
         with:
           apiToken: ${{ secrets.CLOUDFLARE }}
+          wranglerVersion: "4.160.0"
           workingDirectory: worker
-          secrets: GEMINI_API_KEY
+          secrets: |
+            GEMINI_API_KEY
+            WEATHERAPI_KEY
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI }}
+          WEATHERAPI_KEY: ${{ secrets.WEATHERAPI_KEY }}

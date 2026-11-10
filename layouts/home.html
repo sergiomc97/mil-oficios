@@ -3,6 +3,7 @@
 {{ range where (where site.RegularPages "Section" "in" site.Params.mainSections) "Section" "ne" "mil-panes" }}{{ if and .Params.portada (not (strings.Contains .Params.portada "pixabay")) }}{{ $propios = $propios | append . }}{{ else }}{{ $resto = $resto | append . }}{{ end }}{{ end }}
 {{ $posts := $propios | append $resto }}
 <div class="contenedor">
+<h1 class="oculto">{{ site.Title }}: aprende a hacerlo tú mismo</h1>
 {{ with index $posts 0 }}
 <a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
   {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "carga" "eager" "apaisada" true) }}{{ end }}

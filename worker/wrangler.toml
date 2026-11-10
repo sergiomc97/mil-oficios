@@ -12,3 +12,11 @@ LIMITE = "5"
 [[kv_namespaces]]
 binding = "CUPO"
 id = "aa745b95224941b687ca03f41abaa33d"
+
+[[ratelimits]]
+name = "LIMITADOR"
+namespace_id = "1001"
+
+  [ratelimits.simple]
+  limit = 10
+  period = 60

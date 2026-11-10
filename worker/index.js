@@ -4,15 +4,13 @@ const TEMAS = {
 
 const TITO = "Eres Tito Garlopa, que escribe en miloficios.es. Responde en español de España, tuteando, como un vecino que sabe del tema: concreto y sin rodeos. No inventes nombres de productos ni cifras.";
 
-const PASE = "8bb7b76784a54bc2d81bfd9671750114f72970e2a03c71a28c80de2df3321834";
-
 const TRAMOS = ["-5", "-10", "-15", "-20", "-25"];
 
 const texto = (v, max) => String(v ?? "").slice(0, max);
 
 const TAREAS = {
   foto: {
-    cuenta: true,
+    cupo: 1,
     valida: d => typeof d.foto === "string" && d.foto.length < 2_000_000 && Object.hasOwn(TEMAS, d.seccion),
     instrucciones: d => `${TITO}
 Te mandan una foto de ${TEMAS[d.seccion]}. A veces viene con una nota.
@@ -33,7 +31,7 @@ Si la foto no muestra eso, dilo en problema y deja que_hacer y enlace vacíos.`,
     responde: (r, pagina) => ({ problema: r.problema, que_hacer: r.que_hacer, enlace: pagina.enlaces.find(e => e.url === r.enlace) || null })
   },
   zona: {
-    cuenta: false,
+    cupo: 4,
     valida: d => d.seccion === "jardin" && d.sitio?.nombre,
     instrucciones: () => `${TITO}
 Te dan un pueblo de España con sus coordenadas. Estima la temperatura mínima a la que se llega en un invierno normal, no en uno excepcional, teniendo en cuenta su altitud, si es de interior o de costa y si está en un valle o en una meseta. Si dudas entre dos tramos, elige el más frío: es mejor quedarse corto que perder plantas.
@@ -48,7 +46,7 @@ Te dan un pueblo de España con sus coordenadas. Estima la temperatura mínima a
     responde: r => r
   },
   plan: {
-    cuenta: true,
+    cupo: 1,
     valida: d => d.seccion === "jardin" && TRAMOS.includes(d.minima),
     instrucciones: () => `${TITO}
 Alguien quiere plantar en su jardín y te dice su pueblo, cuánto hiela, el sol y la tierra. Elige de 3 a 5 plantas, solo de la lista que te damos.
@@ -95,8 +93,17 @@ export default {
 
     if (req.method === "OPTIONS") return new Response(null, { headers: cabeceras });
     if (req.method !== "POST" || req.headers.get("Origin") !== env.ORIGEN) return responde({ error: "origen" }, 403);
+    const { success } = await env.LIMITADOR.limit({ key: req.headers.get("CF-Connecting-IP") });
+    if (!success) return responde({ error: "limite" }, 429);
 
     const d = await req.json().catch(() => ({}));
+    if (d.tipo === "prevision") {
+      const lat = Number(d.lat), lon = Number(d.lon);
+      if (!(Math.abs(lat) <= 90 && Math.abs(lon) <= 180)) return responde({ error: "datos" }, 400);
+      const r = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${env.WEATHERAPI_KEY}&q=${lat.toFixed(2)},${lon.toFixed(2)}&days=3&lang=es&aqi=no&alerts=no`, { cf: { cacheTtl: 3600, cacheEverything: true } });
+      if (!r.ok) return responde({ error: "prevision" }, 502);
+      return responde((await r.json()).forecast.forecastday.map(({ date, day }) => ({ date, day: { mintemp_c: day.mintemp_c, maxtemp_c: day.maxtemp_c } })));
+    }
     if (d.tipo === "busqueda") {
       const q = texto(d.q, 60).trim().toLowerCase();
       if (q.length < 3 || /@|\d{6}/.test(q.replace(/\s/g, ""))) return responde({ error: "datos" }, 400);
@@ -107,11 +114,10 @@ export default {
     const tarea = TAREAS[d.tipo || "foto"];
     if (!tarea || !/^\/herramientas\/[a-z0-9-]+\/$/.test(d.pagina) || !tarea.valida(d)) return responde({ error: "datos" }, 400);
 
-    const clave = `${req.headers.get("CF-Connecting-IP")}:${new Date().toISOString().slice(0, 10)}`;
+    const clave = `${req.headers.get("CF-Connecting-IP")}:${tarea.cupo}:${new Date().toISOString().slice(0, 10)}`;
     const usadas = Number(await env.CUPO.get(clave)) || 0;
-    const huella = [...new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(texto(d.pase, 100))))].map(b => b.toString(16).padStart(2, "0")).join("");
-    const cuenta = tarea.cuenta && huella !== PASE;
-    if (cuenta && usadas >= Number(env.LIMITE)) return responde({ error: "limite" }, 429);
+    const cuenta = !(env.PASE && d.pase === env.PASE);
+    if (cuenta && usadas >= Number(env.LIMITE) * tarea.cupo) return responde({ error: "limite" }, 429);
 
     const pagina = await fetch(`${env.ORIGEN}${d.pagina}index.json`, { cf: { cacheTtl: 3600 } })
       .then(r => r.json()).catch(() => ({ enlaces: [], plantas: [] }));

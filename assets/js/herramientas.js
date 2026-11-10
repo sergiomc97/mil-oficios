@@ -252,11 +252,7 @@
     if (!r.ok) throw new Error(r.status);
     return r.json();
   };
-  const prevision = async (clave, sitio) => {
-    const r = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${clave}&q=${sitio.lat},${sitio.lon}&days=3&lang=es&aqi=no&alerts=no`);
-    if (!r.ok) throw new Error(r.status);
-    return (await r.json()).forecast.forecastday;
-  };
+  const prevision = (url, sitio) => pedirTito(url, { tipo: "prevision", lat: sitio.lat, lon: sitio.lon });
   const dia = f => new Date(`${f}T12:00`).toLocaleDateString("es-ES", { weekday: "long", day: "numeric" });
   const enlaceFuera = (texto, url) => { const a = crear("a", "", texto); a.href = url; a.rel = "noopener"; return a; };
 
@@ -323,7 +319,7 @@
   };
 
   const heladas = caja => {
-    if (!caja.dataset.clave) {
+    if (!caja.dataset.url) {
       caja.append(crear("p", "", "El aviso de heladas no está disponible ahora mismo."));
       return;
     }
@@ -334,7 +330,7 @@
     const mostrar = async sitio => {
       salida.replaceChildren(crear("p", "", "Buscando la previsión…"));
       try {
-        const dias = (await prevision(caja.dataset.clave, sitio)).map(f => {
+        const dias = (await prevision(caja.dataset.url, sitio)).map(f => {
           const min = Math.round(f.day.mintemp_c);
           const n = nivel(min);
           const fila = crear("div", `dia${n.consejo ? " frio" : ""}`);
@@ -605,7 +601,7 @@
       sitioInfo.replaceChildren(crear("p", "espera", `Mirando cuánto hiela en ${sitio.nombre}…`));
       const [zona, dias] = await Promise.allSettled([
         pedirTito(caja.dataset.url, { tipo: "zona", seccion: "jardin", sitio }),
-        caja.dataset.clave ? prevision(caja.dataset.clave, sitio) : Promise.reject()
+        prevision(caja.dataset.url, sitio)
       ]);
       if (zona.status === "fulfilled") {
         estado.minima = zona.value.minima;

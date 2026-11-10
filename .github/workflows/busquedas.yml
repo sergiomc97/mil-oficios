@@ -12,7 +12,7 @@ jobs:
   busquedas:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - env:
           TOKEN: ${{ secrets.CLOUDFLARE }}
           API: https://api.cloudflare.com/client/v4/accounts/62486de72c286c9dafd5a09cff8b3b90/storage/kv/namespaces/aa745b95224941b687ca03f41abaa33d
@@ -25,6 +25,7 @@ jobs:
             echo
             while IFS= read -r clave; do
               [ -z "$clave" ] && continue
+              printf '%s' "${clave#"$prefijo"}" | grep -qiE '^[a-záéíóúüñ ]+$' || continue
               veces=$(curl -s -H "Authorization: Bearer $TOKEN" "$API/values/$(jq -rn --arg c "$clave" '$c|@uri')")
               echo "- ${clave#"$prefijo"} ($veces)"
             done <<< "$claves"

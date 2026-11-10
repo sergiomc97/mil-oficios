@@ -1131,3 +1131,4 @@ p.dia { margin: 0; }
 }
 .buscar-404 { border: 0; cursor: pointer; font-family: var(--sans); }
 .secciones-404 { margin: 18px 0; }
+.oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
