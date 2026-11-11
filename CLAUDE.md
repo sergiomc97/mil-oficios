@@ -16,8 +16,8 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 
 - Todo bloque de contenido va en una card de cristal, en toda la web: artículos (`.baldosa`, `.destacado`), filas de herramientas (`.util`), el panel de una herramienta (`.herramienta`) y los bloques de texto como «Este mes» o cada grupo de guías (`.panel`). No se mezclan bloques con card y bloques sin ella.
 - Un bloque nuevo usa una de esas clases; no se inventa otro tipo de caja.
-- El fondo son dos luces suaves y fijas (arriba a la izquierda y abajo a la derecha), del color de la sección o neutras en la portada. Solo están para que el cristal se note: nada de manchas de varios colores.
-- En la portada el fondo es la acuarela de Sergio (`assets/fondo/acuarela*.webp`, con velo oscuro en modo oscuro) y `assets/js/cristal.js` (WebGL, shader de `@ybouane/liquidglass`) curva ese fondo en el borde de cada card; el interior queda liso. Es una mejora progresiva: sin WebGL o con `prefers-reduced-transparency` queda el cristal de CSS sobre la misma acuarela. El resto de la web sigue con las dos luces.
+- El fondo de las secciones son dos luces suaves y fijas (arriba a la izquierda y abajo a la derecha) del color de la sección. Solo están para que el cristal se note. La portada es la única con manchas de varios colores.
+- En la portada el fondo son cuatro manchas de color (terracota, oliva, madera y azul pizarra, definidas en `body.portada`) y `assets/js/cristal.js` (WebGL, shader de `@ybouane/liquidglass`) curva ese fondo en el borde de cada card; el interior queda liso. Es una mejora progresiva: sin WebGL o con `prefers-reduced-transparency` queda el cristal de CSS sobre las mismas manchas. El canvas las repinta leyendo `--m1`…`--m4` y `--mancha`. El resto de la web toma el color de su sección.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
 - Antes de borrar estilos de `assets/css/main.css`, comprueba qué selectores desaparecen comparando con la versión anterior.
 

@@ -22,8 +22,6 @@
   };
   const BORDE = 11;
 
-  const script = document.currentScript;
-  const imagenes = {};
   const oscuro = matchMedia("(prefers-color-scheme: dark)");
   const fondo = document.createElement("canvas");
   const taller = document.createElement("canvas");
@@ -47,6 +45,21 @@
     return { p, u, a: gl.getAttribLocation(p, "a_pos") };
   };
 
+  const MANCHAS = [["--m1", 0.08, 0.12, 0.45, 0.35], ["--m2", 0.95, 0.3, 0.4, 0.35], ["--m3", 0.05, 0.72, 0.45, 0.35], ["--m4", 0.92, 0.88, 0.45, 0.35]];
+
+  const mancha = (ctx, color, cx, cy, rx, ry) => {
+    const [r, g, b] = color.match(/[\d.]+/g);
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.scale(rx, ry);
+    const g1 = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
+    g1.addColorStop(0, color);
+    g1.addColorStop(0.7, `rgba(${r},${g},${b},0)`);
+    ctx.fillStyle = g1;
+    ctx.fillRect(-2, -2, 4, 4);
+    ctx.restore();
+  };
+
   const pintaFondo = () => {
     k = Math.min(devicePixelRatio || 1, 2);
     W = Math.round(fondo.clientWidth * k);
@@ -54,13 +67,12 @@
     fondo.width = W;
     fondo.height = H;
     const ctx = fondo.getContext("2d");
-    const img = H > W ? imagenes.alta : imagenes.ancha;
-    const f = Math.max(W / img.naturalWidth, H / img.naturalHeight);
-    ctx.drawImage(img, (W - img.naturalWidth * f) / 2, (H - img.naturalHeight * f) / 2, img.naturalWidth * f, img.naturalHeight * f);
-    if (oscuro.matches) {
-      ctx.fillStyle = "rgba(27, 24, 20, .86)";
-      ctx.fillRect(0, 0, W, H);
-    }
+    const cuerpo = getComputedStyle(document.body);
+    ctx.fillStyle = cuerpo.backgroundColor;
+    ctx.fillRect(0, 0, W, H);
+    ctx.globalAlpha = parseFloat(cuerpo.getPropertyValue("--mancha")) || 0;
+    for (const [n, cx, cy, rx, ry] of MANCHAS) mancha(ctx, cuerpo.getPropertyValue(n).trim(), cx * W, cy * H, rx * W, ry * H);
+    ctx.globalAlpha = 1;
     gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, fondo);
@@ -138,11 +150,6 @@
   const arranca = async () => {
     try {
       const { VS_GLASS, FS_GLASS } = await import(`${CDN}shaders.js`);
-      for (const [clave, ruta] of [["ancha", script.dataset.ancha], ["alta", script.dataset.alta]]) {
-        imagenes[clave] = new Image();
-        imagenes[clave].src = ruta;
-        await imagenes[clave].decode();
-      }
       gl = taller.getContext("webgl", { alpha: true, premultipliedAlpha: false, antialias: false, preserveDrawingBuffer: true });
       if (!gl) throw new Error("sin contexto");
       vidrio = programa(VS_GLASS, FS_GLASS, ["u_bgTex", "u_blurTex", "u_center", "u_size", "u_res", "u_radius", "u_zRadius", ...Object.keys(ajustes)]);

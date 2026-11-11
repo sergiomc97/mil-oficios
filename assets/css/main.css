@@ -1139,12 +1139,21 @@ p.dia { margin: 0; }
 @media (prefers-color-scheme: dark) {
   .cristal-vivo { --relleno: rgba(255, 255, 255, .07); }
 }
-body.portada { --mancha: 1; --velo: transparent; }
-body.portada::after { background: linear-gradient(var(--velo), var(--velo)), var(--acuarela) center / cover no-repeat; }
-@media (orientation: portrait) {
-  body.portada::after { background-image: linear-gradient(var(--velo), var(--velo)), var(--acuarela-movil); }
+body.portada {
+  --mancha: 1;
+  --m1: rgba(163, 67, 31, .6);
+  --m2: rgba(76, 90, 42, .58);
+  --m3: rgba(124, 82, 38, .55);
+  --m4: rgba(47, 82, 102, .55);
+}
+body.portada::after {
+  background:
+    radial-gradient(45% 35% at 8% 12%, var(--m1), transparent 70%),
+    radial-gradient(40% 35% at 95% 30%, var(--m2), transparent 70%),
+    radial-gradient(45% 35% at 5% 72%, var(--m3), transparent 70%),
+    radial-gradient(45% 35% at 92% 88%, var(--m4), transparent 70%);
 }
 @media (prefers-color-scheme: dark) {
-  body.portada { --velo: rgba(27, 24, 20, .86); }
+  body.portada { --mancha: .45; }
 }
 .cristal-vivo body::after { display: none; }
