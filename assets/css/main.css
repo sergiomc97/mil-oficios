@@ -1210,3 +1210,13 @@ body.papel::after { content: none; }
 .papel .menu-inf { border-top: 0; background: var(--hoja); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: 0 -10px 22px -14px rgba(60, 40, 20, .5); }
 .papel .menu-inf [aria-current]:not(.central) { margin: 0 4px 6px; border-radius: 0 0 14px 14px; background: var(--cf, var(--c, var(--tinta))); box-shadow: 0 2px 4px rgba(0, 0, 0, .15); color: var(--papel); }
 .papel .menu-inf .burbuja { box-shadow: 0 0 0 3px var(--hoja), 0 0 0 4px var(--tinta), 0 4px 12px rgba(0, 0, 0, .25); }
+.ver-todo { display: inline-block; margin-top: 12px; color: var(--c); font: 600 14.5px var(--sans); text-decoration: none; }
+.ver-todo:hover { text-decoration: underline; }
+@media (min-width: 900px) {
+  .portadas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; overflow: visible; }
+  .portadas .diapo { aspect-ratio: 16 / 10; }
+  .portadas .diapo:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+  .portadas .diapo:not(:first-child) .diapo-titulo { font-size: 20px; }
+  .portadas .diapo-texto { padding-bottom: 18px; }
+  .portadas + .puntos { display: none; }
+}

@@ -45,6 +45,7 @@
   <div class="grupo-sec panel sec-{{ .Key }}">
     <h3 class="etiqueta">{{ $seccion.Title }}</h3>
     <ul class="indice">{{ range .Pages }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul>
+    <a class="ver-todo" href="{{ $seccion.RelPermalink }}">Ver todo {{ $seccion.Title }} →</a>
   </div>
   {{ end }}
   </div>

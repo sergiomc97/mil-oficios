@@ -1,10 +1,10 @@
 {{ $seccion := and (in site.Params.mainSections .Section) (site.GetPage .Section) }}
 <nav class="menu-inf" aria-label="Menú">
-  <a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6h-6v6H4z"/></svg>Inicio</a>
-  <button type="button" data-secciones{{ with $seccion }} class="sec-{{ .Section }}" aria-current="true"{{ end }}><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg>{{ with $seccion }}{{ .Title }}{{ else }}Secciones{{ end }}</button>
-  <a class="central" href="{{ "herramientas/" | relURL }}"{{ if eq .Section "herramientas" }} aria-current="page"{{ end }}><span class="burbuja"><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-3 3-6-6zM12.5 8.5L4 17a1.4 1.4 0 0 0 0 2l1 1a1.4 1.4 0 0 0 2 0l8.5-8.5"/></svg></span>Herramientas</a>
-  <button type="button" data-buscar><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Buscar</button>
-  <a href="{{ "tienda/" | relURL }}"{{ if eq .RelPermalink "/tienda/" }} aria-current="page"{{ end }}><svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"/></svg>Tienda</a>
+  <a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>{{ partial "icono.html" "inicio" }}Inicio</a>
+  <button type="button" data-secciones{{ with $seccion }} class="sec-{{ .Section }}" aria-current="true"{{ end }}>{{ partial "icono.html" "secciones" }}{{ with $seccion }}{{ .Title }}{{ else }}Secciones{{ end }}</button>
+  <a class="central" href="{{ "herramientas/" | relURL }}"{{ if eq .Section "herramientas" }} aria-current="page"{{ end }}><span class="burbuja">{{ partial "icono.html" "martillo" }}</span>Herramientas</a>
+  <button type="button" data-buscar>{{ partial "icono.html" "buscar" }}Buscar</button>
+  <a href="{{ "tienda/" | relURL }}"{{ if eq .RelPermalink "/tienda/" }} aria-current="page"{{ end }}>{{ partial "icono.html" "tienda" }}Tienda</a>
 </nav>
 <dialog class="hoja-secciones" aria-label="Secciones">
   <div class="hoja-cab"><span class="grupo">Secciones</span><button class="atras" type="button" data-cerrar>Cerrar</button></div>
