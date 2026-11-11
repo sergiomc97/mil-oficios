@@ -1220,3 +1220,6 @@ body.papel::after { content: none; }
   .portadas .diapo-texto { padding-bottom: 18px; }
   .portadas + .puntos { display: none; }
 }
+.icono.ilus { width: 26px; height: 26px; }
+.papel .util-icono { width: 52px; height: 52px; border-radius: 12px; background: color-mix(in srgb, var(--c) 16%, var(--hoja)); }
+.papel .util-icono .ilus { width: 38px; height: 38px; }
