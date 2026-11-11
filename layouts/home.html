@@ -7,17 +7,10 @@
 {{ with site.GetPage "/herramientas/que-hacer-este-mes" }}
 <section class="bloque primero">
   <div class="bloque-cab"><h2>Este mes en casa</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
-  <div class="panel">
+  <div class="panel nota">
   {{ partial "este-mes.html" . }}
   {{ with site.GetPage "/herramientas/aviso-de-heladas" }}<a class="helada" href="{{ .RelPermalink }}"><span class="etiqueta">Aviso de heladas</span><span class="helada-titulo">¿Va a helar esta noche en tu pueblo? →</span></a>{{ end }}
   </div>
-</section>
-{{ end }}
-
-{{ with sort (where (site.GetPage "/herramientas").RegularPages "Params.destacada" "!=" nil) "Params.destacada" }}
-<section class="bloque">
-  <div class="bloque-cab"><h2>¿Qué te pasa?</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Todas las herramientas →</a></div>
-  <div class="utiles">{{ range . }}{{ if ne .Params.herramienta "heladas" }}{{ partial "util.html" . }}{{ end }}{{ end }}</div>
 </section>
 {{ end }}
 
@@ -36,6 +29,13 @@
   </a>
   {{ end }}
   {{ with after 1 . }}<div class="mosaico">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>{{ end }}
+</section>
+{{ end }}
+
+{{ with (site.GetPage "/herramientas").RegularPages }}
+<section class="bloque">
+  <div class="bloque-cab"><h2>¿Qué te pasa?</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Todas las herramientas →</a></div>
+  <div class="utiles">{{ range sort (where . "Params.destacada" "!=" nil) "Params.destacada" }}{{ if ne .Params.herramienta "heladas" }}{{ partial "util.html" . }}{{ end }}{{ end }}{{ range where . "Params.destacada" "==" nil }}{{ partial "util.html" . }}{{ end }}</div>
 </section>
 {{ end }}
 

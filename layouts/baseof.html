@@ -50,7 +50,6 @@
 {{ with resources.Get "js/web.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>{{ end }}
 {{ if hugo.IsProduction }}<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7e08ba24313e481aa4624ab46b1fc563"}'></script>{{ end }}
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
-{{ if .IsHome }}{{ with resources.Get "js/cristal.js" | minify | fingerprint }}<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>{{ end }}{{ end }}
 </head>
 {{ $zona := "" }}
 {{ if or .IsHome (eq .Section "herramientas") }}{{ $zona = "zona-todo" }}{{ else if in site.Params.mainSections .Section }}{{ $zona = printf "fondo sec-%s%s%s%s" .Section (cond .IsPage " lectura" "") (cond (eq .Section "negocio") " zona-negocio" "") (cond (eq .Section "mil-panes") " zona-panes" "") }}{{ end }}
