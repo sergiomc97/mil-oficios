@@ -1152,9 +1152,8 @@ body.portada::after { content: none; }
 .busca-portada { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 18px; padding: 13px 16px; border: 1px solid var(--linea); border-radius: 999px; background: var(--hoja, var(--claro)); box-shadow: var(--sombra-papel); color: var(--gris); font: 16px var(--sans); text-align: left; cursor: pointer; }
 .busca-portada .icono { display: block; flex: none; width: 20px; height: 20px; }
 
-.portadas { gap: 12px; padding-bottom: 14px; }
-.diapo { position: relative; flex: 0 0 86%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 18px; scroll-snap-align: start; background: var(--papel-2); box-shadow: var(--sombra-papel); color: #fff; text-decoration: none; }
-.diapo:only-child { flex-basis: 100%; }
+.portadas { gap: 16px; margin: 0; padding: 14px 0; scroll-padding-inline: 0; overscroll-behavior-x: contain; }
+.diapo { position: relative; flex: 0 0 100%; scroll-snap-stop: always; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 18px; scroll-snap-align: start; background: var(--papel-2); box-shadow: var(--sombra-papel); color: #fff; text-decoration: none; }
 .diapo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .diapo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 38%, rgba(20, 15, 10, .82)); }
 .diapo-texto { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 18px; }
@@ -1172,12 +1171,12 @@ body.portada::after { content: none; }
 .portada .util :is(.meta, .util-flecha) { display: none; }
 
 .portada .bloque > .panel.sec-mil-panes { margin: 30px 4px 0; padding: 28px 18px 28px 50px; background: linear-gradient(90deg, transparent 36px, var(--margen-rojo) 36px 37px, transparent 37px), repeating-linear-gradient(transparent 0 27px, var(--linea-azul) 27px 28px), var(--hoja); box-shadow: var(--sombra-papel); transform: rotate(.5deg); }
-.portada .sec-mil-panes .tarjeta { display: block; padding: 0; border: 0; }
+.portada .sec-mil-panes .tarjeta { position: static; display: block; padding: 0; border: 0; }
 .portada .sec-mil-panes .tarjeta::after { content: none; }
-.portada .sec-mil-panes .tarjeta-texto { gap: 0; padding-right: 136px; line-height: 28px; }
+.portada .sec-mil-panes .tarjeta-texto { gap: 0; padding-right: 40%; line-height: 28px; }
 .portada .sec-mil-panes .tarjeta-texto > * { line-height: 28px; }
 .portada .sec-mil-panes .tarjeta-titulo { font: 600 20px/28px var(--serif); }
-.portada .sec-mil-panes .mini { position: absolute; top: -22px; right: -6px; width: 132px; height: 132px; padding: 6px 6px 20px; border-radius: 0; background: #fbfaf6; box-shadow: var(--sombra-papel); transform: rotate(5deg); }
+.portada .sec-mil-panes .mini { position: absolute; top: 0; right: 0; bottom: 0; width: 36%; height: 100%; border-radius: 0; box-shadow: inset 1px 0 0 var(--linea); }
 
 .portada .hoja { position: relative; margin: 22px 0 0 18px; padding: 4px 18px 16px 30px; background: radial-gradient(circle at 12px 50%, var(--papel) 0 4px, transparent 4.5px) 0 0 / 24px 28px repeat-y, var(--hoja); box-shadow: var(--sombra-papel); }
 .portada .hoja .grupo-sec.panel { padding: 0; margin-top: 22px; }
