@@ -8,17 +8,25 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 - `temas.md`: lista de temas pendientes, repartidos entre secciones, con las búsquedas reales que responde cada uno y una idea de vídeo para TikTok. Se escribe siempre el primero sin marcar de la lista con casillas; la sección «Ideas para más adelante» no se publica. Los temas de la estación en curso o la que empieza van delante: al añadir temas, si uno es de temporada, colócalo antes de los que no lo son.
 - `negocio` lleva como mucho un artículo al mes. `mil-panes` no entra en la lista (ver «Mil Panes»).
 - `busquedas.md`: búsquedas de la web que no encontraron nada el mes anterior, con cuántas veces se buscaron. Lo genera `.github/workflows/busquedas.yml` el día 1 de cada mes; no se edita a mano.
-- Portada (`layouts/home.html`), en este orden: «Este mes en casa» (tareas de `data/meses.yaml` y enlace al aviso de heladas), «¿Qué te pasa?» (herramientas con `destacada`), «Cuaderno de Tito» (artículos con portada de Sergio), la última receta de Mil Panes y «Guías» (el resto de artículos, agrupados por sección). Los artículos de `negocio` no salen en la portada: solo un enlace a su sección.
+- Portada (`layouts/home.html`), en este orden: el buscador, «Cuaderno de Tito» (carrusel con los artículos con portada de Sergio), «Este mes en casa» (tareas de `data/meses.yaml` y enlace al aviso de heladas), «¿Qué te pasa?» (todas las herramientas; las que tienen `destacada` van primero), la última receta de Mil Panes y «Guías» (el resto de artículos, agrupados por sección). Los artículos de `negocio` no salen en la portada: solo un enlace a su sección.
+- Cada sección (`layouts/list.html`): cabecera, sus herramientas, «Cuaderno de Tito» con sus artículos con foto de Sergio y «Guías» con el resto.
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
 
 ## Diseño
 
-- Todo bloque de contenido va en una card de cristal, en toda la web: artículos (`.baldosa`, `.destacado`), filas de herramientas (`.util`), el panel de una herramienta (`.herramienta`) y los bloques de texto como «Este mes» o cada grupo de guías (`.panel`). No se mezclan bloques con card y bloques sin ella.
-- Un bloque nuevo usa una de esas clases; no se inventa otro tipo de caja.
-- El fondo de las secciones son dos luces suaves y fijas (arriba a la izquierda y abajo a la derecha) del color de la sección. Solo están para que el cristal se note. La portada es la única con manchas de varios colores.
-- En la portada el fondo son cuatro manchas de color (terracota, oliva, madera y azul pizarra, definidas en `body.portada`) y `assets/js/cristal.js` (WebGL, shader de `@ybouane/liquidglass`) curva ese fondo en el borde de cada card; el interior queda liso. Es una mejora progresiva: sin WebGL o con `prefers-reduced-transparency` queda el cristal de CSS sobre las mismas manchas. El canvas las repinta leyendo `--m1`…`--m4` y `--mancha`. El resto de la web toma el color de su sección.
+La portada y las páginas de sección (body con clase `papel`) son un cuaderno de taller sobre papel. Los artículos y las herramientas por dentro siguen con cards de cristal.
+
+- Fondo de papel: `static/fondo/papel.webp` (y `papel-oscuro.webp`), una baldosa sin juntas hecha con una foto de Sergio. Nada de manchas de color ni degradados de adorno.
+- Cada tipo de bloque tiene su material, y no se inventan otros:
+  - Fotos de Sergio: carrusel `.portadas` con `.diapo` (partial `diapo.html`), una foto a la vez y los puntos dentro de la foto.
+  - «Este mes» y la tienda: nota clavada con chincheta (`.nota`, `.tienda`).
+  - Herramientas: fichas con icono a dos columnas (`.utiles` con `.util`).
+  - Receta: ficha con renglones y la foto en polaroid (`.panel.sec-mil-panes`).
+  - Guías: hoja de cuaderno con agujeros (`.cuaderno`), con la pestaña de color de cada sección.
+- Dentro de un artículo o una herramienta, todo bloque va en una card de cristal (`.baldosa`, `.destacado`, `.herramienta`, `.panel`), sobre las dos luces suaves del color de la sección.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
+- La regla graduada bajo los títulos de bloque se mantiene en toda la web.
 - Antes de borrar estilos de `assets/css/main.css`, comprueba qué selectores desaparecen comparando con la versión anterior.
 
 ## Herramientas
