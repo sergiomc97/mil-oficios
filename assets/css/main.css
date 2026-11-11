@@ -1220,6 +1220,5 @@ body.papel::after { content: none; }
   .portadas .diapo-texto { padding-bottom: 18px; }
   .portadas + .puntos { display: none; }
 }
-.icono.grab { width: 28px; height: 28px; fill: currentColor; stroke: none; }
-.papel .util-icono { width: 56px; height: 56px; border-radius: 0; background: none; color: var(--tinta); }
-.papel .util-icono .grab { width: 56px; height: 56px; }
+.icono.grab { fill: currentColor; stroke: none; }
+.secciones.hoja .grab { width: 34px; height: 34px; }

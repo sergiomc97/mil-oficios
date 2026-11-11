@@ -1,0 +1,1 @@
+{{ with resources.Get "iconos.svg" | fingerprint }}<svg class="icono grab" aria-hidden="true"><use href="{{ .RelPermalink }}#{{ $ }}"/></svg>{{ end }}
