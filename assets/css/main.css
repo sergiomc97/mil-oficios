@@ -1132,7 +1132,6 @@ p.dia { margin: 0; }
 
 body.portada {
   --hoja: var(--claro);
-  --cinta: rgba(214, 190, 140, .78);
   --sombra-papel: 0 1px 2px rgba(60, 40, 20, .1), 0 10px 22px -12px rgba(60, 40, 20, .45);
   --linea-azul: rgba(47, 82, 102, .2);
   --margen-rojo: rgba(196, 70, 50, .45);
@@ -1140,25 +1139,28 @@ body.portada {
 }
 body.portada::after { content: none; }
 @media (prefers-color-scheme: dark) {
-  body.portada { background-image: url("/fondo/papel-oscuro.webp"); --linea-azul: rgba(143, 179, 199, .16); --margen-rojo: rgba(232, 145, 106, .45); --cinta: rgba(190, 165, 120, .4); --sombra-papel: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 24px -12px rgba(0, 0, 0, .7); }
+  body.portada { background-image: url("/fondo/papel-oscuro.webp"); --linea-azul: rgba(143, 179, 199, .16); --margen-rojo: rgba(232, 145, 106, .45); --sombra-papel: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 24px -12px rgba(0, 0, 0, .7); }
 }
-.portada :is(.destacado, .baldosa, .util, .panel) { overflow: visible; border-radius: 0; background: none; box-shadow: none; }
-.portada :is(.destacado, .baldosa, .util, .panel)::before, .portada :is(.destacado, .baldosa, .util, .panel)::after { content: none; }
+.portada :is(.util, .panel) { overflow: visible; border-radius: 0; background: none; box-shadow: none; }
+.portada :is(.util, .panel)::before, .portada :is(.util, .panel)::after { content: none; }
 
 .portada .nota { margin: 22px 6px 0; padding: 30px 20px 20px; background: var(--hoja); box-shadow: var(--sombra-papel); transform: rotate(-.6deg); }
-.portada :is(.nota, .destacado, .baldosa)::before { padding: 0; -webkit-mask: none; mask: none; }
+.portada .nota::before { padding: 0; -webkit-mask: none; mask: none; }
 .portada .nota::before { content: ""; position: absolute; top: 10px; left: 50%; z-index: 3; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #e9ecee 0 15%, #8d979d 40%, #4d565c); box-shadow: 0 2px 3px rgba(0, 0, 0, .35); }
 .portada .nota .este-mes-titulo { font-size: 34px; letter-spacing: -.5px; }
 
-.portada :is(.destacado, .baldosa) { padding: 8px 8px 0; background: var(--hoja); box-shadow: var(--sombra-papel); }
-.portada :is(.destacado, .baldosa)::before { content: ""; position: absolute; top: -9px; left: 50%; z-index: 3; width: 86px; height: 22px; margin-left: -43px; background: var(--cinta); transform: rotate(-3deg); }
-.portada .destacado { transform: rotate(.4deg); }
-.portada .destacado-texto { padding: 6px 10px 18px; }
-.portada .baldosa-texto { padding: 12px 6px 14px; }
-.portada .mosaico { gap: 18px 14px; margin-top: 24px; }
-.portada .baldosa:nth-child(3n + 1) { transform: rotate(-.5deg); }
-.portada .baldosa:nth-child(3n + 2) { transform: rotate(.7deg); }
-.portada .baldosa:nth-child(3n + 2)::before { transform: rotate(4deg); }
+.busca-portada { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 18px; padding: 13px 16px; border: 1px solid var(--linea); border-radius: 999px; background: var(--hoja, var(--claro)); box-shadow: var(--sombra-papel); color: var(--gris); font: 16px var(--sans); text-align: left; cursor: pointer; }
+.busca-portada .icono { display: block; flex: none; width: 20px; height: 20px; }
+
+.portadas { gap: 12px; padding-bottom: 14px; }
+.diapo { position: relative; flex: 0 0 86%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 18px; scroll-snap-align: start; background: var(--papel-2); box-shadow: var(--sombra-papel); color: #fff; text-decoration: none; }
+.diapo:only-child { flex-basis: 100%; }
+.diapo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.diapo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 38%, rgba(20, 15, 10, .82)); }
+.diapo-texto { position: absolute; right: 0; bottom: 0; left: 0; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 18px; }
+.diapo .etiqueta { padding: 2px 9px; border-radius: 999px; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+.diapo-titulo { font: 600 25px/1.12 var(--serif); letter-spacing: -.3px; text-wrap: balance; }
+.diapo .leer { display: block; color: #fff; }
 
 .portada .utiles { grid-template-columns: 1fr 1fr; gap: 10px; }
 .portada .util { grid-template-columns: 1fr; align-content: start; gap: 10px; min-height: 0; padding: 14px; border: 1px solid var(--linea); border-radius: 12px; background: var(--hoja); box-shadow: 0 1px 0 var(--linea); }
