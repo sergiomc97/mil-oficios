@@ -27,7 +27,9 @@
   const taller = document.createElement("canvas");
   const visibles = new Set();
   const lentes = new Map();
-  let gl, vidrio, panel, tex, k = 1, W = 0, H = 0, pendiente = false, quieto = 0;
+  const ampliado = document.createElement("canvas");
+  const MARGEN = 1400;
+  let gl, vidrio, panel, tex, k = 1, W = 0, H = 0, M = 0, HE = 0, pendiente = false, quieto = 0;
 
   const programa = (vs, fs, nombres) => {
     const p = gl.createProgram();
@@ -73,9 +75,17 @@
     ctx.globalAlpha = parseFloat(cuerpo.getPropertyValue("--mancha")) || 0;
     for (const [n, cx, cy, rx, ry] of MANCHAS) mancha(ctx, cuerpo.getPropertyValue(n).trim(), cx * W, cy * H, rx * W, ry * H);
     ctx.globalAlpha = 1;
+    M = Math.round(MARGEN * k);
+    HE = H + 2 * M;
+    ampliado.width = W;
+    ampliado.height = HE;
+    const ext = ampliado.getContext("2d");
+    ext.drawImage(fondo, 0, 0, W, 1, 0, 0, W, M);
+    ext.drawImage(fondo, 0, H - 1, W, 1, 0, M + H, W, M);
+    ext.drawImage(fondo, 0, M);
     gl.bindTexture(gl.TEXTURE_2D, tex);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, fondo);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, ampliado);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
@@ -87,7 +97,7 @@
   const dibuja = () => {
     let cambio = false;
     gl.useProgram(vidrio.p);
-    gl.uniform2f(vidrio.u.u_res, W, H);
+    gl.uniform2f(vidrio.u.u_res, W, HE);
     gl.uniform1f(vidrio.u.u_zRadius, BORDE * k);
     for (const el of visibles) {
       const l = lentes.get(el);
@@ -108,8 +118,8 @@
         taller.height = Math.max(taller.height, h);
       }
       const x = Math.round(r.left * k);
-      const y = Math.round(r.top * k);
-      gl.viewport(-x, taller.height - h - (H - y - h), W, H);
+      const y = Math.round(r.top * k) + M;
+      gl.viewport(-x, taller.height - h - (HE - y - h), W, HE);
       gl.enable(gl.SCISSOR_TEST);
       gl.scissor(0, taller.height - h, w, h);
       gl.clearColor(0, 0, 0, 0);
