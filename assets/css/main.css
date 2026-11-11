@@ -1173,10 +1173,10 @@ body.portada::after { content: none; }
 .portada .bloque > .panel.sec-mil-panes { margin: 30px 4px 0; padding: 28px 18px 28px 50px; background: linear-gradient(90deg, transparent 36px, var(--margen-rojo) 36px 37px, transparent 37px), repeating-linear-gradient(transparent 0 27px, var(--linea-azul) 27px 28px), var(--hoja); box-shadow: var(--sombra-papel); transform: rotate(.5deg); }
 .portada .sec-mil-panes .tarjeta { position: static; display: block; padding: 0; border: 0; }
 .portada .sec-mil-panes .tarjeta::after { content: none; }
-.portada .sec-mil-panes .tarjeta-texto { gap: 0; padding-right: 40%; line-height: 28px; }
+.portada .sec-mil-panes .tarjeta-texto { gap: 0; padding-right: 42%; line-height: 28px; }
 .portada .sec-mil-panes .tarjeta-texto > * { line-height: 28px; }
 .portada .sec-mil-panes .tarjeta-titulo { font: 600 20px/28px var(--serif); }
-.portada .sec-mil-panes .mini { position: absolute; top: 0; right: 0; bottom: 0; width: 36%; height: 100%; border-radius: 0; box-shadow: inset 1px 0 0 var(--linea); }
+.portada .sec-mil-panes .mini { position: absolute; top: 14px; right: -8px; bottom: 14px; width: 38%; height: auto; padding: 6px 6px 22px; border-radius: 0; background: #fbfaf6; box-shadow: var(--sombra-papel); transform: rotate(3deg); }
 
 .portada .hoja { position: relative; margin: 22px 0 0 18px; padding: 4px 18px 16px 30px; background: radial-gradient(circle at 12px 50%, var(--papel) 0 4px, transparent 4.5px) 0 0 / 24px 28px repeat-y, var(--hoja); box-shadow: var(--sombra-papel); }
 .portada .hoja .grupo-sec.panel { padding: 0; margin-top: 22px; }
