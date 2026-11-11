@@ -28,6 +28,8 @@ La portada y las páginas de sección (body con clase `papel`) son un cuaderno d
 - Dentro de un artículo o una herramienta, todo bloque va en una card de cristal (`.baldosa`, `.destacado`, `.herramienta`, `.panel`), sobre las dos luces suaves del color de la sección.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
 - La regla graduada bajo los títulos de bloque se mantiene en toda la web.
+- Cabecera de la portada y las secciones: el logo en una etiqueta de libreta con filete doble y la regla graduada debajo. El menú inferior es una tira de papel claro y liso, con la sección activa como pestaña de su color.
+- Iconos: de línea (`layouts/_partials/icono.html`), uno propio por herramienta con la clave del nombre del archivo; si una herramienta no tiene, usa el de su sección. Los grabados a tinta (`assets/iconos.svg`, partial `grabado.html`) solo van en la ventana de Secciones.
 - Antes de borrar estilos de `assets/css/main.css`, comprueba qué selectores desaparecen comparando con la versión anterior.
 
 ## Herramientas
