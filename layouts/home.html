@@ -49,12 +49,14 @@
 {{ with $guias }}
 <section class="bloque">
   <h2>Guías</h2>
+  <div class="hoja">
   {{ range (.GroupBy "Section") }}{{ $seccion := site.GetPage .Key }}
   <div class="grupo-sec panel sec-{{ .Key }}">
     <h3 class="etiqueta">{{ $seccion.Title }}</h3>
     <ul class="indice">{{ range .Pages }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul>
   </div>
   {{ end }}
+  </div>
 </section>
 {{ end }}
 
