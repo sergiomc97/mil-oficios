@@ -9,7 +9,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 - `negocio` lleva como mucho un artículo al mes. `mil-panes` no entra en la lista (ver «Mil Panes»).
 - `busquedas.md`: búsquedas de la web que no encontraron nada el mes anterior, con cuántas veces se buscaron. Lo genera `.github/workflows/busquedas.yml` el día 1 de cada mes; no se edita a mano.
 - Portada (`layouts/home.html`), en este orden: el buscador, «Cuaderno de Tito» (carrusel con los artículos con portada de Sergio), «Este mes en casa» (tareas de `data/meses.yaml` y enlace al aviso de heladas), «¿Qué te pasa?» (todas las herramientas; las que tienen `destacada` van primero), la última receta de Mil Panes y «Guías» (el resto de artículos, agrupados por sección). Los artículos de `negocio` no salen en la portada: solo un enlace a su sección.
-- Cada sección (`layouts/list.html`): cabecera, sus herramientas, «Cuaderno de Tito» con sus artículos con foto de Sergio y «Guías» con el resto.
+- Cada sección (`layouts/list.html`): cabecera, sus herramientas, «Cuaderno de Tito» con sus artículos con foto de Sergio (el último grande, pegado con cinta, y el resto en polaroids) y «Guías» con el resto. Mil Panes lleva en su lugar el «Fichero de recetas»: una ficha con renglones por receta.
 - `data/tienda.yaml`: productos de la tienda de Ko-fi. Cada uno sale como tarjeta al final de los artículos de su `seccion`.
 - Cada push a `main` se publica solo con `.github/workflows/publicar.yml`.
 
@@ -19,10 +19,11 @@ La portada y las páginas de sección (body con clase `papel`) son un cuaderno d
 
 - Fondo de papel: `static/fondo/papel.webp` (y `papel-oscuro.webp`), una baldosa sin juntas hecha con una foto de Sergio. Nada de manchas de color ni degradados de adorno.
 - Cada tipo de bloque tiene su material, y no se inventan otros:
-  - Fotos de Sergio: carrusel `.portadas` con `.diapo` (partial `diapo.html`), una foto a la vez y los puntos dentro de la foto.
+  - Fotos de Sergio en la portada: carrusel `.portadas` con `.diapo` (partial `diapo.html`), una foto a la vez y los puntos dentro de la foto. Solo en la portada.
+  - Fotos de Sergio en las secciones: la última como recorte pegado con cinta (`.recorte`) y el resto en polaroids (`.polaroids`).
   - «Este mes» y la tienda: nota clavada con chincheta (`.nota`, `.tienda`).
   - Herramientas: fichas con icono a dos columnas (`.utiles` con `.util`).
-  - Receta: ficha con renglones y la foto en polaroid (`.panel.sec-mil-panes`).
+  - Receta: ficha con renglones y la foto en polaroid (`.panel.sec-mil-panes`, y `.receta` en el fichero de Mil Panes).
   - Guías: hoja de cuaderno con agujeros (`.cuaderno`), con la pestaña de color de cada sección.
 - Dentro de un artículo o una herramienta, todo bloque va en una card de cristal (`.baldosa`, `.destacado`, `.herramienta`, `.panel`), sobre las dos luces suaves del color de la sección.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.

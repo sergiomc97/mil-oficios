@@ -15,8 +15,23 @@
   {{ $propios := slice }}{{ $resto := slice }}
   {{ range .RegularPages }}{{ if and .Params.portada (not (strings.Contains .Params.portada "pixabay")) }}{{ $propios = $propios | append . }}{{ else }}{{ $resto = $resto | append . }}{{ end }}{{ end }}
   {{ with $propios }}
+  {{ if eq $.Section "mil-panes" }}
+  <div class="bloque-cab"><h2>Fichero de recetas</h2></div>
+  {{ range . }}<div class="panel sec-mil-panes receta">{{ partial "tarjeta.html" . }}</div>{{ end }}
+  {{ else }}
   <div class="bloque-cab"><h2>Cuaderno de Tito</h2><span class="meta">Lo que vi yo</span></div>
-  <div class="carrusel portadas">{{ range . }}{{ partial "diapo.html" . }}{{ end }}</div>
+  {{ with index . 0 }}
+  <a class="recorte sec-{{ .Section }}" href="{{ .RelPermalink }}">
+    {{ partial "imagen.html" (dict "src" .Params.portada "alt" "" "apaisada" true) }}
+    <span class="recorte-texto">
+      <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
+      <span class="recorte-titulo">{{ .Title }}</span>
+      <span class="recorte-desc">{{ .Description }}</span>
+    </span>
+  </a>
+  {{ end }}
+  {{ with after 1 . }}<div class="polaroids">{{ range . }}<a class="polaroid" href="{{ .RelPermalink }}">{{ partial "imagen.html" (dict "src" .Params.portada "alt" "" "apaisada" true "sizes" "(min-width: 700px) 30vw, 45vw") }}<span class="polaroid-titulo">{{ .Title }}</span></a>{{ end }}</div>{{ end }}
+  {{ end }}
   {{ end }}
   {{ with $resto }}
   <div class="bloque-cab"><h2>Guías</h2></div>

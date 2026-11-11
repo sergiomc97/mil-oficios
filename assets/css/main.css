@@ -1130,12 +1130,13 @@ body.papel {
   --hoja: var(--claro);
   --sombra-papel: 0 1px 2px rgba(60, 40, 20, .1), 0 10px 22px -12px rgba(60, 40, 20, .45);
   --linea-azul: rgba(47, 82, 102, .2);
+  --cinta: rgba(214, 190, 140, .78);
   --margen-rojo: rgba(196, 70, 50, .45);
   background: var(--papel) url("/fondo/papel.webp") 0 0 / 400px;
 }
 body.papel::after { content: none; }
 @media (prefers-color-scheme: dark) {
-  body.papel { background-image: url("/fondo/papel-oscuro.webp"); --linea-azul: rgba(143, 179, 199, .16); --margen-rojo: rgba(232, 145, 106, .45); --sombra-papel: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 24px -12px rgba(0, 0, 0, .7); }
+  body.papel { background-image: url("/fondo/papel-oscuro.webp"); --cinta: rgba(190, 165, 120, .4); --linea-azul: rgba(143, 179, 199, .16); --margen-rojo: rgba(232, 145, 106, .45); --sombra-papel: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 24px -12px rgba(0, 0, 0, .7); }
 }
 .papel :is(.util, .panel) { overflow: visible; border-radius: 0; background: none; box-shadow: none; }
 .papel :is(.util, .panel)::before, .papel :is(.util, .panel)::after { content: none; }
@@ -1165,7 +1166,7 @@ body.papel::after { content: none; }
 .papel .util-titulo { font-size: 15.5px; }
 .papel .util :is(.meta, .util-flecha) { display: none; }
 
-.papel .bloque > .panel.sec-mil-panes { margin: 30px 4px 0; padding: 28px 18px 28px 50px; background: linear-gradient(90deg, transparent 36px, var(--margen-rojo) 36px 37px, transparent 37px), repeating-linear-gradient(transparent 0 27px, var(--linea-azul) 27px 28px), var(--hoja); box-shadow: var(--sombra-papel); transform: rotate(.5deg); }
+.papel .bloque > .panel.sec-mil-panes, .papel .receta { margin: 30px 4px 0; padding: 28px 18px 28px 50px; background: linear-gradient(90deg, transparent 36px, var(--margen-rojo) 36px 37px, transparent 37px), repeating-linear-gradient(transparent 0 27px, var(--linea-azul) 27px 28px), var(--hoja); box-shadow: var(--sombra-papel); transform: rotate(.5deg); }
 .papel .sec-mil-panes .tarjeta { position: static; display: block; padding: 0; border: 0; }
 .papel .sec-mil-panes .tarjeta::after { content: none; }
 .papel .sec-mil-panes .tarjeta-texto { gap: 0; padding-right: 46%; line-height: 28px; }
@@ -1181,3 +1182,24 @@ body.papel::after { content: none; }
 .papel .tienda { position: relative; padding: 28px 14px 14px; border-radius: 0; background: var(--hoja); box-shadow: var(--sombra-papel); transform: rotate(-.5deg); }
 .papel .seccion-cab h1 + .entradilla, .papel .seccion-titulo { margin-bottom: 0; }
 .papel .seccion-cab > .bloque-cab { margin-top: 34px; }
+.papel .receta:nth-of-type(even) { transform: rotate(-.6deg); }
+.papel .receta .etiqueta { display: none; }
+.papel .receta:nth-of-type(even) .mini { transform: translateY(-50%) rotate(-3deg); }
+
+.recorte { position: relative; display: block; margin: 26px 4px 0; padding: 8px 8px 16px; background: var(--hoja); box-shadow: var(--sombra-papel); color: var(--tinta); text-decoration: none; transform: rotate(-.4deg); }
+.recorte::before, .polaroid:nth-child(3n + 1)::before { content: ""; position: absolute; top: -10px; left: 50%; z-index: 1; width: 86px; height: 22px; margin-left: -43px; background: var(--cinta); transform: rotate(-3deg); }
+.recorte img { display: block; width: 100%; height: auto; }
+.recorte-texto { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 8px 4px; }
+.recorte .etiqueta { padding: 2px 9px; border-radius: 999px; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
+.recorte-titulo { font: 600 26px/1.12 var(--serif); letter-spacing: -.3px; text-wrap: balance; }
+.recorte-desc { font-size: 15.5px; line-height: 1.5; color: var(--gris); }
+.polaroids { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 16px; margin-top: 28px; }
+.polaroid { position: relative; display: block; padding: 7px 7px 12px; background: #fbfaf6; box-shadow: var(--sombra-papel); color: #2b241c; text-decoration: none; transform: rotate(-1.2deg); }
+.polaroid:nth-child(even) { transform: rotate(1.4deg); }
+.polaroid img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.polaroid-titulo { display: block; padding: 10px 3px 0; font: 600 15px/1.25 var(--serif); }
+@media (min-width: 700px) {
+  .diapo { aspect-ratio: 16 / 9; }
+  .recorte, .papel .receta { max-width: 720px; }
+  .polaroids { grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
+}
