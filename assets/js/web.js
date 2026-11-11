@@ -1,5 +1,29 @@
 (() => {
-  const ficha = ruta => document.querySelector(`a.baldosa[href="${ruta}"], a.destacado[href="${ruta}"]`);
+  addEventListener("DOMContentLoaded", () => {
+    for (const c of document.querySelectorAll(".portadas")) {
+      const diapos = [...c.children];
+      if (diapos.length < 2) continue;
+      const puntos = document.createElement("div");
+      puntos.className = "puntos";
+      const botones = diapos.map((d, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", `Foto ${i + 1} de ${diapos.length}`);
+        b.addEventListener("click", () => c.scrollTo({ left: d.offsetLeft - diapos[0].offsetLeft, behavior: "smooth" }));
+        puntos.append(b);
+        return b;
+      });
+      c.after(puntos);
+      const marca = () => {
+        const final = c.scrollLeft + c.clientWidth >= c.scrollWidth - 2;
+        const i = final ? botones.length - 1 : Math.round(c.scrollLeft / (diapos[1].offsetLeft - diapos[0].offsetLeft));
+        botones.forEach((b, j) => b.setAttribute("aria-current", j === i));
+      };
+      c.addEventListener("scroll", marca, { passive: true });
+      marca();
+    }
+  });
+  const ficha = ruta => document.querySelector(`a.baldosa[href="${ruta}"], a.destacado[href="${ruta}"], a.diapo[href="${ruta}"]`);
   addEventListener("pageswap", e => {
     const destino = e.viewTransition && e.activation?.entry?.url;
     const enlace = destino && ficha(new URL(destino).pathname);

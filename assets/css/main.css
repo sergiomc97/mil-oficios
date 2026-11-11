@@ -1161,6 +1161,9 @@ body.portada::after { content: none; }
 .diapo .etiqueta { padding: 2px 9px; border-radius: 999px; background: var(--cf, var(--c)); color: var(--ct, var(--papel)); }
 .diapo-titulo { font: 600 25px/1.12 var(--serif); letter-spacing: -.3px; text-wrap: balance; }
 .diapo .leer { display: block; color: #fff; }
+.puntos { display: flex; justify-content: center; margin-top: 2px; }
+.puntos button { width: 24px; height: 24px; padding: 8px; border: 0; border-radius: 50%; background: var(--linea); background-clip: content-box; cursor: pointer; transition: padding .2s, background-color .2s; }
+.puntos button[aria-current="true"] { padding: 7px; background-color: var(--tinta); }
 
 .portada .utiles { grid-template-columns: 1fr 1fr; gap: 10px; }
 .portada .util { grid-template-columns: 1fr; align-content: start; gap: 10px; min-height: 0; padding: 14px; border: 1px solid var(--linea); border-radius: 12px; background: var(--hoja); box-shadow: 0 1px 0 var(--linea); }
@@ -1171,10 +1174,10 @@ body.portada::after { content: none; }
 .portada .bloque > .panel.sec-mil-panes { margin: 30px 4px 0; padding: 28px 18px 28px 50px; background: linear-gradient(90deg, transparent 36px, var(--margen-rojo) 36px 37px, transparent 37px), repeating-linear-gradient(transparent 0 27px, var(--linea-azul) 27px 28px), var(--hoja); box-shadow: var(--sombra-papel); transform: rotate(.5deg); }
 .portada .sec-mil-panes .tarjeta { display: block; padding: 0; border: 0; }
 .portada .sec-mil-panes .tarjeta::after { content: none; }
-.portada .sec-mil-panes .tarjeta-texto { gap: 0; padding-right: 104px; line-height: 28px; }
+.portada .sec-mil-panes .tarjeta-texto { gap: 0; padding-right: 136px; line-height: 28px; }
 .portada .sec-mil-panes .tarjeta-texto > * { line-height: 28px; }
 .portada .sec-mil-panes .tarjeta-titulo { font: 600 20px/28px var(--serif); }
-.portada .sec-mil-panes .mini { position: absolute; top: -20px; right: -4px; width: 96px; height: 96px; padding: 6px 6px 20px; border-radius: 0; background: #fbfaf6; box-shadow: var(--sombra-papel); transform: rotate(5deg); }
+.portada .sec-mil-panes .mini { position: absolute; top: -22px; right: -6px; width: 132px; height: 132px; padding: 6px 6px 20px; border-radius: 0; background: #fbfaf6; box-shadow: var(--sombra-papel); transform: rotate(5deg); }
 
 .portada .hoja { position: relative; margin: 22px 0 0 18px; padding: 4px 18px 16px 30px; background: radial-gradient(circle at 12px 50%, var(--papel) 0 4px, transparent 4.5px) 0 0 / 24px 28px repeat-y, var(--hoja); box-shadow: var(--sombra-papel); }
 .portada .hoja .grupo-sec.panel { padding: 0; margin-top: 22px; }
