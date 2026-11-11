@@ -1139,4 +1139,12 @@ p.dia { margin: 0; }
 @media (prefers-color-scheme: dark) {
   .cristal-vivo { --relleno: rgba(255, 255, 255, .07); }
 }
+body.portada { --mancha: 1; --velo: transparent; }
+body.portada::after { background: linear-gradient(var(--velo), var(--velo)), var(--acuarela) center / cover no-repeat; }
+@media (orientation: portrait) {
+  body.portada::after { background-image: linear-gradient(var(--velo), var(--velo)), var(--acuarela-movil); }
+}
+@media (prefers-color-scheme: dark) {
+  body.portada { --velo: rgba(27, 24, 20, .86); }
+}
 .cristal-vivo body::after { display: none; }
