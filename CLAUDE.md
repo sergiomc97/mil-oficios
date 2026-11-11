@@ -16,8 +16,7 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 
 - Todo bloque de contenido va en una card de cristal, en toda la web: artículos (`.baldosa`, `.destacado`), filas de herramientas (`.util`), el panel de una herramienta (`.herramienta`) y los bloques de texto como «Este mes» o cada grupo de guías (`.panel`). No se mezclan bloques con card y bloques sin ella.
 - Un bloque nuevo usa una de esas clases; no se inventa otro tipo de caja.
-- El fondo son dos luces suaves y fijas (arriba a la izquierda y abajo a la derecha), del color de la sección. Solo están para que el cristal se note: nada de manchas de varios colores. En la portada, en su lugar, va la acuarela de `assets/fondo/` (versión apaisada y vertical, con un velo oscuro en modo oscuro).
-- En la portada las cards tienen cristal con refracción real (WebGL, `assets/js/cristal.js` con la librería @ybouane/liquidglass). La librería exige que las cards sean hijas directas de un contenedor con la clase `vidriera`: un bloque nuevo de la portada va dentro de una `vidriera`. Si WebGL falla, se queda el cristal de CSS.
+- El fondo son dos luces suaves y fijas (arriba a la izquierda y abajo a la derecha), del color de la sección o neutras en la portada. Solo están para que el cristal se note: nada de manchas de varios colores.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
 - Antes de borrar estilos de `assets/css/main.css`, comprueba qué selectores desaparecen comparando con la versión anterior.
 

@@ -7,17 +7,17 @@
 {{ with site.GetPage "/herramientas/que-hacer-este-mes" }}
 <section class="bloque primero">
   <div class="bloque-cab"><h2>Este mes en casa</h2><a class="meta" href="{{ .RelPermalink }}">Todo el año →</a></div>
-  <div class="vidriera"><div class="panel">
+  <div class="panel">
   {{ partial "este-mes.html" . }}
   {{ with site.GetPage "/herramientas/aviso-de-heladas" }}<a class="helada" href="{{ .RelPermalink }}"><span class="etiqueta">Aviso de heladas</span><span class="helada-titulo">¿Va a helar esta noche en tu pueblo? →</span></a>{{ end }}
-  </div></div>
+  </div>
 </section>
 {{ end }}
 
 {{ with sort (where (site.GetPage "/herramientas").RegularPages "Params.destacada" "!=" nil) "Params.destacada" }}
 <section class="bloque">
   <div class="bloque-cab"><h2>¿Qué te pasa?</h2><a class="meta" href="{{ "herramientas/" | relURL }}">Todas las herramientas →</a></div>
-  <div class="utiles vidriera">{{ range . }}{{ if ne .Params.herramienta "heladas" }}{{ partial "util.html" . }}{{ end }}{{ end }}</div>
+  <div class="utiles">{{ range . }}{{ if ne .Params.herramienta "heladas" }}{{ partial "util.html" . }}{{ end }}{{ end }}</div>
 </section>
 {{ end }}
 
@@ -25,7 +25,7 @@
 <section class="bloque">
   <div class="bloque-cab"><h2>Cuaderno de Tito</h2><span class="meta">Lo que vi yo</span></div>
   {{ with index . 0 }}
-  <div class="vidriera"><a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
+  <a class="destacado sec-{{ .Section }}" href="{{ .RelPermalink }}">
     {{ with .Params.portada }}{{ partial "imagen.html" (dict "src" . "alt" $.Params.portada_alt "apaisada" true) }}{{ end }}
     <span class="destacado-texto">
       <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
@@ -33,30 +33,28 @@
       <span class="destacado-desc">{{ .Description }}</span>
       <span class="leer">Leer el artículo →</span>
     </span>
-  </a></div>
+  </a>
   {{ end }}
-  {{ with after 1 . }}<div class="mosaico vidriera">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>{{ end }}
+  {{ with after 1 . }}<div class="mosaico">{{ range $i, $p := . }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq (mod $i 3) 0)) }}{{ end }}</div>{{ end }}
 </section>
 {{ end }}
 
 {{ with site.GetPage "/mil-panes" }}{{ with index .RegularPages 0 }}
 <section class="bloque">
   <div class="bloque-cab"><h2>Del horno, sin gluten</h2><a class="meta" href="{{ .CurrentSection.RelPermalink }}">Mil Panes →</a></div>
-  <div class="vidriera"><div class="panel sec-mil-panes">{{ partial "tarjeta.html" . }}</div></div>
+  <div class="panel sec-mil-panes">{{ partial "tarjeta.html" . }}</div>
 </section>
 {{ end }}{{ end }}
 
 {{ with $guias }}
 <section class="bloque">
   <h2>Guías</h2>
-  <div class="vidriera">
   {{ range (.GroupBy "Section") }}{{ $seccion := site.GetPage .Key }}
   <div class="grupo-sec panel sec-{{ .Key }}">
     <h3 class="etiqueta">{{ $seccion.Title }}</h3>
     <ul class="indice">{{ range .Pages }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul>
   </div>
   {{ end }}
-  </div>
 </section>
 {{ end }}
 
