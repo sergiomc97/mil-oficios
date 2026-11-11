@@ -53,7 +53,7 @@
 </head>
 {{ $zona := "" }}
 {{ if or .IsHome (eq .Section "herramientas") }}{{ $zona = "zona-todo" }}{{ else if in site.Params.mainSections .Section }}{{ $zona = printf "fondo sec-%s%s%s%s" .Section (cond .IsPage " lectura" "") (cond (eq .Section "negocio") " zona-negocio" "") (cond (eq .Section "mil-panes") " zona-panes" "") }}{{ end }}
-{{ if .IsHome }}{{ $zona = printf "%s portada" $zona }}{{ end }}
+{{ if or .IsHome (and .IsSection (in site.Params.mainSections .Section)) }}{{ $zona = printf "%s papel" $zona }}{{ end }}
 <body{{ with $zona }} class="{{ . }}"{{ end }}>
 <header class="cabecera">
   <div class="contenedor">

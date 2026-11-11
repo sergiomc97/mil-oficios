@@ -9,16 +9,7 @@
 {{ with $propios }}
 <section class="bloque primero">
   <div class="bloque-cab"><h2>Cuaderno de Tito</h2><span class="meta">Lo que vi yo</span></div>
-  <div class="carrusel portadas">{{ range . }}
-    <a class="diapo sec-{{ .Section }}" href="{{ .RelPermalink }}">
-      {{ partial "imagen.html" (dict "src" .Params.portada "alt" "" "sizes" "86vw") }}
-      <span class="diapo-texto">
-        <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
-        <span class="diapo-titulo">{{ .Title }}</span>
-        <span class="leer">Leer el artículo →</span>
-      </span>
-    </a>{{ end }}
-  </div>
+  <div class="carrusel portadas">{{ range . }}{{ partial "diapo.html" . }}{{ end }}</div>
 </section>
 {{ end }}
 
@@ -49,7 +40,7 @@
 {{ with $guias }}
 <section class="bloque">
   <h2>Guías</h2>
-  <div class="hoja">
+  <div class="cuaderno">
   {{ range (.GroupBy "Section") }}{{ $seccion := site.GetPage .Key }}
   <div class="grupo-sec panel sec-{{ .Key }}">
     <h3 class="etiqueta">{{ $seccion.Title }}</h3>

@@ -1,0 +1,8 @@
+<a class="diapo sec-{{ .Section }}" href="{{ .RelPermalink }}">
+  {{ partial "imagen.html" (dict "src" .Params.portada "alt" "" "sizes" "86vw") }}
+  <span class="diapo-texto">
+    <span class="etiqueta">{{ .CurrentSection.Title }}{{ with .Params.tiempo }} · {{ . }}{{ end }}</span>
+    <span class="diapo-titulo">{{ .Title }}</span>
+    <span class="leer">Leer el artículo →</span>
+  </span>
+</a>
