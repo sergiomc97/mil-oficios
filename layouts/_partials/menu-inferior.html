@@ -2,7 +2,7 @@
 <nav class="menu-inf" aria-label="Menú">
   <a href="{{ "/" | relURL }}"{{ if .IsHome }} aria-current="page"{{ end }}>{{ partial "icono.html" "inicio" }}Inicio</a>
   <button type="button" data-secciones{{ with $seccion }} class="sec-{{ .Section }}" aria-current="true"{{ end }}>{{ partial "icono.html" "secciones" }}{{ with $seccion }}{{ .Title }}{{ else }}Secciones{{ end }}</button>
-  <a class="central" href="{{ "herramientas/" | relURL }}"{{ if eq .Section "herramientas" }} aria-current="page"{{ end }}><span class="burbuja">{{ partial "icono.html" "martillo" }}</span>Herramientas</a>
+  <a class="central" href="{{ "herramientas/" | relURL }}"{{ if eq .Section "herramientas" }} aria-current="page"{{ end }}><span class="burbuja">{{ partial "icono.html" "llave" }}</span>Herramientas</a>
   <button type="button" data-buscar>{{ partial "icono.html" "buscar" }}Buscar</button>
   <a href="{{ "tienda/" | relURL }}"{{ if eq .RelPermalink "/tienda/" }} aria-current="page"{{ end }}>{{ partial "icono.html" "tienda" }}Tienda</a>
 </nav>
