@@ -478,7 +478,7 @@ a.etiqueta { text-decoration: none; }
 .foto .credito { margin-top: 6px; font-size: 12.5px; font-style: normal; text-align: right; }
 .foto figcaption { margin-top: 8px; font-size: 14px; font-style: italic; color: var(--gris); }
 .cuerpo .foto { margin: 24px 0; }
-.cuerpo .foto img { width: 100%; height: auto; max-height: 75vh; object-fit: cover; }
+.cuerpo .foto img { display: block; width: auto; max-width: 100%; height: auto; max-height: min(70vh, 640px); margin: 0 auto; }
 
 .necesitas { margin-top: 8px; }
 .necesitas h2 { font-size: 21px; }
@@ -1200,7 +1200,6 @@ body.papel::after { content: none; }
 .polaroid-titulo { display: block; padding: 10px 3px 0; font: 600 15px/1.25 var(--serif); }
 @media (min-width: 700px) {
   .diapo { aspect-ratio: 16 / 9; }
-  .recorte, .papel .receta { max-width: 720px; }
   .polaroids { grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
 }
 
@@ -1216,9 +1215,21 @@ body.papel::after { content: none; }
   .portadas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; overflow: visible; }
   .portadas .diapo { aspect-ratio: 16 / 10; }
   .portadas .diapo:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-  .portadas .diapo:not(:first-child) .diapo-titulo { font-size: 20px; }
+  .portadas .diapo:not(:first-child) .diapo-titulo { font-size: clamp(16px, 1.4vw, 20px); }
   .portadas .diapo-texto { padding-bottom: 18px; }
   .portadas + .puntos { display: none; }
 }
 .icono.grab { fill: currentColor; stroke: none; }
 .secciones.hoja .grab { width: 34px; height: 34px; }
+.papel .panel.sec-mil-panes { container-type: inline-size; }
+.papel .sec-mil-panes .tarjeta-texto { min-height: 46cqw; }
+.papel .bloque > .panel.sec-mil-panes { max-width: 760px; }
+@media (min-width: 900px) {
+  .papel .utiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .portadas:has(> :nth-child(4)) .diapo:first-child { grid-row: span 3; }
+  .recorte { display: grid; grid-template-columns: 3fr 2fr; align-items: center; gap: 8px 28px; padding: 10px; }
+  .recorte-texto { padding: 10px 14px; }
+  .recorte-titulo { font-size: 32px; }
+  .polaroids { grid-template-columns: repeat(4, 1fr); }
+  .fichero { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+}

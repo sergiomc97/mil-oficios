@@ -17,7 +17,7 @@
   {{ with $propios }}
   {{ if eq $.Section "mil-panes" }}
   <div class="bloque-cab"><h2>Fichero de recetas</h2></div>
-  {{ range . }}<div class="panel sec-mil-panes receta">{{ partial "tarjeta.html" . }}</div>{{ end }}
+  <div class="fichero">{{ range . }}<div class="panel sec-mil-panes receta">{{ partial "tarjeta.html" . }}</div>{{ end }}</div>
   {{ else }}
   <div class="bloque-cab"><h2>Cuaderno de Tito</h2><span class="meta">Lo que vi yo</span></div>
   {{ with index . 0 }}
