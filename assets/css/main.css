@@ -127,7 +127,7 @@ h1 { font-size: 31px; }
 h2 { font-size: 23px; }
 h3 { font-family: var(--sans); font-size: 17px; letter-spacing: 0; line-height: 1.3; }
 a { color: var(--enlace); }
-@media (hover: hover) { a:hover { color: var(--hover); } }
+@media (hover: hover) { :where(a):hover { color: var(--hover); } }
 
 .contenedor { max-width: 1320px; margin: 0 auto; padding: 0 16px; }
 
@@ -860,8 +860,7 @@ body::after {
 .este-mes-titulo .atras { min-width: 44px; min-height: 44px; font-size: 22px; }
 .este-mes-cols { display: grid; gap: 14px; }
 .este-mes ul { margin: 10px 0 0; padding: 0; list-style: none; }
-.este-mes li { display: flex; gap: 10px; line-height: 1.45; }
-.este-mes li::before { content: ""; flex: none; width: 14px; height: 14px; margin-top: 4px; border: 2px solid var(--c); border-radius: 50%; }
+.este-mes li { line-height: 1.45; }
 .este-mes li + li { margin-top: 6px; }
 .bloque.primero { margin-top: 20px; }
 .bloque.primero .este-mes-titulo { font-size: clamp(44px, 13.5vw, 84px); line-height: 1; letter-spacing: -1.5px; }

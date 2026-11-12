@@ -278,7 +278,7 @@
         let lista = await geo(`search?q=${encodeURIComponent(texto)}&countrycodes=es&limit=6`);
         if (!lista.length) lista = await geo(`search?q=${encodeURIComponent(texto)}&limit=6`);
         const sitios = lista.map(lugar).filter((x, i, l) => l.findIndex(y => y.nombre === x.nombre) === i);
-        if (!sitios.length) return aviso("No he encontrado ese pueblo. Prueba a añadir la provincia, como «Cañada del Hoyo, Cuenca».");
+        if (!sitios.length) return aviso("No he encontrado ese pueblo. Prueba a añadir la provincia detrás del nombre.");
         if (sitios.length === 1) return elegido(sitios[0]);
         const opciones = crear("div", "opciones");
         for (const sitio of sitios) {
