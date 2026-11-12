@@ -62,7 +62,7 @@ Esta vez no pesé nada. Usé el mix sin gluten de Caputo, su levadura, un poco d
 
 ## ¿Por qué Caputo y no otra harina?
 
-Es cara, eso es verdad. Pero es de las pocas mezclas sin gluten con las que he conseguido una corteza que cruje de verdad. Ya trae psyllium y goma guar, que hacen de pegamento a falta de gluten. Es la misma que usé para los [dónuts](/mil-panes/donuts-sin-gluten-caputo/) y el [panettone de chocolate](/mil-panes/panettone-chocolate-sin-gluten/).
+Es cara, eso es verdad. Pero es de las pocas mezclas sin gluten con las que he conseguido una corteza que cruje de verdad. Ya trae psyllium y goma guar, que hacen de pegamento a falta de gluten. Es la misma que usé para los [dónuts](/mil-panes/donuts-sin-gluten-caputo/) y el [panettone de chocolate](/mil-panes/panettone-chocolate-sin-gluten/). Cuando probé otra, la [harina sin gluten Rummo para pizza](/mil-panes/harina-sin-gluten-pizza-rummo/), la masa no se le pareció en nada.
 
 Lleva almidón de trigo sin gluten. Es apta para celíacos, pero no para alérgicos al trigo: si es tu caso, busca otra mezcla.
 
