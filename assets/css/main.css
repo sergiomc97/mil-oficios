@@ -1137,6 +1137,13 @@ body.papel::after { content: none; }
 @media (prefers-color-scheme: dark) {
   body.papel { background-image: url("/fondo/papel-oscuro.webp"); --cinta: rgba(190, 165, 120, .4); --linea-azul: rgba(143, 179, 199, .16); --margen-rojo: rgba(232, 145, 106, .45); --sombra-papel: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 24px -12px rgba(0, 0, 0, .7); }
 }
+body.papel.zona-negocio {
+  --cinta: rgba(154, 168, 178, .6);
+  background: linear-gradient(rgba(47, 82, 102, .09) 1px, transparent 1px) 0 0 / 22px 22px, linear-gradient(90deg, rgba(47, 82, 102, .09) 1px, transparent 1px) 0 0 / 22px 22px, var(--papel);
+}
+@media (prefers-color-scheme: dark) {
+  body.papel.zona-negocio { --cinta: rgba(143, 179, 199, .3); background-image: linear-gradient(rgba(143, 179, 199, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(143, 179, 199, .07) 1px, transparent 1px); }
+}
 .papel :is(.util, .panel) { overflow: visible; border-radius: 0; background: none; box-shadow: none; }
 .papel :is(.util, .panel)::before, .papel :is(.util, .panel)::after { content: none; }
 
