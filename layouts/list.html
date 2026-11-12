@@ -20,6 +20,7 @@
   <div class="fichero">{{ range . }}<div class="panel sec-mil-panes receta">{{ partial "tarjeta.html" . }}</div>{{ end }}</div>
   {{ else }}
   <div class="bloque-cab"><h2>Cuaderno de Tito</h2><span class="meta">Lo que vi yo</span></div>
+  <div class="album">
   {{ with index . 0 }}
   <a class="recorte sec-{{ .Section }}" href="{{ .RelPermalink }}">
     {{ partial "imagen.html" (dict "src" .Params.portada "alt" "" "apaisada" true) }}
@@ -31,6 +32,7 @@
   </a>
   {{ end }}
   {{ with after 1 . }}<div class="polaroids">{{ range . }}<a class="polaroid" href="{{ .RelPermalink }}">{{ partial "imagen.html" (dict "src" .Params.portada "alt" "" "apaisada" true "sizes" "(min-width: 700px) 30vw, 45vw") }}<span class="polaroid-titulo">{{ .Title }}</span></a>{{ end }}</div>{{ end }}
+  </div>
   {{ end }}
   {{ end }}
   {{ with $resto }}

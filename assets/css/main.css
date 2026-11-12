@@ -1227,9 +1227,20 @@ body.papel::after { content: none; }
 @media (min-width: 900px) {
   .papel .utiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .portadas:has(> :nth-child(4)) .diapo:first-child { grid-row: span 3; }
-  .recorte { display: grid; grid-template-columns: 3fr 2fr; align-items: center; gap: 8px 28px; padding: 10px; }
-  .recorte-texto { padding: 10px 14px; }
-  .recorte-titulo { font-size: 32px; }
-  .polaroids { grid-template-columns: repeat(4, 1fr); }
   .fichero { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+}
+@media (min-width: 900px) {
+  .album { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 28px; align-items: start; margin-top: 26px; }
+  .album .recorte { grid-column: span 2; grid-row: span 2; margin: 0; }
+  .album .polaroids { display: contents; }
+  .album .recorte-titulo { font-size: 30px; }
+  .album:not(:has(.polaroid)) .recorte { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: center; gap: 28px; padding: 10px; }
+  .papel .bloque > .panel.sec-mil-panes { max-width: none; }
+  .papel .bloque > .panel.sec-mil-panes .tarjeta-texto { min-height: 224px; padding-right: 270px; }
+  .papel .bloque > .panel.sec-mil-panes .tarjeta-titulo { font-size: 26px; line-height: 28px; }
+  .papel .bloque > .panel.sec-mil-panes .mini { right: 40px; width: 190px; }
+}
+.tarjeta-desc { display: none; }
+@media (min-width: 900px) {
+  .papel .sec-mil-panes .tarjeta-desc { display: block; color: var(--gris); font-size: 15.5px; line-height: 28px; }
 }
