@@ -132,3 +132,7 @@
   nombre: bola de masa con harina Rummo (enviada por chat)
   archivo: fotos/pizza-rummo-masa.jpg
   uso: "mil-panes/harina-sin-gluten-pizza-rummo (dentro del texto). Bola de masa sin gluten antes de estirarla; fondo de madera retocado con IA."
+- id: chat-pizza-caputo
+  nombre: pizza con harina Caputo (enviada por chat)
+  archivo: fotos/pizza-caputo.jpg
+  uso: "mil-panes/harina-sin-gluten-pizza-rummo (dentro del texto). Pizza sin gluten hecha tiempo atrás con Caputo, borde hinchado y tostado a manchas; fondo de madera retocado con IA."

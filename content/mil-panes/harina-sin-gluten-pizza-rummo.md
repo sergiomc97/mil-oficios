@@ -52,6 +52,8 @@ Lo que creo, sin poder asegurarlo, es que buena parte de esto viene de lo que ll
 
 De las que he probado, la Caputo Fioreglut. Es la que uso para los [panecillos sin gluten](/mil-panes/panecillos-sin-gluten-caputo/), los [dónuts](/mil-panes/donuts-sin-gluten-caputo/) y el [panettone de chocolate](/mil-panes/panettone-chocolate-sin-gluten/), y con ella la pizza me sale más fina, con el borde crujiente y la miga con alveolos.
 
+{{< foto src="fotos/pizza-caputo.jpg" alt="Pizza sin gluten pequeña con tomate, queso y dos lonchas grandes de embutido, con el borde hinchado y lleno de manchas tostadas, sobre una tabla de madera." pie="Una pizza que hice hace tiempo con la Caputo: el borde se hincha y se tuesta a manchas. El fondo está retocado con IA." >}}
+
 Eso sí, la Caputo lleva almidón de trigo sin gluten: vale para celíacos, pero no para alérgicos al trigo. En la lista de ingredientes de la Rummo no aparece el trigo.
 
 Con la Rummo no he dicho la última palabra. Es una sola prueba, sin pesar y a ojo, y la masa de puré pide otra forma de trabajarla: extenderla con las manos mojadas sobre papel, en vez de estirarla como una pizza normal. Si la repito, lo cuento aquí.
