@@ -26,6 +26,7 @@ La portada y las páginas de sección (body con clase `papel`) son un cuaderno d
   - Receta: ficha con renglones y la foto en polaroid (`.panel.sec-mil-panes`, y `.receta` en el fichero de Mil Panes).
   - Guías: hoja de cuaderno con agujeros (`.cuaderno`), con la pestaña de color de cada sección.
 - Dentro de un artículo o una herramienta, todo bloque va en una card de cristal (`.baldosa`, `.destacado`, `.herramienta`, `.panel`), sobre las dos luces suaves del color de la sección.
+- Una foto vertical dentro del texto (shortcode `foto`) va en una ficha de cristal con la foto a un lado y el pie en grande al otro; por eso lleva siempre `pie`. Las apaisadas van a todo el ancho.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
 - La regla graduada bajo los títulos de bloque se mantiene en toda la web.
 - Cabecera de la portada y las secciones: el logo en una etiqueta de libreta con filete doble y la regla graduada debajo. El menú inferior es una tira de papel claro y liso, con la sección activa como pestaña de su color.

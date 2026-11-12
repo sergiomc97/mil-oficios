@@ -33,7 +33,7 @@ La Royal Horticultural Society británica recomienda plantar los bulbos en otoñ
 
 Los míos florecieron igualmente, así que imagino que venían ya preparados con frío. Lo que no tuvieron fue tiempo para echar raíces antes del calor. En una zona de interior con heladas, el invierno hace ese trabajo gratis si los bulbos están en la tierra desde otoño.
 
-{{< foto src="fotos/tulipan-rojo.jpg" alt="Tulipán rojo abierto, con el centro amarillo y negro, y dos hojas verdes anchas en tierra seca con piedrecitas." >}}
+{{< foto src="fotos/tulipan-rojo.jpg" alt="Tulipán rojo abierto, con el centro amarillo y negro, y dos hojas verdes anchas en tierra seca con piedrecitas." pie="Uno de los tulipanes que planté en marzo, ya abierto en abril." >}}
 
 ## ¿Hay que cortar las hojas cuando se pasa la flor?
 

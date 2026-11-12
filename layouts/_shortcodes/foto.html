@@ -1,4 +1,5 @@
-<figure class="foto">
+{{ $r := resources.Get (.Get "src") }}{{ $v := and $r (gt $r.Height $r.Width) (.Get "pie") }}
+<figure class="foto{{ if $v }} vertical panel{{ end }}">
 {{ partial "imagen.html" (dict "src" (.Get "src") "alt" (.Get "alt")) }}
 {{ with .Get "pie" }}<figcaption>{{ . }}</figcaption>{{ end }}
 </figure>
