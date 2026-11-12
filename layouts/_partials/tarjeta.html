@@ -5,5 +5,5 @@
     {{ with .Description }}<span class="tarjeta-desc">{{ . }}</span>{{ end }}
     {{ with .Params.tiempo }}<span class="meta">{{ . }}</span>{{ end }}
   </span>
-  {{ with .Params.portada }}{{ with resources.Get . }}{{ with .Fill "480x720 webp q75 Smart" }}<img class="mini" src="{{ .RelPermalink }}" width="120" height="120" alt="" loading="lazy" decoding="async">{{ end }}{{ end }}{{ end }}
+  {{ $ancla := cond (isset .Params "miniatura") "Center" "Smart" }}{{ with .Params.miniatura | default .Params.portada }}{{ with resources.Get . }}{{ with .Fill (printf "480x720 webp q75 %s" $ancla) }}<img class="mini" src="{{ .RelPermalink }}" width="120" height="120" alt="" loading="lazy" decoding="async">{{ end }}{{ end }}{{ end }}
 </a>

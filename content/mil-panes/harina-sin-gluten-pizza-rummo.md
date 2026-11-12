@@ -5,6 +5,7 @@ description: "Mi primera pizza con la harina sin gluten Rummo para pan y pizza: 
 tiempo: 4 min
 dificultad: media
 portada: fotos/pizza-rummo-vs-caputo.jpg
+miniatura: fotos/pizza-rummo-masa-vertical.jpg
 portada_alt: "Dos pizzas sin gluten sobre tablas de madera: a la izquierda, la de harina Rummo, gruesa, pálida y con el borde agrietado; a la derecha, la de Caputo, con el borde hinchado y tostado a manchas."
 resumen:
   - La harina Rummo para pan y pizza da una masa muy húmeda, como un puré, que se agrieta y no estira.

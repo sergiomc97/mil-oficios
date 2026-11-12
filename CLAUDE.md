@@ -53,6 +53,7 @@ Front matter:
 - `pasos` (solo si es un procedimiento): lista de `titulo`, `tiempo`, `texto`. Se coloca en el cuerpo con `{{< pasos >}}` justo después de la introducción.
 - `error` (opcional): un error típico que NO se cuente ya en el cuerpo, en una o dos frases. Si no hay ninguno nuevo, se omite.
 - `productos` (opcional): lista de `nombre`. Sin `url` hasta que la afiliación esté aprobada.
+- `miniatura` (opcional): otra foto para la miniatura vertical (la polaroid de la receta en la portada y el fichero de Mil Panes) cuando la portada no se entiende recortada en vertical.
 - `lastmod` (opcional): solo al revisar de verdad un artículo ya publicado, con la fecha de la revisión. Hace que salga «actualizado el…».
 
 Cuerpo: introducción corta y luego secciones `##`. Entre 600 y 1.000 palabras, y hasta 1.500 en las guías: mejor corto y denso que largo y repetido. La longitud la marca lo que hay que responder, nunca un número que alcanzar.
