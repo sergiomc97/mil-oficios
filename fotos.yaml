@@ -125,9 +125,9 @@
   archivo: fotos/manchas-blancas-madera-pixabay.jpg
   uso: portada de restauracion/quitar-manchas-blancas-madera
 - id: chat-pizza-rummo
-  nombre: pizza con harina Rummo (enviada por chat)
-  archivo: fotos/pizza-rummo.jpg
-  uso: "portada de mil-panes/harina-sin-gluten-pizza-rummo. Pizza sin gluten de borde grueso, pálido y agrietado; fondo de madera retocado con IA."
+  nombre: pizza con harina Rummo junto a la de Caputo (enviadas por chat)
+  archivo: fotos/pizza-rummo-vs-caputo.jpg
+  uso: "portada de mil-panes/harina-sin-gluten-pizza-rummo. Montaje con las dos pizzas: Rummo (gruesa, pálida, agrietada) y Caputo (borde tostado a manchas); recortadas a la tabla, fondo retocado con IA."
 - id: chat-pizza-rummo-masa
   nombre: bola de masa con harina Rummo (enviada por chat)
   archivo: fotos/pizza-rummo-masa.jpg
