@@ -33,9 +33,7 @@
     <div class="aviso"><span class="etiqueta">Error típico</span><p>{{ . }}</p></div>
     {{ end }}{{ end }}
 
-    {{ with site.GetPage "/herramientas" }}{{ range where .RegularPages "Params.relacionado" $.Path }}
-    <a class="usa-herramienta sec-{{ .Params.seccion }}" href="{{ .RelPermalink }}"><span class="etiqueta">Herramienta</span><span>{{ .Title }} →</span></a>
-    {{ end }}{{ end }}
+    {{ with site.GetPage "/herramientas" }}{{ range where .RegularPages "Params.relacionado" $.Path }}{{ partial "util.html" . }}{{ end }}{{ end }}
 
     <button class="boton compartir" type="button" data-compartir hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 13v6h14v-6"/></svg>Compartir</button>
 
@@ -66,7 +64,7 @@
 {{ with first 2 (where $.CurrentSection.RegularPages "Permalink" "ne" $.Permalink) }}
 <section class="bloque sigue">
   <h2>Sigue con…</h2>
-  <div class="lista">{{ range . }}{{ partial "tarjeta.html" . }}{{ end }}</div>
+  <div class="cuaderno"><div class="grupo-sec sec-{{ $.Section }}"><ul class="indice">{{ range . }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul></div></div>
 </section>
 {{ end }}
 {{ end }}

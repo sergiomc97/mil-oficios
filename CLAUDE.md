@@ -15,21 +15,24 @@ Web de "hazlo tú mismo" en español de España, publicada en https://miloficios
 
 ## Diseño
 
-La portada y las páginas de sección (body con clase `papel`) son un cuaderno de taller sobre papel. Los artículos y las herramientas por dentro siguen con cards de cristal.
+Toda la web es un cuaderno de taller sobre papel: portada, secciones, artículos, herramientas, tienda y páginas sueltas. Nada de cristal ni de bloques de color macizo.
 
-- Fondo de papel: `static/fondo/papel.webp` (y `papel-oscuro.webp`), una baldosa sin juntas hecha con una foto de Sergio. Nada de manchas de color ni degradados de adorno.
+- Fondo de papel: `static/fondo/papel.webp` (y `papel-oscuro.webp`), una baldosa sin juntas hecha con una foto de Sergio, en todas las páginas; Negocio lleva cuadrícula. Nada de manchas de color ni degradados de adorno.
 - Cada tipo de bloque tiene su material, y no se inventan otros:
   - Fotos de Sergio en la portada: carrusel `.portadas` con `.diapo` (partial `diapo.html`), una foto a la vez y los puntos dentro de la foto. Solo en la portada.
   - Fotos de Sergio en las secciones: la última como recorte pegado con cinta (`.recorte`) y el resto en polaroids (`.polaroids`).
-  - «Este mes» y la tienda: nota clavada con chincheta (`.nota`, `.tienda`).
-  - Herramientas: fichas con icono a dos columnas (`.utiles` con `.util`).
+  - «Este mes», la tienda y, dentro de un artículo, el resumen, el error típico, las actualizaciones, el regalo y el formulario del pie: nota clavada con chincheta (`.nota`, `.tienda`, `.resumen`, `.aviso`, `.actualizacion`, `.regalo`).
+  - Herramientas: fichas con icono a dos columnas (`.utiles` con `.util`), también el enlace a la herramienta dentro de un artículo.
+  - La herramienta por dentro: hoja de cuaderno con agujeros (`.herramienta`).
+  - Pasos: una hoja con margen rojo y los pasos separados por línea discontinua (`.pasos`).
+  - Portada de un artículo: recorte pegado con cinta. Fotos dentro del texto: polaroid.
   - Receta: ficha con renglones y la foto en polaroid (`.panel.sec-mil-panes`, y `.receta` en el fichero de Mil Panes).
-  - Guías: hoja de cuaderno con agujeros (`.cuaderno`), con la pestaña de color de cada sección.
-- Dentro de un artículo o una herramienta, todo bloque va en una card de cristal (`.baldosa`, `.destacado`, `.herramienta`, `.panel`), sobre las dos luces suaves del color de la sección.
-- Una foto vertical dentro del texto (shortcode `foto`) va en una ficha de cristal con la foto a un lado y el pie en grande al otro; por eso lleva siempre `pie`. Las apaisadas van a todo el ancho.
+  - Guías y «Sigue con…»: hoja de cuaderno con agujeros (`.cuaderno`), con la pestaña de color de cada sección.
+- El texto de los artículos va directamente sobre el papel.
+- Una foto vertical dentro del texto (shortcode `foto`) va en una polaroid con la foto a un lado y el pie en grande al otro; por eso lleva siempre `pie`. Las apaisadas van a todo el ancho.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
 - La regla graduada bajo los títulos de bloque se mantiene en toda la web.
-- Cabecera de la portada y las secciones: el logo en una etiqueta de libreta con filete doble y la regla graduada debajo. El menú inferior es una tira de papel claro y liso, con la sección activa como pestaña de su color.
+- Cabecera de todas las páginas: el logo en una etiqueta de libreta con filete doble y la regla graduada debajo. El menú inferior es una tira de papel claro y liso, con la sección activa como pestaña de su color.
 - Iconos: de línea (`layouts/_partials/icono.html`), uno propio por herramienta con la clave del nombre del archivo; si una herramienta no tiene, usa el de su sección. Los grabados a tinta (`assets/iconos.svg`, partial `grabado.html`) solo van en la ventana de Secciones.
 - Antes de borrar estilos de `assets/css/main.css`, comprueba qué selectores desaparecen comparando con la versión anterior.
 

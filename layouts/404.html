@@ -5,7 +5,7 @@
   <p class="entradilla">Esta página no existe o la hemos cambiado de sitio. Vuelve a la <a href="{{ "/" | relURL }}">portada</a> o mira lo último que hemos publicado.</p>
   <button class="boton buscar-404" type="button" data-buscar>Buscar en la web</button>
   <nav class="secciones hoja secciones-404" aria-label="Secciones">{{ partial "secciones.html" . }}</nav>
-  <div class="mosaico">{{ range $i, $p := first 3 (where site.RegularPages "Section" "in" site.Params.mainSections) }}{{ partial "baldosa.html" (dict "pagina" $p "ancha" (eq $i 0)) }}{{ end }}</div>
+  <div class="polaroids">{{ range first 3 (where (where site.RegularPages "Section" "in" site.Params.mainSections) "Params.portada" "!=" nil) }}<a class="polaroid" href="{{ .RelPermalink }}">{{ partial "imagen.html" (dict "src" .Params.portada "alt" "" "apaisada" true "sizes" "(min-width: 700px) 30vw, 45vw") }}<span class="polaroid-titulo">{{ .Title }}</span></a>{{ end }}</div>
 </section>
 </div>
 {{ end }}

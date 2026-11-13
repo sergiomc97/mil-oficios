@@ -52,8 +52,7 @@
 {{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">{{ end }}
 </head>
 {{ $zona := "" }}
-{{ if or .IsHome (eq .Section "herramientas") }}{{ $zona = "zona-todo" }}{{ else if in site.Params.mainSections .Section }}{{ $zona = printf "fondo sec-%s%s%s%s" .Section (cond .IsPage " lectura" "") (cond (eq .Section "negocio") " zona-negocio" "") (cond (eq .Section "mil-panes") " zona-panes" "") }}{{ end }}
-{{ if or .IsHome (and .IsSection (in site.Params.mainSections .Section)) }}{{ $zona = printf "%s papel" $zona }}{{ end }}
+{{ if in site.Params.mainSections .Section }}{{ $zona = printf "sec-%s%s%s" .Section (cond (eq .Section "negocio") " zona-negocio" "") (cond (eq .Section "mil-panes") " zona-panes" "") }}{{ end }}
 <body{{ with $zona }} class="{{ . }}"{{ end }}>
 <header class="cabecera">
   <div class="contenedor">

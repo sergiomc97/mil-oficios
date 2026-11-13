@@ -17,7 +17,7 @@
   {{ with $propios }}
   {{ if eq $.Section "mil-panes" }}
   <div class="bloque-cab"><h2>Fichero de recetas</h2></div>
-  <div class="fichero">{{ range . }}<div class="panel sec-mil-panes receta">{{ partial "tarjeta.html" . }}</div>{{ end }}</div>
+  <div class="fichero">{{ range . }}<div class="receta sec-mil-panes">{{ partial "tarjeta.html" . }}</div>{{ end }}</div>
   {{ else }}
   <div class="bloque-cab"><h2>Cuaderno de Tito</h2><span class="meta">Lo que vi yo</span></div>
   <div class="album">
@@ -37,7 +37,7 @@
   {{ end }}
   {{ with $resto }}
   <div class="bloque-cab"><h2>Guías</h2></div>
-  <div class="cuaderno"><div class="grupo-sec panel sec-{{ $.Section }}"><ul class="indice">{{ range . }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul></div></div>
+  <div class="cuaderno"><div class="grupo-sec sec-{{ $.Section }}"><ul class="indice">{{ range . }}<li><a href="{{ .RelPermalink }}"><span class="indice-titulo">{{ .Title }}</span></a></li>{{ end }}</ul></div></div>
   {{ end }}
   {{ if not .RegularPages }}<p class="meta">Pronto habrá artículos aquí.</p>{{ end }}
   {{ partial "tienda.html" . }}
