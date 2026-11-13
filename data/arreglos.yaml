@@ -212,6 +212,43 @@ objetos:
     coste: Medio
     pesa: son lodos
     articulo: /arreglos/purgar-radiadores
+- id: banera
+  nombre: Bañera o plato de ducha
+  averias:
+  - id: moho
+    nombre: La silicona tiene puntos negros que no se van
+    peso: 2
+    causa: El moho ha crecido dentro de la silicona.
+    hacer: Prueba una hora con papel empapado en lejía rebajada. Si siguen los puntos, quita la silicona entera y pon una sanitaria antimoho, nunca encima de la vieja.
+    dificultad: Baja
+    tiempo: Una tarde y un día sin mojar
+    coste: Bajo
+    aviso: No mezcles la lejía con vinagre, salfumán ni amoniaco.
+    pesa: es la silicona
+    articulo: /arreglos/condensacion-ventanas-humedad-casa
+- id: ventana
+  nombre: Ventana
+  averias:
+  - id: chorrea
+    nombre: Amanece chorreando agua por dentro
+    peso: 3
+    causa: Sobra humedad en casa y el cristal está frío.
+    hacer: Ventila cinco o diez minutos al día con todo abierto, seca el cristal por la mañana y no tiendas en el dormitorio.
+    dificultad: Muy baja
+    tiempo: 10 min al día
+    coste: Nada
+    pesa: es humedad
+    articulo: /arreglos/condensacion-ventanas-humedad-casa
+  - id: entrecristales
+    nombre: Se empaña entre los dos cristales
+    peso: 0
+    causa: El sellado de la cámara del doble vidrio ha fallado.
+    hacer: No se limpia. Se cambia el vidrio doble y el marco casi siempre se aprovecha. Lo hace un cristalero.
+    dificultad: De técnico
+    tiempo: —
+    coste: Medio
+    pesa: sello roto
+    articulo: /arreglos/condensacion-ventanas-humedad-casa
 - id: mesa
   nombre: Mesa o mueble de madera
   averias:

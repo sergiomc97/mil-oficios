@@ -22,10 +22,10 @@ Antes de escribir un tema, mira si ya hay un artículo o una herramienta que res
 - [x] arreglos · Purgar los radiadores antes del invierno
 - [x] jardin · Cómo preparar el huerto en otoño
 - [x] restauracion · Quitar las manchas blancas de agua en la madera
+- [x] arreglos · Humedad en casa: ventanas que chorrean, armario que huele y moho en la ducha
 
 ## Pendientes
 
-- [ ] arreglos · Humedad en casa: ventanas que chorrean, armario que huele y moho en la ducha · busca: «condensación en ventanas», «condensación en ventanas de aluminio», «condensación en paredes», «cómo quitar el olor a humedad de un armario», «olor a humedad en la ropa», «moho en la silicona de la ducha», «cambiar la silicona de la bañera» · TikTok: cristal chorreando a las 8 de la mañana; un dedo traza una raya y aparece el texto «esto no es lluvia: es lo que respiras de noche, y acaba en tu armario»
 - [ ] jardin · Flor de pascua: cómo hacer que siga bonita después de Reyes · temporada: noviembre-diciembre · busca: «flor de pascua cuidados», «flor de pascua cómo hacer que se ponga roja» · TikTok: una flor de pascua de supermercado junto al radiador va soltando hojas en cámara rápida; texto «no la mata el invierno: la mata tu calefacción»
 - [ ] restauracion · Pintar un mueble de melamina sin que se pele · busca: «cómo pintar un mueble de melamina», «cómo pintar un mueble sin lijar» · TikTok: una uña rasca la pintura de una cómoda de melamina y sale en una tira entera, como una pegatina
 - [ ] negocio · El cajón portamonedas no se abre al cobrar · TikTok: cola en el mostrador y el cajón cerrado; una mano mete un clip en el agujerito de debajo y el cajón se abre de golpe

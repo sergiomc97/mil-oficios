@@ -70,4 +70,6 @@ Si la presión vuelve a bajar a los pocos días de rellenarla, hay una fuga en a
 
 También merece la pena llamar si el purgador sigue goteando después de cerrarlo o tiene la rosca pasada. Apretarlo más fuerte suele empeorarlo.
 
+Una casa que se calienta a medias tiene paredes frías, y en ellas acaba la humedad: si por las mañanas te encuentras los cristales mojados, mira [por qué chorrean las ventanas y cómo cortarlo](/arreglos/condensacion-ventanas-humedad-casa/).
+
 Ya que te pones con la casa antes del invierno, el sifón del fregadero también agradece una limpieza: [cómo desatascarlo sin productos químicos](/arreglos/desatascar-fregadero-sin-quimicos/).

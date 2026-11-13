@@ -140,3 +140,9 @@
   nombre: bola de masa con harina Rummo, recorte vertical (enviada por chat)
   archivo: fotos/pizza-rummo-masa-vertical.jpg
   uso: "miniatura de mil-panes/harina-sin-gluten-pizza-rummo (polaroid de la portada y del fichero). Misma foto que pizza-rummo-masa.jpg, recortada en vertical con la bola entera."
+- id: pixabay-4763904
+  origen: pixabay
+  autor: Dimhou
+  url: https://pixabay.com/photos/vapor-condensation-glass-window-4763904/
+  archivo: fotos/condensacion-ventana-pixabay.jpg
+  uso: portada de arreglos/condensacion-ventanas-humedad-casa
