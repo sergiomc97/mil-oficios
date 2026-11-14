@@ -202,6 +202,10 @@ Son las únicas que Tito Garlopa puede contar en primera persona, y solo en los 
 
 Salvo su trabajo con TPV, de todo esto solo constan los problemas y lo que estudió, no el resultado final. No se cuenta como hecho algo que no consta, como «así quedó» o «lo instalé».
 
+## Skills founder
+
+Para las decisiones de negocio de Mil Oficios (ideas nuevas, packs de Ko-fi, precios, cómo conseguir tráfico, lanzamientos) se usan las skills `founder-*` de Sergio: board, competitors, consumer, pricing, offer, cfo, marketing, brand, ops, launch y plan, en ese orden cuando se estudia algo desde cero. Sus archivos de trabajo van en `founder/`, que está en `.gitignore` porque el repositorio es público: nunca se suben.
+
 ## Reglas que no se rompen
 
 - No inventar experiencias personales de Tito Garlopa ("a mí me pasó", "en mi jardín"). Solo se usan las que Sergio haya contado.
