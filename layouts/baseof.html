@@ -57,7 +57,8 @@
 <header class="cabecera">
   <div class="contenedor">
     <div class="cabecera-in">
-      <a class="logo" href="{{ "/" | relURL }}"><span class="logo-nombre">Mil <em>Oficios</em></span><span class="logo-lema">Hazlo tú mismo</span></a>
+      {{ $seccion := and (in site.Params.mainSections .Section) .CurrentSection }}
+      <a class="logo" href="{{ "/" | relURL }}">{{ with $seccion }}{{ partial "grabado.html" .Section }}{{ end }}<span class="logo-nombre">Mil <em>Oficios</em></span><span class="logo-lema">{{ with $seccion }}{{ .Params.lema }}{{ else }}Hazlo tú mismo{{ end }}</span></a>
       <nav class="secciones menu" aria-label="Secciones">{{ partial "secciones.html" . }}<a class="todo" href="{{ "herramientas/" | relURL }}"{{ if eq .Section "herramientas" }} aria-current="page"{{ end }}>Herramientas</a><a class="todo" href="{{ "tienda/" | relURL }}">Tienda</a></nav>
       <button class="lupa" type="button" aria-label="Buscar" data-buscar><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
     </div>

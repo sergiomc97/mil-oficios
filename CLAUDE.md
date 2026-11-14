@@ -32,8 +32,8 @@ Toda la web es un cuaderno de taller sobre papel: portada, secciones, artículos
 - Una foto vertical dentro del texto (shortcode `foto`) va en una polaroid con la foto a un lado y el pie en grande al otro; por eso lleva siempre `pie`. Las apaisadas van a todo el ancho.
 - La sección se marca siempre igual: etiqueta redonda con su color, o el icono de la sección en un cuadrado de ese color.
 - La regla graduada bajo los títulos de bloque se mantiene en toda la web.
-- Cabecera de todas las páginas: el logo en una etiqueta de libreta con filete doble y la regla graduada debajo. El menú inferior es una tira de papel claro y liso, con la sección activa como pestaña de su color.
-- Iconos: de línea (`layouts/_partials/icono.html`), uno propio por herramienta con la clave del nombre del archivo; si una herramienta no tiene, usa el de su sección. Los grabados a tinta (`assets/iconos.svg`, partial `grabado.html`) solo van en la ventana de Secciones.
+- Cabecera: el logo en una etiqueta con la regla graduada debajo. En la portada y las páginas sueltas, etiqueta de libreta con filete doble y «Hazlo tú mismo». En cada sección (y sus artículos), una etiqueta propia con su grabado y el `lema` de su `_index.md`: Jardín, sobre de semillas; Arreglos, placa de taller con remaches; Muebles, etiqueta ovalada de ebanista; Negocio, ticket de caja; Mil Panes, saco de harina. Las etiquetas son objetos: mantienen sus colores claros también en modo oscuro. El menú inferior es una tira de papel claro y liso, con la sección activa como pestaña de su color.
+- Iconos: de línea (`layouts/_partials/icono.html`), uno propio por herramienta con la clave del nombre del archivo; si una herramienta no tiene, usa el de su sección. Los grabados a tinta (`assets/iconos.svg`, partial `grabado.html`) solo van en la ventana de Secciones y en el logo de cada sección.
 - Antes de borrar estilos de `assets/css/main.css`, comprueba qué selectores desaparecen comparando con la versión anterior.
 
 ## Herramientas
