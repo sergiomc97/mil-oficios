@@ -125,19 +125,20 @@ export default {
     const peticion = JSON.stringify({
       system_instruction: { parts: [{ text: tarea.instrucciones(d) }] },
       contents: [{ parts: tarea.partes(d, pagina) }],
-      generationConfig: { responseMimeType: "application/json", responseSchema: tarea.esquema }
+      generationConfig: { responseMimeType: "application/json", responseSchema: tarea.esquema, thinkingConfig: { thinkingLevel: "minimal" } }
     });
     let r;
     for (const modelo of env.MODELOS.split(",")) {
       r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelo}:generateContent`, {
         method: "POST",
         headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-        body: peticion
-      });
-      if (r.ok) break;
+        body: peticion,
+        signal: AbortSignal.timeout(12000)
+      }).catch(() => null);
+      if (r?.ok) break;
     }
-    if (r.status === 429) return responde({ error: "agotado" }, 503);
-    if (!r.ok) return responde({ error: "ia" }, 502);
+    if (r?.status === 429) return responde({ error: "agotado" }, 503);
+    if (!r?.ok) return responde({ error: "ia" }, 502);
 
     try {
       const respuesta = JSON.parse((await r.json()).candidates[0].content.parts[0].text);
