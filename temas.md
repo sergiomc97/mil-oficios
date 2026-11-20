@@ -23,10 +23,10 @@ Antes de escribir un tema, mira si ya hay un artículo o una herramienta que res
 - [x] jardin · Cómo preparar el huerto en otoño
 - [x] restauracion · Quitar las manchas blancas de agua en la madera
 - [x] arreglos · Humedad en casa: ventanas que chorrean, armario que huele y moho en la ducha
+- [x] jardin · Flor de pascua: cómo hacer que siga bonita después de Reyes
 
 ## Pendientes
 
-- [ ] jardin · Flor de pascua: cómo hacer que siga bonita después de Reyes · temporada: noviembre-diciembre · busca: «flor de pascua cuidados», «flor de pascua cómo hacer que se ponga roja» · TikTok: una flor de pascua de supermercado junto al radiador va soltando hojas en cámara rápida; texto «no la mata el invierno: la mata tu calefacción»
 - [ ] restauracion · Pintar un mueble de melamina sin que se pele · busca: «cómo pintar un mueble de melamina», «cómo pintar un mueble sin lijar» · TikTok: una uña rasca la pintura de una cómoda de melamina y sale en una tira entera, como una pegatina
 - [ ] negocio · El cajón portamonedas no se abre al cobrar · TikTok: cola en el mostrador y el cajón cerrado; una mano mete un clip en el agujerito de debajo y el cajón se abre de golpe
 - [ ] arreglos · La persiana no sube o no recoge la cinta · busca: «la persiana no sube», «la persiana no recoge la cinta», «la persiana se atasca y no baja» · TikTok: la cinta cuelga floja del recogedor; al abrir la tapa, el muelle está suelto y se ve el tornillo que lo sujeta

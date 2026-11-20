@@ -38,7 +38,7 @@ Por eso yo, con heladas de −10 a −15 °C, no dejaría un olivo pequeño en m
 
 En primavera. Las heladas de otoño hacen más daño que las de invierno, porque el árbol todavía no se ha endurecido, y un olivo recién plantado en octubre llega a ellas sin raíces asentadas. La Royal Horticultural Society también recomienda plantarlo en primavera.
 
-Hasta entonces, déjalo en un sitio sin heladas pero fresco y con luz: un porche cerrado, un garaje con ventana. No lo metas en el salón con la calefacción, que necesita pasar frío suave para desarrollarse bien. Si las raíces ya asoman por el fondo de la maceta pequeña, pásalo ahora a una algo mayor para aguantar hasta marzo.
+Hasta entonces, déjalo en un sitio sin heladas pero fresco y con luz: un porche cerrado, un garaje con ventana. No lo metas en el salón con la calefacción, que necesita pasar frío suave para desarrollarse bien. El salón déjaselo a plantas que lo agradecen, como la [flor de pascua](/jardin/flor-de-pascua-cuidados/). Si las raíces ya asoman por el fondo de la maceta pequeña, pásalo ahora a una algo mayor para aguantar hasta marzo.
 
 ## Cómo lo plantaría
 
